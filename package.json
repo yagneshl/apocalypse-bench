@@ -28,6 +28,7 @@
     "@stricli/core": "^1.2.4",
     "ai": "^5.0.116",
     "better-sqlite3": "^12.5.0",
+    "dotenv": "^17.2.3",
     "ink": "^6.5.1",
     "ollama-ai-provider-v2": "^1.5.5",
     "p-queue": "^9.0.1",

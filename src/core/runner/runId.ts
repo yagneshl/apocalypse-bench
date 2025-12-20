@@ -1,6 +1,6 @@
 import { sha256Hex } from '../../utils/hash';
 
-export type PromptTemplateSource = string | ((...args: any[]) => any);
+export type PromptTemplateSource = string | ((...args: never[]) => unknown);
 
 export function formatUtcTimestampForRunId(d: Date): string {
   const pad = (n: number) => String(n).padStart(2, '0');

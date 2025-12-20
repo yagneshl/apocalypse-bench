@@ -20,11 +20,14 @@ export const datasetLineSchema = z
   .object({
     id: z.string().min(1),
     category: z.string().min(1),
+    title: z.string().min(1).optional(),
     difficulty: z.string().min(1),
     scenario: z.array(z.string().min(1)),
     prompt: z.string().min(1),
+    task_type: z.string().min(1).optional(),
     rubric: datasetRubricSchema,
     auto_fail: z.array(z.string().min(1)),
+    reference_facts: z.array(z.string().min(1)).optional(),
     version: z.string().min(1).optional(),
     source: z.string().min(1).optional(),
   })

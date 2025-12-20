@@ -1,0 +1,45 @@
+run:
+  name: "default"
+  datasetPath: "./data/question_bank_v7.jsonl"
+  outDir: "./runs"
+  resume: true
+  questionLimit: null
+  categories: null
+  maxBudgetUsd: null
+  concurrency:
+    candidate: 3
+    judge: 5
+
+judge:
+  router: "openrouter"
+  model: "google/gemini-3-flash-preview"
+  provider: "google-vertex"
+  temperature: null
+  maxTokens: 16000
+  structured: true
+
+routers:
+  ollama:
+    baseUrl: "http://localhost:11434/v1"
+    apiKeyEnv: null
+    default:
+      temperature: 0.2
+      maxTokens: 800
+      timeoutMs: 120000
+
+  openrouter:
+    baseUrl: "https://openrouter.ai/api/v1"
+    apiKeyEnv: "OPENROUTER_API_KEY"
+    headers:
+      HTTP-Referer: "https://github.com/yourname/apocalypse-bench"
+      X-Title: "apocalypse-bench"
+    default:
+      temperature: 0.2
+      maxTokens: 800
+      timeoutMs: 120000
+
+models:
+  - id: "openrouter:liquid/lfm-2.2-6b"
+    router: "openrouter"
+    model: "liquid/lfm-2.2-6b"
+    provider: "liquid"

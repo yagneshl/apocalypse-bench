@@ -1,6 +1,6 @@
 import type { DbHandle } from './db';
 
-export type ResultStatus = 'done' | 'candidate_failed' | 'judge_failed' | 'skipped';
+export type ResultStatus = 'done' | 'candidate_done' | 'candidate_failed' | 'judge_failed' | 'skipped';
 
 export type UpsertResultParams = {
   runId: string;

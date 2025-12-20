@@ -224,7 +224,9 @@ export async function runBenchmark(params: {
               providerOptions: (modelEntry.router === 'openrouter'
                 ? {
                     openrouter: {
-                      provider: modelEntry.provider,
+                      ...(modelEntry.provider
+                        ? { routing: { only: [modelEntry.provider] } }
+                        : {}),
                       ...(modelEntry.routing ? { routing: modelEntry.routing } : {}),
                     },
                   }
@@ -248,7 +250,7 @@ export async function runBenchmark(params: {
               candidatePrompt,
               candidateCompletion: candidateText,
               candidateMetricsJson: JSON.stringify(metrics),
-              status: 'candidate_failed',
+              status: 'candidate_done',
             });
 
             if (isBudgetExceeded()) {
@@ -284,7 +286,9 @@ export async function runBenchmark(params: {
                     temperature: config.judge.temperature,
                     providerOptions: {
                       openrouter: {
-                        provider: config.judge.provider,
+                        ...(config.judge.provider
+                          ? { routing: { only: [config.judge.provider] } }
+                          : {}),
                         ...(config.judge.routing ? { routing: config.judge.routing } : {}),
                       },
                     } as ProviderOptions,
@@ -414,9 +418,9 @@ export async function runBenchmark(params: {
             difficulty: string | null;
           }>;
 
-          type KnownStatus = 'done' | 'candidate_failed' | 'judge_failed' | 'skipped';
+          type KnownStatus = 'done' | 'candidate_done' | 'candidate_failed' | 'judge_failed' | 'skipped';
           const toKnownStatus = (s: string): KnownStatus =>
-            s === 'done' || s === 'candidate_failed' || s === 'judge_failed' || s === 'skipped'
+            s === 'done' || s === 'candidate_done' || s === 'candidate_failed' || s === 'judge_failed' || s === 'skipped'
               ? s
               : 'candidate_failed';
 

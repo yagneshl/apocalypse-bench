@@ -39,16 +39,22 @@ export function renderHtmlReport(params: { runId: string; summaryJson: unknown }
         ${row('createdAt', string(summaryJson?.createdAt))}
         ${row('datasetPath', string(summaryJson?.datasetPath))}
         ${row('datasetSha256', string(summaryJson?.datasetSha256))}
-        ${row('promptTemplateHash', string((summaryJson as any)?.promptTemplateHash))}
+        ${row('promptTemplateHash', string((summaryJson as Record<string, unknown>)?.promptTemplateHash))}
         ${row(
           'judge',
-          string((summaryJson as any)?.judge?.model)
-            ? `${escapeHtml(String((summaryJson as any).judge.model))}${
-                string((summaryJson as any)?.judge?.provider)
-                  ? ` (${escapeHtml(String((summaryJson as any).judge.provider))})`
-                  : ''
-              }`
-            : null,
+          (() => {
+            const judge =
+              summaryJson && typeof summaryJson === 'object'
+                ? (summaryJson as Record<string, unknown>).judge
+                : null;
+
+            if (!judge || typeof judge !== 'object') return null;
+            const judgeObj = judge as Record<string, unknown>;
+            const model = string(judgeObj.model);
+            if (!model) return null;
+            const provider = string(judgeObj.provider);
+            return provider ? `${model} (${provider})` : model;
+          })(),
         )}
       </div>
       <div class="muted" style="margin-top: 8px">
@@ -124,8 +130,8 @@ function fmtMs(v: unknown): string {
   return n == null ? '—' : `${Math.round(n)}ms`;
 }
 
-function renderModelRow(m: any): string {
-  const latency = m?.latencyMs ?? {};
+function renderModelRow(m: Record<string, unknown>): string {
+  const latency = typeof m.latencyMs === 'object' && m.latencyMs !== null ? (m.latencyMs as Record<string, unknown>) : {};
   return `
     <tr>
       <td>${escapeHtml(String(m?.modelId ?? 'unknown'))}</td>
@@ -135,13 +141,13 @@ function renderModelRow(m: any): string {
       <td class="num">${fmtInt(m?.failures)}</td>
       <td class="num">${fmtInt(m?.skipped)}</td>
       <td class="num">${fmtPct(m?.autoFailRate)}</td>
-      <td class="num">${fmtMs(latency?.medianMs)}</td>
-      <td class="num">${fmtMs(latency?.p90Ms)}</td>
+      <td class="num">${fmtMs(latency.medianMs)}</td>
+      <td class="num">${fmtMs(latency.p90Ms)}</td>
     </tr>
   `.trim();
 }
 
-function renderBreakdownTable(params: { kind: 'category' | 'difficulty'; rows: any[] }): string {
+function renderBreakdownTable(params: { kind: 'category' | 'difficulty'; rows: Record<string, unknown>[] }): string {
   const key = params.kind === 'category' ? 'category' : 'difficulty';
   const sorted = [...params.rows].sort(
     (a, b) => number(b?.overallScore) - number(a?.overallScore) || String(a?.[key]).localeCompare(String(b?.[key])),
@@ -165,7 +171,10 @@ function renderBreakdownTable(params: { kind: 'category' | 'difficulty'; rows: a
       <tbody>
         ${sorted
           .map(r => {
-            const latency = r?.latencyMs ?? {};
+            const latency =
+              typeof r.latencyMs === 'object' && r.latencyMs !== null
+                ? (r.latencyMs as Record<string, unknown>)
+                : {};
             return `
               <tr>
                 <td>${escapeHtml(String(r?.[key] ?? 'unknown'))}</td>
@@ -175,8 +184,8 @@ function renderBreakdownTable(params: { kind: 'category' | 'difficulty'; rows: a
                 <td class="num">${fmtInt(r?.failures)}</td>
                 <td class="num">${fmtInt(r?.skipped)}</td>
                 <td class="num">${fmtPct(r?.autoFailRate)}</td>
-                <td class="num">${fmtMs(latency?.medianMs)}</td>
-                <td class="num">${fmtMs(latency?.p90Ms)}</td>
+                <td class="num">${fmtMs(latency.medianMs)}</td>
+                <td class="num">${fmtMs(latency.p90Ms)}</td>
               </tr>
             `.trim();
           })
@@ -186,7 +195,7 @@ function renderBreakdownTable(params: { kind: 'category' | 'difficulty'; rows: a
   `.trim();
 }
 
-function renderModelDetails(m: any): string {
+function renderModelDetails(m: Record<string, unknown>): string {
   const categories = Array.isArray(m?.categoryBreakdown) ? m.categoryBreakdown : [];
   const difficulties = Array.isArray(m?.difficultyBreakdown) ? m.difficultyBreakdown : [];
 

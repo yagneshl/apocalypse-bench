@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import 'dotenv/config';
 import { buildApplication, buildCommand, buildRouteMap, numberParser, run } from '@stricli/core';
 
 import { createOpenRouterClient } from '../adapters/openrouter/client';

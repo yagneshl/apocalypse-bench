@@ -6,7 +6,7 @@ export type AggregateInput = {
     questionId: string;
     category: string;
     difficulty: string;
-    status: 'done' | 'candidate_failed' | 'judge_failed' | 'skipped';
+    status: 'done' | 'candidate_done' | 'candidate_failed' | 'judge_failed' | 'skipped';
     overallScore: number;
     autoFail: boolean;
     latencyMs: number | null;
@@ -56,6 +56,7 @@ function aggregateGroup(questionScores: AggregateInput['questionScores']): Aggre
     q => q.status === 'candidate_failed' || q.status === 'judge_failed',
   ).length;
   const skipped = questionScores.filter(q => q.status === 'skipped').length;
+  const candidateDone = questionScores.filter(q => q.status === 'candidate_done').length;
   const autoFailCount = questionScores.filter(q => q.status === 'done' && q.autoFail).length;
   const overallScore = questionScores.reduce((acc, q) => acc + q.overallScore, 0);
   const latencies = questionScores
@@ -66,7 +67,7 @@ function aggregateGroup(questionScores: AggregateInput['questionScores']): Aggre
   return {
     totalQuestions,
     completed,
-    failures,
+    failures: failures + candidateDone,
     skipped,
     autoFailCount,
     autoFailRate: safeRate(autoFailCount, completed),
