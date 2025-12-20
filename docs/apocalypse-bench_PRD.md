@@ -90,7 +90,7 @@ When the internet is gone, “smart” models that depend on retrieval or up-to-
 ```yaml
 run:
   name: "mbp-small-pack"
-  datasetPath: "./question_bank_v7.jsonl"
+  datasetPath: "./data/question_bank_v7.jsonl"
   outDir: "./runs"
   resume: true
   questionLimit: null        # optional: only run first N questions (useful for dev)

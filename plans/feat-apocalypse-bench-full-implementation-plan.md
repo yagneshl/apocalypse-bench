@@ -5,9 +5,9 @@
 Build a professional, easy-to-use CLI + TUI benchmark runner (`apocbench`) that evaluates candidate LLMs on an offline survival/apocalypse question bank, scores responses with a judge model (Gemini 3 Flash via OpenRouter), and emits reproducible, resumable run artifacts and reports.
 
 Primary inputs today:
-- `question_bank_v7.jsonl`
-- `apocalypse-bench_PRD.md`
-- `apocalypse-bench_TechStack.md`
+- `data/question_bank_v7.jsonl`
+- `docs/apocalypse-bench_PRD.md`
+- `docs/apocalypse-bench_TechStack.md`
 
 Primary outcomes:
 - One-command run on macOS with Ollama and/or OpenRouter
@@ -17,7 +17,7 @@ Primary outcomes:
 
 ## Goals (MVP)
 
-- Evaluate one or more candidate models against `question_bank_v7.jsonl`.
+- Evaluate one or more candidate models against `data/question_bank_v7.jsonl`.
 - Judge each answer with Gemini 3 Flash (OpenRouter).
 - Provide strict config validation (YAML/JSON), strict dataset validation (JSONL), and strict judge output validation.
 - Persist all artifacts to allow resume and audit.
@@ -473,9 +473,9 @@ Mock AI SDK provider calls to avoid network:
 ## References
 
 Internal:
-- `apocalypse-bench_PRD.md`
-- `apocalypse-bench_TechStack.md`
-- `question_bank_v7.jsonl`
+- `docs/apocalypse-bench_PRD.md`
+- `docs/apocalypse-bench_TechStack.md`
+- `data/question_bank_v7.jsonl`
 
 External best practices and docs:
 - BetterBench: https://arxiv.org/html/2411.12990v1
