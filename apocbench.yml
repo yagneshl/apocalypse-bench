@@ -38,18 +38,38 @@ routers:
       maxTokens: 800
       timeoutMs: 120000
 
-# models:
-#   - id: "openrouter:liquid/lfm-2.2-6b"
-#     router: "openrouter"
-#     model: "liquid/lfm-2.2-6b"
-#     provider: "liquid"
+models:
+  - id: "openrouter:liquid/lfm-2.2-6b"
+    router: "openrouter"
+    model: "liquid/lfm-2.2-6b"
+    provider: "liquid"
+models:
+  - id: "openrouter:liquid/lfm2-8b-a1b"
+    router: "openrouter"
+    model: "liquid/lfm2-8b-a1b"
+    provider: "liquid"
+models:
+  - id: "openrouter:openai/gpt-oss-20b"
+    router: "openrouter"
+    model: "openai/gpt-oss-20b"
+    provider: "groq"
+models:
+  - id: "openrouter:nvidia/nemotron-nano-9b-v2"
+    router: "openrouter"
+    model: "nvidia/nemotron-nano-9b-v2"
+    provider: "deepinfra/bf16"
+models:
+  - id: "openrouter:meta-llama/llama-3.1-8b-instruct"
+    router: "openrouter"
+    model: "meta-llama/llama-3.1-8b-instruct"
+    provider: "groq"
 # models:
 #   - id: "openrouter:google/gemini-3-flash-preview"
 #     router: "openrouter"
 #     model: "google/gemini-3-flash-preview"
 #     provider: "google-vertex"
-models:
-  - id: "openrouter:kimi-k2"
-    router: "openrouter"
-    model: "moonshotai/kimi-k2-0905"
-    provider: "groq"
+# models:
+#   - id: "openrouter:kimi-k2"
+#     router: "openrouter"
+#     model: "moonshotai/kimi-k2-0905"
+#     provider: "groq"

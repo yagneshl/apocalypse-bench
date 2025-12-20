@@ -30,7 +30,9 @@ function toNonNegativeInt(value: unknown): number | null {
   return floored >= 0 ? floored : null;
 }
 
-export function computeTpsFromGeneration(data: OpenRouterGeneration['data']): OpenRouterGenerationMetrics {
+export function computeTpsFromGeneration(
+  data: OpenRouterGeneration['data'],
+): OpenRouterGenerationMetrics {
   const generationTimeMs = toFiniteNumber(data?.generation_time);
   const latencyMs = toFiniteNumber(data?.latency);
 
@@ -44,7 +46,9 @@ export function computeTpsFromGeneration(data: OpenRouterGeneration['data']): Op
     null;
 
   const totalTokens =
-    promptTokens != null && completionTokens != null ? promptTokens + completionTokens : null;
+    promptTokens != null && completionTokens != null
+      ? promptTokens + completionTokens
+      : null;
 
   const tps =
     completionTokens != null && generationTimeMs != null && generationTimeMs > 0
@@ -61,25 +65,52 @@ export function computeTpsFromGeneration(data: OpenRouterGeneration['data']): Op
   };
 }
 
+async function fetchOnce(
+  url: string,
+  apiKey: string,
+  headers?: Record<string, string>,
+): Promise<OpenRouterGeneration | null> {
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      ...(headers ?? {}),
+    },
+  });
+
+  if (!res.ok) return null;
+  return (await res.json()) as OpenRouterGeneration;
+}
+
 export async function fetchOpenRouterGeneration(params: {
   baseUrl: string;
   apiKey: string;
   headers?: Record<string, string>;
   generationId: string;
 }): Promise<OpenRouterGenerationMetrics | null> {
-  const url = new URL('generation', params.baseUrl);
+  // Ensure baseUrl ends with '/' so URL resolution appends rather than replaces the last segment
+  const normalizedBase = params.baseUrl.endsWith('/')
+    ? params.baseUrl
+    : `${params.baseUrl}/`;
+  const url = new URL('generation', normalizedBase);
   url.searchParams.set('id', params.generationId);
+  const urlStr = url.toString();
 
-  const res = await fetch(url.toString(), {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${params.apiKey}`,
-      ...(params.headers ?? {}),
-    },
-  });
+  // OpenRouter generation data isn't available immediately after a request completes.
+  // Retry with short delays to allow the data to become available.
+  const maxAttempts = 3;
+  const delayMs = 1500;
 
-  if (!res.ok) return null;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    if (attempt > 0) {
+      await new Promise((r) => setTimeout(r, delayMs));
+    }
 
-  const json = (await res.json()) as OpenRouterGeneration;
-  return computeTpsFromGeneration(json.data);
+    const json = await fetchOnce(urlStr, params.apiKey, params.headers);
+    if (json) {
+      return computeTpsFromGeneration(json.data);
+    }
+  }
+
+  return null;
 }
