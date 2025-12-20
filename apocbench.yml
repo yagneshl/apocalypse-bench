@@ -1,7 +1,7 @@
 run:
-  name: "default"
-  datasetPath: "./data/question_bank_v7.jsonl"
-  outDir: "./runs"
+  name: 'default'
+  datasetPath: './data/question_bank_v7.jsonl'
+  outDir: './runs'
   resume: true
   questionLimit: null
   categories: null
@@ -11,16 +11,16 @@ run:
     judge: 5
 
 judge:
-  router: "openrouter"
-  model: "google/gemini-3-flash-preview"
-  provider: "google-ai-studio"
+  router: 'openrouter'
+  model: 'google/gemini-3-flash-preview'
+  provider: 'google-ai-studio'
   temperature: null
   maxTokens: 16000
   structured: true
 
 routers:
   ollama:
-    baseUrl: "http://localhost:11434/v1"
+    baseUrl: 'http://localhost:11434/v1'
     apiKeyEnv: null
     default:
       temperature: 0.2
@@ -28,48 +28,42 @@ routers:
       timeoutMs: 120000
 
   openrouter:
-    baseUrl: "https://openrouter.ai/api/v1"
-    apiKeyEnv: "OPENROUTER_API_KEY"
+    baseUrl: 'https://openrouter.ai/api/v1'
+    apiKeyEnv: 'OPENROUTER_API_KEY'
     headers:
-      HTTP-Referer: "https://github.com/yourname/apocalypse-bench"
-      X-Title: "apocalypse-bench"
+      HTTP-Referer: 'https://github.com/yourname/apocalypse-bench'
+      X-Title: 'apocalypse-bench'
     default:
       temperature: 0.2
       maxTokens: 800
       timeoutMs: 120000
 
 models:
-  - id: "openrouter:liquid/lfm-2.2-6b"
-    router: "openrouter"
-    model: "liquid/lfm-2.2-6b"
-    provider: "liquid"
-models:
-  - id: "openrouter:liquid/lfm2-8b-a1b"
-    router: "openrouter"
-    model: "liquid/lfm2-8b-a1b"
-    provider: "liquid"
-models:
-  - id: "openrouter:openai/gpt-oss-20b"
-    router: "openrouter"
-    model: "openai/gpt-oss-20b"
-    provider: "groq"
-models:
-  - id: "openrouter:nvidia/nemotron-nano-9b-v2"
-    router: "openrouter"
-    model: "nvidia/nemotron-nano-9b-v2"
-    provider: "deepinfra/bf16"
-models:
-  - id: "openrouter:meta-llama/llama-3.1-8b-instruct"
-    router: "openrouter"
-    model: "meta-llama/llama-3.1-8b-instruct"
-    provider: "groq"
-# models:
-#   - id: "openrouter:google/gemini-3-flash-preview"
-#     router: "openrouter"
-#     model: "google/gemini-3-flash-preview"
-#     provider: "google-vertex"
-# models:
-#   - id: "openrouter:kimi-k2"
-#     router: "openrouter"
-#     model: "moonshotai/kimi-k2-0905"
-#     provider: "groq"
+  - id: 'openrouter:liquid/lfm-2.2-6b'
+    router: 'openrouter'
+    model: 'liquid/lfm-2.2-6b'
+    provider: 'liquid'
+  - id: 'openrouter:liquid/lfm2-8b-a1b'
+    router: 'openrouter'
+    model: 'liquid/lfm2-8b-a1b'
+    provider: 'liquid'
+  - id: 'openrouter:openai/gpt-oss-20b'
+    router: 'openrouter'
+    model: 'openai/gpt-oss-20b'
+    provider: 'groq'
+  - id: 'openrouter:nvidia/nemotron-nano-9b-v2'
+    router: 'openrouter'
+    model: 'nvidia/nemotron-nano-9b-v2'
+    provider: 'deepinfra/bf16'
+  - id: 'openrouter:meta-llama/llama-3.1-8b-instruct'
+    router: 'openrouter'
+    model: 'meta-llama/llama-3.1-8b-instruct'
+    provider: 'groq'
+  # - id: "openrouter:google/gemini-3-flash-preview"
+  #   router: "openrouter"
+  #   model: "google/gemini-3-flash-preview"
+  #   provider: "google-vertex"
+  # - id: "openrouter:kimi-k2"
+  #   router: "openrouter"
+  #   model: "moonshotai/kimi-k2-0905"
+  #   provider: "groq"

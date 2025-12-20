@@ -32,10 +32,18 @@ export type UiStats = {
   lastEvent: RunnerEvent | null;
 };
 
-export function getTotalQuestions(config: ApocbenchConfig, selectedQuestionsCount: number): number {
+export function getTotalQuestions(
+  config: ApocbenchConfig,
+  selectedQuestionsCount: number,
+  modelCount: number,
+): number {
   const limit = config.run.questionLimit ?? null;
-  if (typeof limit === 'number') return Math.min(limit, selectedQuestionsCount);
-  return selectedQuestionsCount;
+  const questionCount =
+    typeof limit === 'number'
+      ? Math.min(limit, selectedQuestionsCount)
+      : selectedQuestionsCount;
+  // Total work = questions × models (each model answers each question)
+  return questionCount * modelCount;
 }
 
 type ModelAgg = {
@@ -58,9 +66,11 @@ export function computeUiStats(params: {
   const prev = events
     .slice()
     .reverse()
-    .find(e => e.type === 'generation_metrics') as { tps?: unknown } | undefined;
+    .find((e) => e.type === 'generation_metrics') as { tps?: unknown } | undefined;
   const prevTps =
-    typeof prev?.tps === 'number' && Number.isFinite(prev.tps) && prev.tps >= 0 ? prev.tps : null;
+    typeof prev?.tps === 'number' && Number.isFinite(prev.tps) && prev.tps >= 0
+      ? prev.tps
+      : null;
 
   let runId: string | null = null;
   let runStartedAtMs: number | null = null;
@@ -76,7 +86,8 @@ export function computeUiStats(params: {
 
   for (const e of events) {
     if (e.type === 'generation_metrics') {
-      const generationId = (e as { generationId?: unknown } | null | undefined)?.generationId;
+      const generationId = (e as { generationId?: unknown } | null | undefined)
+        ?.generationId;
       if (typeof generationId === 'string' && generationId.length > 0) {
         hasOpenRouterGenerationId = true;
       }
@@ -89,7 +100,9 @@ export function computeUiStats(params: {
     if (e.type === 'run_started') {
       runId = e.runId;
       if (runStartedAtMs == null) {
-        runStartedAtMs = (e as { startedAtMs?: unknown } | null)?.startedAtMs as number | null;
+        runStartedAtMs = (e as { startedAtMs?: unknown } | null)?.startedAtMs as
+          | number
+          | null;
         if (typeof runStartedAtMs !== 'number' || !Number.isFinite(runStartedAtMs)) {
           runStartedAtMs = nowMs;
         }
@@ -127,11 +140,13 @@ export function computeUiStats(params: {
       if (normalized) {
         agg.usage = {
           promptTokens: (agg.usage?.promptTokens ?? 0) + normalized.promptTokens,
-          completionTokens: (agg.usage?.completionTokens ?? 0) + normalized.completionTokens,
+          completionTokens:
+            (agg.usage?.completionTokens ?? 0) + normalized.completionTokens,
           totalTokens: (agg.usage?.totalTokens ?? 0) + normalized.totalTokens,
         };
       }
-      if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd)) agg.costUsd += e.costUsd;
+      if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd))
+        agg.costUsd += e.costUsd;
       perModel.set(e.modelId, agg);
       continue;
     }
@@ -154,11 +169,13 @@ export function computeUiStats(params: {
       if (normalized) {
         agg.usage = {
           promptTokens: (agg.usage?.promptTokens ?? 0) + normalized.promptTokens,
-          completionTokens: (agg.usage?.completionTokens ?? 0) + normalized.completionTokens,
+          completionTokens:
+            (agg.usage?.completionTokens ?? 0) + normalized.completionTokens,
           totalTokens: (agg.usage?.totalTokens ?? 0) + normalized.totalTokens,
         };
       }
-      if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd)) agg.costUsd += e.costUsd;
+      if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd))
+        agg.costUsd += e.costUsd;
       perModel.set(e.modelId, agg);
       continue;
     }
@@ -169,7 +186,9 @@ export function computeUiStats(params: {
   const progress = totalQuestions > 0 ? Math.min(1, doneTotal / totalQuestions) : null;
   const runningScoreMean = completedCount > 0 ? runningScoreSum / completedCount : null;
 
-  const models: ModelUiStats[] = (Array.from(perModel.entries()) as Array<[string, ModelAgg]>)
+  const models: ModelUiStats[] = (
+    Array.from(perModel.entries()) as Array<[string, ModelAgg]>
+  )
     .map(([modelId, agg]) => {
       const attempts = agg.completed + agg.failed;
       const withAttempts: ModelUiStatsWithAttempts = {
@@ -191,7 +210,7 @@ export function computeUiStats(params: {
       const bb = b._attempts;
       return bb - aa;
     })
-    .map(m => {
+    .map((m) => {
       const { _attempts: _ignored, ...rest } = m;
       return rest;
     });

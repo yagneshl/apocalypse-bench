@@ -22,16 +22,18 @@ export function App({
   subscribeToEvents: (onEvent: (e: RunnerEvent) => void) => () => void;
   totalQuestions: number;
 }) {
-  const [events, setEvents] = useState<RunnerEvent[]>(() => getInitialEvents());
-
-  const eventsLimit = 2000;
+  const EVENTS_LIMIT = 2000;
+  const [events, setEvents] = useState<RunnerEvent[]>(() => {
+    const initial = getInitialEvents();
+    return initial.length <= EVENTS_LIMIT ? initial : initial.slice(-EVENTS_LIMIT);
+  });
 
   useEffect(() => {
     return subscribeToEvents((e) => {
       setEvents((prev) => {
         const next = [...prev, e];
-        if (next.length <= eventsLimit) return next;
-        return next.slice(-eventsLimit);
+        if (next.length <= EVENTS_LIMIT) return next;
+        return next.slice(-EVENTS_LIMIT);
       });
     });
   }, [subscribeToEvents]);

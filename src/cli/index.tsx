@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 import 'dotenv/config';
-import { buildApplication, buildCommand, buildRouteMap, numberParser, run } from '@stricli/core';
+import {
+  buildApplication,
+  buildCommand,
+  buildRouteMap,
+  numberParser,
+  run,
+} from '@stricli/core';
 
 import { createOpenRouterClient } from '../adapters/openrouter/client';
 import { createOllamaClient } from '../adapters/ollama/client';
@@ -31,7 +37,9 @@ function readToolVersion(): string {
     const pkgPath = path.join(dir, 'package.json');
     if (fs.existsSync(pkgPath)) {
       try {
-        const parsed = JSON.parse(fs.readFileSync(pkgPath, 'utf8')) as { version?: unknown } | null;
+        const parsed = JSON.parse(fs.readFileSync(pkgPath, 'utf8')) as {
+          version?: unknown;
+        } | null;
         if (parsed && typeof parsed.version === 'string' && parsed.version.length > 0) {
           return parsed.version;
         }
@@ -76,9 +84,15 @@ async function runCommand(
     ? { ...loadedConfig, run: { ...loadedConfig.run, resume: true } }
     : loadedConfig;
   const dataset = loadJsonl(config.run.datasetPath);
-  const totalQuestions = getTotalQuestions(config, dataset.lines.length);
+  const totalQuestions = getTotalQuestions(
+    config,
+    dataset.lines.length,
+    config.models.length,
+  );
 
+  // Keep a bounded event buffer so long runs don't exhaust the JS heap.
   const events: RunnerEvent[] = [];
+  const EVENTS_LIMIT = 2000;
 
   const resolveModel = (m: ApocbenchConfig['models'][number]) => {
     if (m.router === 'openrouter') {
@@ -122,8 +136,9 @@ async function runCommand(
     selectedModelIds: flags.models ? Array.from(flags.models) : undefined,
     limitOverride: typeof flags.limit === 'number' ? flags.limit : null,
     categoriesOverride: flags.categories ? Array.from(flags.categories) : null,
-    onEvent: e => {
+    onEvent: (e) => {
       events.push(e);
+      if (events.length > EVENTS_LIMIT) events.splice(0, events.length - EVENTS_LIMIT);
       for (const s of subscribers) s(e);
       if (flags.json) process.stdout.write(JSON.stringify(e) + '\n');
     },
@@ -141,7 +156,7 @@ async function runCommand(
     <App
       runPromise={runPromise}
       getInitialEvents={() => events.slice()}
-      subscribeToEvents={onEvent => {
+      subscribeToEvents={(onEvent) => {
         subscribers.add(onEvent);
         return () => {
           subscribers.delete(onEvent);
@@ -160,21 +175,27 @@ type ValidateFlags = {
 async function validateCommand(this: CliContext, flags: ValidateFlags): Promise<void> {
   const { config } = loadConfig(flags.config);
   const dataset = loadJsonl(config.run.datasetPath);
-  if (!flags.quiet) console.log(`config ok; dataset ok (${dataset.lines.length} questions)`);
+  if (!flags.quiet)
+    console.log(`config ok; dataset ok (${dataset.lines.length} questions)`);
 }
 
 type ReportFlags = {
   outDir?: string;
 };
 
-async function reportCommand(this: CliContext, flags: ReportFlags, runId: string): Promise<void> {
+async function reportCommand(
+  this: CliContext,
+  flags: ReportFlags,
+  runId: string,
+): Promise<void> {
   const outDir = flags.outDir ?? './runs';
   const db = openAndMigrate(path.resolve(process.cwd(), outDir, 'apocbench.sqlite'));
   const rows = listRunModelResults(db, runId);
   const byModel = new Map<string, { overallScore: number; autoFailCount: number }>();
   for (const r of rows) {
     const model = byModel.get(r.model_id) ?? { overallScore: 0, autoFailCount: 0 };
-    if (r.status === 'done' && typeof r.score_overall === 'number') model.overallScore += r.score_overall;
+    if (r.status === 'done' && typeof r.score_overall === 'number')
+      model.overallScore += r.score_overall;
     if (r.auto_fail === 1) model.autoFailCount += 1;
     byModel.set(r.model_id, model);
   }
@@ -190,7 +211,10 @@ async function reportCommand(this: CliContext, flags: ReportFlags, runId: string
   const runDir = path.resolve(process.cwd(), outDir, runId);
   fs.mkdirSync(runDir, { recursive: true });
   fs.writeFileSync(path.join(runDir, 'summary.json'), JSON.stringify(summary, null, 2));
-  fs.writeFileSync(path.join(runDir, 'report.html'), renderHtmlReport({ runId, summaryJson: summary, results: rows }));
+  fs.writeFileSync(
+    path.join(runDir, 'report.html'),
+    renderHtmlReport({ runId, summaryJson: summary, results: rows }),
+  );
   console.log(JSON.stringify(summary, null, 2));
 }
 
@@ -212,7 +236,8 @@ async function diffCommand(
     const byModel = new Map<string, { overallScore: number; autoFailCount: number }>();
     for (const r of rows) {
       const model = byModel.get(r.model_id) ?? { overallScore: 0, autoFailCount: 0 };
-      if (r.status === 'done' && typeof r.score_overall === 'number') model.overallScore += r.score_overall;
+      if (r.status === 'done' && typeof r.score_overall === 'number')
+        model.overallScore += r.score_overall;
       if (r.auto_fail === 1) model.autoFailCount += 1;
       byModel.set(r.model_id, model);
     }
@@ -226,7 +251,9 @@ async function diffCommand(
     };
   };
 
-  console.log(JSON.stringify(diffSummaries(toSummary(runId1), toSummary(runId2)), null, 2));
+  console.log(
+    JSON.stringify(diffSummaries(toSummary(runId1), toSummary(runId2)), null, 2),
+  );
 }
 
 type ResumeFlags = RunFlags;
@@ -252,24 +279,33 @@ const root = buildRouteMap({
       },
       parameters: {
         flags: {
-          config: { kind: 'parsed', brief: 'Path to apocbench.yml', parse: s => s },
-          dryRun: { kind: 'boolean', brief: 'Validate only (no API calls)', optional: true },
+          config: { kind: 'parsed', brief: 'Path to apocbench.yml', parse: (s) => s },
+          dryRun: {
+            kind: 'boolean',
+            brief: 'Validate only (no API calls)',
+            optional: true,
+          },
           quiet: { kind: 'boolean', brief: 'Suppress TUI output', optional: true },
           json: { kind: 'boolean', brief: 'Emit JSONL events', optional: true },
-          limit: { kind: 'parsed', brief: 'Limit questions', optional: true, parse: numberParser },
+          limit: {
+            kind: 'parsed',
+            brief: 'Limit questions',
+            optional: true,
+            parse: numberParser,
+          },
           categories: {
             kind: 'parsed',
             brief: 'Comma-separated categories',
             optional: true,
             variadic: ',',
-            parse: s => s,
+            parse: (s) => s,
           },
           models: {
             kind: 'parsed',
             brief: 'Comma-separated model ids to run (matches config models[].id)',
             optional: true,
             variadic: ',',
-            parse: s => s,
+            parse: (s) => s,
           },
         },
         aliases: {
@@ -281,7 +317,7 @@ const root = buildRouteMap({
             {
               brief: 'Optional run id to resume',
               optional: true,
-              parse: s => s,
+              parse: (s) => s,
               placeholder: 'runId',
             },
           ],
@@ -293,7 +329,7 @@ const root = buildRouteMap({
       docs: { brief: 'Validate config and dataset' },
       parameters: {
         flags: {
-          config: { kind: 'parsed', brief: 'Path to apocbench.yml', parse: s => s },
+          config: { kind: 'parsed', brief: 'Path to apocbench.yml', parse: (s) => s },
           quiet: { kind: 'boolean', brief: 'Suppress output', optional: true },
         },
         aliases: { c: 'config' },
@@ -308,7 +344,7 @@ const root = buildRouteMap({
             kind: 'parsed',
             brief: 'Output directory (defaults to ./runs)',
             optional: true,
-            parse: s => s,
+            parse: (s) => s,
           },
         },
         positional: {
@@ -316,7 +352,7 @@ const root = buildRouteMap({
           parameters: [
             {
               brief: 'Run id',
-              parse: s => s,
+              parse: (s) => s,
               placeholder: 'runId',
             },
           ],
@@ -332,14 +368,14 @@ const root = buildRouteMap({
             kind: 'parsed',
             brief: 'Output directory (defaults to ./runs)',
             optional: true,
-            parse: s => s,
+            parse: (s) => s,
           },
         },
         positional: {
           kind: 'tuple',
           parameters: [
-            { brief: 'Run id 1', parse: s => s, placeholder: 'runId1' },
-            { brief: 'Run id 2', parse: s => s, placeholder: 'runId2' },
+            { brief: 'Run id 1', parse: (s) => s, placeholder: 'runId1' },
+            { brief: 'Run id 2', parse: (s) => s, placeholder: 'runId2' },
           ],
         },
       },
@@ -349,30 +385,39 @@ const root = buildRouteMap({
       docs: { brief: 'Resume a run by id (alias of run)' },
       parameters: {
         flags: {
-          config: { kind: 'parsed', brief: 'Path to apocbench.yml', parse: s => s },
-          dryRun: { kind: 'boolean', brief: 'Validate only (no API calls)', optional: true },
+          config: { kind: 'parsed', brief: 'Path to apocbench.yml', parse: (s) => s },
+          dryRun: {
+            kind: 'boolean',
+            brief: 'Validate only (no API calls)',
+            optional: true,
+          },
           quiet: { kind: 'boolean', brief: 'Suppress TUI output', optional: true },
           json: { kind: 'boolean', brief: 'Emit JSONL events', optional: true },
-          limit: { kind: 'parsed', brief: 'Limit questions', optional: true, parse: numberParser },
+          limit: {
+            kind: 'parsed',
+            brief: 'Limit questions',
+            optional: true,
+            parse: numberParser,
+          },
           categories: {
             kind: 'parsed',
             brief: 'Comma-separated categories',
             optional: true,
             variadic: ',',
-            parse: s => s,
+            parse: (s) => s,
           },
           models: {
             kind: 'parsed',
             brief: 'Comma-separated model ids to run (matches config models[].id)',
             optional: true,
             variadic: ',',
-            parse: s => s,
+            parse: (s) => s,
           },
         },
         aliases: { c: 'config' },
         positional: {
           kind: 'tuple',
-          parameters: [{ brief: 'Run id', parse: s => s, placeholder: 'runId' }],
+          parameters: [{ brief: 'Run id', parse: (s) => s, placeholder: 'runId' }],
         },
       },
       func: resumeCommand,

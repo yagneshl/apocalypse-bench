@@ -379,7 +379,8 @@ export async function runBenchmark(params: {
               });
             }
 
-            await maybeEmitOpenRouterGenerationMetrics({
+            // Fire-and-forget: don't block candidate slot for metrics fetch
+            void maybeEmitOpenRouterGenerationMetrics({
               modelId: modelEntry.id,
               questionId: q.id,
               result: candidateResult,
@@ -412,7 +413,9 @@ export async function runBenchmark(params: {
               return;
             }
 
-            await judgeQueue.add(async () => {
+            // Don't await - let the candidate slot free up immediately
+            // The judgeQueue.onIdle() at the end ensures all judge tasks complete
+            void judgeQueue.add(async () => {
               if (isBudgetExceeded()) {
                 upsertResult(db, {
                   runId,
@@ -505,7 +508,8 @@ export async function runBenchmark(params: {
                   costUsd: lastCandidateCostUsd,
                 });
 
-                await maybeEmitOpenRouterGenerationMetrics({
+                // Fire-and-forget: don't block judge slot for metrics fetch
+                void maybeEmitOpenRouterGenerationMetrics({
                   modelId: modelEntry.id,
                   questionId: q.id,
                   result: raw,
@@ -531,7 +535,8 @@ export async function runBenchmark(params: {
                   costUsd: lastCandidateCostUsd,
                 });
 
-                await maybeEmitOpenRouterGenerationMetrics({
+                // Fire-and-forget on failure path too
+                void maybeEmitOpenRouterGenerationMetrics({
                   modelId: modelEntry.id,
                   questionId: q.id,
                   result: null,

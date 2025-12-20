@@ -63,14 +63,14 @@ describe('prompt rendering', () => {
 
       JSON template (fill it in; keep all rubric ids present):
       {
-        \"rubric_scores\": {
-          \"r1\": 0,
-          \"r2\": 0
+        "rubric_scores": {
+          "r1": 0,
+          "r2": 0
         },
-        \"auto_fail\": false,
-        \"auto_fail_reason\": \"\",
-        \"overall_score\": 0,
-        \"notes\": \"\"
+        "auto_fail": false,
+        "auto_fail_reason": "",
+        "overall_score": 0,
+        "notes": ""
       }
 
       Question: Q1
