@@ -1,6 +1,9 @@
-export function renderHtmlReport(params: { runId: string; summaryJson: unknown }): string {
+export function renderHtmlReport(params: { runId: string; summaryJson: unknown; results?: unknown }): string {
   const summaryJson = params.summaryJson as Record<string, unknown> | null;
   const summaryPretty = JSON.stringify(params.summaryJson, null, 2);
+
+  const results = Array.isArray(params.results) ? (params.results as Record<string, unknown>[]) : [];
+  const hasAnyResultDetails = results.some(r => typeof r.prompt === 'string' || typeof r.candidate_completion === 'string');
 
   const models = Array.isArray(summaryJson?.models) ? summaryJson?.models : [];
   const sortedModels = [...models].sort((a, b) => number(b?.overallScore) - number(a?.overallScore));
@@ -91,10 +94,110 @@ export function renderHtmlReport(params: { runId: string; summaryJson: unknown }
         : `<p class="muted">No model summaries found.</p>`
     }
 
+    ${
+      results.length > 0 && !hasAnyResultDetails
+        ? `<div class="card"><div class="muted">Per-question details are missing for this run.</div></div>`
+        : ''
+    }
+
+    ${renderResultsSection(results)}
+
     <h2>Raw summary JSON</h2>
     <pre>${escapeHtml(summaryPretty)}</pre>
   </body>
 </html>`;
+}
+
+function renderResultsSection(results: Record<string, unknown>[]): string {
+  if (results.length === 0) return '';
+
+  const withDetails = results.filter(
+    r => typeof r.prompt === 'string' || typeof r.candidate_completion === 'string' || typeof r.judge_parsed_json === 'string',
+  );
+  if (withDetails.length === 0) {
+    return `
+      <h2>Results</h2>
+      <div class="card">
+        <div class="muted">
+          No per-question prompt/completion/judge details were found in the run database.
+        </div>
+      </div>
+    `.trim();
+  }
+
+  const byModel = new Map<string, Record<string, unknown>[]>();
+  for (const r of results) {
+    const modelId = String(r.model_id ?? 'unknown');
+    const list = byModel.get(modelId) ?? [];
+    list.push(r);
+    byModel.set(modelId, list);
+  }
+
+  const sortedModels = Array.from(byModel.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
+  return `
+    <h2>Results</h2>
+    ${sortedModels
+      .map(([modelId, rows]) => {
+        const sorted = [...rows].sort((a, b) => String(a.question_id).localeCompare(String(b.question_id)));
+        return `
+          <details>
+            <summary>${escapeHtml(modelId)} (${sorted.length})</summary>
+            ${sorted
+              .map(r => {
+                const qid = String(r.question_id ?? 'unknown');
+                const status = String(r.status ?? 'unknown');
+                const overall = fmtNum(r.score_overall, 2);
+                const autoFail = r.auto_fail === 1 ? 'true' : r.auto_fail === 0 ? 'false' : '—';
+                const category = r.category ? String(r.category) : 'unknown';
+                const difficulty = r.difficulty ? String(r.difficulty) : 'unknown';
+
+                const prompt = typeof r.prompt === 'string' ? r.prompt : null;
+                const candidate = typeof r.candidate_completion === 'string' ? r.candidate_completion : null;
+
+                const judgeParsed = typeof r.judge_parsed_json === 'string' ? safeJsonParse(r.judge_parsed_json) : null;
+                const judgeNotes =
+                  isObjectRecord(judgeParsed) && typeof judgeParsed.notes === 'string' ? judgeParsed.notes : null;
+                const rubricScores =
+                  isObjectRecord(judgeParsed) && isObjectRecord(judgeParsed.rubric_scores) ? judgeParsed.rubric_scores : null;
+
+                const scoreRubric =
+                  typeof r.score_rubric_json === 'string' ? safeJsonParse(r.score_rubric_json) : null;
+
+                const errorJson = typeof r.error_json === 'string' ? r.error_json : null;
+
+                return `
+                  <details class="card">
+                    <summary>${escapeHtml(qid)} — ${escapeHtml(category)} / ${escapeHtml(difficulty)} — status=${escapeHtml(
+                  status,
+                )} score=${escapeHtml(overall)} auto_fail=${escapeHtml(autoFail)}</summary>
+                    ${prompt ? `<h3>Prompt</h3><pre>${escapeHtml(prompt)}</pre>` : ''}
+                    ${candidate ? `<h3>Candidate</h3><pre>${escapeHtml(candidate)}</pre>` : ''}
+                    ${judgeNotes ? `<h3>Judge notes</h3><pre>${escapeHtml(judgeNotes)}</pre>` : ''}
+                    ${rubricScores ? `<h3>Judge rubric_scores</h3><pre>${escapeHtml(JSON.stringify(rubricScores, null, 2))}</pre>` : ''}
+                    ${scoreRubric ? `<h3>Computed rubric scores</h3><pre>${escapeHtml(JSON.stringify(scoreRubric, null, 2))}</pre>` : ''}
+                    ${errorJson ? `<h3>Error</h3><pre>${escapeHtml(errorJson)}</pre>` : ''}
+                  </details>
+                `.trim();
+              })
+              .join('\n')}
+          </details>
+        `.trim();
+      })
+      .join('\n')}
+  `.trim();
+}
+
+function safeJsonParse(raw: string): unknown {
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function isObjectRecord(v: unknown): v is Record<string, unknown> {
+  return typeof v === 'object' && v !== null && !Array.isArray(v);
 }
 
 function row(label: string, value: string | null): string {
@@ -235,3 +338,4 @@ function escapeHtml(s: string): string {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+

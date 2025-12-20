@@ -10,7 +10,7 @@ import type { DatasetLine } from '../dataset/schema';
 import { buildCandidatePrompt } from '../prompts/candidatePrompt';
 import { buildJudgePrompt } from '../prompts/judgePrompt';
 import { aggregateModel } from '../scoring/aggregate';
-import { computeOverallScore, judgeWithRepairRetry } from './judge';
+import { computeOverallScore, judgeWithRubricCompletenessRetry } from './judge';
 import { makeRunId, promptTemplateHash } from './runId';
 import type { CandidateMetrics, JudgeOutput } from './types';
 import { sha256FileHex } from '../../utils/hash';
@@ -22,12 +22,45 @@ import { openAndMigrate } from '../../storage/sqlite/migrate';
 import { insertRun, updateRunStatus } from '../../storage/sqlite/runs';
 import { insertQuestions } from '../../storage/sqlite/questions';
 import { isResultDone, upsertResult } from '../../storage/sqlite/results';
+import { listRunModelResults } from '../../storage/sqlite/queries';
+import { normalizeOpenRouterUsageFromProviderMetadata } from './openrouterUsage';
+import { fetchOpenRouterGeneration } from '../../adapters/openrouter/generation';
+import { toOpenRouterProviderParam } from '../config/schema';
 
 export type RunnerEvent =
-  | { type: 'run_started'; runId: string }
+  | { type: 'run_started'; runId: string; startedAtMs: number }
   | { type: 'question_started'; runId: string; modelId: string; questionId: string }
-  | { type: 'question_completed'; runId: string; modelId: string; questionId: string; overallScore: number }
-  | { type: 'question_failed'; runId: string; modelId: string; questionId: string; stage: 'candidate' | 'judge'; message: string }
+  | {
+      type: 'generation_metrics';
+      runId: string;
+      modelId: string;
+      questionId: string;
+      generationId?: string;
+      tps?: number;
+      generationTimeMs?: number;
+      tokens?: { prompt: number; completion: number; total: number };
+    }
+  | {
+      type: 'question_completed';
+      runId: string;
+      modelId: string;
+      questionId: string;
+      overallScore: number;
+      latencyMs?: number;
+      usage?: unknown;
+      costUsd?: number;
+    }
+  | {
+      type: 'question_failed';
+      runId: string;
+      modelId: string;
+      questionId: string;
+      stage: 'candidate' | 'judge';
+      message: string;
+      latencyMs?: number;
+      usage?: unknown;
+      costUsd?: number;
+    }
   | { type: 'budget_exceeded'; runId: string; maxBudgetUsd: number }
   | { type: 'budget_spent'; runId: string; spentUsd: number }
   | { type: 'run_completed'; runId: string };
@@ -81,7 +114,7 @@ export async function runBenchmark(params: {
   let questions = allQuestions;
   if (categories && categories.length > 0) {
     const allowed = new Set(categories);
-    questions = questions.filter(q => allowed.has(q.category));
+    questions = questions.filter((q) => allowed.has(q.category));
   }
   if (questionLimit != null) {
     questions = questions.slice(0, questionLimit);
@@ -95,9 +128,11 @@ export async function runBenchmark(params: {
   const runId = params.runIdOverride ?? makeRunId(config.run.name);
   const runOutDir = path.resolve(process.cwd(), config.run.outDir, runId);
 
-  onEvent?.({ type: 'run_started', runId });
+  onEvent?.({ type: 'run_started', runId, startedAtMs: Date.now() });
 
-  const db = openAndMigrate(path.resolve(process.cwd(), config.run.outDir, 'apocbench.sqlite'));
+  const db = openAndMigrate(
+    path.resolve(process.cwd(), config.run.outDir, 'apocbench.sqlite'),
+  );
   const existingRun = db
     .prepare('SELECT run_id FROM runs WHERE run_id = ?')
     .get(runId) as { run_id: string } | undefined;
@@ -119,15 +154,20 @@ export async function runBenchmark(params: {
 
   const judgeModel = deps.resolveJudgeModel(config);
 
-  const models = config.models.filter(m =>
-    selectedModelIds && selectedModelIds.length > 0 ? selectedModelIds.includes(m.id) : true,
+  const models = config.models.filter((m) =>
+    selectedModelIds && selectedModelIds.length > 0
+      ? selectedModelIds.includes(m.id)
+      : true,
   );
 
   const judgeQueue = new PQueue({ concurrency: config.run.concurrency.judge });
   const perModelQueue = new Map<string, PQueue>();
 
   for (const model of models) {
-    perModelQueue.set(model.id, new PQueue({ concurrency: config.run.concurrency.candidate }));
+    perModelQueue.set(
+      model.id,
+      new PQueue({ concurrency: config.run.concurrency.candidate }),
+    );
   }
 
   const maxBudgetUsd = config.run.maxBudgetUsd ?? null;
@@ -135,8 +175,9 @@ export async function runBenchmark(params: {
   let budgetExceededEmitted = false;
 
   function extractOpenRouterCost(raw: unknown): number | null {
-    const cost = (raw as { providerMetadata?: { openrouter?: { cost?: unknown } } } | null | undefined)
-      ?.providerMetadata?.openrouter?.cost;
+    const cost = (
+      raw as { providerMetadata?: { openrouter?: { cost?: unknown } } } | null | undefined
+    )?.providerMetadata?.openrouter?.cost;
     return typeof cost === 'number' && Number.isFinite(cost) ? cost : null;
   }
 
@@ -162,9 +203,75 @@ export async function runBenchmark(params: {
 
   const retryPolicy = { maxRetries: 3, baseMs: 600, maxMs: 8000 };
 
-  async function generateTextWithRetry(call: Parameters<typeof generateText>[0]): Promise<
-    Awaited<ReturnType<typeof generateText>>
-  > {
+  function extractOpenRouterGenerationId(result: unknown): string | null {
+    const responseId = (result as { response?: { id?: unknown } } | null | undefined)
+      ?.response?.id;
+    if (typeof responseId === 'string' && responseId.length > 0) return responseId;
+
+    const topLevelId = (result as { id?: unknown } | null | undefined)?.id;
+    if (typeof topLevelId === 'string' && topLevelId.length > 0) return topLevelId;
+
+    const providerMetadataId = (
+      result as
+        | { providerMetadata?: { openrouter?: { id?: unknown } } }
+        | null
+        | undefined
+    )?.providerMetadata?.openrouter?.id;
+    if (typeof providerMetadataId === 'string' && providerMetadataId.length > 0)
+      return providerMetadataId;
+
+    return null;
+  }
+
+  async function maybeEmitOpenRouterGenerationMetrics(p: {
+    modelId: string;
+    questionId: string;
+    result: unknown;
+  }): Promise<void> {
+    const generationId = extractOpenRouterGenerationId(p.result);
+    if (!generationId) return;
+
+    const apiKeyEnv = config.routers.openrouter.apiKeyEnv;
+    const apiKey = process.env[apiKeyEnv];
+    if (!apiKey) return;
+
+    try {
+      const metrics = await fetchOpenRouterGeneration({
+        baseUrl: config.routers.openrouter.baseUrl,
+        apiKey,
+        headers: config.routers.openrouter.headers,
+        generationId,
+      });
+
+      if (!metrics) return;
+      const tokens =
+        metrics.promptTokens != null &&
+        metrics.completionTokens != null &&
+        metrics.totalTokens != null
+          ? {
+              prompt: metrics.promptTokens,
+              completion: metrics.completionTokens,
+              total: metrics.totalTokens,
+            }
+          : undefined;
+
+      onEvent?.({
+        type: 'generation_metrics',
+        runId,
+        modelId: p.modelId,
+        questionId: p.questionId,
+        tps: metrics.tps ?? undefined,
+        generationTimeMs: metrics.generationTimeMs ?? undefined,
+        tokens,
+      });
+    } catch {
+      // best-effort; do not fail the run
+    }
+  }
+
+  async function generateTextWithRetry(
+    call: Parameters<typeof generateText>[0],
+  ): Promise<Awaited<ReturnType<typeof generateText>>> {
     for (let attempt = 0; attempt <= retryPolicy.maxRetries; attempt++) {
       try {
         return await generateText(call);
@@ -206,10 +313,19 @@ export async function runBenchmark(params: {
             return;
           }
 
-          onEvent?.({ type: 'question_started', runId, modelId: modelEntry.id, questionId: q.id });
+          onEvent?.({
+            type: 'question_started',
+            runId,
+            modelId: modelEntry.id,
+            questionId: q.id,
+          });
 
           const candidatePrompt = buildCandidatePrompt(q);
           const candidateStart = Date.now();
+
+          let lastCandidateLatencyMs: number | undefined;
+          let lastCandidateUsage: unknown | undefined;
+          let lastCandidateCostUsd: number | undefined;
 
           try {
             const candidateResult = await generateTextWithRetry({
@@ -220,14 +336,21 @@ export async function runBenchmark(params: {
                 config.routers[modelEntry.router].default.temperature ??
                 undefined,
               maxOutputTokens:
-                modelEntry.params?.maxTokens ?? config.routers[modelEntry.router].default.maxTokens,
+                modelEntry.params?.maxTokens ??
+                config.routers[modelEntry.router].default.maxTokens,
               providerOptions: (modelEntry.router === 'openrouter'
                 ? {
                     openrouter: {
-                      ...(modelEntry.provider
-                        ? { routing: { only: [modelEntry.provider] } }
-                        : {}),
-                      ...(modelEntry.routing ? { routing: modelEntry.routing } : {}),
+                      ...(modelEntry.routing
+                        ? { provider: toOpenRouterProviderParam(modelEntry.routing) }
+                        : modelEntry.provider
+                          ? {
+                              provider: {
+                                order: [modelEntry.provider],
+                                allow_fallbacks: false,
+                              },
+                            }
+                          : {}),
                     },
                   }
                 : undefined) as ProviderOptions | undefined,
@@ -237,10 +360,35 @@ export async function runBenchmark(params: {
             const candidateCostUsd = extractOpenRouterCost(candidateResult);
             if (candidateCostUsd != null) recordSpend(candidateCostUsd);
 
+            lastCandidateLatencyMs = Date.now() - candidateStart;
+            const candidateOr = normalizeOpenRouterUsageFromProviderMetadata(
+              (candidateResult as { providerMetadata?: unknown } | null | undefined)
+                ?.providerMetadata,
+            );
+            lastCandidateUsage = candidateOr.usage ?? candidateResult.usage;
+            lastCandidateCostUsd = candidateOr.costUsd ?? candidateCostUsd ?? undefined;
+
+            const candidateGenerationId = extractOpenRouterGenerationId(candidateResult);
+            if (candidateGenerationId) {
+              onEvent?.({
+                type: 'generation_metrics',
+                runId,
+                modelId: modelEntry.id,
+                questionId: q.id,
+                generationId: candidateGenerationId,
+              });
+            }
+
+            await maybeEmitOpenRouterGenerationMetrics({
+              modelId: modelEntry.id,
+              questionId: q.id,
+              result: candidateResult,
+            });
+
             const metrics: CandidateMetrics = {
-              latencyMs: Date.now() - candidateStart,
-              usage: candidateResult.usage,
-              costUsd: candidateCostUsd ?? undefined,
+              latencyMs: lastCandidateLatencyMs,
+              usage: lastCandidateUsage,
+              costUsd: lastCandidateCostUsd,
             };
 
             upsertResult(db, {
@@ -276,9 +424,13 @@ export async function runBenchmark(params: {
                 return;
               }
 
-              const judgePrompt = buildJudgePrompt({ question: q, candidateAnswer: candidateText });
+              const judgePrompt = buildJudgePrompt({
+                question: q,
+                candidateAnswer: candidateText,
+              });
+              const rubricIds = q.rubric.map((r) => r.id);
               try {
-                const { object, raw } = await judgeWithRepairRetry(
+                const { object, raw } = await judgeWithRubricCompletenessRetry(
                   {
                     model: judgeModel,
                     prompt: judgePrompt,
@@ -286,19 +438,31 @@ export async function runBenchmark(params: {
                     temperature: config.judge.temperature,
                     providerOptions: {
                       openrouter: {
-                        ...(config.judge.provider
-                          ? { routing: { only: [config.judge.provider] } }
-                          : {}),
-                        ...(config.judge.routing ? { routing: config.judge.routing } : {}),
+                        ...(config.judge.routing
+                          ? { provider: toOpenRouterProviderParam(config.judge.routing) }
+                          : config.judge.provider
+                            ? {
+                                provider: {
+                                  order: [config.judge.provider],
+                                  allow_fallbacks: false,
+                                },
+                              }
+                            : {}),
                       },
                     } as ProviderOptions,
+                    rubricIds,
                   },
+                  { rubric: q.rubric.map((r) => ({ id: r.id })) },
                   { retry: retryPolicy },
                 );
 
                 const computed = computeOverallScore({
                   judgeOutput: object,
-                  rubric: q.rubric.map(r => ({ id: r.id, weight: r.weight, maxScore: r.maxScore })),
+                  rubric: q.rubric.map((r) => ({
+                    id: r.id,
+                    weight: r.weight,
+                    maxScore: r.maxScore,
+                  })),
                 });
 
                 const judgeParsed: JudgeOutput = {
@@ -336,6 +500,15 @@ export async function runBenchmark(params: {
                   modelId: modelEntry.id,
                   questionId: q.id,
                   overallScore: computed.overallScore,
+                  latencyMs: lastCandidateLatencyMs,
+                  usage: lastCandidateUsage,
+                  costUsd: lastCandidateCostUsd,
+                });
+
+                await maybeEmitOpenRouterGenerationMetrics({
+                  modelId: modelEntry.id,
+                  questionId: q.id,
+                  result: raw,
                 });
               } catch (err) {
                 const message = (err as Error).message;
@@ -353,11 +526,21 @@ export async function runBenchmark(params: {
                   questionId: q.id,
                   stage: 'judge',
                   message,
+                  latencyMs: lastCandidateLatencyMs,
+                  usage: lastCandidateUsage,
+                  costUsd: lastCandidateCostUsd,
+                });
+
+                await maybeEmitOpenRouterGenerationMetrics({
+                  modelId: modelEntry.id,
+                  questionId: q.id,
+                  result: null,
                 });
               }
             });
           } catch (err) {
             const message = (err as Error).message;
+            const candidateLatencyMs = Date.now() - candidateStart;
             upsertResult(db, {
               runId,
               modelId: modelEntry.id,
@@ -373,6 +556,7 @@ export async function runBenchmark(params: {
               questionId: q.id,
               stage: 'candidate',
               message,
+              latencyMs: candidateLatencyMs,
             });
           }
         }),
@@ -383,7 +567,7 @@ export async function runBenchmark(params: {
   await Promise.all(tasks);
   await judgeQueue.onIdle();
 
-  const modelIds = models.map(m => m.id);
+  const modelIds = models.map((m) => m.id);
   const summaries =
     modelIds.length === 0
       ? []
@@ -418,24 +602,40 @@ export async function runBenchmark(params: {
             difficulty: string | null;
           }>;
 
-          type KnownStatus = 'done' | 'candidate_done' | 'candidate_failed' | 'judge_failed' | 'skipped';
+          type KnownStatus =
+            | 'done'
+            | 'candidate_done'
+            | 'candidate_failed'
+            | 'judge_failed'
+            | 'skipped';
           const toKnownStatus = (s: string): KnownStatus =>
-            s === 'done' || s === 'candidate_done' || s === 'candidate_failed' || s === 'judge_failed' || s === 'skipped'
+            s === 'done' ||
+            s === 'candidate_done' ||
+            s === 'candidate_failed' ||
+            s === 'judge_failed' ||
+            s === 'skipped'
               ? s
               : 'candidate_failed';
 
           const parseLatencyMs = (candidateMetricsJson: string | null): number | null => {
             if (!candidateMetricsJson) return null;
             try {
-              const parsed = JSON.parse(candidateMetricsJson) as { latencyMs?: unknown } | null;
+              const parsed = JSON.parse(candidateMetricsJson) as {
+                latencyMs?: unknown;
+              } | null;
               const latencyMs = parsed?.latencyMs;
-              return typeof latencyMs === 'number' && Number.isFinite(latencyMs) ? latencyMs : null;
+              return typeof latencyMs === 'number' && Number.isFinite(latencyMs)
+                ? latencyMs
+                : null;
             } catch {
               return null;
             }
           };
 
-          const perModel = new Map<string, Parameters<typeof aggregateModel>[0]['questionScores']>();
+          const perModel = new Map<
+            string,
+            Parameters<typeof aggregateModel>[0]['questionScores']
+          >();
           for (const row of rows) {
             const list = perModel.get(row.model_id) ?? [];
             list.push({
@@ -450,7 +650,7 @@ export async function runBenchmark(params: {
             perModel.set(row.model_id, list);
           }
 
-          return modelIds.map(modelId =>
+          return modelIds.map((modelId) =>
             aggregateModel({ modelId, questionScores: perModel.get(modelId) ?? [] }),
           );
         })();
@@ -469,7 +669,8 @@ export async function runBenchmark(params: {
   writeJson(summaryPath, summary);
 
   const reportPath = path.join(runOutDir, 'report.html');
-  const html = renderHtmlReport({ runId, summaryJson: summary });
+  const results = listRunModelResults(db, runId);
+  const html = renderHtmlReport({ runId, summaryJson: summary, results });
   fs.mkdirSync(runOutDir, { recursive: true });
   fs.writeFileSync(reportPath, html);
 

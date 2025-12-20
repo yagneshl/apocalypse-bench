@@ -13,7 +13,7 @@ run:
 judge:
   router: "openrouter"
   model: "google/gemini-3-flash-preview"
-  provider: "google-vertex"
+  provider: "google-ai-studio"
   temperature: null
   maxTokens: 16000
   structured: true
@@ -38,8 +38,18 @@ routers:
       maxTokens: 800
       timeoutMs: 120000
 
+# models:
+#   - id: "openrouter:liquid/lfm-2.2-6b"
+#     router: "openrouter"
+#     model: "liquid/lfm-2.2-6b"
+#     provider: "liquid"
+# models:
+#   - id: "openrouter:google/gemini-3-flash-preview"
+#     router: "openrouter"
+#     model: "google/gemini-3-flash-preview"
+#     provider: "google-vertex"
 models:
-  - id: "openrouter:liquid/lfm-2.2-6b"
+  - id: "openrouter:kimi-k2"
     router: "openrouter"
-    model: "liquid/lfm-2.2-6b"
-    provider: "liquid"
+    model: "moonshotai/kimi-k2-0905"
+    provider: "groq"

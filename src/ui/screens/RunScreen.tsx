@@ -1,37 +1,53 @@
 import React from 'react';
 import { Box, Text } from 'ink';
 import type { RunnerEvent } from '../../core/runner/orchestrator';
-import { ModelTable } from '../components/ModelTable';
 import { LogsPanel } from '../components/LogsPanel';
-import { QuestionPanel } from '../components/QuestionPanel';
+import { formatDuration, formatEventSummary } from '../format';
+import { computeUiStats } from '../uiStats';
+import { ModelStatsTable } from '../components/ModelStatsTable';
+import { ProgressPanel } from '../components/ProgressPanel';
+import { StatsPanel } from '../components/StatsPanel';
 
-export function RunScreen(props: { events: RunnerEvent[]; showLogs: boolean }) {
-  const last = props.events[props.events.length - 1];
-  const runId = props.events.find(e => e.type === 'run_started')?.runId;
+export function RunScreen(props: {
+  events: RunnerEvent[];
+  showLogs: boolean;
+  totalQuestions: number;
+}) {
+  const [nowMs, setNowMs] = React.useState(() => Date.now());
 
-  const completed = props.events.filter(e => e.type === 'question_completed').length;
-  const failed = props.events.filter(e => e.type === 'question_failed').length;
+  React.useEffect(() => {
+    const t = setInterval(() => setNowMs(Date.now()), 250);
+    return () => clearInterval(t);
+  }, []);
+
+  const stats = computeUiStats({
+    events: props.events,
+    totalQuestions: props.totalQuestions,
+    nowMs,
+  });
 
   return (
     <Box flexDirection="column" paddingX={1}>
-      <Text bold>apocbench</Text>
-      <Text>run: {runId ?? 'starting...'}</Text>
-      <Text>
-        progress: {completed} done, {failed} failed
-      </Text>
-      <Text>controls: l=logs s=scores q=quit</Text>
+      <Box>
+        <Text bold>apocbench</Text>
+        <Text>  run: {stats.runId ?? 'starting…'}</Text>
+        <Text>  elapsed: {formatDuration(stats.elapsedMs)}</Text>
+      </Box>
 
-      <Box marginTop={1}>
-        <ModelTable events={props.events} />
+      <Box marginTop={1} gap={2}>
+        <Box flexDirection="column" gap={1}>
+          <ProgressPanel stats={stats} width={44} />
+          <StatsPanel stats={stats} />
+        </Box>
+        <Box flexGrow={1}>
+          <ModelStatsTable stats={stats} />
+        </Box>
       </Box>
 
       <Box marginTop={1}>
-        <QuestionPanel events={props.events} />
-      </Box>
-
-      <Box marginTop={1}>
+        <Text>controls: l=logs q=quit</Text>
         <Text>
-          last: {last ? JSON.stringify(last).slice(0, 120) : '...'}
+          {'  '}last: {stats.lastEvent ? formatEventSummary(stats.lastEvent) : '…'}
         </Text>
       </Box>
 
@@ -43,3 +59,4 @@ export function RunScreen(props: { events: RunnerEvent[]; showLogs: boolean }) {
     </Box>
   );
 }
+

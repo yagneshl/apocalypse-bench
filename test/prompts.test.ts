@@ -51,9 +51,27 @@ describe('prompt rendering', () => {
 
     expect(buildJudgePrompt({ question: q, candidateAnswer: 'answer' })).toMatchInlineSnapshot(`
       "You are a strict evaluator. Output ONLY valid JSON matching the requested schema.
+      Return rubric_scores as an object with EVERY rubric id as a key.
+      Required rubric ids: r1, r2.
+      Do NOT omit any id. Do NOT add extra ids. Use numbers only.
       Score each rubric item by id with a number within [0, maxScore].
       If auto_fail triggers, set auto_fail=true, overall_score=0, and include a reason.
       Keep notes concise and specific.
+
+      Output JSON with exactly these keys:
+      rubric_scores, auto_fail, auto_fail_reason, overall_score, notes
+
+      JSON template (fill it in; keep all rubric ids present):
+      {
+        \"rubric_scores\": {
+          \"r1\": 0,
+          \"r2\": 0
+        },
+        \"auto_fail\": false,
+        \"auto_fail_reason\": \"\",
+        \"overall_score\": 0,
+        \"notes\": \"\"
+      }
 
       Question: Q1
       Category: shelter

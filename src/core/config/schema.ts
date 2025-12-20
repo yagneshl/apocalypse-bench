@@ -31,6 +31,27 @@ const openRouterRoutingSchema = z
   })
   .strict();
 
+export function toOpenRouterProviderParam(
+  routing?: z.infer<typeof openRouterRoutingSchema>,
+): Record<string, unknown> | undefined {
+  if (!routing) return undefined;
+
+  const provider: Record<string, unknown> = {};
+
+  if (routing.requireParameters != null) provider.require_parameters = routing.requireParameters;
+  if (routing.allowFallbacks != null) provider.allow_fallbacks = routing.allowFallbacks;
+  if (routing.order) provider.order = routing.order;
+  if (routing.only) provider.only = routing.only;
+  if (routing.ignore) provider.ignore = routing.ignore;
+  if (routing.sort) provider.sort = routing.sort;
+  if (routing.dataCollection) provider.data_collection = routing.dataCollection;
+  if (routing.zdr != null) provider.zdr = routing.zdr;
+  if (routing.maxPrice) provider.max_price = routing.maxPrice;
+  if (routing.quantizations) provider.quantizations = routing.quantizations;
+
+  return Object.keys(provider).length > 0 ? provider : undefined;
+}
+
 export const configSchema = z
   .object({
     run: z

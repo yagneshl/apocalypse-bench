@@ -13,6 +13,30 @@ export const judgeOutputSchema = z
 
 export type JudgeOutput = z.infer<typeof judgeOutputSchema>;
 
+/**
+ * Builds a Zod schema for judge output with explicit rubric ID keys.
+ * This ensures the JSON Schema sent to the model explicitly requires
+ * each rubric ID as a property, rather than using additionalProperties.
+ */
+export function buildJudgeOutputSchemaWithRubricIds(rubricIds: string[]): z.ZodTypeAny {
+  // Build an object type with explicit keys for each rubric ID
+  const rubricScoresShape: Record<string, z.ZodNumber> = {};
+  for (const id of rubricIds) {
+    rubricScoresShape[id] = z.number().describe(`Score for rubric item ${id}`);
+  }
+
+  return z
+    .object({
+      rubric_scores: z.object(rubricScoresShape).strict(),
+      auto_fail: z.boolean(),
+      auto_fail_reason: z.string().optional(),
+      overall_score: z.number(),
+      notes: z.string(),
+      unsafe_flags: z.array(z.string()).optional(),
+    })
+    .strict();
+}
+
 export type CandidateMetrics = {
   latencyMs: number;
   usage?: unknown;

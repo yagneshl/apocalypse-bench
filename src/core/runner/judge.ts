@@ -1,8 +1,12 @@
 import { generateObject, NoObjectGeneratedError, type LanguageModel } from 'ai';
 import type { z } from 'zod';
 import type { ProviderOptions } from '@ai-sdk/provider-utils';
-import { judgeOutputSchema, type JudgeOutput } from './types';
+import { buildJudgeOutputSchemaWithRubricIds, type JudgeOutput } from './types';
 import { computeBackoffMs, sleep } from '../../utils/backoff';
+
+const _deps = {
+  generateObject,
+};
 
 export type JudgeRequest = {
   model: LanguageModel;
@@ -10,6 +14,8 @@ export type JudgeRequest = {
   maxTokens: number;
   temperature: number | null | undefined;
   providerOptions?: ProviderOptions;
+  /** Required rubric IDs - used to build explicit schema keys */
+  rubricIds: string[];
 };
 
 export type JudgeRetryOptions = {
@@ -34,7 +40,11 @@ async function judgeOnceWithRetry(
       const retryable = isRetryableError(err);
       if (!retryable || attempt === retry.maxRetries) throw err;
       await sleep(
-        computeBackoffMs(attempt, { retries: retry.maxRetries, baseMs: retry.baseMs, maxMs: retry.maxMs }),
+        computeBackoffMs(attempt, {
+          retries: retry.maxRetries,
+          baseMs: retry.baseMs,
+          maxMs: retry.maxMs,
+        }),
       );
     }
   }
@@ -45,14 +55,22 @@ export async function judgeOnce(req: JudgeRequest): Promise<{
   object: JudgeOutput;
   raw: unknown;
 }> {
-  const result = await generateObject({
+  // Build schema with explicit rubric ID keys to ensure the model knows which keys are required
+  const schema = buildJudgeOutputSchemaWithRubricIds(req.rubricIds);
+
+  const result = await _deps.generateObject({
     model: req.model,
-    schema: judgeOutputSchema as z.ZodTypeAny,
+    schema: schema as z.ZodTypeAny,
     prompt: req.prompt,
     maxOutputTokens: req.maxTokens,
     temperature: req.temperature ?? undefined,
     providerOptions: req.providerOptions,
   });
+
+  // Debug: log parsed object to see what the model is returning
+  if (process.env.DEBUG_JUDGE) {
+    console.error('[DEBUG_JUDGE] Parsed object:', JSON.stringify(result.object, null, 2));
+  }
 
   return {
     object: result.object as JudgeOutput,
@@ -67,6 +85,10 @@ export async function judgeOnce(req: JudgeRequest): Promise<{
   };
 }
 
+export function __setJudgeDepsForTest(next: Partial<typeof _deps>): void {
+  Object.assign(_deps, next);
+}
+
 export async function judgeWithRepairRetry(
   req: JudgeRequest,
   opts?: { retry?: Partial<JudgeRetryOptions> },
@@ -75,7 +97,12 @@ export async function judgeWithRepairRetry(
   raw: unknown;
   didRepairRetry: boolean;
 }> {
-  const retry: JudgeRetryOptions = { maxRetries: 3, baseMs: 600, maxMs: 8000, ...opts?.retry };
+  const retry: JudgeRetryOptions = {
+    maxRetries: 3,
+    baseMs: 600,
+    maxMs: 8000,
+    ...opts?.retry,
+  };
 
   try {
     const { object, raw } = await judgeOnceWithRetry(req, retry);
@@ -90,9 +117,58 @@ export async function judgeWithRepairRetry(
 
     const backoff = computeBackoffMs(0, { retries: 1, baseMs: 800, maxMs: 4000 });
     await sleep(backoff);
-    const { object, raw } = await judgeOnceWithRetry({ ...req, prompt: retryPrompt }, retry);
+    const { object, raw } = await judgeOnceWithRetry(
+      { ...req, prompt: retryPrompt },
+      retry,
+    );
     return { object, raw, didRepairRetry: true };
   }
+}
+
+function missingRubricIds(params: {
+  judgeOutput: JudgeOutput;
+  rubric: Array<{ id: string }>;
+}): string[] {
+  const scored = params.judgeOutput.rubric_scores ?? {};
+  const missing: string[] = [];
+  for (const item of params.rubric) {
+    if (typeof scored[item.id] !== 'number') missing.push(item.id);
+  }
+  return missing;
+}
+
+export async function judgeWithRubricCompletenessRetry(
+  req: JudgeRequest,
+  params: { rubric: Array<{ id: string }> },
+  opts?: { retry?: Partial<JudgeRetryOptions> },
+): Promise<{
+  object: JudgeOutput;
+  raw: unknown;
+  didRepairRetry: boolean;
+}> {
+  const first = await judgeWithRepairRetry(req, opts);
+  const missing = missingRubricIds({ judgeOutput: first.object, rubric: params.rubric });
+  if (missing.length === 0) return first;
+
+  const rubricIds = params.rubric.map((r) => r.id).join(', ');
+  const retryPrompt =
+    req.prompt +
+    `\n\nIMPORTANT: Your prior output omitted rubric_scores for required ids. ` +
+    `Output JSON only. rubric_scores must include ALL ids: ${rubricIds}. ` +
+    `Do not omit any id.`;
+
+  const second = await judgeWithRepairRetry({ ...req, prompt: retryPrompt }, opts);
+  const stillMissing = missingRubricIds({
+    judgeOutput: second.object,
+    rubric: params.rubric,
+  });
+  if (stillMissing.length > 0) {
+    throw new Error(
+      `judge output missing rubric_scores for ids: ${stillMissing.join(', ')}`,
+    );
+  }
+
+  return { ...second, didRepairRetry: true };
 }
 
 export function computeOverallScore(params: {

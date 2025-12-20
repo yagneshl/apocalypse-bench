@@ -14,6 +14,7 @@ import { renderHtmlReport } from '../reports/html/renderHtml';
 import { openAndMigrate } from '../storage/sqlite/migrate';
 import { listRunModelResults } from '../storage/sqlite/queries';
 import { App } from '../ui/App';
+import { getTotalQuestions } from '../ui/uiStats';
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -75,6 +76,7 @@ async function runCommand(
     ? { ...loadedConfig, run: { ...loadedConfig.run, resume: true } }
     : loadedConfig;
   const dataset = loadJsonl(config.run.datasetPath);
+  const totalQuestions = getTotalQuestions(config, dataset.lines.length);
 
   const events: RunnerEvent[] = [];
 
@@ -87,7 +89,7 @@ async function runCommand(
         baseUrl: config.routers.openrouter.baseUrl,
         headers: config.routers.openrouter.headers,
       });
-      return openrouter(m.model);
+      return openrouter(m.model, { usage: { include: true } });
     }
 
     const ollama = createOllamaClient({ baseUrl: config.routers.ollama.baseUrl });
@@ -102,7 +104,7 @@ async function runCommand(
       baseUrl: config.routers.openrouter.baseUrl,
       headers: config.routers.openrouter.headers,
     });
-    return openrouter(config.judge.model);
+    return openrouter(config.judge.model, { usage: { include: true } });
   };
 
   const subscribers = new Set<(e: RunnerEvent) => void>();
@@ -145,6 +147,7 @@ async function runCommand(
           subscribers.delete(onEvent);
         };
       }}
+      totalQuestions={totalQuestions}
     />,
   );
 }
@@ -187,7 +190,7 @@ async function reportCommand(this: CliContext, flags: ReportFlags, runId: string
   const runDir = path.resolve(process.cwd(), outDir, runId);
   fs.mkdirSync(runDir, { recursive: true });
   fs.writeFileSync(path.join(runDir, 'summary.json'), JSON.stringify(summary, null, 2));
-  fs.writeFileSync(path.join(runDir, 'report.html'), renderHtmlReport({ runId, summaryJson: summary }));
+  fs.writeFileSync(path.join(runDir, 'report.html'), renderHtmlReport({ runId, summaryJson: summary, results: rows }));
   console.log(JSON.stringify(summary, null, 2));
 }
 

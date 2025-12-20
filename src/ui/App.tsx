@@ -15,16 +15,24 @@ export function App({
   runPromise,
   getInitialEvents,
   subscribeToEvents,
+  totalQuestions,
 }: {
   runPromise: Promise<RunResult | null>;
   getInitialEvents: () => RunnerEvent[];
   subscribeToEvents: (onEvent: (e: RunnerEvent) => void) => () => void;
+  totalQuestions: number;
 }) {
   const [events, setEvents] = useState<RunnerEvent[]>(() => getInitialEvents());
 
+  const eventsLimit = 2000;
+
   useEffect(() => {
     return subscribeToEvents((e) => {
-      setEvents((prev) => [...prev, e]);
+      setEvents((prev) => {
+        const next = [...prev, e];
+        if (next.length <= eventsLimit) return next;
+        return next.slice(-eventsLimit);
+      });
     });
   }, [subscribeToEvents]);
 
@@ -46,18 +54,16 @@ export function App({
   }, [runPromise]);
 
   const [showLogs, setShowLogs] = useState(false);
-  const [_showScores, setShowScores] = useState(false);
   useInput(
     (input, key) => {
       if (input === 'q' || key.escape) process.exit(0);
       if (input === 'l') setShowLogs((v) => !v);
-      if (input === 's') setShowScores((v) => !v);
     },
     { isActive: process.stdin.isTTY === true },
   );
 
   if (!done) {
-    return <RunScreen events={events} showLogs={showLogs} />;
+    return <RunScreen events={events} showLogs={showLogs} totalQuestions={totalQuestions} />;
   }
 
   if (done === null) {
