@@ -20,7 +20,7 @@ import { renderHtmlReport } from '../reports/html/renderHtml';
 import { openAndMigrate } from '../storage/sqlite/migrate';
 import { listRunModelResults } from '../storage/sqlite/queries';
 import { App } from '../ui/App';
-import { getTotalQuestions } from '../ui/uiStats';
+import { getTotalQuestions, getQuestionsPerModel } from '../ui/uiStats';
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -84,11 +84,9 @@ async function runCommand(
     ? { ...loadedConfig, run: { ...loadedConfig.run, resume: true } }
     : loadedConfig;
   const dataset = loadJsonl(config.run.datasetPath);
-  const totalQuestions = getTotalQuestions(
-    config,
-    dataset.lines.length,
-    config.models.length,
-  );
+  const modelCount = config.models.length;
+  const questionsPerModel = getQuestionsPerModel(config, dataset.lines.length);
+  const totalQuestions = getTotalQuestions(config, dataset.lines.length, modelCount);
 
   // Keep a bounded event buffer so long runs don't exhaust the JS heap.
   const events: RunnerEvent[] = [];
@@ -163,6 +161,8 @@ async function runCommand(
         };
       }}
       totalQuestions={totalQuestions}
+      questionsPerModel={questionsPerModel}
+      modelCount={modelCount}
     />,
   );
 }

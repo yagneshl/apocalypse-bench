@@ -40,7 +40,13 @@ describe('computeUiStats', () => {
       { type: 'budget_exceeded', runId: 'r1', maxBudgetUsd: 1 },
     ];
 
-    const stats = computeUiStats({ events, totalQuestions: 4, nowMs: 10_000 });
+    const stats = computeUiStats({
+      events,
+      totalQuestions: 4,
+      questionsPerModel: 4,
+      modelCount: 1,
+      nowMs: 10_000,
+    });
     expect(stats.runId).toBe('r1');
     expect(stats.completedCount).toBe(1);
     expect(stats.failedCount).toBe(1);
@@ -81,7 +87,13 @@ describe('computeUiStats', () => {
       },
     ];
 
-    const stats = computeUiStats({ events, totalQuestions: 1, nowMs: 10_000 });
+    const stats = computeUiStats({
+      events,
+      totalQuestions: 1,
+      questionsPerModel: 1,
+      modelCount: 1,
+      nowMs: 10_000,
+    });
     expect(stats.lastTps).toBe(null);
     expect(stats.hasOpenRouterGenerationId).toBe(false);
   });
@@ -98,7 +110,13 @@ describe('computeUiStats', () => {
       },
     ];
 
-    const stats = computeUiStats({ events, totalQuestions: 1, nowMs: 10_000 });
+    const stats = computeUiStats({
+      events,
+      totalQuestions: 1,
+      questionsPerModel: 1,
+      modelCount: 1,
+      nowMs: 10_000,
+    });
     expect(stats.hasOpenRouterGenerationId).toBe(true);
     expect(stats.lastTps).toBe(null);
   });

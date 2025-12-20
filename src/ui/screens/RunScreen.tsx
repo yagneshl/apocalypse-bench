@@ -1,21 +1,33 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Text } from 'ink';
 import type { RunnerEvent } from '../../core/runner/orchestrator';
 import { LogsPanel } from '../components/LogsPanel';
-import { formatDuration, formatEventSummary } from '../format';
+import { formatDuration, formatEventSummary, formatNumber, formatUsd } from '../format';
 import { computeUiStats } from '../uiStats';
 import { ModelStatsTable } from '../components/ModelStatsTable';
-import { ProgressPanel } from '../components/ProgressPanel';
-import { StatsPanel } from '../components/StatsPanel';
+
+function GlobalProgressBar(props: { progress: number; width: number }) {
+  const { progress, width } = props;
+  const filled = Math.round(progress * width);
+  const empty = Math.max(0, width - filled);
+  return (
+    <Text>
+      {'█'.repeat(filled)}
+      {'░'.repeat(empty)}
+    </Text>
+  );
+}
 
 export function RunScreen(props: {
   events: RunnerEvent[];
   showLogs: boolean;
   totalQuestions: number;
+  questionsPerModel: number;
+  modelCount: number;
 }) {
-  const [nowMs, setNowMs] = React.useState(() => Date.now());
+  const [nowMs, setNowMs] = useState(() => Date.now());
 
-  React.useEffect(() => {
+  useEffect(() => {
     const t = setInterval(() => setNowMs(Date.now()), 250);
     return () => clearInterval(t);
   }, []);
@@ -23,32 +35,76 @@ export function RunScreen(props: {
   const stats = computeUiStats({
     events: props.events,
     totalQuestions: props.totalQuestions,
+    questionsPerModel: props.questionsPerModel,
+    modelCount: props.modelCount,
     nowMs,
   });
 
+  const doneTotal = stats.completedCount + stats.failedCount;
+  const progressPct = stats.progress == null ? 0 : Math.round(stats.progress * 100);
+  const totalTokens = stats.models.reduce(
+    (sum, m) => sum + (m.usage?.totalTokens ?? 0),
+    0,
+  );
+  const totalCostUsd = stats.models.reduce((sum, m) => sum + (m.costUsd ?? 0), 0);
+
   return (
     <Box flexDirection="column" paddingX={1}>
-      <Box>
+      {/* Header */}
+      <Box gap={2}>
         <Text bold>apocbench</Text>
-        <Text>  run: {stats.runId ?? 'starting…'}</Text>
-        <Text>  elapsed: {formatDuration(stats.elapsedMs)}</Text>
+        <Text dimColor>run:</Text>
+        <Text>{stats.runId ?? 'starting…'}</Text>
+        <Text dimColor>elapsed:</Text>
+        <Text>{formatDuration(stats.elapsedMs)}</Text>
       </Box>
 
+      {/* Global stats bar */}
       <Box marginTop={1} gap={2}>
-        <Box flexDirection="column" gap={1}>
-          <ProgressPanel stats={stats} width={44} />
-          <StatsPanel stats={stats} />
+        <Box gap={1}>
+          <GlobalProgressBar progress={stats.progress ?? 0} width={20} />
+          <Text>{progressPct}%</Text>
         </Box>
-        <Box flexGrow={1}>
-          <ModelStatsTable stats={stats} />
-        </Box>
+        <Text dimColor>|</Text>
+        <Text>
+          <Text dimColor>done:</Text> {doneTotal}/{stats.totalQuestions}
+        </Text>
+        <Text dimColor>|</Text>
+        <Text>
+          <Text dimColor>score:</Text>{' '}
+          {stats.runningScoreMean == null ? '—' : formatNumber(stats.runningScoreMean, 2)}
+        </Text>
+        <Text dimColor>|</Text>
+        <Text>
+          <Text dimColor>tokens:</Text> {formatNumber(totalTokens, 0)}
+        </Text>
+        <Text dimColor>|</Text>
+        <Text>
+          <Text dimColor>cost:</Text> {formatUsd(totalCostUsd)}
+        </Text>
+        {stats.budgetMaxUsd != null ? (
+          <>
+            <Text dimColor>|</Text>
+            <Text>
+              <Text dimColor>budget:</Text> {formatUsd(stats.budgetSpentUsd ?? 0)}/
+              {formatUsd(stats.budgetMaxUsd)}
+            </Text>
+          </>
+        ) : null}
       </Box>
 
-      <Box marginTop={1}>
-        <Text>controls: l=logs q=quit</Text>
-        <Text>
-          {'  '}last: {stats.lastEvent ? formatEventSummary(stats.lastEvent) : '…'}
-        </Text>
+      {/* Model table with per-model progress */}
+      <Box marginTop={1} flexDirection="column" borderStyle="round" paddingX={1}>
+        <Text bold>models</Text>
+        <ModelStatsTable stats={stats} />
+      </Box>
+
+      {/* Footer */}
+      <Box marginTop={1} gap={2}>
+        <Text dimColor>q=quit l=logs</Text>
+        <Text dimColor>|</Text>
+        <Text dimColor>last:</Text>
+        <Text>{stats.lastEvent ? formatEventSummary(stats.lastEvent) : '…'}</Text>
       </Box>
 
       {props.showLogs ? (
@@ -59,4 +115,3 @@ export function RunScreen(props: {
     </Box>
   );
 }
-

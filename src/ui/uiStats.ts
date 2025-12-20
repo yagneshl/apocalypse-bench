@@ -12,6 +12,8 @@ export type ModelUiStats = {
   lastLatencyMs: number | null;
   usage: NormalizedUsage | null;
   costUsd: number;
+  lastTps: number | null;
+  questionsPerModel: number;
 };
 
 type ModelUiStatsWithAttempts = ModelUiStats & { _attempts: number };
@@ -20,6 +22,8 @@ export type UiStats = {
   runId: string | null;
   elapsedMs: number;
   totalQuestions: number;
+  questionsPerModel: number;
+  modelCount: number;
   completedCount: number;
   failedCount: number;
   progress: number | null;
@@ -46,6 +50,16 @@ export function getTotalQuestions(
   return questionCount * modelCount;
 }
 
+export function getQuestionsPerModel(
+  config: ApocbenchConfig,
+  selectedQuestionsCount: number,
+): number {
+  const limit = config.run.questionLimit ?? null;
+  return typeof limit === 'number'
+    ? Math.min(limit, selectedQuestionsCount)
+    : selectedQuestionsCount;
+}
+
 type ModelAgg = {
   completed: number;
   failed: number;
@@ -54,23 +68,17 @@ type ModelAgg = {
   lastLatencyMs: number | null;
   usage: NormalizedUsage | null;
   costUsd: number;
+  lastTps: number | null;
 };
 
 export function computeUiStats(params: {
   events: RunnerEvent[];
   totalQuestions: number;
+  questionsPerModel: number;
+  modelCount: number;
   nowMs: number;
 }): UiStats {
-  const { events, totalQuestions, nowMs } = params;
-
-  const prev = events
-    .slice()
-    .reverse()
-    .find((e) => e.type === 'generation_metrics') as { tps?: unknown } | undefined;
-  const prevTps =
-    typeof prev?.tps === 'number' && Number.isFinite(prev.tps) && prev.tps >= 0
-      ? prev.tps
-      : null;
+  const { events, totalQuestions, questionsPerModel, modelCount, nowMs } = params;
 
   let runId: string | null = null;
   let runStartedAtMs: number | null = null;
@@ -79,10 +87,11 @@ export function computeUiStats(params: {
   let completedCount = 0;
   let failedCount = 0;
   let runningScoreSum = 0;
-  let lastTps: number | null = prevTps;
+  let lastTps: number | null = null;
   let hasOpenRouterGenerationId = false;
 
   const perModel = new Map<string, ModelAgg>();
+  const perModelTps = new Map<string, number>();
 
   for (const e of events) {
     if (e.type === 'generation_metrics') {
@@ -92,8 +101,12 @@ export function computeUiStats(params: {
         hasOpenRouterGenerationId = true;
       }
       const tps = (e as { tps?: unknown } | null | undefined)?.tps;
+      const modelId = (e as { modelId?: unknown } | null | undefined)?.modelId;
       if (typeof tps === 'number' && Number.isFinite(tps) && tps >= 0) {
         lastTps = tps;
+        if (typeof modelId === 'string') {
+          perModelTps.set(modelId, tps);
+        }
       }
       continue;
     }
@@ -131,6 +144,7 @@ export function computeUiStats(params: {
         lastLatencyMs: null,
         usage: null,
         costUsd: 0,
+        lastTps: null,
       };
       agg.completed += 1;
       agg.scoreSum += e.overallScore;
@@ -161,6 +175,7 @@ export function computeUiStats(params: {
         lastLatencyMs: null,
         usage: null,
         costUsd: 0,
+        lastTps: null,
       };
       agg.failed += 1;
       agg.lastQuestionId = e.questionId;
@@ -201,6 +216,8 @@ export function computeUiStats(params: {
         lastLatencyMs: agg.lastLatencyMs,
         usage: agg.usage,
         costUsd: agg.costUsd,
+        lastTps: perModelTps.get(modelId) ?? null,
+        questionsPerModel,
         _attempts: attempts,
       };
       return withAttempts;
@@ -219,6 +236,8 @@ export function computeUiStats(params: {
     runId,
     elapsedMs,
     totalQuestions,
+    questionsPerModel,
+    modelCount,
     completedCount,
     failedCount,
     progress,

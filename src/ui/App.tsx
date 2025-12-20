@@ -16,11 +16,15 @@ export function App({
   getInitialEvents,
   subscribeToEvents,
   totalQuestions,
+  questionsPerModel,
+  modelCount,
 }: {
   runPromise: Promise<RunResult | null>;
   getInitialEvents: () => RunnerEvent[];
   subscribeToEvents: (onEvent: (e: RunnerEvent) => void) => () => void;
   totalQuestions: number;
+  questionsPerModel: number;
+  modelCount: number;
 }) {
   const EVENTS_LIMIT = 2000;
   const [events, setEvents] = useState<RunnerEvent[]>(() => {
@@ -65,7 +69,15 @@ export function App({
   );
 
   if (!done) {
-    return <RunScreen events={events} showLogs={showLogs} totalQuestions={totalQuestions} />;
+    return (
+      <RunScreen
+        events={events}
+        showLogs={showLogs}
+        totalQuestions={totalQuestions}
+        questionsPerModel={questionsPerModel}
+        modelCount={modelCount}
+      />
+    );
   }
 
   if (done === null) {
