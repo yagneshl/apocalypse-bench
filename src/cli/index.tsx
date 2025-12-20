@@ -105,6 +105,8 @@ async function runCommand(
     return openrouter(config.judge.model);
   };
 
+  const subscribers = new Set<(e: RunnerEvent) => void>();
+
   const runPromise = runBenchmark({
     config,
     configPath: flags.config,
@@ -120,6 +122,7 @@ async function runCommand(
     categoriesOverride: flags.categories ? Array.from(flags.categories) : null,
     onEvent: e => {
       events.push(e);
+      for (const s of subscribers) s(e);
       if (flags.json) process.stdout.write(JSON.stringify(e) + '\n');
     },
   });
@@ -130,7 +133,20 @@ async function runCommand(
     return;
   }
 
-  render(<App runPromise={runPromise} events={events} />);
+  // debug output intentionally removed
+
+  render(
+    <App
+      runPromise={runPromise}
+      getInitialEvents={() => events.slice()}
+      subscribeToEvents={onEvent => {
+        subscribers.add(onEvent);
+        return () => {
+          subscribers.delete(onEvent);
+        };
+      }}
+    />,
+  );
 }
 
 type ValidateFlags = {
