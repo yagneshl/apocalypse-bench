@@ -51,7 +51,7 @@ Primary outcomes:
 ### Core commands
 
 - `apocbench run -c apocbench.yml`
-- `apocbench run -c apocbench.yml --dry-run` (validate config/dataset, estimate cost, no API calls)
+- `apocbench run -c apocbench.yml --dry-run` (validate config/dataset only, no API calls)
 - `apocbench validate -c apocbench.yml`
 - `apocbench report <runId>`
 - `apocbench diff <runId1> <runId2>`
@@ -126,9 +126,7 @@ Each line is one object (strict; unknown keys rejected by default):
 
 - `id`: string
 - `category`: string
-- `difficulty`: string | number (decide one and normalize)
 - `difficulty`: string (dataset uses human labels like `"Easy" | "Medium" | "Hard"`)
-- `scenario`: string
 - `scenario`: string[] (dataset stores an array of bullet strings)
 - `prompt`: string
 - `rubric`: array of rubric items
@@ -181,6 +179,9 @@ Strict YAML/JSON schema (unknown keys error by default):
 - `maxTokens`: number
 - `structured`: boolean
 
+Optional (OpenRouter only):
+- `routing?`: same shape as per-model `routing` (used for the judge request)
+
 `routers`:
 - `ollama`:
   - `baseUrl`: string
@@ -199,6 +200,35 @@ Strict YAML/JSON schema (unknown keys error by default):
 - `provider?`: string
 - `params?`: overrides for request defaults
 - `promptFormat?`: string
+ - `routing?`: OpenRouter routing options (OpenRouter models only)
+
+#### OpenRouter routing options (per-model)
+
+Optional `routing` block for models with `router: "openrouter"`:
+
+- `routing`:
+  - `requireParameters?`: boolean
+  - `allowFallbacks?`: boolean
+  - `order?`: string[]
+  - `only?`: string[]
+  - `ignore?`: string[]
+  - `sort?`: "price" | "throughput" | "latency"
+  - `dataCollection?`: "allow" | "deny"
+  - `zdr?`: boolean
+  - `maxPrice?`:
+    - `prompt?`: number
+    - `completion?`: number
+    - `request?`: number
+    - `image?`: number
+  - `quantizations?`: string[]
+
+Notes:
+- These map to OpenRouter's `provider` preferences (snake_case in raw HTTP, camelCase in higher-level SDKs).
+- We keep this optional and pass-through; unknown routing fields are rejected by schema.
+
+#### OpenRouter structured outputs (judge)
+
+Judge always uses structured outputs. Config only controls the judge schema/strategy, not whether we attempt unstructured parsing.
 
 ## Persistence & resume
 
@@ -287,6 +317,7 @@ Format: `{name}-{YYYYMMDD}-{HHMMSS}` (e.g., `mbp-small-pack-20241220-143052`)
     - Queue judge call respecting `run.concurrency.judge`.
 11) Judge:
     - Prefer `generateObject` with Zod schema.
+    - On schema/parse failure: retry once with a JSON repair instruction.
     - No unstructured parsing fallback.
     - Persist raw + parsed judge outputs.
 12) Aggregate:
