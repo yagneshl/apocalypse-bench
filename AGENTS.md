@@ -23,3 +23,8 @@ When you need to call tools from the shell, use this rubric:
 
 ## Guidelines
 - Prefer deterministic, non-interactive commands (`head`, `--filter`, `--json` + `jq`) so runs are reproducible
+
+## Dataset editing
+- Edit questions in `data/question_bank_v7.md`.
+- Regenerate runtime dataset JSONL with `pnpm -s compile:dataset -- --in data/question_bank_v7.md --out data/question_bank_v7.jsonl`.
+- `pnpm -s test -- test/dataset-sync.test.ts` ensures MD and JSONL stay in sync.

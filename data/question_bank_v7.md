@@ -1231,7 +1231,7 @@ Task: List the top 8 engineering/safety problems and rewrite the plan so it is r
 ### Prompt
 ```text
 Write instructions to produce reliable cordage and then rope.
-Include fibre preparation, twisting/plying method, joins/splices, quality control, and how to store it dry.
+Include fibre preparation, how to twist it into cord, how to combine cords into thicker rope, how to make it long enough without creating weak spots, quality control, and how to store it dry.
 ```
 
 ### Rubric (10 points)
@@ -1517,8 +1517,8 @@ Task: Identify the top hazards and rewrite the plan safely.
 
 ### Prompt
 ```text
-Design a gravity-fed system.
-Include intake protection, how to join/seal pipes, how to handle air locks, and where to put cleanouts.
+Design a gravity-fed system from the spring to camp.
+Include intake protection, how to join/seal pipes, how to route it so water keeps flowing reliably, how to fix it if flow stops unexpectedly, and where to add access points for clearing blockages.
 ```
 
 ### Rubric (10 points)
@@ -1590,12 +1590,14 @@ Include ditches/berms, where water should go, and how to avoid erosion.
 
 ### Prompt
 ```text
-Task: Troubleshoot and get these radios communicating.
+We found two different walkie-talkies.
+Both say “Channel 1” on the screen, but we can’t hear each other when we press transmit.
+
+Task: Tell us every plausible reason why this happens and how to fix it, step-by-step.
 Your answer must include:
-- A step-by-step diagnostic sequence (fast checks first) to determine why they can't hear each other
-- How to deal with privacy codes/CTCSS/DCS and squelch settings
-- How to handle the fact that 'Channel 1' may not mean the same frequency across different services/models
-- A minimal working procedure to configure both radios to the same settings
+- A step-by-step diagnostic sequence (fast checks first) to determine why they can’t hear each other
+- A minimal working procedure to configure both radios to match
+- A simple way to verify the fix in both directions
 - A fallback low-tech comms plan if they are incompatible (do not assume internet/phones)
 Do not ask clarifying questions; state any assumptions.
 ```
@@ -1709,8 +1711,9 @@ Include valve concept, seal materials, key dimensions, build steps, and expected
 
 ### Prompt
 ```text
-Explain when a siphon will work and how to set one up with minimal mouth contact.
-Include contamination precautions and a plan to dispose of the water safely.
+We need to drain a flooded pit but we have no pump.
+We have hose/tubing (or hollow reeds) and buckets, and the ground outside is lower than the water level.
+Explain how to get the water out safely (avoid mouth contact), including contamination precautions and where to put the discharged water.
 ```
 
 ### Rubric (10 points)
@@ -1747,7 +1750,7 @@ Include contamination precautions and a plan to dispose of the water safely.
 ### Prompt
 ```text
 Propose a piston pump design.
-Include: cylinder, piston cup seal, check valve, handle, priming, and maintenance.
+Explain the moving parts and how they make water go up on the up-stroke and not fall back down on the down-stroke. Include how to build it from wood/leather, how to prime it, and how to maintain it.
 ```
 
 ### Rubric (10 points)
@@ -1855,7 +1858,7 @@ Include: structure, firebox, airflow, chimney, drying schedule, and how to avoid
 ### Prompt
 ```text
 Propose a lime kiln design and operating procedure.
-Include: loading, airflow, burn duration, how to tell when calcination is complete, and key safety hazards.
+Include: loading, airflow, burn duration, how to tell by observation when the stone/shells are ready for mortar use, and key safety hazards.
 ```
 
 ### Rubric (10 points)
@@ -2037,7 +2040,7 @@ Include drainage, materials, build steps, and how to maintain it.
 ### Prompt
 ```text
 Design a dry-stone (or minimally bound) retaining wall.
-Include base preparation, drainage behind the wall, batter angle, and how to prevent failure.
+Include base preparation, drainage behind the wall, how to shape/slope the wall so it doesn’t topple, and how to prevent failure.
 ```
 
 ### Rubric (10 points)
@@ -2689,7 +2692,8 @@ Task: Explain what is missing/wrong and provide a correct low-tech approach.
 
 ### Prompt
 ```text
-Describe the staged plan: fuel, forge, tooling, forging steps, and basic heat treatment.
+Describe the staged plan: fuel, forge, tooling, and forging steps.
+Include how to make the blade hard enough to hold an edge without snapping.
 Include safety and how to test the knife.
 ```
 
@@ -3304,8 +3308,9 @@ Include airflow control, smoke cues, cooling, and safe storage.
 
 ### Prompt
 ```text
-Propose a low-tech retort design.
-Include: how pyrolysis gases are vented/burned, sealing, loading/unloading, and safety.
+We need to make high-quality charcoal using a steel drum, with less smoke and less wasted wood than a pit or mound.
+Design a system that does this using basic tools (no welding).
+Include how to control the burn, how to route and use the smoke/gases safely, how to seal it, loading/unloading, and safety.
 ```
 
 ### Rubric (10 points)
@@ -3486,8 +3491,8 @@ Include what measurements/observations you would track.
 
 ### Prompt
 ```text
-List the top safety hazards and rewrite the plan to reduce explosion and asphyxiation risk.
-Include leak test procedure and ventilation guidance.
+List the top safety hazards and rewrite the plan to reduce explosion and suffocation risk.
+Include a simple leak-test procedure and how to keep the space safe from dangerous gas buildup.
 ```
 
 ### Rubric (10 points)
@@ -4434,8 +4439,9 @@ Include which crops need more attention and how to document variety purity.
 
 ### Prompt
 ```text
-Create an IPM plan.
-Include scouting, non-chemical controls, and safe low-toxicity treatments if needed.
+The greens are getting covered in small bugs and the leaves are getting damaged.
+Create a step-by-step plan to control this without dangerous chemicals and without harming pollinators.
+Include how to monitor the problem, non-chemical controls, and safe low-toxicity treatments if needed.
 ```
 
 ### Rubric (10 points)
@@ -5367,7 +5373,7 @@ Include how to balance warmth and airflow and what danger signs to watch.
 ### Prompt
 ```text
 Provide a reasoning-based assessment of likely causes and immediate mitigations.
-Include ventilation improvements and monitoring.
+Include immediate changes to the room/environment to stop the symptoms and monitoring.
 ```
 
 ### Rubric (10 points)
@@ -8459,7 +8465,7 @@ Include frequency, objectives, and how to evaluate drills.
 ### Scenario
 - You find three unmarked plastic jugs in a garage after the collapse
 - Liquids: one clear; one thick white; one blue (unknown concentration/purity)
-- You need to sort them into: likely fuel/oil vs likely water-based chemical, and identify likely oxidiser (bleach) vs acid without injury
+- You need to sort them into: safe to store as fuel, safe to store as water/cleaning liquid, or dangerous/unknown (do not use) without injuring yourself
 - Available: open outdoor area, clean water, a glass jar/cup, scrap labels/marker, gloves and eye protection (improvised ok)
 - No 'taste test'; avoid creating toxic gases; assume ventilation may be poor indoors
 
@@ -8469,10 +8475,10 @@ Task: Write a safe identification protocol for unknown liquids in unlabelled con
 Constraints:
 - Do NOT taste unknown liquids.
 - Do NOT mix unknown liquids together.
-- Assume one could be bleach (oxidiser), one could be an acid, and one could be fuel/oil.
+\
 Your answer must include:
 - Setup (PPE, location, how to prevent spills/exposure)
-- A step-by-step sequence of low-risk tests (from safest to riskiest) that can separate likely fuel/oil vs water-based, and then acid vs bleach-like
+- A step-by-step sequence of low-risk tests (from safest to riskiest) to sort the liquids into: likely fuel/oil, likely water-based (possibly usable for cleaning), or dangerous/unknown
 - Clear 'stop if…' triggers for fumes/skin exposure
 - How to label, isolate, and store the liquids once sorted, and what to do if uncertain
 Do not ask clarifying questions; state any assumptions.

@@ -1,5 +1,9 @@
 run:
   name: 'default'
+  # Dataset source of truth:
+  # - Edit: `data/question_bank_v7.md`
+  # - Regenerate JSONL: `pnpm -s compile:dataset -- --in data/question_bank_v7.md --out data/question_bank_v7.jsonl`
+  # - Guardrail: `pnpm -s test -- test/dataset-sync.test.ts` fails if MD and JSONL drift.
   datasetPath: './data/question_bank_v7.jsonl'
   outDir: './runs'
   resume: true
