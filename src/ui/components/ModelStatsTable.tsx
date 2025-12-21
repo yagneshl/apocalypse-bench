@@ -26,17 +26,31 @@ function miniProgressBar(completed: number, total: number, width: number): strin
   return '█'.repeat(filled) + '░'.repeat(empty);
 }
 
+// Format rank with medal emoji for top 3
+function formatRank(rank: number | null, totalModels: number): string {
+  if (rank === null) return '—';
+  if (totalModels <= 1) return '—'; // No ranking with single model
+  if (rank === 1) return '#1';
+  if (rank === 2) return '#2';
+  if (rank === 3) return '#3';
+  return `#${rank}`;
+}
+
+// Max possible score per question (10 rubric items × weight 1 × maxScore 1)
+const MAX_SCORE_PER_QUESTION = 10;
+
 export function ModelStatsTable(props: { stats: UiStats }) {
   const rows = props.stats.models;
   const questionsPerModel = props.stats.questionsPerModel;
+  const totalModels = props.stats.modelCount;
 
-  const modelWidth = 26;
-  const progressWidth = 10;
+  const modelWidth = 24;
+  const progressWidth = 8;
   const doneWidth = 7; // "48/240"
-  const scoreWidth = 5;
-  const tpsWidth = 7;
-  const tokWidth = 7;
-  const costWidth = 8;
+  const scoreWidth = 12; // "7.5/10 (#1)"
+  const tpsWidth = 6;
+  const tokWidth = 6;
+  const costWidth = 7;
 
   return (
     <Box flexDirection="column">
@@ -49,16 +63,44 @@ export function ModelStatsTable(props: { stats: UiStats }) {
       {rows.map((r) => {
         const done = r.completed + r.failed;
         const tok = r.usage?.totalTokens ?? 0;
-        const score = r.scoreMean == null ? '—' : formatNumber(r.scoreMean, 2);
+
+        // Format score as "X.X/10 (#N)" showing mean score out of max and rank
+        let scoreStr: string;
+        if (r.scoreMean == null) {
+          scoreStr = '—';
+        } else {
+          const scoreVal = formatNumber(r.scoreMean, 1);
+          const rankStr = formatRank(r.rank, totalModels);
+          if (rankStr === '—') {
+            scoreStr = `${scoreVal}/${MAX_SCORE_PER_QUESTION}`;
+          } else {
+            scoreStr = `${scoreVal}/${MAX_SCORE_PER_QUESTION} ${rankStr}`;
+          }
+        }
+
         const tps = r.lastTps == null ? '—' : formatNumber(r.lastTps, 0);
         const doneStr = `${done}/${questionsPerModel}`;
         const bar = miniProgressBar(done, questionsPerModel, progressWidth);
 
+        // Highlight the leading model
+        const isLeader = r.rank === 1 && totalModels > 1;
+
         return (
           <Text key={r.modelId}>
-            {padRight(ellipsize(r.modelId, modelWidth), modelWidth)} {bar}{' '}
-            {padLeft(doneStr, doneWidth)} {padLeft(score, scoreWidth)}{' '}
-            {padLeft(tps, tpsWidth)} {padLeft(String(tok), tokWidth)}{' '}
+            {isLeader ? (
+              <Text color="green">
+                {padRight(ellipsize(r.modelId, modelWidth), modelWidth)}
+              </Text>
+            ) : (
+              padRight(ellipsize(r.modelId, modelWidth), modelWidth)
+            )}{' '}
+            {bar} {padLeft(doneStr, doneWidth)}{' '}
+            {isLeader ? (
+              <Text color="green">{padLeft(scoreStr, scoreWidth)}</Text>
+            ) : (
+              padLeft(scoreStr, scoreWidth)
+            )}{' '}
+            {padLeft(tps, tpsWidth)} {padLeft(formatNumber(tok, 0), tokWidth)}{' '}
             {padLeft(formatUsd(r.costUsd), costWidth)}
           </Text>
         );

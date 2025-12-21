@@ -14,6 +14,7 @@ export type ModelUiStats = {
   costUsd: number;
   lastTps: number | null;
   questionsPerModel: number;
+  rank: number | null; // 1 = best score, null if no completed questions
 };
 
 type ModelUiStatsWithAttempts = ModelUiStats & { _attempts: number };
@@ -201,32 +202,41 @@ export function computeUiStats(params: {
   const progress = totalQuestions > 0 ? Math.min(1, doneTotal / totalQuestions) : null;
   const runningScoreMean = completedCount > 0 ? runningScoreSum / completedCount : null;
 
-  const models: ModelUiStats[] = (
+  // First pass: build model stats without rank
+  const modelsWithAttempts: ModelUiStatsWithAttempts[] = (
     Array.from(perModel.entries()) as Array<[string, ModelAgg]>
-  )
-    .map(([modelId, agg]) => {
-      const attempts = agg.completed + agg.failed;
-      const withAttempts: ModelUiStatsWithAttempts = {
-        modelId,
-        completed: agg.completed,
-        failed: agg.failed,
-        scoreSum: agg.scoreSum,
-        scoreMean: agg.completed > 0 ? agg.scoreSum / agg.completed : null,
-        lastQuestionId: agg.lastQuestionId,
-        lastLatencyMs: agg.lastLatencyMs,
-        usage: agg.usage,
-        costUsd: agg.costUsd,
-        lastTps: perModelTps.get(modelId) ?? null,
-        questionsPerModel,
-        _attempts: attempts,
-      };
-      return withAttempts;
-    })
-    .sort((a, b) => {
-      const aa = a._attempts;
-      const bb = b._attempts;
-      return bb - aa;
-    })
+  ).map(([modelId, agg]) => {
+    const attempts = agg.completed + agg.failed;
+    return {
+      modelId,
+      completed: agg.completed,
+      failed: agg.failed,
+      scoreSum: agg.scoreSum,
+      scoreMean: agg.completed > 0 ? agg.scoreSum / agg.completed : null,
+      lastQuestionId: agg.lastQuestionId,
+      lastLatencyMs: agg.lastLatencyMs,
+      usage: agg.usage,
+      costUsd: agg.costUsd,
+      lastTps: perModelTps.get(modelId) ?? null,
+      questionsPerModel,
+      rank: null as number | null,
+      _attempts: attempts,
+    };
+  });
+
+  // Sort by score (descending) to calculate ranks
+  const sortedByScore = [...modelsWithAttempts]
+    .filter((m) => m.scoreMean != null)
+    .sort((a, b) => (b.scoreMean ?? 0) - (a.scoreMean ?? 0));
+
+  // Assign ranks (1 = best)
+  sortedByScore.forEach((m, idx) => {
+    m.rank = idx + 1;
+  });
+
+  // Sort by attempts (most active first) for display
+  const models: ModelUiStats[] = modelsWithAttempts
+    .sort((a, b) => b._attempts - a._attempts)
     .map((m) => {
       const { _attempts: _ignored, ...rest } = m;
       return rest;

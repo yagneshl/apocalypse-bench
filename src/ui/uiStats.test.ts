@@ -120,4 +120,48 @@ describe('computeUiStats', () => {
     expect(stats.hasOpenRouterGenerationId).toBe(true);
     expect(stats.lastTps).toBe(null);
   });
+
+  test('ranks models by score (highest first)', () => {
+    const events: RunnerEvent[] = [
+      { type: 'run_started', runId: 'r1', startedAtMs: 1_000 },
+      {
+        type: 'question_completed',
+        runId: 'r1',
+        modelId: 'm1',
+        questionId: 'q1',
+        overallScore: 5,
+      },
+      {
+        type: 'question_completed',
+        runId: 'r1',
+        modelId: 'm2',
+        questionId: 'q1',
+        overallScore: 8,
+      },
+      {
+        type: 'question_completed',
+        runId: 'r1',
+        modelId: 'm3',
+        questionId: 'q1',
+        overallScore: 3,
+      },
+    ];
+
+    const stats = computeUiStats({
+      events,
+      totalQuestions: 3,
+      questionsPerModel: 1,
+      modelCount: 3,
+      nowMs: 10_000,
+    });
+
+    expect(stats.models).toHaveLength(3);
+    const m1 = stats.models.find((m) => m.modelId === 'm1');
+    const m2 = stats.models.find((m) => m.modelId === 'm2');
+    const m3 = stats.models.find((m) => m.modelId === 'm3');
+
+    expect(m2?.rank).toBe(1); // highest score
+    expect(m1?.rank).toBe(2);
+    expect(m3?.rank).toBe(3); // lowest score
+  });
 });
