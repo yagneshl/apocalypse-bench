@@ -50,7 +50,7 @@ describe('computeUiStats', () => {
         usage: { prompt_tokens: 3, completion_tokens: 0, total_tokens: 3 },
         costUsd: 0.001,
       },
-      { type: 'budget_spent', runId: 'r1', spentUsd: 0.003 },
+      { type: 'budget_spent', runId: 'r1', spentUsd: 0.003, source: 'candidate' },
       { type: 'budget_exceeded', runId: 'r1', maxBudgetUsd: 1 },
     ];
 
@@ -117,7 +117,7 @@ describe('computeUiStats', () => {
         costUsd: 0.2,
       },
       // spentUsd differs by a tiny float rounding amount
-      { type: 'budget_spent', runId: 'r1', spentUsd: 0.2000000004 },
+      { type: 'budget_spent', runId: 'r1', spentUsd: 0.2000000004, source: 'candidate' },
     ];
 
     const stats = computeUiStats({
