@@ -20,12 +20,7 @@ export function compileDataset(params: { inPath: string; outPath: string }): voi
   const areaFromFilename = path.basename(params.inPath, path.extname(params.inPath));
   const normalized = compiled.questions.map(q => {
     // Ensure output matches what the runtime loader expects.
-    const withArea = q.area ? q : { ...q, area: areaFromFilename };
-    if (withArea.area !== areaFromFilename) {
-      throw new Error(
-        `Area mismatch for ${q.id}: filename implies ${areaFromFilename} but question has area=${withArea.area}`,
-      );
-    }
+    const withArea = { ...q, area: areaFromFilename };
 
     const parsed = datasetLineSchema.parse(withArea);
     return { ...parsed, rubric: parsed.rubric.map(r => r.text) };

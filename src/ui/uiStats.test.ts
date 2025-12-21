@@ -78,6 +78,33 @@ describe('computeUiStats', () => {
     expect(stats.hasOpenRouterGenerationId).toBe(false);
   });
 
+  test('keeps per-model cost candidate-only while budget spent can include judge', () => {
+    const events: RunnerEvent[] = [
+      { type: 'run_started', runId: 'r1', startedAtMs: 1_000 },
+      {
+        type: 'question_completed',
+        runId: 'r1',
+        modelId: 'm1',
+        questionId: 'q1',
+        overallScore: 1,
+        costUsd: 0.2,
+      },
+      // budget spent includes candidate + judge
+      { type: 'budget_spent', runId: 'r1', spentUsd: 0.24 },
+    ];
+
+    const stats = computeUiStats({
+      events,
+      totalQuestions: 1,
+      questionsPerModel: 1,
+      modelCount: 1,
+    });
+
+    expect(stats.models).toHaveLength(1);
+    expect(stats.models[0].costUsd).toBeCloseTo(0.2);
+    expect(stats.budgetSpentUsd).toBeCloseTo(0.24);
+  });
+
   test('keeps totals monotonic even when event window drops old events', () => {
     const makeCompleted = (questionId: string, costUsd: number): RunnerEvent => ({
       type: 'question_completed',

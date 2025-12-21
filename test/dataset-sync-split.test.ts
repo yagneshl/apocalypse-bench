@@ -18,7 +18,10 @@ describe('question bank split md -> jsonl', () => {
 
     const compiledAll = mdFiles.flatMap(mdFile => {
       const compiled = compileQuestionBankMdFile(mdFile);
-      return compiled.questions.map(q => datasetLineSchema.parse({ ...q, area: q.area ?? q.id.split('-')[0] }));
+      const areaFromFilename = path.basename(mdFile, path.extname(mdFile));
+      return compiled.questions.map(q =>
+        datasetLineSchema.parse({ ...q, area: areaFromFilename }),
+      );
     });
 
     const splitJsonlDir = 'data/question_bank_v8_jsonl';
@@ -33,10 +36,13 @@ describe('question bank split md -> jsonl', () => {
     // Merge while preserving legacy order: take the next question from each area's list when it appears.
     const cursors = new Map<string, number>();
     const mergedOrdered = compiledAll.map(q => {
-      const areaLines = loadedByArea.get(q.area) as any[];
-      const idx = cursors.get(q.area) ?? 0;
+      const area = q.area;
+      if (!area) throw new Error(`Missing area for question ${q.id}`);
+
+      const areaLines = loadedByArea.get(area) as unknown[];
+      const idx = cursors.get(area) ?? 0;
       const line = areaLines[idx];
-      cursors.set(q.area, idx + 1);
+      cursors.set(area, idx + 1);
       return line;
     });
 

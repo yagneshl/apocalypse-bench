@@ -195,10 +195,21 @@ export async function runBenchmark(params: {
   let budgetExceededEmitted = false;
 
   function extractOpenRouterCost(raw: unknown): number | null {
-    const cost = (
-      raw as { providerMetadata?: { openrouter?: { cost?: unknown } } } | null | undefined
-    )?.providerMetadata?.openrouter?.cost;
-    return typeof cost === 'number' && Number.isFinite(cost) ? cost : null;
+    const pm = (raw as { providerMetadata?: unknown } | null | undefined)?.providerMetadata as
+      | {
+          openrouter?: {
+            cost?: unknown;
+            usage?: { cost?: unknown };
+          };
+        }
+      | null
+      | undefined;
+
+    const cost = pm?.openrouter?.cost;
+    if (typeof cost === 'number' && Number.isFinite(cost)) return cost;
+
+    const usageCost = pm?.openrouter?.usage?.cost;
+    return typeof usageCost === 'number' && Number.isFinite(usageCost) ? usageCost : null;
   }
 
   function emitBudgetExceededIfNeeded(): void {

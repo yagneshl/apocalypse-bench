@@ -6,7 +6,7 @@ The Ink TUI currently shows `cost` as the sum of per-question `costUsd` attached
 
 Today, those per-question events include **candidate** cost only (`lastCandidateCostUsd`). **Judge** cost is tracked separately via `budget_spent` (incremented by `recordSpend()`), but it is not included in the displayed `cost`.
 
-Goal: ensure the TUI “run cost” is accurate and includes **all OpenRouter spend** for both candidate and judge (and any future OpenRouter calls).
+Goal: ensure the **top-of-screen** TUI “run cost” is accurate and includes **all OpenRouter spend** for both candidate and judge (and any future OpenRouter calls), while **per-model cost remains candidate-only**.
 
 ## Current Implementation (What’s Wrong)
 
@@ -26,34 +26,32 @@ Net result: displayed `cost` is candidate-only, while `budget:` is candidate+jud
 
 ## Proposed Solution
 
-### A) Treat “Cost” as authoritative OpenRouter spend (recommended)
+### A) Show top-level “Cost” as total spend + judge delta (recommended)
 
-Use the existing `budget_spent` stream as the single source of truth for total OpenRouter billed cost.
+Use the existing `budget_spent` stream as the single source of truth for total OpenRouter billed cost, and display judge spend as a derived delta.
 
-- Add a new UI field `openRouterSpentUsd` (or reuse `budgetSpentUsd` when present) and display that as the global “cost”.
-- Keep the model table cost columns as-is (candidate-only) unless we also implement per-model attribution for judge.
+- Display top-level line like: `cost: $0.24 (judge: $0.04)`.
+- Compute:
+  - `totalUsd = stats.budgetSpentUsd ?? sum(stats.models[].costUsd)`
+  - `candidateUsd = sum(stats.models[].costUsd)`
+  - `judgeUsd = stats.budgetSpentUsd != null ? max(0, totalUsd - candidateUsd) : null`
+- Render `(judge: …)` only when `stats.budgetSpentUsd` is present.
+- Keep the model table cost columns as-is (candidate-only).
 
 Changes:
 - Update `src/ui/screens/RunScreen.tsx` and `src/ui/screens/SummaryScreen.tsx`:
-  - Global “cost” should be derived from `stats.budgetSpentUsd` when present; fall back to the existing `sum(models[].costUsd)` when budget is not configured.
+  - Global “cost” should show total spend and, when available, the derived judge delta.
 
 Rationale:
 - `recordSpend()` already increments for both candidate and judge OpenRouter calls.
 - Avoids missing judge spend and avoids double counting.
 
-### B) Also attribute judge spend to per-question/per-model (optional follow-up)
+### B) Explicitly do *not* change per-model cost attribution
 
-If we want per-model “cost” to reflect judge spend too, we need to decide attribution:
+Per-model cost should remain candidate-only.
 
-- Option B1: Attribute judge spend to the candidate model being judged (simplest: judge call happens per `(candidateModel, question)` pair).
-- Option B2: Keep judge spend separate (report candidate cost vs judge cost separately).
-
-Implementation for either:
-- Extend `RunnerEvent` payloads to include `candidateCostUsd` and `judgeCostUsd` (or `costUsdByRole`).
-- Update `src/ui/uiStats.ts` to aggregate those fields.
-- Update `src/ui/components/ModelStatsTable.tsx` to show separate columns or a combined “total”.
-
-This is more invasive; start with (A) to fix correctness of the global run cost.
+- Do not attach judge cost to `question_completed` / `question_failed`.
+- Do not change `src/ui/uiStats.ts` per-model cost aggregation.
 
 ## Technical Notes / Constraints
 
@@ -66,6 +64,7 @@ This is more invasive; start with (A) to fix correctness of the global run cost.
 ## Acceptance Criteria
 
 - The TUI global `cost` includes both candidate + judge OpenRouter spend for the run.
+- When `budgetSpentUsd` is available, the TUI shows `cost: $TOTAL (judge: $DELTA)` where `DELTA = max(0, TOTAL - sumCandidateCosts)`.
 - When a run is configured with `run.maxBudgetUsd`, the displayed `cost` matches the `budget` “spent” number.
 - When no OpenRouter budget tracking is present (or cost fields are missing), the TUI still shows a reasonable fallback cost (current behavior).
 - Add/adjust tests to cover the new display logic.

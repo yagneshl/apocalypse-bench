@@ -60,7 +60,12 @@ export function RunScreen(props: {
     (sum, m) => sum + (m.usage?.totalTokens ?? 0),
     0,
   );
-  const totalCostUsd = stats.models.reduce((sum, m) => sum + (m.costUsd ?? 0), 0);
+  const candidateCostUsd = stats.models.reduce((sum, m) => sum + (m.costUsd ?? 0), 0);
+  const totalCostUsd = stats.budgetSpentUsd ?? candidateCostUsd;
+  const judgeCostUsd =
+    stats.budgetSpentUsd != null
+      ? Math.max(0, totalCostUsd - candidateCostUsd)
+      : null;
 
   return (
     <Box flexDirection="column" paddingX={1}>
@@ -95,6 +100,7 @@ export function RunScreen(props: {
         <Text dimColor>|</Text>
         <Text>
           <Text dimColor>cost:</Text> {formatUsd(totalCostUsd)}
+          {judgeCostUsd != null ? ` (judge: ${formatUsd(judgeCostUsd)})` : ''}
         </Text>
         {stats.budgetMaxUsd != null ? (
           <>
