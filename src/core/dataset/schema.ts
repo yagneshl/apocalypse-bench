@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+const difficultySchema = z.enum(['Easy', 'Medium', 'Hard', 'Very Hard']);
+
 export const rubricItemSchema = z
   .object({
     id: z.string().min(1),
@@ -21,7 +23,7 @@ export const datasetLineSchema = z
     id: z.string().min(1),
     category: z.string().min(1),
     title: z.string().min(1).optional(),
-    difficulty: z.string().min(1),
+    difficulty: difficultySchema,
     scenario: z.array(z.string().min(1)),
     prompt: z.string().min(1),
     task_type: z.string().min(1).optional(),
