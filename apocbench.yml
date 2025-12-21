@@ -12,22 +12,22 @@ run:
   categories: null
   maxBudgetUsd: null
   concurrency:
-    candidate: 3
-    judge: 5
+    candidate: 10
+    judge: 10
 
 judge:
-  # router: 'openrouter'
-  # model: 'google/gemini-3-flash-preview'
-  # provider: 'google-ai-studio'
-  # temperature: null
-  # maxTokens: 16000
-  # structured: true
   router: 'openrouter'
-  model: 'xiaomi/mimo-v2-flash:free'
-  provider: 'xiaomi/fp8'
+  model: 'google/gemini-3-flash-preview'
+  provider: 'google-ai-studio'
   temperature: null
   maxTokens: 16000
   structured: true
+  # router: 'openrouter'
+  # model: 'xiaomi/mimo-v2-flash:free'
+  # provider: 'xiaomi/fp8'
+  # temperature: null
+  # maxTokens: 16000
+  # structured: true
 
 routers:
   ollama:
