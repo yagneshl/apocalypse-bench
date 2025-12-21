@@ -8,7 +8,7 @@ When the internet is gone, “smart” models that depend on retrieval or up-to-
 
 ## 3) Goals (MVP)
 1. **Run-once reproducible benchmark**:
-   - Load a JSONL question bank (e.g. `question_bank_v7.jsonl`)
+   - Load one or more JSONL question banks (e.g. `question_bank_v8_jsonl/*.jsonl`)
    - Generate candidate answers for each question
    - Judge each answer with Gemini 3 Flash
    - Produce a local report and machine-readable artefacts
@@ -90,7 +90,8 @@ When the internet is gone, “smart” models that depend on retrieval or up-to-
 ```yaml
 run:
   name: "mbp-small-pack"
-  datasetPath: "./data/question_bank_v7.jsonl"
+  datasetPaths:
+    - "./data/question_bank_v8_jsonl" # directory containing per-area .jsonl files
   outDir: "./runs"
   resume: true
   questionLimit: null        # optional: only run first N questions (useful for dev)

@@ -21,6 +21,7 @@ const datasetRubricSchema = z.union([
 export const datasetLineSchema = z
   .object({
     id: z.string().min(1),
+    area: z.string().min(1).optional(),
     category: z.string().min(1),
     title: z.string().min(1).optional(),
     difficulty: difficultySchema,

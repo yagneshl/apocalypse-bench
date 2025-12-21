@@ -12,7 +12,7 @@ import { createOpenRouterClient } from '../adapters/openrouter/client';
 import { createOllamaClient } from '../adapters/ollama/client';
 import { loadConfig } from '../core/config/loadConfig';
 import type { ApocbenchConfig } from '../core/config/schema';
-import { loadJsonl } from '../core/dataset/loadJsonl';
+import { expandDatasetPaths, loadJsonl, loadJsonlMany } from '../core/dataset/loadJsonl';
 import type { RunnerEvent } from '../core/runner/orchestrator';
 import { runBenchmark } from '../core/runner/orchestrator';
 import { sanitizeEvent } from '../core/runner/sanitizeEvent';
@@ -84,7 +84,10 @@ async function runCommand(
   const config: ApocbenchConfig = forceResume
     ? { ...loadedConfig, run: { ...loadedConfig.run, resume: true } }
     : loadedConfig;
-  const dataset = loadJsonl(config.run.datasetPath);
+
+  const dataset = config.run.datasetPaths
+    ? loadJsonlMany(config.run.datasetPaths)
+    : loadJsonl(config.run.datasetPath!);
   const modelCount = config.models.length;
   const questionsPerModel = getQuestionsPerModel(config, dataset.lines.length);
   const totalQuestions = getTotalQuestions(config, dataset.lines.length, modelCount);
@@ -127,8 +130,11 @@ async function runCommand(
   const runPromise = runBenchmark({
     config,
     configPath: flags.config,
-    datasetPath: config.run.datasetPath,
-    datasetAbsolutePath: dataset.absolutePath,
+    datasetPath: config.run.datasetPaths ? config.run.datasetPaths.join(',') : config.run.datasetPath!,
+    datasetAbsolutePath:
+      'absolutePath' in dataset
+        ? dataset.absolutePath
+        : path.resolve(process.cwd(), expandDatasetPaths(config.run.datasetPaths!)[0]!),
     questions: dataset.lines,
     deps: { resolveModel, resolveJudgeModel, toolVersion: TOOL_VERSION },
     dryRun: flags.dryRun ?? false,
@@ -178,7 +184,9 @@ type ValidateFlags = {
 
 async function validateCommand(this: CliContext, flags: ValidateFlags): Promise<void> {
   const { config } = loadConfig(flags.config);
-  const dataset = loadJsonl(config.run.datasetPath);
+  const dataset = config.run.datasetPaths
+    ? loadJsonlMany(config.run.datasetPaths)
+    : loadJsonl(config.run.datasetPath!);
   if (!flags.quiet)
     console.log(`config ok; dataset ok (${dataset.lines.length} questions)`);
 }

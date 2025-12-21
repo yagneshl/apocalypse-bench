@@ -6,7 +6,7 @@ describe('config schema', () => {
     const result = configSchema.safeParse({
       run: {
         name: 'x',
-        datasetPath: './data/question_bank_v7.jsonl',
+        datasetPaths: ['./data/question_bank_v8_jsonl'],
         outDir: './runs',
         resume: true,
         concurrency: { candidate: 1, judge: 1 },

@@ -57,7 +57,8 @@ export const configSchema = z
     run: z
       .object({
         name: z.string().min(1),
-        datasetPath: z.string().min(1),
+        datasetPath: z.string().min(1).optional(),
+        datasetPaths: z.array(z.string().min(1)).min(1).optional(),
         outDir: z.string().min(1),
         resume: z.boolean(),
         questionLimit: z.number().int().positive().nullable().optional(),
@@ -70,7 +71,24 @@ export const configSchema = z
           })
           .strict(),
       })
-      .strict(),
+      .strict()
+      .superRefine((run, ctx) => {
+        if (run.datasetPath && run.datasetPaths) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'Provide exactly one of run.datasetPath (string) or run.datasetPaths (string[]).',
+            path: ['datasetPaths'],
+          });
+        }
+
+        if (!run.datasetPath && !run.datasetPaths) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'Missing run.datasetPath or run.datasetPaths.',
+            path: ['datasetPath'],
+          });
+        }
+      }),
 
     judge: z
       .object({
