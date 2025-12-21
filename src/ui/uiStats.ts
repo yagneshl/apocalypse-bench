@@ -41,6 +41,8 @@ export type UiTotals = {
   completedCount: number;
   failedCount: number;
   runningScoreSum: number;
+  tpsSamples: number[];
+  perModelTpsSamples: Record<string, number[]>;
   perModel: Record<
     string,
     {
@@ -52,6 +54,24 @@ export type UiTotals = {
     }
   >;
 };
+
+function median(values: number[]): number | null {
+  if (values.length === 0) return null;
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  if (sorted.length % 2 === 1) return sorted[mid];
+  const a = sorted[mid - 1];
+  const b = sorted[mid];
+  return (a + b) / 2;
+}
+
+// Maximum TPS samples to keep. Matches TPS_RESERVOIR_SIZE in App.tsx.
+const TPS_RESERVOIR_SIZE = 200;
+
+function limitReservoir(samples: number[]): number[] {
+  if (samples.length <= TPS_RESERVOIR_SIZE) return samples;
+  return samples.slice(-TPS_RESERVOIR_SIZE);
+}
 
 export function getTotalQuestions(
   config: ApocbenchConfig,
@@ -109,6 +129,16 @@ export function computeUiStats(params: {
   let lastTps: number | null = null;
   let hasOpenRouterGenerationId = false;
 
+  // Initialize TPS samples from totals (accumulated history) if provided.
+  // When totals is provided, it contains the full TPS history, so we don't
+  // need to re-collect from events (which may be a truncated window).
+  const tpsSamples: number[] = totals?.tpsSamples ? [...totals.tpsSamples] : [];
+  const perModelTpsSamples = new Map<string, number[]>(
+    totals?.perModelTpsSamples
+      ? Object.entries(totals.perModelTpsSamples).map(([k, v]) => [k, [...v]])
+      : [],
+  );
+
   const perModel = new Map<string, ModelAgg>();
   const perModelTps = new Map<string, number>();
 
@@ -123,7 +153,19 @@ export function computeUiStats(params: {
       const modelId = (e as { modelId?: unknown } | null | undefined)?.modelId;
       if (typeof tps === 'number' && Number.isFinite(tps) && tps >= 0) {
         lastTps = tps;
-        if (typeof modelId === 'string') {
+        // Only collect from events if totals was not provided (i.e., first pass
+        // where we're building totals from all events). When totals is provided,
+        // the TPS samples are already accumulated there.
+        if (!totals) {
+          tpsSamples.push(tps);
+          if (typeof modelId === 'string') {
+            perModelTps.set(modelId, tps);
+            const samples = perModelTpsSamples.get(modelId) ?? [];
+            samples.push(tps);
+            perModelTpsSamples.set(modelId, samples);
+          }
+        } else if (typeof modelId === 'string') {
+          // Still track lastTps per model for display purposes
           perModelTps.set(modelId, tps);
         }
       }
@@ -269,6 +311,13 @@ export function computeUiStats(params: {
         completedCount,
         failedCount,
         runningScoreSum,
+        tpsSamples: limitReservoir(tpsSamples),
+        perModelTpsSamples: Object.fromEntries(
+          Array.from(perModelTpsSamples.entries()).map(([k, v]) => [
+            k,
+            limitReservoir(v),
+          ]),
+        ),
         perModel: Object.fromEntries(
           Array.from(perModel.entries()).map(([modelId, agg]) => [
             modelId,
@@ -294,11 +343,14 @@ export function computeUiStats(params: {
   const progress = totalQuestions > 0 ? Math.min(1, doneTotal / totalQuestions) : null;
   const runningScoreMean = completedCount > 0 ? runningScoreSum / completedCount : null;
 
+  const medianTps = median(tpsSamples);
+
   // First pass: build model stats without rank
   const modelsWithAttempts: ModelUiStatsWithAttempts[] = (
     Array.from(perModel.entries()) as Array<[string, ModelAgg]>
   ).map(([modelId, agg]) => {
     const attempts = agg.completed + agg.failed;
+    const modelMedianTps = median(perModelTpsSamples.get(modelId) ?? []);
     return {
       modelId,
       completed: agg.completed,
@@ -309,7 +361,7 @@ export function computeUiStats(params: {
       lastLatencyMs: agg.lastLatencyMs,
       usage: agg.usage,
       costUsd: agg.costUsd,
-      lastTps: perModelTps.get(modelId) ?? null,
+      lastTps: modelMedianTps ?? perModelTps.get(modelId) ?? null,
       questionsPerModel,
       rank: null as number | null,
       _attempts: attempts,
@@ -344,7 +396,7 @@ export function computeUiStats(params: {
     failedCount,
     progress,
     runningScoreMean,
-    lastTps,
+    lastTps: medianTps ?? lastTps,
     hasOpenRouterGenerationId,
     budgetSpentUsd,
     budgetMaxUsd,

@@ -26,6 +26,8 @@ type TotalsState = {
   completedCount: number;
   failedCount: number;
   runningScoreSum: number;
+  tpsSamples: number[];
+  perModelTpsSamples: Record<string, number[]>;
   perModel: Record<string, ModelTotals>;
 };
 
@@ -77,7 +79,41 @@ function getCostUsd(costUsd: unknown): number {
     : 0;
 }
 
+// Maximum TPS samples to keep per reservoir (global and per-model).
+// 200 samples is enough for a stable median without unbounded memory growth.
+const TPS_RESERVOIR_SIZE = 200;
+
+function addToReservoir(reservoir: number[], value: number): number[] {
+  const next = [...reservoir, value];
+  if (next.length <= TPS_RESERVOIR_SIZE) return next;
+  // Keep most recent samples by dropping from the front
+  return next.slice(-TPS_RESERVOIR_SIZE);
+}
+
 function totalsReducer(state: TotalsState, e: RunnerEvent): TotalsState {
+  // Handle TPS from generation_metrics events
+  if (e.type === 'generation_metrics') {
+    const tps = (e as { tps?: unknown } | null | undefined)?.tps;
+    const modelId = (e as { modelId?: unknown } | null | undefined)?.modelId;
+    if (typeof tps === 'number' && Number.isFinite(tps) && tps >= 0) {
+      const nextTpsSamples = addToReservoir(state.tpsSamples, tps);
+      let nextPerModelTpsSamples = state.perModelTpsSamples;
+      if (typeof modelId === 'string') {
+        const modelSamples = state.perModelTpsSamples[modelId] ?? [];
+        nextPerModelTpsSamples = {
+          ...state.perModelTpsSamples,
+          [modelId]: addToReservoir(modelSamples, tps),
+        };
+      }
+      return {
+        ...state,
+        tpsSamples: nextTpsSamples,
+        perModelTpsSamples: nextPerModelTpsSamples,
+      };
+    }
+    return state;
+  }
+
   if (e.type !== 'question_completed' && e.type !== 'question_failed') return state;
 
   const current = getModelTotals(state, e.modelId);
@@ -96,8 +132,8 @@ function totalsReducer(state: TotalsState, e: RunnerEvent): TotalsState {
     nextModel.completed += 1;
     nextModel.scoreSum += e.overallScore;
     return {
+      ...state,
       completedCount: state.completedCount + 1,
-      failedCount: state.failedCount,
       runningScoreSum: state.runningScoreSum + e.overallScore,
       perModel: { ...state.perModel, [e.modelId]: nextModel },
     };
@@ -105,9 +141,8 @@ function totalsReducer(state: TotalsState, e: RunnerEvent): TotalsState {
 
   nextModel.failed += 1;
   return {
-    completedCount: state.completedCount,
+    ...state,
     failedCount: state.failedCount + 1,
-    runningScoreSum: state.runningScoreSum,
     perModel: { ...state.perModel, [e.modelId]: nextModel },
   };
 }
@@ -117,6 +152,8 @@ function buildTotalsFromEvents(events: RunnerEvent[]): TotalsState {
     completedCount: 0,
     failedCount: 0,
     runningScoreSum: 0,
+    tpsSamples: [],
+    perModelTpsSamples: {},
     perModel: {},
   };
   for (const e of events) state = totalsReducer(state, e);

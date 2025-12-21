@@ -24,6 +24,20 @@ describe('computeUiStats', () => {
         questionId: 'q1',
         tps: 50,
       },
+      {
+        type: 'generation_metrics',
+        runId: 'r1',
+        modelId: 'm1',
+        questionId: 'q1',
+        tps: 10,
+      },
+      {
+        type: 'generation_metrics',
+        runId: 'r1',
+        modelId: 'm1',
+        questionId: 'q1',
+        tps: 100,
+      },
       { type: 'question_started', runId: 'r1', modelId: 'm1', questionId: 'q2' },
       {
         type: 'question_failed',
@@ -79,6 +93,8 @@ describe('computeUiStats', () => {
       completedCount: 3,
       failedCount: 0,
       runningScoreSum: 3,
+      tpsSamples: [],
+      perModelTpsSamples: {},
       perModel: {
         m1: {
           completed: 3,
@@ -119,6 +135,75 @@ describe('computeUiStats', () => {
       modelCount: 1,
     });
     expect(statsWithoutTotals.completedCount).toBe(1);
+  });
+
+  test('preserves TPS median from totals when event window is truncated', () => {
+    // TPS samples: 10, 50, 100 → median = 50
+    const totals = {
+      completedCount: 3,
+      failedCount: 0,
+      runningScoreSum: 3,
+      tpsSamples: [10, 50, 100],
+      perModelTpsSamples: { m1: [10, 50, 100] },
+      perModel: {
+        m1: {
+          completed: 3,
+          failed: 0,
+          scoreSum: 3,
+          tokens: { promptTokens: 3, completionTokens: 3, totalTokens: 6 },
+          costUsd: 0.006,
+        },
+      },
+    };
+
+    // Truncated window has no generation_metrics events
+    const truncated: RunnerEvent[] = [
+      { type: 'run_started', runId: 'r1', startedAtMs: 1_000 },
+    ];
+
+    const stats = computeUiStats({
+      events: truncated,
+      totals,
+      totalQuestions: 3,
+      questionsPerModel: 3,
+      modelCount: 1,
+    });
+
+    // Should use median from totals.tpsSamples (50), not null
+    expect(stats.lastTps).toBe(50);
+    // Model TPS should also use median from totals
+    expect(stats.models[0].lastTps).toBe(50);
+  });
+
+  test('computes correct median TPS with even number of samples', () => {
+    // TPS samples: 10, 20, 30, 40 → median = (20 + 30) / 2 = 25
+    const totals = {
+      completedCount: 4,
+      failedCount: 0,
+      runningScoreSum: 4,
+      tpsSamples: [10, 20, 30, 40],
+      perModelTpsSamples: { m1: [10, 20, 30, 40] },
+      perModel: {
+        m1: {
+          completed: 4,
+          failed: 0,
+          scoreSum: 4,
+          tokens: { promptTokens: 4, completionTokens: 4, totalTokens: 8 },
+          costUsd: 0.008,
+        },
+      },
+    };
+
+    const stats = computeUiStats({
+      events: [{ type: 'run_started', runId: 'r1', startedAtMs: 1_000 }],
+      totals,
+      totalQuestions: 4,
+      questionsPerModel: 4,
+      modelCount: 1,
+    });
+
+    expect(stats.lastTps).toBe(25);
+    expect(stats.models[0].lastTps).toBe(25);
   });
 
   test('ignores computed/guessed TPS and shows not available when missing', () => {
