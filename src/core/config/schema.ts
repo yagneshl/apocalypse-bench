@@ -90,6 +90,13 @@ export const configSchema = z
         }
       }),
 
+    candidate: z
+      .object({
+        maxTokens: z.number().int().positive().optional(),
+      })
+      .strict()
+      .optional(),
+
     judge: z
       .object({
         router: z.literal('openrouter'),

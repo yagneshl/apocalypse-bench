@@ -5,7 +5,9 @@ export type OllamaClientOptions = {
 };
 
 export function createOllamaClient(opts: OllamaClientOptions) {
+  const baseURL = opts.baseUrl.replace(/\/$/, '');
   return createOllama({
-    baseURL: opts.baseUrl,
+    baseURL,
+    name: 'ollama',
   });
 }

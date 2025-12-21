@@ -5,3 +5,5 @@ dashboard/node_modules
 runs/
 dist/
 .DS_Store
+*.gguf
+tmp

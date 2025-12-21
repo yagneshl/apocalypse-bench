@@ -400,6 +400,13 @@ export async function runBenchmark(params: {
                   modelEntry.params?.temperature ??
                   config.routers[modelEntry.router].default.temperature ??
                   undefined,
+                maxOutputTokens:
+                  modelEntry.router === 'openrouter'
+                    ? (config.candidate?.maxTokens ??
+                        modelEntry.params?.maxTokens ??
+                        config.routers[modelEntry.router].default.maxTokens ??
+                        undefined)
+                    : undefined,
                 providerOptions: (modelEntry.router === 'openrouter'
                   ? {
                       openrouter: {
@@ -415,7 +422,19 @@ export async function runBenchmark(params: {
                             : {}),
                       },
                     }
-                  : undefined) as ProviderOptions | undefined,
+                  : modelEntry.router === 'ollama'
+                    ? {
+                        ollama: {
+                          options: {
+                            num_predict:
+                              config.candidate?.maxTokens ??
+                              modelEntry.params?.maxTokens ??
+                              config.routers[modelEntry.router].default.maxTokens ??
+                              undefined,
+                          },
+                        },
+                      }
+                    : undefined) as ProviderOptions | undefined,
               },
             });
 
