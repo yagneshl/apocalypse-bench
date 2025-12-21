@@ -1,5 +1,5 @@
 ## AG-201: Extracting Rennet for Cheese Making
-- **Category:** Agriculture / Food Science
+- **Category:** Agriculture
 - **Difficulty:** Very Hard
 - **Task type:** procedure
 

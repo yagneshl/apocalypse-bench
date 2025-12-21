@@ -1,5 +1,5 @@
 ## AGR-001: Build a composting system for a new settlement
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -28,7 +28,7 @@ Can you design a compost system and a daily/weekly workflow for us? We need to k
 ---
 
 ## AGR-002: Diagnose poor crop growth with simple soil tests
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Hard
 - **Task type:** troubleshoot
 
@@ -57,7 +57,7 @@ Can you help me figure out what's wrong? I need a diagnostic plan to check for t
 ---
 
 ## AGR-003: Troubleshoot compost that smells bad and attracts flies
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Easy
 - **Task type:** troubleshoot
 
@@ -86,7 +86,7 @@ What exactly is going wrong here, and how do we fix it quickly with the people w
 ---
 
 ## AGR-004: Prevent soil erosion on a sloped plot
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -115,7 +115,7 @@ We only have stones, sticks, and mulch to work with. How should we design the ga
 ---
 
 ## AGR-005: Plan a 1-year crop plan for calories and resilience
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -144,7 +144,7 @@ We need to maximize the calories we get from the land but we can't afford to rui
 ---
 
 ## AGR-006: Design a 3-year rotation for a small garden
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -173,7 +173,7 @@ Can you give us a 3-year plan for how to rotate these crops through the beds? I 
 ---
 
 ## AGR-007: Polyculture design for pest resilience
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -202,7 +202,7 @@ Can you design a layout where we plant these things together (like a polyculture
 ---
 
 ## AGR-008: Critique this monoculture plan and improve it
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -234,7 +234,7 @@ Can you tell me if this is a good idea? What are the big risks when it comes to 
 ---
 
 ## AGR-009: Set up a community seed bank and seed-saving protocol
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -263,7 +263,7 @@ How should we set this up? We need a system for labeling things, how exactly to 
 ---
 
 ## AGR-010: Save seed from beans, squash, and brassicas correctly
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -292,7 +292,7 @@ Can you give me specific instructions for these three types of crops? I need to 
 ---
 
 ## AGR-011: Germination testing and deciding what to plant
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Easy
 - **Task type:** procedure
 
@@ -321,7 +321,7 @@ Can you tell me how to do a "germination test" using just things like paper, wat
 ---
 
 ## AGR-012: Prevent accidental cross-pollination in a small garden
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -350,7 +350,7 @@ What are some practical ways I can stop this from happening using things like ti
 ---
 
 ## AGR-013: Integrated pest management for aphids and leaf damage
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -379,7 +379,7 @@ I need a step-by-step plan to get rid of these bugs without using anything toxic
 ---
 
 ## AGR-014: Rodent-proof food storage and field protection
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -408,7 +408,7 @@ Can you design a rodent management plan for both our storage area and the fields
 ---
 
 ## AGR-015: Manage fungal disease in wet weather
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -437,7 +437,7 @@ What can I do to stop this fungal disease from spreading? Please explain how I s
 ---
 
 ## AGR-016: Critique a pesticide-heavy plan and propose safer alternatives
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -466,7 +466,7 @@ Can you explain why this might be a bad or risky idea? Also, can you suggest a b
 ---
 
 ## AGR-017: Gravity-fed irrigation for a garden near a stream
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -495,7 +495,7 @@ Can you design a simple gravity irrigation system for us? I need to know how to 
 ---
 
 ## AGR-018: Low-tech drip/soak irrigation with minimal materials
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -524,7 +524,7 @@ Can you show us how to make a low-tech drip or soak system using these clay pots
 ---
 
 ## AGR-019: Drought response plan for crops
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -553,7 +553,7 @@ Can you help us write a drought response plan? We need to know which crops to pr
 ---
 
 ## AGR-020: Flood response plan for a low-lying garden
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -582,7 +582,7 @@ Can you design a flood mitigation plan for us? We need to know how to build rais
 ---
 
 ## AGR-021: Integrate chickens into a food system
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -611,7 +611,7 @@ Can you show us how to house them safely, what we can feed them from our own lan
 ---
 
 ## AGR-022: Rotational grazing plan to prevent overgrazing
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -640,7 +640,7 @@ Can you create a rotational grazing plan for me? I need to know how to design th
 ---
 
 ## AGR-023: Use manure safely to improve soil without spreading disease
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -669,7 +669,7 @@ Can you give me some clear guidelines on how to compost or "age" this manure so 
 ---
 
 ## AGR-024: Critique an ecologically harmful farming plan
-- **Category:** Agriculture & ecology
+- **Category:** Agriculture
 - **Difficulty:** Easy
 - **Task type:** critique
 

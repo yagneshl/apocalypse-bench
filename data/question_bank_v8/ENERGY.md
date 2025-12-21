@@ -1,5 +1,5 @@
 ## ENERGY-201: Building a Chemical Rectifier (Noda Valve)
-- **Category:** Electronics / Chemistry
+- **Category:** Energy
 - **Difficulty:** Very Hard
 - **Task type:** procedure
 
@@ -196,7 +196,7 @@ I've hooked up a big 3-phase industrial motor to a waterwheel to try and get som
 ---
 
 ## ENERGY-105: Air-Lock in a gravity water system
-- **Category:** Energy / Fluid Dynamics
+- **Category:** Energy
 - **Difficulty:** Medium
 - **Task type:** troubleshoot
 

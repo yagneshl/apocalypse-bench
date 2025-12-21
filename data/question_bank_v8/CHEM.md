@@ -158,7 +158,7 @@ I need to make some gunpowder for clearing rocks and stumps. I have charcoal, su
 ---
 
 ## CHEM-103: Vegetable Tanning of Leather
-- **Category:** Materials & Manufacturing
+- **Category:** Chemistry
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -189,7 +189,7 @@ I have some raw hides and a bunch of oak trees. I want to make real leather for 
 ---
 
 ## CHEM-104: Rendering Pine Pitch/Tar for Waterproofing
-- **Category:** Materials & Manufacturing
+- **Category:** Chemistry
 - **Difficulty:** Medium
 - **Task type:** procedure
 

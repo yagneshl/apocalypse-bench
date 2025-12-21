@@ -1,5 +1,5 @@
 ## ORG-201: Managing Alcohol Withdrawal (Delirium Tremens)
-- **Category:** Medicine / Psychology
+- **Category:** Medicine
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -695,7 +695,7 @@ We have no radios and we need a fast way to alert the whole camp if there's a fi
 ---
 
 ## ORG-101: Designing a Quarantine Zone ("Red/Green" Zones)
-- **Category:** Organization / Medical
+- **Category:** Organisation
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -727,7 +727,7 @@ We have a bad fever spreading and we’ve picked one building to be our hospital
 ---
 
 ## ORG-102: Managing a community after a violent event (Justice)
-- **Category:** Org / Ethics / Psych
+- **Category:** Organisation
 - **Difficulty:** Medium
 - **Task type:** procedure
 

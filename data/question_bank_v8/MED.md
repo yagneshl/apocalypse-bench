@@ -90,7 +90,7 @@ He fell off the roof and he's in extreme pain. His leg looks shorter than the ot
 ---
 
 ## MED-001: Triage after a building collapse with limited supplies
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -121,7 +121,7 @@ There’s been a building collapse and 10 people are hurt. We have no medical ge
 ---
 
 ## MED-002: First aid for severe bleeding from a limb injury
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -152,7 +152,7 @@ Someone’s arm is bleeding really fast from a deep cut. I have a belt, some clo
 ---
 
 ## MED-003: Manage burns from a cooking accident
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -182,7 +182,7 @@ A woman spilled boiling water on her hand and arm. It looks really bad. What do 
 ---
 
 ## MED-004: Splint a suspected fractured leg and transport safely
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Easy
 - **Task type:** procedure
 
@@ -209,7 +209,7 @@ I think my brother broke his leg in a fall. We are out in the woods and I have t
 ---
 
 ## MED-005: Clean and dress a deep laceration safely
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -236,7 +236,7 @@ My friend cut himself deep with a dirty tool. I have boiled water, soap, and som
 ---
 
 ## MED-007: Manage an infected wound with limited resources
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -263,7 +263,7 @@ A wound on my friend's leg is getting red, hot, and oozing pus. He has a fever n
 ---
 
 ## MED-009: Treat dehydration from diarrhoea in adults
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -293,7 +293,7 @@ A bunch of people here have really bad watery diarrhea and one is getting dizzy 
 ---
 
 ## MED-012: Critique a dangerous diarrhoea remedy
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -320,7 +320,7 @@ Someone told us that adding a capful of cleaning bleach to water and drinking it
 ---
 
 ## MED-017: Prepare a clean childbirth kit and plan
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -347,7 +347,7 @@ My wife is going to have our baby in about two weeks and we are totally alone. I
 ---
 
 ## MED-024: Dental emergency: severe toothache with facial swelling toward the eye
-- **Category:** Medicine & public health
+- **Category:** Medicine
 - **Difficulty:** Hard
 - **Task type:** procedure
 

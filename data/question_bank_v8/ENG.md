@@ -1,5 +1,5 @@
 ## ENG-201: Case Hardening Mild Steel
-- **Category:** Materials & Manufacturing
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -32,7 +32,7 @@ I have some old leather boots, some animal bones, and plenty of charcoal. Is the
 ---
 
 ## ENG-202: Indexing a Gear without a Dividing Head
-- **Category:** Precision Engineering
+- **Category:** Engineering
 - **Difficulty:** Very Hard
 - **Task type:** procedure
 
@@ -65,7 +65,7 @@ I've got a tape measure, a compass, and a large flat table. How can I mark out t
 ---
 
 ## ENG-203: Centrifugal Governor design
-- **Category:** Engineering / Mechanics
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -98,7 +98,7 @@ I need a way to keep the speed steady automatically. I have some scrap metal, he
 ---
 
 ## ENG-001: Build a rainproof timber-and-tarp shelter for 12 people
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -135,7 +135,7 @@ Can you give me a plan for the frame and the roof so it doesn't blow down or lea
 ---
 
 ## ENG-002: Assess and reinforce a damaged masonry building for safe use
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -171,7 +171,7 @@ How do I tell if the ground floor is actually safe to be in? If it needs work, h
 ---
 
 ## ENG-003: Build a simple footbridge over a 2 m stream using logs
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -207,7 +207,7 @@ How do I build this in a couple of days so it's sturdy enough not to sag too muc
 ---
 
 ## ENG-004: Critique this shelter plan and fix it
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -247,7 +247,7 @@ What are the biggest problems with this from an engineering and safety standpoin
 ---
 
 ## ENG-005: Make strong rope from plant fibres
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -283,7 +283,7 @@ How do I turn these into a rope that won't just snap under load? I need to know 
 ---
 
 ## ENG-006: Choose knots and lashings for shelter and hauling
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Easy
 - **Task type:** compare
 
@@ -318,7 +318,7 @@ Can you tell me which knots to use for these four things and how to tie them so 
 ---
 
 ## ENG-007: Splice and repair a frayed rope safely
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -353,7 +353,7 @@ How do I fix the end or join it to a fresh piece of rope using a splice instead 
 ---
 
 ## ENG-008: Diagnose a rope failure during a lift
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** troubleshoot
 
@@ -389,7 +389,7 @@ What could have caused it to break there, and how do I test my other ropes to se
 ---
 
 ## ENG-009: Move a 500 kg stone without machinery
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -424,7 +424,7 @@ How can we use these to move it safely without anyone getting a foot crushed? Ca
 ---
 
 ## ENG-010: Design a block-and-tackle to lift a 200 kg load
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -460,7 +460,7 @@ How should I set up the pulleys to make this lift manageable, and how much force
 ---
 
 ## ENG-011: Build a windlass/capstan for controlled pulling
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -495,7 +495,7 @@ Is there a hand-powered mechanism I can build out of wood for this? I need to kn
 ---
 
 ## ENG-012: Critique this rigging plan for hazards
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -536,7 +536,7 @@ This feels wrong. What are the main hazards here and how should I rewrite this p
 ---
 
 ## ENG-013: Design a gravity-fed water line from a spring to camp
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -572,7 +572,7 @@ How do I set up a gravity-fed line to bring that water to camp? I need to know h
 ---
 
 ## ENG-014: Build drainage to keep shelters dry in heavy rain
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Easy
 - **Task type:** procedure
 
@@ -607,7 +607,7 @@ Can you give me a plan to dig some drainage today? I need to know where the wate
 ---
 
 ## ENG-015: Troubleshoot two different walkie-talkies that won't talk on the same 'channel'
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** troubleshoot
 
@@ -646,7 +646,7 @@ Why is this happening and how can I fix it? I need a step-by-step to get them on
 ---
 
 ## ENG-016: Troubleshoot: your channel keeps leaking and eroding
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** troubleshoot
 
@@ -682,7 +682,7 @@ I have some clay, stones, and plants. Why is it leaking so much and how do I fix
 ---
 
 ## ENG-017: Build a treadle pump to lift water from a shallow source
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -720,7 +720,7 @@ I have wood, leather, and wax, but no metal valves. How do I build a foot-powere
 ---
 
 ## ENG-018: Use a siphon to drain a flooded pit safely
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -758,7 +758,7 @@ How do I start a siphon without getting that nasty water in my mouth? Also, what
 ---
 
 ## ENG-019: Build a simple piston pump from wood and leather
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -793,7 +793,7 @@ How do I build a hand pump that can pull the water up and keep it from falling b
 ---
 
 ## ENG-020: Troubleshoot: your pump loses prime and flow drops
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** troubleshoot
 
@@ -829,7 +829,7 @@ How do I figure out where the air is leaking in or if the seals are shot? What's
 ---
 
 ## ENG-021: Build an updraft pottery kiln from clay and brick
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -865,7 +865,7 @@ How should I build a small kiln out of these? I need to know how the firebox and
 ---
 
 ## ENG-022: Design a lime kiln to make binder for mortar
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -900,7 +900,7 @@ How do I build a kiln for this and how do I run it? I need to know how to load i
 ---
 
 ## ENG-023: Build a bloomery-style furnace for small iron production
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -935,7 +935,7 @@ How do I build a small bloomery furnace to get iron out of this? I need to know 
 ---
 
 ## ENG-024: Critique this kiln schedule and fix it
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -975,7 +975,7 @@ I have a feeling this is a bad idea. Can you explain what's likely to go wrong a
 ---
 
 ## ENG-025: Design a hand-built cart or sledge for hauling supplies
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -1010,7 +1010,7 @@ Should I build a cart or a sledge for this? Can you give me a design that handle
 ---
 
 ## ENG-026: Build a temporary road across muddy terrain
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -1046,7 +1046,7 @@ How can I reinforce this path so we don't sink? I need to know how to do the dra
 ---
 
 ## ENG-027: Construct a small retaining wall for a terrace
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -1084,7 +1084,7 @@ How do I build this so it doesn't just topple over when the dirt gets wet? I nee
 ---
 
 ## ENG-028: Plan safe digging and trenching for utilities
-- **Category:** Low-tech engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -1122,7 +1122,7 @@ How should we dig this so it's safe for our volunteers? I need to know how to sl
 ---
 
 ## ENG-101: Generate a flat surface reference from scratch (Three Plates Method)
-- **Category:** Precision Engineering
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -1158,7 +1158,7 @@ How do I use these three plates to make them all perfectly flat? Why do I need t
 ---
 
 ## ENG-102: Cut a screw thread without a tap or die
-- **Category:** Precision Engineering
+- **Category:** Engineering
 - **Difficulty:** Very Hard
 - **Task type:** procedure
 
@@ -1223,7 +1223,7 @@ How do I cast a new bearing right around the shaft inside the housing? I need to
 ---
 
 ## ENG-104: Waterproof mortar without Portland cement
-- **Category:** Materials & Manufacturing
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -1288,7 +1288,7 @@ Can you explain where the tension and compression are in a simple A-frame? Also,
 ---
 
 ## ENG-106: Making a "Surface Plate" from Granite Countertop
-- **Category:** Precision Engineering
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -1322,7 +1322,7 @@ I have a very sensitive spirit level. How do I use that to map out the high and 
 ---
 
 ## ENG-107: Casting a replacement aluminum part (Sand Casting)
-- **Category:** Materials & Manufacturing
+- **Category:** Engineering
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -1356,7 +1356,7 @@ How do I use these to make a "green sand" mold for casting a new part? I need to
 ---
 
 ## ENG-108: Square a large foundation with a tape
-- **Category:** Measurement / Math
+- **Category:** Measurement
 - **Difficulty:** Easy
 - **Task type:** procedure
 
@@ -1526,7 +1526,7 @@ What's the best ratio for mixing these together? Also, how do I test a small amo
 ---
 
 ## ENG-113: Making Charcoal for Smelting vs Cooking
-- **Category:** Energy / Materials
+- **Category:** Engineering
 - **Difficulty:** Medium
 - **Task type:** compare
 

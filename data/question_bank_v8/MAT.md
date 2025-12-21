@@ -38,7 +38,7 @@ Can any of these be used to treat my rubber so it stops melting in the heat?
 ---
 
 ## MAT-202: Making Waterglass (Sodium Silicate)
-- **Category:** Chemistry / Materials
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -69,7 +69,7 @@ I need to keep a large batch of eggs fresh for the winter but I don't have a fri
 ---
 
 ## MAT-203: Making Refractory Bricks (Insulation for Forge)
-- **Category:** Materials / Engineering
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -100,7 +100,7 @@ I built a clay forge to melt down some metal, but I can't get it hot enough beca
 ---
 
 ## MAT-001: Build a sturdy workbench with limited tools
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -131,7 +131,7 @@ I need to build a solid workbench that won't wobble when I'm sawing or planing w
 ---
 
 ## MAT-002: Make a tight wooden container without metal hoops
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -162,7 +162,7 @@ I need a way to store my grain so pests can't get to it, but I don't have any me
 ---
 
 ## MAT-003: Repair a broken ladder safely using pegs and lashings
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -193,7 +193,7 @@ One of the rungs on my wooden ladder is cracked and the side rail is starting to
 ---
 
 ## MAT-004: Critique this joinery plan and improve it
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -223,7 +223,7 @@ Someone told me I should just use green wood for all my building projects and ju
 ---
 
 ## MAT-005: Make pine pitch sealant for waterproofing
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -254,7 +254,7 @@ I need to waterproof my roof seams and some wooden buckets. I have a bunch of pi
 ---
 
 ## MAT-006: Make casein glue from milk for woodworking
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -285,7 +285,7 @@ I have a surplus of milk and I heard I can turn it into a strong glue for woodwo
 ---
 
 ## MAT-007: Choose an adhesive for tool handles, pottery repair, and waterproofing
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** compare
 
@@ -316,7 +316,7 @@ I have three things to fix: a loose axe head, a cracked clay cooking pot, and a 
 ---
 
 ## MAT-008: Design simple tests to compare homemade adhesives
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** compare
 
@@ -347,7 +347,7 @@ I've managed to make three different kinds of glue, but I have no idea which one
 ---
 
 ## MAT-009: Make clay water jars and reduce leakage
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -378,7 +378,7 @@ I'm trying to make big clay jars to store water, but the ones I've made so far j
 ---
 
 ## MAT-010: Produce simple clay roof tiles for a shed
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -409,7 +409,7 @@ I need to roof a small shed with clay tiles in the next two weeks. I have five o
 ---
 
 ## MAT-011: Troubleshoot: your pots crack during drying and firing
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** troubleshoot
 
@@ -440,7 +440,7 @@ Half of my pots are cracking before I even fire them, and the ones that make it 
 ---
 
 ## MAT-012: Food-safe surface treatments for ceramics without modern glaze
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -471,7 +471,7 @@ I want to make sure my clay cooking pots are safe to eat from and won't leak gre
 ---
 
 ## MAT-013: Make lime mortar from shells/limestone and use it in masonry
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -502,7 +502,7 @@ I have a big pile of sea shells and limestone, and a way to burn them in a kiln.
 ---
 
 ## MAT-014: Plaster a wall with lime plaster and avoid cracking
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -533,7 +533,7 @@ I'm ready to plaster my interior walls to keep the dust down, but I'm worried it
 ---
 
 ## MAT-015: Repair old brick/stone masonry without causing damage
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -564,7 +564,7 @@ I found an old brick building I want to fix up, but the bricks are really soft a
 ---
 
 ## MAT-016: Critique this mortar recipe and correct it
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -594,7 +594,7 @@ My neighbor says I can make mortar just by crushing up raw limestone into a fine
 ---
 
 ## MAT-017: Set up a simple forge and make a basic knife
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -626,7 +626,7 @@ I've got some old truck springs and a big pile of charcoal. I need to make a fun
 ---
 
 ## MAT-018: Make nails and simple fasteners from scrap
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -657,7 +657,7 @@ I need to make hundreds of nails for a building project and all I have is some s
 ---
 
 ## MAT-019: Heat-treat a chisel for durability
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -688,7 +688,7 @@ I forged a chisel out of an old spring, but it's not working right—the edge ei
 ---
 
 ## MAT-020: Select safe scrap metals for tools and cookware
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** compare
 
@@ -719,7 +719,7 @@ I have a pile of scrap metal that's got some painted pieces, some galvanized stu
 ---
 
 ## MAT-021: Spin wool into yarn and weave a warm blanket
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -750,7 +750,7 @@ Winter is coming and I need a warm blanket, but I've never made textiles before.
 ---
 
 ## MAT-022: Make netting for carrying and simple fishing
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -781,7 +781,7 @@ I need to make some strong nets for carrying heavy loads and for fishing, but I 
 ---
 
 ## MAT-023: Dye fabric using plant dyes safely
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -812,7 +812,7 @@ I want to dye some of my cloth bright colors so we can use them for signaling. I
 ---
 
 ## MAT-024: Repair clothing and extend fabric life
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Easy
 - **Task type:** procedure
 
@@ -843,7 +843,7 @@ My clothes are starting to fall apart and I can't get new ones. What's the most 
 ---
 
 ## MAT-025: Make soap from wood ash lye and rendered fat
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -875,7 +875,7 @@ I have a big container of animal fat and plenty of wood ash. I need to make soap
 ---
 
 ## MAT-026: Troubleshoot a failed soap batch (separating or caustic)
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** troubleshoot
 
@@ -907,7 +907,7 @@ I tried making a batch of soap, but it's a mess—it's separated into layers and
 ---
 
 ## MAT-027: Make simple candles or oil lamps for indoor lighting
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -938,7 +938,7 @@ We need some light in the clinic and the workshop after dark. I can get tallow, 
 ---
 
 ## MAT-028: Make and test a starch-based paste for paper/wood repairs
-- **Category:** Materials & manufacturing
+- **Category:** Materials
 - **Difficulty:** Easy
 - **Task type:** procedure
 

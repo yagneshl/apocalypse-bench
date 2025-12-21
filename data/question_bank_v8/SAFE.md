@@ -1,5 +1,5 @@
 ## SAFE-201: Building a Kearny Fallout Meter
-- **Category:** Safety / Radiation
+- **Category:** Safety
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -30,7 +30,7 @@ There was a nuclear blast 100 miles from here and we are sheltering in our basem
 ---
 
 ## SAFE-001: Risk assessment for building a bridge with volunteers
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -64,7 +64,7 @@ I've got a dozen volunteers helping me build a wooden footbridge over a stream t
 ---
 
 ## SAFE-002: Safety plan for operating a kiln or furnace
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -98,7 +98,7 @@ We're running a kiln to make lime and pottery for the settlement. It's right nea
 ---
 
 ## SAFE-003: Pre-task briefing template for high-risk work
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Easy
 - **Task type:** procedure
 
@@ -131,7 +131,7 @@ I'm leading a crew doing some dangerous jobs today—we're cutting down trees an
 ---
 
 ## SAFE-004: Critique this unsafe work culture and correct it
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Easy
 - **Task type:** critique
 
@@ -164,7 +164,7 @@ Our project leader just told us that safety is a 'luxury' we can't afford right 
 ---
 
 ## SAFE-005: CO and fire safety rules for indoor stoves
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -197,7 +197,7 @@ A bunch of people in our shelters are complaining of headaches and feeling nause
 ---
 
 ## SAFE-006: Design a safe firewood and fuel storage area
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Easy
 - **Task type:** procedure
 
@@ -230,7 +230,7 @@ I need to organize our fuel storage. We have a lot of firewood, some charcoal, a
 ---
 
 ## SAFE-007: Fire response plan for a dense camp
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -263,7 +263,7 @@ We have 80 people living in shelters that are basically touching each other. If 
 ---
 
 ## SAFE-008: Investigate recurring smoke backdrafts in a stove
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** investigate
 
@@ -296,7 +296,7 @@ Every time the wind gusts, smoke from our wood stove blows back into the room. T
 ---
 
 ## SAFE-009: Safe axe and saw SOP for woodcutting crews
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -330,7 +330,7 @@ I've got a crew of beginners using axes and saws to get firewood and clear brush
 ---
 
 ## SAFE-010: Safety for a hand-cranked drill/lathe setup
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -363,7 +363,7 @@ We're using a hand-cranked lathe and a drill in our workshop. I'm really nervous
 ---
 
 ## SAFE-011: Prevent falls from height during roof work
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -396,7 +396,7 @@ We have to fix some roofs and put in chimneys, but we don't have any safety harn
 ---
 
 ## SAFE-012: Investigate repeated minor injuries and fix the system
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Easy
 - **Task type:** investigate
 
@@ -429,7 +429,7 @@ Everyone in our workshop keeps getting small cuts or smashing their fingers. We'
 ---
 
 ## SAFE-013: Chemical safety SOP for lye and lime handling
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -462,7 +462,7 @@ Everyone in our workshop keeps getting small cuts or smashing their fingers. We'
 ---
 
 ## SAFE-014: Dust and fume control when working with ash, lime, and metal
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -495,7 +495,7 @@ We're working with ash, lime, and burning scrap metal in our workshop. Everyone 
 ---
 
 ## SAFE-015: Safe storage and disposal for chemicals and fuels
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Easy
 - **Task type:** procedure
 
@@ -528,7 +528,7 @@ I've got jugs of petrol, bleach, engine oil, and some old battery acid all in th
 ---
 
 ## SAFE-016: Investigate a chemical burn incident and prevent recurrence
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** investigate
 
@@ -562,7 +562,7 @@ We just had a scary accident—someone got a lye splash in their eye while makin
 ---
 
 ## SAFE-017: Set up a near-miss and incident reporting system
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -595,7 +595,7 @@ We have a lot of minor accidents and close calls here, but nobody wants to talk 
 ---
 
 ## SAFE-018: Root-cause analysis of a dropped load near-miss
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -628,7 +628,7 @@ We were lifting a heavy crate using ropes and some old pulleys we found, and the
 ---
 
 ## SAFE-019: Create a safety drill programme (fire, CO, injury)
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -661,7 +661,7 @@ I want to start doing safety drills for our camp so we're ready for fires or med
 ---
 
 ## SAFE-020: Identify unlabelled liquids (possible bleach/acid/fuel) without injuring yourself
-- **Category:** Safety culture
+- **Category:** Safety
 - **Difficulty:** Hard
 - **Task type:** procedure
 

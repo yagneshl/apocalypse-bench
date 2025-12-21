@@ -1,5 +1,5 @@
 ## GT-001: Safe drinking water plan - Temperate river camp
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -36,7 +36,7 @@ Could you give me a step-by-step process for treating the water with what we hav
 ---
 
 ## GT-002: Sanitation system design - Temperate river camp
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -73,7 +73,7 @@ Where should we put the latrines and how should they be built? We also need a wa
 ---
 
 ## GT-003: Food safety and preservation - Temperate river camp
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -110,7 +110,7 @@ I need some clear rules to prevent cross-contamination, at least two ways we can
 ---
 
 ## GT-004: Outbreak response - Temperate river camp
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -147,7 +147,7 @@ What are the immediate things I need to do in the next 6 hours? How do we look a
 ---
 
 ## GT-005: Safe drinking water plan - Arid town
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -185,7 +185,7 @@ How can we make this water safe for everyone to drink for the next 7 days? We ha
 ---
 
 ## GT-006: Sanitation system design - Arid town
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -222,7 +222,7 @@ I need to know how to design and place the latrines, a handwashing system that d
 ---
 
 ## GT-007: Food safety and preservation - Arid town
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -259,7 +259,7 @@ Can you give me rules for avoiding cross-contamination and two ways we can actua
 ---
 
 ## GT-008: Outbreak response - Arid town
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -296,7 +296,7 @@ What should I do in the next 6 hours? How can we care for the sick without this 
 ---
 
 ## GT-009: Safe drinking water plan - Tropical coastal settlement
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -333,7 +333,7 @@ How can we set up a 7-day plan to get safe drinking water? Show me how to treat 
 ---
 
 ## GT-010: Sanitation system design - Tropical coastal settlement
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -370,7 +370,7 @@ How should we design and place our latrines? We need a handwashing setup and a w
 ---
 
 ## GT-011: Food safety and preservation - Tropical coastal settlement
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -407,7 +407,7 @@ Can you help me with a 14-day food safety plan? I need rules to stop cross-conta
 ---
 
 ## GT-012: Outbreak response - Tropical coastal settlement
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -444,7 +444,7 @@ What do I need to do right now (in the next 6 hours)? How do we set up care so t
 ---
 
 ## GT-013: Safe drinking water plan - Cold mountain refuge
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -481,7 +481,7 @@ How can we make enough safe water for everyone for the next week? Walk me throug
 ---
 
 ## GT-014: Sanitation system design - Cold mountain refuge
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -518,7 +518,7 @@ How do we handle sanitation for the next two weeks so we don't get sick? I need 
 ---
 
 ## GT-015: Food safety and preservation - Cold mountain refuge
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -555,7 +555,7 @@ How do we keep our food safe for the next 14 days? I need rules to prevent cross
 ---
 
 ## GT-016: Outbreak response - Cold mountain refuge
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -592,7 +592,7 @@ What should I do in the next 6 hours? How can we organize care and sleeping arra
 ---
 
 ## GT-017: Safe drinking water plan - Urban ruins
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -629,7 +629,7 @@ How can we make this water safe for the group for the next 7 days? Give me a ste
 ---
 
 ## GT-018: Sanitation system design - Urban ruins
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -666,7 +666,7 @@ How should we set up and place the latrines? We need a handwashing plan and a wa
 ---
 
 ## GT-019: Food safety and preservation - Urban ruins
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -703,7 +703,7 @@ How can we keep our food safe for the next 14 days? I need rules for preventing 
 ---
 
 ## GT-020: Outbreak response - Urban ruins
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Hard
 - **Task type:** procedure
 
@@ -740,7 +740,7 @@ What should I do in the next 6 hours to handle this? How can we set up care and 
 ---
 
 ## GT-021: Safe drinking water plan - Mixed farmstead
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -777,7 +777,7 @@ How can we make enough safe water for the group for the next week? Give me a ste
 ---
 
 ## GT-022: Sanitation system design - Mixed farmstead
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -814,7 +814,7 @@ How should we design and place our latrines? We need a handwashing setup and a w
 ---
 
 ## GT-023: Food safety and preservation - Mixed farmstead
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
@@ -851,7 +851,7 @@ How do we keep our food safe for the next 14 days? I need rules to stop cross-co
 ---
 
 ## GT-024: Outbreak response - Mixed farmstead
-- **Category:** Germ theory in practice
+- **Category:** Germ Theory
 - **Difficulty:** Medium
 - **Task type:** procedure
 
