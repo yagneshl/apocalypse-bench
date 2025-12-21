@@ -887,7 +887,7 @@ Differentiate the spark patterns of Mild Steel vs High Carbon Steel vs Cast Iron
 
 ### Prompt
 ```text
-Explain how to map the flatness of a surface using a sensitive level or "repeat-o-meter" concept.
+Explain how to map the flatness of a surface using a sensitive level to find high and low spots.
 ```
 
 ### Rubric (10 points)
@@ -1872,11 +1872,11 @@ Describe how to handle/isolate it safely.
 ### Scenario
 - Need high strength glue for bow-making
 - Have fish waste
-- Need Isinglass
+- Want a high-strength, flexible glue
 
 ### Prompt
 ```text
-Describe how to process fish swim bladders into Isinglass glue.
+Describe how to process fish swim bladders into a high-strength glue.
 Comparison with skin glue.
 ```
 
