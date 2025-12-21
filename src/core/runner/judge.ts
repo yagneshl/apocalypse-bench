@@ -12,6 +12,7 @@ export type JudgeRequest = {
   model: LanguageModel;
   prompt: string;
   maxTokens: number;
+  timeoutMs?: number | null;
   temperature: number | null | undefined;
   providerOptions?: ProviderOptions;
   /** Required rubric IDs - used to build explicit schema keys */
@@ -26,7 +27,20 @@ export type JudgeRetryOptions = {
 
 function isRetryableError(err: unknown): boolean {
   const message = err instanceof Error ? err.message : String(err);
-  return /429|5\d\d|timeout|ECONNRESET|ENOTFOUND/i.test(message);
+  return /429|5\d\d|timeout|ECONNRESET|ENOTFOUND|aborted/i.test(message);
+}
+
+type AbortableCall<T> = {
+  call: () => Promise<T>;
+  abort: () => void;
+};
+
+function createAbortableCall<T>(call: (signal: AbortSignal) => Promise<T>): AbortableCall<T> {
+  const controller = new AbortController();
+  return {
+    call: () => call(controller.signal),
+    abort: () => controller.abort(new Error('aborted')),
+  };
 }
 
 async function judgeOnceWithRetry(
@@ -57,6 +71,38 @@ export async function judgeOnce(req: JudgeRequest): Promise<{
 }> {
   // Build schema with explicit rubric ID keys to ensure the model knows which keys are required
   const schema = buildJudgeOutputSchemaWithRubricIds(req.rubricIds);
+
+  const timeoutMs = req.timeoutMs ?? null;
+  if (timeoutMs != null && Number.isFinite(timeoutMs) && timeoutMs > 0) {
+    const abortable = createAbortableCall((abortSignal) =>
+      _deps.generateObject({
+        model: req.model,
+        schema: schema as z.ZodTypeAny,
+        prompt: req.prompt,
+        maxOutputTokens: req.maxTokens,
+        temperature: req.temperature ?? undefined,
+        providerOptions: req.providerOptions,
+        abortSignal,
+      }),
+    );
+    const timeoutId = setTimeout(() => abortable.abort(), timeoutMs);
+    try {
+      const result = await abortable.call();
+      return {
+        object: result.object as JudgeOutput,
+        raw: {
+          response: result.response,
+          providerMetadata: result.providerMetadata,
+          usage: result.usage,
+          finishReason: result.finishReason,
+          warnings: result.warnings,
+          request: result.request,
+        },
+      };
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  }
 
   const result = await _deps.generateObject({
     model: req.model,

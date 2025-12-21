@@ -1,12 +1,22 @@
-export function renderHtmlReport(params: { runId: string; summaryJson: unknown; results?: unknown }): string {
+export function renderHtmlReport(params: {
+  runId: string;
+  summaryJson: unknown;
+  results?: unknown;
+}): string {
   const summaryJson = params.summaryJson as Record<string, unknown> | null;
   const summaryPretty = JSON.stringify(params.summaryJson, null, 2);
 
-  const results = Array.isArray(params.results) ? (params.results as Record<string, unknown>[]) : [];
-  const hasAnyResultDetails = results.some(r => typeof r.prompt === 'string' || typeof r.candidate_completion === 'string');
+  const results = Array.isArray(params.results)
+    ? (params.results as Record<string, unknown>[])
+    : [];
+  const hasAnyResultDetails = results.some(
+    (r) => typeof r.prompt === 'string' || typeof r.candidate_completion === 'string',
+  );
 
   const models = Array.isArray(summaryJson?.models) ? summaryJson?.models : [];
-  const sortedModels = [...models].sort((a, b) => number(b?.overallScore) - number(a?.overallScore));
+  const sortedModels = [...models].sort(
+    (a, b) => number(b?.overallScore) - number(a?.overallScore),
+  );
 
   return `<!doctype html>
 <html>
@@ -73,23 +83,27 @@ export function renderHtmlReport(params: { runId: string; summaryJson: unknown; 
       <thead>
         <tr>
           <th>modelId</th>
-          <th class="num">score</th>
-          <th class="num">avg</th>
-          <th class="num">done</th>
-          <th class="num">failed</th>
-          <th class="num">skipped</th>
-          <th class="num">auto-fail</th>
-          <th class="num">p50 ms</th>
-          <th class="num">p90 ms</th>
+          <th class="num" title="Sum of all scores for this model">score</th>
+          <th class="num" title="Mean score per completed question">avg</th>
+          <th class="num" title="Questions completed (candidate + judge succeeded)">done</th>
+          <th class="num" title="Execution errors (candidate or judge crashed)">errors</th>
+          <th class="num" title="Questions not attempted">skipped</th>
+          <th class="num" title="% of completed questions flagged by judge (e.g. refusal, unsafe content) — scored as 0">auto-fail %</th>
+          <th class="num" title="Median latency">p50 ms</th>
+          <th class="num" title="90th percentile latency">p90 ms</th>
         </tr>
       </thead>
       <tbody>
-        ${sortedModels.map(m => renderModelRow(m)).join('\n')}
+        ${sortedModels.map((m) => renderModelRow(m)).join('\n')}
       </tbody>
     </table>
+    <p class="muted" style="font-size: 0.9em; margin-top: 8px;">
+      <strong>errors</strong> = execution failures (API/parsing errors). 
+      <strong>auto-fail %</strong> = % of completed questions where the judge flagged the response (e.g. refusal, unsafe content); these receive a score of 0 but are counted as "done".
+    </p>
 
     <h2>Breakdowns</h2>
-    ${sortedModels.map(m => renderModelDetails(m)).join('\n')}
+    ${sortedModels.map((m) => renderModelDetails(m)).join('\n')}
     `
         : `<p class="muted">No model summaries found.</p>`
     }
@@ -112,7 +126,10 @@ function renderResultsSection(results: Record<string, unknown>[]): string {
   if (results.length === 0) return '';
 
   const withDetails = results.filter(
-    r => typeof r.prompt === 'string' || typeof r.candidate_completion === 'string' || typeof r.judge_parsed_json === 'string',
+    (r) =>
+      typeof r.prompt === 'string' ||
+      typeof r.candidate_completion === 'string' ||
+      typeof r.judge_parsed_json === 'string',
   );
   if (withDetails.length === 0) {
     return `
@@ -133,44 +150,61 @@ function renderResultsSection(results: Record<string, unknown>[]): string {
     byModel.set(modelId, list);
   }
 
-  const sortedModels = Array.from(byModel.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+  const sortedModels = Array.from(byModel.entries()).sort((a, b) =>
+    a[0].localeCompare(b[0]),
+  );
 
   return `
     <h2>Results</h2>
     ${sortedModels
       .map(([modelId, rows]) => {
-        const sorted = [...rows].sort((a, b) => String(a.question_id).localeCompare(String(b.question_id)));
+        const sorted = [...rows].sort((a, b) =>
+          String(a.question_id).localeCompare(String(b.question_id)),
+        );
         return `
           <details>
             <summary>${escapeHtml(modelId)} (${sorted.length})</summary>
             ${sorted
-              .map(r => {
+              .map((r) => {
                 const qid = String(r.question_id ?? 'unknown');
                 const status = String(r.status ?? 'unknown');
                 const overall = fmtNum(r.score_overall, 2);
-                const autoFail = r.auto_fail === 1 ? 'true' : r.auto_fail === 0 ? 'false' : '—';
+                const autoFail =
+                  r.auto_fail === 1 ? 'true' : r.auto_fail === 0 ? 'false' : '—';
                 const category = r.category ? String(r.category) : 'unknown';
                 const difficulty = r.difficulty ? String(r.difficulty) : 'unknown';
 
                 const prompt = typeof r.prompt === 'string' ? r.prompt : null;
-                const candidate = typeof r.candidate_completion === 'string' ? r.candidate_completion : null;
+                const candidate =
+                  typeof r.candidate_completion === 'string'
+                    ? r.candidate_completion
+                    : null;
 
-                const judgeParsed = typeof r.judge_parsed_json === 'string' ? safeJsonParse(r.judge_parsed_json) : null;
+                const judgeParsed =
+                  typeof r.judge_parsed_json === 'string'
+                    ? safeJsonParse(r.judge_parsed_json)
+                    : null;
                 const judgeNotes =
-                  isObjectRecord(judgeParsed) && typeof judgeParsed.notes === 'string' ? judgeParsed.notes : null;
+                  isObjectRecord(judgeParsed) && typeof judgeParsed.notes === 'string'
+                    ? judgeParsed.notes
+                    : null;
                 const rubricScores =
-                  isObjectRecord(judgeParsed) && isObjectRecord(judgeParsed.rubric_scores) ? judgeParsed.rubric_scores : null;
+                  isObjectRecord(judgeParsed) && isObjectRecord(judgeParsed.rubric_scores)
+                    ? judgeParsed.rubric_scores
+                    : null;
 
                 const scoreRubric =
-                  typeof r.score_rubric_json === 'string' ? safeJsonParse(r.score_rubric_json) : null;
+                  typeof r.score_rubric_json === 'string'
+                    ? safeJsonParse(r.score_rubric_json)
+                    : null;
 
                 const errorJson = typeof r.error_json === 'string' ? r.error_json : null;
 
                 return `
                   <details class="card">
                     <summary>${escapeHtml(qid)} — ${escapeHtml(category)} / ${escapeHtml(difficulty)} — status=${escapeHtml(
-                  status,
-                )} score=${escapeHtml(overall)} auto_fail=${escapeHtml(autoFail)}</summary>
+                      status,
+                    )} score=${escapeHtml(overall)} auto_fail=${escapeHtml(autoFail)}</summary>
                     ${prompt ? `<h3>Prompt</h3><pre>${escapeHtml(prompt)}</pre>` : ''}
                     ${candidate ? `<h3>Candidate</h3><pre>${escapeHtml(candidate)}</pre>` : ''}
                     ${judgeNotes ? `<h3>Judge notes</h3><pre>${escapeHtml(judgeNotes)}</pre>` : ''}
@@ -234,7 +268,10 @@ function fmtMs(v: unknown): string {
 }
 
 function renderModelRow(m: Record<string, unknown>): string {
-  const latency = typeof m.latencyMs === 'object' && m.latencyMs !== null ? (m.latencyMs as Record<string, unknown>) : {};
+  const latency =
+    typeof m.latencyMs === 'object' && m.latencyMs !== null
+      ? (m.latencyMs as Record<string, unknown>)
+      : {};
   return `
     <tr>
       <td>${escapeHtml(String(m?.modelId ?? 'unknown'))}</td>
@@ -250,10 +287,15 @@ function renderModelRow(m: Record<string, unknown>): string {
   `.trim();
 }
 
-function renderBreakdownTable(params: { kind: 'category' | 'difficulty'; rows: Record<string, unknown>[] }): string {
+function renderBreakdownTable(params: {
+  kind: 'category' | 'difficulty';
+  rows: Record<string, unknown>[];
+}): string {
   const key = params.kind === 'category' ? 'category' : 'difficulty';
   const sorted = [...params.rows].sort(
-    (a, b) => number(b?.overallScore) - number(a?.overallScore) || String(a?.[key]).localeCompare(String(b?.[key])),
+    (a, b) =>
+      number(b?.overallScore) - number(a?.overallScore) ||
+      String(a?.[key]).localeCompare(String(b?.[key])),
   );
 
   return `
@@ -261,19 +303,19 @@ function renderBreakdownTable(params: { kind: 'category' | 'difficulty'; rows: R
       <thead>
         <tr>
           <th>${key}</th>
-          <th class="num">score</th>
-          <th class="num">avg</th>
-          <th class="num">done</th>
-          <th class="num">failed</th>
-          <th class="num">skipped</th>
-          <th class="num">auto-fail</th>
-          <th class="num">p50 ms</th>
-          <th class="num">p90 ms</th>
+          <th class="num" title="Sum of all scores">score</th>
+          <th class="num" title="Mean score per completed question">avg</th>
+          <th class="num" title="Questions completed">done</th>
+          <th class="num" title="Execution errors">errors</th>
+          <th class="num" title="Questions not attempted">skipped</th>
+          <th class="num" title="% flagged by judge">auto-fail %</th>
+          <th class="num" title="Median latency">p50 ms</th>
+          <th class="num" title="90th percentile latency">p90 ms</th>
         </tr>
       </thead>
       <tbody>
         ${sorted
-          .map(r => {
+          .map((r) => {
             const latency =
               typeof r.latencyMs === 'object' && r.latencyMs !== null
                 ? (r.latencyMs as Record<string, unknown>)
@@ -338,4 +380,3 @@ function escapeHtml(s: string): string {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
-

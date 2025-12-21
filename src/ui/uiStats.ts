@@ -21,7 +21,7 @@ type ModelUiStatsWithAttempts = ModelUiStats & { _attempts: number };
 
 export type UiStats = {
   runId: string | null;
-  elapsedMs: number;
+  startedAtMs: number | null;
   totalQuestions: number;
   questionsPerModel: number;
   modelCount: number;
@@ -35,6 +35,22 @@ export type UiStats = {
   budgetMaxUsd: number | null;
   models: ModelUiStats[];
   lastEvent: RunnerEvent | null;
+};
+
+export type UiTotals = {
+  completedCount: number;
+  failedCount: number;
+  runningScoreSum: number;
+  perModel: Record<
+    string,
+    {
+      completed: number;
+      failed: number;
+      scoreSum: number;
+      tokens: { promptTokens: number; completionTokens: number; totalTokens: number };
+      costUsd: number;
+    }
+  >;
 };
 
 export function getTotalQuestions(
@@ -77,17 +93,19 @@ export function computeUiStats(params: {
   totalQuestions: number;
   questionsPerModel: number;
   modelCount: number;
-  nowMs: number;
+  totals?: UiTotals;
 }): UiStats {
-  const { events, totalQuestions, questionsPerModel, modelCount, nowMs } = params;
+  const { events, totalQuestions, questionsPerModel, modelCount, totals } = params;
+
+  const nowMs = Date.now();
 
   let runId: string | null = null;
   let runStartedAtMs: number | null = null;
   let budgetSpentUsd: number | null = null;
   let budgetMaxUsd: number | null = null;
-  let completedCount = 0;
-  let failedCount = 0;
-  let runningScoreSum = 0;
+  const completedCount = totals?.completedCount ?? 0;
+  const failedCount = totals?.failedCount ?? 0;
+  const runningScoreSum = totals?.runningScoreSum ?? 0;
   let lastTps: number | null = null;
   let hasOpenRouterGenerationId = false;
 
@@ -133,71 +151,145 @@ export function computeUiStats(params: {
       budgetMaxUsd = e.maxBudgetUsd;
       continue;
     }
+  }
 
-    if (e.type === 'question_completed') {
-      completedCount += 1;
-      runningScoreSum += e.overallScore;
-      const agg = perModel.get(e.modelId) ?? {
-        completed: 0,
-        failed: 0,
-        scoreSum: 0,
+  if (totals) {
+    for (const [modelId, t] of Object.entries(totals.perModel)) {
+      perModel.set(modelId, {
+        completed: t.completed,
+        failed: t.failed,
+        scoreSum: t.scoreSum,
         lastQuestionId: null,
         lastLatencyMs: null,
-        usage: null,
-        costUsd: 0,
+        usage: {
+          promptTokens: t.tokens.promptTokens,
+          completionTokens: t.tokens.completionTokens,
+          totalTokens: t.tokens.totalTokens,
+        },
+        costUsd: t.costUsd,
         lastTps: null,
-      };
-      agg.completed += 1;
-      agg.scoreSum += e.overallScore;
-      agg.lastQuestionId = e.questionId;
-      agg.lastLatencyMs = typeof e.latencyMs === 'number' ? e.latencyMs : null;
-      const normalized = normalizeUsage(e.usage);
-      if (normalized) {
-        agg.usage = {
-          promptTokens: (agg.usage?.promptTokens ?? 0) + normalized.promptTokens,
-          completionTokens:
-            (agg.usage?.completionTokens ?? 0) + normalized.completionTokens,
-          totalTokens: (agg.usage?.totalTokens ?? 0) + normalized.totalTokens,
-        };
-      }
-      if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd))
-        agg.costUsd += e.costUsd;
-      perModel.set(e.modelId, agg);
-      continue;
+      });
     }
 
-    if (e.type === 'question_failed') {
-      failedCount += 1;
-      const agg = perModel.get(e.modelId) ?? {
-        completed: 0,
-        failed: 0,
-        scoreSum: 0,
-        lastQuestionId: null,
-        lastLatencyMs: null,
-        usage: null,
-        costUsd: 0,
-        lastTps: null,
-      };
-      agg.failed += 1;
-      agg.lastQuestionId = e.questionId;
-      agg.lastLatencyMs = typeof e.latencyMs === 'number' ? e.latencyMs : null;
-      const normalized = normalizeUsage(e.usage);
-      if (normalized) {
-        agg.usage = {
-          promptTokens: (agg.usage?.promptTokens ?? 0) + normalized.promptTokens,
-          completionTokens:
-            (agg.usage?.completionTokens ?? 0) + normalized.completionTokens,
-          totalTokens: (agg.usage?.totalTokens ?? 0) + normalized.totalTokens,
-        };
+    // Preserve “last” fields (questionId/latency) from recent event window
+    for (const e of events) {
+      if (e.type === 'question_completed') {
+        const agg = perModel.get(e.modelId);
+        if (agg) {
+          agg.lastQuestionId = e.questionId;
+          agg.lastLatencyMs = typeof e.latencyMs === 'number' ? e.latencyMs : null;
+        }
       }
-      if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd))
-        agg.costUsd += e.costUsd;
-      perModel.set(e.modelId, agg);
-      continue;
+      if (e.type === 'question_failed') {
+        const agg = perModel.get(e.modelId);
+        if (agg) {
+          agg.lastQuestionId = e.questionId;
+          agg.lastLatencyMs = typeof e.latencyMs === 'number' ? e.latencyMs : null;
+        }
+      }
     }
   }
 
-  const elapsedMs = runStartedAtMs == null ? 0 : Math.max(0, nowMs - runStartedAtMs);
+  if (!totals) {
+    let completedCount = 0;
+    let failedCount = 0;
+    let runningScoreSum = 0;
+
+    for (const e of events) {
+      if (e.type === 'question_completed') {
+        completedCount += 1;
+        runningScoreSum += e.overallScore;
+        const agg = perModel.get(e.modelId) ?? {
+          completed: 0,
+          failed: 0,
+          scoreSum: 0,
+          lastQuestionId: null,
+          lastLatencyMs: null,
+          usage: null,
+          costUsd: 0,
+          lastTps: null,
+        };
+        agg.completed += 1;
+        agg.scoreSum += e.overallScore;
+        agg.lastQuestionId = e.questionId;
+        agg.lastLatencyMs = typeof e.latencyMs === 'number' ? e.latencyMs : null;
+        const normalized = normalizeUsage(e.usage);
+        if (normalized) {
+          agg.usage = {
+            promptTokens: (agg.usage?.promptTokens ?? 0) + normalized.promptTokens,
+            completionTokens:
+              (agg.usage?.completionTokens ?? 0) + normalized.completionTokens,
+            totalTokens: (agg.usage?.totalTokens ?? 0) + normalized.totalTokens,
+          };
+        }
+        if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd))
+          agg.costUsd += e.costUsd;
+        perModel.set(e.modelId, agg);
+        continue;
+      }
+
+      if (e.type === 'question_failed') {
+        failedCount += 1;
+        const agg = perModel.get(e.modelId) ?? {
+          completed: 0,
+          failed: 0,
+          scoreSum: 0,
+          lastQuestionId: null,
+          lastLatencyMs: null,
+          usage: null,
+          costUsd: 0,
+          lastTps: null,
+        };
+        agg.failed += 1;
+        agg.lastQuestionId = e.questionId;
+        agg.lastLatencyMs = typeof e.latencyMs === 'number' ? e.latencyMs : null;
+        const normalized = normalizeUsage(e.usage);
+        if (normalized) {
+          agg.usage = {
+            promptTokens: (agg.usage?.promptTokens ?? 0) + normalized.promptTokens,
+            completionTokens:
+              (agg.usage?.completionTokens ?? 0) + normalized.completionTokens,
+            totalTokens: (agg.usage?.totalTokens ?? 0) + normalized.totalTokens,
+          };
+        }
+        if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd))
+          agg.costUsd += e.costUsd;
+        perModel.set(e.modelId, agg);
+        continue;
+      }
+    }
+
+    // Overwrite the outer consts via shadowing for return below
+    return computeUiStats({
+      events,
+      totalQuestions,
+      questionsPerModel,
+      modelCount,
+      totals: {
+        completedCount,
+        failedCount,
+        runningScoreSum,
+        perModel: Object.fromEntries(
+          Array.from(perModel.entries()).map(([modelId, agg]) => [
+            modelId,
+            {
+              completed: agg.completed,
+              failed: agg.failed,
+              scoreSum: agg.scoreSum,
+              tokens: {
+                promptTokens: agg.usage?.promptTokens ?? 0,
+                completionTokens: agg.usage?.completionTokens ?? 0,
+                totalTokens: agg.usage?.totalTokens ?? 0,
+              },
+              costUsd: agg.costUsd,
+            },
+          ]),
+        ),
+      },
+    });
+  }
+
+  const startedAtMs = runStartedAtMs;
   const doneTotal = completedCount + failedCount;
   const progress = totalQuestions > 0 ? Math.min(1, doneTotal / totalQuestions) : null;
   const runningScoreMean = completedCount > 0 ? runningScoreSum / completedCount : null;
@@ -244,7 +336,7 @@ export function computeUiStats(params: {
 
   return {
     runId,
-    elapsedMs,
+    startedAtMs,
     totalQuestions,
     questionsPerModel,
     modelCount,

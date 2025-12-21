@@ -15,6 +15,7 @@ import type { ApocbenchConfig } from '../core/config/schema';
 import { loadJsonl } from '../core/dataset/loadJsonl';
 import type { RunnerEvent } from '../core/runner/orchestrator';
 import { runBenchmark } from '../core/runner/orchestrator';
+import { sanitizeEvent } from '../core/runner/sanitizeEvent';
 import { diffSummaries, type RunSummary } from '../core/scoring/diff';
 import { renderHtmlReport } from '../reports/html/renderHtml';
 import { openAndMigrate } from '../storage/sqlite/migrate';
@@ -89,8 +90,10 @@ async function runCommand(
   const totalQuestions = getTotalQuestions(config, dataset.lines.length, modelCount);
 
   // Keep a bounded event buffer so long runs don't exhaust the JS heap.
+  // The UI only needs ~50 recent events for display (logs panel shows 16, plus some buffer).
+  // Previously 2000 caused memory issues with React/Ink rendering overhead.
   const events: RunnerEvent[] = [];
-  const EVENTS_LIMIT = 2000;
+  const EVENTS_LIMIT = 100;
 
   const resolveModel = (m: ApocbenchConfig['models'][number]) => {
     if (m.router === 'openrouter') {
@@ -135,10 +138,11 @@ async function runCommand(
     limitOverride: typeof flags.limit === 'number' ? flags.limit : null,
     categoriesOverride: flags.categories ? Array.from(flags.categories) : null,
     onEvent: (e) => {
-      events.push(e);
+      const sanitized = sanitizeEvent(e);
+      events.push(sanitized);
       if (events.length > EVENTS_LIMIT) events.splice(0, events.length - EVENTS_LIMIT);
-      for (const s of subscribers) s(e);
-      if (flags.json) process.stdout.write(JSON.stringify(e) + '\n');
+      for (const s of subscribers) s(sanitized);
+      if (flags.json) process.stdout.write(JSON.stringify(sanitized) + '\n');
     },
   });
 

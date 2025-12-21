@@ -45,7 +45,6 @@ describe('computeUiStats', () => {
       totalQuestions: 4,
       questionsPerModel: 4,
       modelCount: 1,
-      nowMs: 10_000,
     });
     expect(stats.runId).toBe('r1');
     expect(stats.completedCount).toBe(1);
@@ -63,6 +62,63 @@ describe('computeUiStats', () => {
 
     expect(stats.lastTps).toBe(50);
     expect(stats.hasOpenRouterGenerationId).toBe(false);
+  });
+
+  test('keeps totals monotonic even when event window drops old events', () => {
+    const makeCompleted = (questionId: string, costUsd: number): RunnerEvent => ({
+      type: 'question_completed',
+      runId: 'r1',
+      modelId: 'm1',
+      questionId,
+      overallScore: 1,
+      usage: { promptTokens: 1, completionTokens: 1, totalTokens: 2 },
+      costUsd,
+    });
+
+    const totals = {
+      completedCount: 3,
+      failedCount: 0,
+      runningScoreSum: 3,
+      perModel: {
+        m1: {
+          completed: 3,
+          failed: 0,
+          scoreSum: 3,
+          tokens: { promptTokens: 3, completionTokens: 3, totalTokens: 6 },
+          costUsd: 0.006,
+        },
+      },
+    };
+
+    // Simulate truncated window that only contains the last completion.
+    const truncated: RunnerEvent[] = [
+      { type: 'run_started', runId: 'r1', startedAtMs: 1_000 },
+      makeCompleted('q3', 0.003),
+    ];
+
+    const stats = computeUiStats({
+      events: truncated,
+      totals,
+      totalQuestions: 3,
+      questionsPerModel: 3,
+      modelCount: 1,
+    });
+
+    expect(stats.completedCount).toBe(3);
+    expect(stats.failedCount).toBe(0);
+    expect(stats.models).toHaveLength(1);
+    expect(stats.models[0].costUsd).toBeCloseTo(0.006);
+    expect(stats.models[0].usage?.totalTokens).toBe(6);
+    expect(stats.lastEvent).toEqual(truncated[truncated.length - 1]);
+
+    // Sanity check: without totals, aggregation would reflect truncated window only.
+    const statsWithoutTotals = computeUiStats({
+      events: truncated,
+      totalQuestions: 3,
+      questionsPerModel: 3,
+      modelCount: 1,
+    });
+    expect(statsWithoutTotals.completedCount).toBe(1);
   });
 
   test('ignores computed/guessed TPS and shows not available when missing', () => {
@@ -92,7 +148,6 @@ describe('computeUiStats', () => {
       totalQuestions: 1,
       questionsPerModel: 1,
       modelCount: 1,
-      nowMs: 10_000,
     });
     expect(stats.lastTps).toBe(null);
     expect(stats.hasOpenRouterGenerationId).toBe(false);
@@ -115,7 +170,6 @@ describe('computeUiStats', () => {
       totalQuestions: 1,
       questionsPerModel: 1,
       modelCount: 1,
-      nowMs: 10_000,
     });
     expect(stats.hasOpenRouterGenerationId).toBe(true);
     expect(stats.lastTps).toBe(null);
@@ -152,7 +206,6 @@ describe('computeUiStats', () => {
       totalQuestions: 3,
       questionsPerModel: 1,
       modelCount: 3,
-      nowMs: 10_000,
     });
 
     expect(stats.models).toHaveLength(3);

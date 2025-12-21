@@ -23,7 +23,11 @@ import { insertRun, updateRunStatus } from '../../storage/sqlite/runs';
 import { insertQuestions } from '../../storage/sqlite/questions';
 import { isResultDone, upsertResult } from '../../storage/sqlite/results';
 import { listRunModelResults } from '../../storage/sqlite/queries';
-import { normalizeOpenRouterUsageFromProviderMetadata } from './openrouterUsage';
+import {
+  normalizeOpenRouterUsageFromProviderMetadata,
+  normalizeUsage,
+  type NormalizedUsage,
+} from './openrouterUsage';
 import { fetchOpenRouterGeneration } from '../../adapters/openrouter/generation';
 import { toOpenRouterProviderParam } from '../config/schema';
 
@@ -73,6 +77,21 @@ export type RunnerDeps = {
   resolveJudgeModel: (config: ApocbenchConfig) => LanguageModel;
   toolVersion: string;
 };
+
+type AbortableCall<T> = {
+  call: () => Promise<T>;
+  signal: AbortSignal;
+  abort: () => void;
+};
+
+function createAbortableCall<T>(call: (signal: AbortSignal) => Promise<T>): AbortableCall<T> {
+  const controller = new AbortController();
+  return {
+    call: () => call(controller.signal),
+    signal: controller.signal,
+    abort: () => controller.abort(new Error('aborted')),
+  };
+}
 
 export type RunResult = {
   runId: string;
@@ -226,9 +245,9 @@ export async function runBenchmark(params: {
   async function maybeEmitOpenRouterGenerationMetrics(p: {
     modelId: string;
     questionId: string;
-    result: unknown;
+    generationId: string;
   }): Promise<void> {
-    const generationId = extractOpenRouterGenerationId(p.result);
+    const { generationId } = p;
     if (!generationId) return;
 
     const apiKeyEnv = config.routers.openrouter.apiKeyEnv;
@@ -269,15 +288,34 @@ export async function runBenchmark(params: {
     }
   }
 
-  async function generateTextWithRetry(
-    call: Parameters<typeof generateText>[0],
-  ): Promise<Awaited<ReturnType<typeof generateText>>> {
+  type GenerateTextArgs = Parameters<typeof generateText>[0];
+
+  async function generateTextWithRetry(p: {
+    call: Omit<GenerateTextArgs, 'abortSignal'>;
+    timeoutMs?: number | null;
+  }): Promise<Awaited<ReturnType<typeof generateText>>> {
     for (let attempt = 0; attempt <= retryPolicy.maxRetries; attempt++) {
       try {
-        return await generateText(call);
+        const timeoutMs = p.timeoutMs ?? null;
+        if (timeoutMs != null && Number.isFinite(timeoutMs) && timeoutMs > 0) {
+          const abortable = createAbortableCall((abortSignal) => {
+            return generateText({
+              ...(p.call as GenerateTextArgs),
+              abortSignal,
+            });
+          });
+          const timeoutId = setTimeout(() => abortable.abort(), timeoutMs);
+          try {
+            return await abortable.call();
+          } finally {
+            clearTimeout(timeoutId);
+          }
+        }
+
+        return await generateText(p.call as GenerateTextArgs);
       } catch (err) {
         const msg = (err as Error).message;
-        const retryable = /429|5\d\d|timeout|ECONNRESET|ENOTFOUND/i.test(msg);
+        const retryable = /429|5\d\d|timeout|ECONNRESET|ENOTFOUND|aborted/i.test(msg);
         if (!retryable || attempt === retryPolicy.maxRetries) throw err;
         await sleep(
           computeBackoffMs(attempt, {
@@ -323,37 +361,42 @@ export async function runBenchmark(params: {
           const candidatePrompt = buildCandidatePrompt(q);
           const candidateStart = Date.now();
 
+          // These variables capture only primitive/normalized data to avoid retaining
+          // references to the large AI SDK response objects in closures.
           let lastCandidateLatencyMs: number | undefined;
-          let lastCandidateUsage: unknown | undefined;
+          let lastCandidateUsage: NormalizedUsage | null | undefined;
           let lastCandidateCostUsd: number | undefined;
 
           try {
             const candidateResult = await generateTextWithRetry({
-              model: candidateModel,
-              prompt: candidatePrompt,
-              temperature:
-                modelEntry.params?.temperature ??
-                config.routers[modelEntry.router].default.temperature ??
-                undefined,
-              maxOutputTokens:
-                modelEntry.params?.maxTokens ??
-                config.routers[modelEntry.router].default.maxTokens,
-              providerOptions: (modelEntry.router === 'openrouter'
-                ? {
-                    openrouter: {
-                      ...(modelEntry.routing
-                        ? { provider: toOpenRouterProviderParam(modelEntry.routing) }
-                        : modelEntry.provider
-                          ? {
-                              provider: {
-                                order: [modelEntry.provider],
-                                allow_fallbacks: false,
-                              },
-                            }
-                          : {}),
-                    },
-                  }
-                : undefined) as ProviderOptions | undefined,
+              timeoutMs:
+                modelEntry.params?.timeoutMs ??
+                config.routers[modelEntry.router].default.timeoutMs ??
+                null,
+              call: {
+                model: candidateModel,
+                prompt: candidatePrompt,
+                temperature:
+                  modelEntry.params?.temperature ??
+                  config.routers[modelEntry.router].default.temperature ??
+                  undefined,
+                providerOptions: (modelEntry.router === 'openrouter'
+                  ? {
+                      openrouter: {
+                        ...(modelEntry.routing
+                          ? { provider: toOpenRouterProviderParam(modelEntry.routing) }
+                          : modelEntry.provider
+                            ? {
+                                provider: {
+                                  order: [modelEntry.provider],
+                                  allow_fallbacks: false,
+                                },
+                              }
+                            : {}),
+                      },
+                    }
+                  : undefined) as ProviderOptions | undefined,
+              },
             });
 
             const candidateText = candidateResult.text;
@@ -361,11 +404,16 @@ export async function runBenchmark(params: {
             if (candidateCostUsd != null) recordSpend(candidateCostUsd);
 
             lastCandidateLatencyMs = Date.now() - candidateStart;
+            // Extract and normalize usage immediately to break reference to candidateResult.
+            // This is critical: the AI SDK response object can be large and retaining it
+            // in closures (like the judge queue task) causes memory accumulation.
             const candidateOr = normalizeOpenRouterUsageFromProviderMetadata(
               (candidateResult as { providerMetadata?: unknown } | null | undefined)
                 ?.providerMetadata,
             );
-            lastCandidateUsage = candidateOr.usage ?? candidateResult.usage;
+            // Prefer OpenRouter normalized usage, fall back to normalizing standard usage
+            lastCandidateUsage =
+              candidateOr.usage ?? normalizeUsage(candidateResult.usage);
             lastCandidateCostUsd = candidateOr.costUsd ?? candidateCostUsd ?? undefined;
 
             const candidateGenerationId = extractOpenRouterGenerationId(candidateResult);
@@ -380,11 +428,15 @@ export async function runBenchmark(params: {
             }
 
             // Fire-and-forget: don't block candidate slot for metrics fetch
-            void maybeEmitOpenRouterGenerationMetrics({
-              modelId: modelEntry.id,
-              questionId: q.id,
-              result: candidateResult,
-            });
+            // Note: Only pass the generationId, not the full result, to avoid retaining
+            // the large AI SDK response object in the closure until the async completes.
+            if (candidateGenerationId) {
+              void maybeEmitOpenRouterGenerationMetrics({
+                modelId: modelEntry.id,
+                questionId: q.id,
+                generationId: candidateGenerationId,
+              });
+            }
 
             const metrics: CandidateMetrics = {
               latencyMs: lastCandidateLatencyMs,
@@ -438,6 +490,7 @@ export async function runBenchmark(params: {
                     model: judgeModel,
                     prompt: judgePrompt,
                     maxTokens: config.judge.maxTokens,
+                    timeoutMs: config.routers.openrouter.default.timeoutMs ?? null,
                     temperature: config.judge.temperature,
                     providerOptions: {
                       openrouter: {
@@ -509,11 +562,15 @@ export async function runBenchmark(params: {
                 });
 
                 // Fire-and-forget: don't block judge slot for metrics fetch
-                void maybeEmitOpenRouterGenerationMetrics({
-                  modelId: modelEntry.id,
-                  questionId: q.id,
-                  result: raw,
-                });
+                // Extract generation ID immediately to avoid retaining the full response
+                const judgeGenerationId = extractOpenRouterGenerationId(raw);
+                if (judgeGenerationId) {
+                  void maybeEmitOpenRouterGenerationMetrics({
+                    modelId: modelEntry.id,
+                    questionId: q.id,
+                    generationId: judgeGenerationId,
+                  });
+                }
               } catch (err) {
                 const message = (err as Error).message;
                 upsertResult(db, {
@@ -535,12 +592,8 @@ export async function runBenchmark(params: {
                   costUsd: lastCandidateCostUsd,
                 });
 
-                // Fire-and-forget on failure path too
-                void maybeEmitOpenRouterGenerationMetrics({
-                  modelId: modelEntry.id,
-                  questionId: q.id,
-                  result: null,
-                });
+                // On failure path, no generation ID to fetch metrics for
+                // (removed fire-and-forget call that passed null result)
               }
             });
           } catch (err) {

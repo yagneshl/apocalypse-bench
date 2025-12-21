@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Box, Text } from 'ink';
 import type { RunnerEvent } from '../../core/runner/orchestrator';
 import { LogsPanel } from '../components/LogsPanel';
@@ -20,6 +20,7 @@ function GlobalProgressBar(props: { progress: number; width: number }) {
 
 export function RunScreen(props: {
   events: RunnerEvent[];
+  totals?: import('../uiStats').UiTotals;
   showLogs: boolean;
   totalQuestions: number;
   questionsPerModel: number;
@@ -28,17 +29,30 @@ export function RunScreen(props: {
   const [nowMs, setNowMs] = useState(() => Date.now());
 
   useEffect(() => {
-    const t = setInterval(() => setNowMs(Date.now()), 250);
+    const t = setInterval(() => setNowMs(Date.now()), 1000);
     return () => clearInterval(t);
   }, []);
 
-  const stats = computeUiStats({
-    events: props.events,
-    totalQuestions: props.totalQuestions,
-    questionsPerModel: props.questionsPerModel,
-    modelCount: props.modelCount,
-    nowMs,
-  });
+  const stats = useMemo(
+    () =>
+      computeUiStats({
+        events: props.events,
+        totals: props.totals,
+        totalQuestions: props.totalQuestions,
+        questionsPerModel: props.questionsPerModel,
+        modelCount: props.modelCount,
+      }),
+    [
+      props.events,
+      props.totals,
+      props.totalQuestions,
+      props.questionsPerModel,
+      props.modelCount,
+    ],
+  );
+
+  const elapsedMs =
+    stats.startedAtMs == null ? 0 : Math.max(0, nowMs - stats.startedAtMs);
 
   const doneTotal = stats.completedCount + stats.failedCount;
   const progressPct = stats.progress == null ? 0 : Math.round(stats.progress * 100);
@@ -56,7 +70,7 @@ export function RunScreen(props: {
         <Text dimColor>run:</Text>
         <Text>{stats.runId ?? 'starting…'}</Text>
         <Text dimColor>elapsed:</Text>
-        <Text>{formatDuration(stats.elapsedMs)}</Text>
+        <Text>{formatDuration(elapsedMs)}</Text>
       </Box>
 
       {/* Global stats bar */}

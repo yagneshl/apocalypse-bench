@@ -17,7 +17,8 @@ export function formatDuration(ms: number): string {
   const minutes = Math.floor((secondsTotal % 3600) / 60);
   const seconds = secondsTotal % 60;
 
-  if (hours > 0) return `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+  if (hours > 0)
+    return `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
   if (minutes > 0) return `${minutes}m ${String(seconds).padStart(2, '0')}s`;
   return `${seconds}s`;
 }
@@ -104,7 +105,12 @@ export function formatEventSummary(e: RunnerEvent): string {
       return `budget_spent ${formatUsd(e.spentUsd)}`;
     case 'budget_exceeded':
       return `budget_exceeded max=${formatUsd(e.maxBudgetUsd)}`;
+    case 'generation_metrics': {
+      const tpsStr = typeof e.tps === 'number' ? formatNumber(e.tps, 1) : '—';
+      return `generation_metrics ${e.modelId} ${e.questionId} tps=${tpsStr}`;
+    }
     default:
-      return safeJson(e);
+      // Avoid JSON.stringify which can be expensive and retain references
+      return `unknown_event`;
   }
 }
