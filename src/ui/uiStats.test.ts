@@ -90,7 +90,7 @@ describe('computeUiStats', () => {
         costUsd: 0.2,
       },
       // budget spent includes candidate + judge
-      { type: 'budget_spent', runId: 'r1', spentUsd: 0.24 },
+      { type: 'budget_spent', runId: 'r1', spentUsd: 0.24, source: 'judge' },
     ];
 
     const stats = computeUiStats({
@@ -103,6 +103,41 @@ describe('computeUiStats', () => {
     expect(stats.models).toHaveLength(1);
     expect(stats.models[0].costUsd).toBeCloseTo(0.2);
     expect(stats.budgetSpentUsd).toBeCloseTo(0.24);
+  });
+
+  test('judge cost display can be zero even with tiny floating error', () => {
+    const events: RunnerEvent[] = [
+      { type: 'run_started', runId: 'r1', startedAtMs: 1_000 },
+      {
+        type: 'question_completed',
+        runId: 'r1',
+        modelId: 'm1',
+        questionId: 'q1',
+        overallScore: 1,
+        costUsd: 0.2,
+      },
+      // spentUsd differs by a tiny float rounding amount
+      { type: 'budget_spent', runId: 'r1', spentUsd: 0.2000000004 },
+    ];
+
+    const stats = computeUiStats({
+      events,
+      totalQuestions: 1,
+      questionsPerModel: 1,
+      modelCount: 1,
+    });
+
+    const candidateCostUsd = stats.models.reduce((sum, m) => sum + (m.costUsd ?? 0), 0);
+    const totalCostUsd = stats.budgetSpentUsd ?? candidateCostUsd;
+    const judgeCostUsdRaw = stats.budgetSpentUsd != null ? totalCostUsd - candidateCostUsd : null;
+    const judgeCostUsd =
+      judgeCostUsdRaw == null
+        ? null
+        : Math.abs(judgeCostUsdRaw) < 1e-6
+          ? 0
+          : Math.max(0, judgeCostUsdRaw);
+
+    expect(judgeCostUsd).toBe(0);
   });
 
   test('keeps totals monotonic even when event window drops old events', () => {

@@ -32,6 +32,8 @@ export type UiStats = {
   lastTps: number | null;
   hasOpenRouterGenerationId: boolean;
   budgetSpentUsd: number | null;
+  budgetSpentCandidateUsd: number | null;
+  budgetSpentJudgeUsd: number | null;
   budgetMaxUsd: number | null;
   models: ModelUiStats[];
   lastEvent: RunnerEvent | null;
@@ -122,6 +124,8 @@ export function computeUiStats(params: {
   let runId: string | null = null;
   let runStartedAtMs: number | null = null;
   let budgetSpentUsd: number | null = null;
+  let budgetSpentCandidateUsd: number | null = null;
+  let budgetSpentJudgeUsd: number | null = null;
   let budgetMaxUsd: number | null = null;
   const completedCount = totals?.completedCount ?? 0;
   const failedCount = totals?.failedCount ?? 0;
@@ -186,6 +190,12 @@ export function computeUiStats(params: {
 
     if (e.type === 'budget_spent') {
       budgetSpentUsd = e.spentUsd;
+      if ((e as { source?: unknown } | null | undefined)?.source === 'candidate') {
+        budgetSpentCandidateUsd = e.spentUsd;
+      }
+      if ((e as { source?: unknown } | null | undefined)?.source === 'judge') {
+        budgetSpentJudgeUsd = e.spentUsd;
+      }
       continue;
     }
 
@@ -399,6 +409,8 @@ export function computeUiStats(params: {
     lastTps: medianTps ?? lastTps,
     hasOpenRouterGenerationId,
     budgetSpentUsd,
+    budgetSpentCandidateUsd,
+    budgetSpentJudgeUsd,
     budgetMaxUsd,
     models,
     lastEvent: events.length > 0 ? events[events.length - 1] : null,

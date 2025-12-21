@@ -13,10 +13,18 @@ export function SummaryScreen(props: {
   const totalTokens = stats.models.reduce((sum, m) => sum + (m.usage?.totalTokens ?? 0), 0);
   const candidateCostUsd = stats.models.reduce((sum, m) => sum + (m.costUsd ?? 0), 0);
   const totalCostUsd = stats.budgetSpentUsd ?? candidateCostUsd;
-  const judgeCostUsd =
-    stats.budgetSpentUsd != null
-      ? Math.max(0, totalCostUsd - candidateCostUsd)
+  const judgeCostUsdRaw =
+    stats.budgetSpentJudgeUsd != null && stats.budgetSpentCandidateUsd != null
+      ? stats.budgetSpentUsd == null
+        ? null
+        : Math.max(0, stats.budgetSpentUsd - stats.budgetSpentCandidateUsd)
       : null;
+  const judgeCostUsd =
+    judgeCostUsdRaw == null
+      ? null
+      : Math.abs(judgeCostUsdRaw) < 1e-6
+        ? 0
+        : Math.max(0, judgeCostUsdRaw);
   const topModels = [...stats.models]
     .filter((m) => m.scoreMean != null)
     .sort((a, b) => (b.scoreMean ?? 0) - (a.scoreMean ?? 0))

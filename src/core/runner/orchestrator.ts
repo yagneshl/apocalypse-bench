@@ -67,7 +67,7 @@ export type RunnerEvent =
       costUsd?: number;
     }
   | { type: 'budget_exceeded'; runId: string; maxBudgetUsd: number }
-  | { type: 'budget_spent'; runId: string; spentUsd: number }
+  | { type: 'budget_spent'; runId: string; spentUsd: number; source: 'candidate' | 'judge' }
   | { type: 'run_completed'; runId: string };
 
 export type RunnerDeps = {
@@ -218,10 +218,10 @@ export async function runBenchmark(params: {
     onEvent?.({ type: 'budget_exceeded', runId, maxBudgetUsd });
   }
 
-  function recordSpend(costUsd: number): void {
+  function recordSpend(costUsd: number, source: 'candidate' | 'judge'): void {
     if (!Number.isFinite(costUsd) || costUsd <= 0) return;
     spentUsd += costUsd;
-    onEvent?.({ type: 'budget_spent', runId, spentUsd });
+    onEvent?.({ type: 'budget_spent', runId, spentUsd, source });
     emitBudgetExceededIfNeeded();
   }
 
@@ -421,7 +421,7 @@ export async function runBenchmark(params: {
 
             const candidateText = candidateResult.text;
             const candidateCostUsd = extractOpenRouterCost(candidateResult);
-            if (candidateCostUsd != null) recordSpend(candidateCostUsd);
+            if (candidateCostUsd != null) recordSpend(candidateCostUsd, 'candidate');
 
             lastCandidateLatencyMs = Date.now() - candidateStart;
             // Extract and normalize usage immediately to break reference to candidateResult.
@@ -550,7 +550,7 @@ export async function runBenchmark(params: {
                 };
 
                 const judgeCostUsd = extractOpenRouterCost(raw);
-                if (judgeCostUsd != null) recordSpend(judgeCostUsd);
+                if (judgeCostUsd != null) recordSpend(judgeCostUsd, 'judge');
 
                 const redactedRequest = redactSecrets({
                   model: config.judge.model,
