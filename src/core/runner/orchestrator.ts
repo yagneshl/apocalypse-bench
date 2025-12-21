@@ -9,6 +9,7 @@ import type { ApocbenchConfig } from '../config/schema';
 import type { DatasetLine } from '../dataset/schema';
 import { buildCandidatePrompt } from '../prompts/candidatePrompt';
 import { buildJudgePrompt } from '../prompts/judgePrompt';
+import { CANDIDATE_SYSTEM_PROMPT, JUDGE_SYSTEM_PROMPT } from '../prompts/systemPrompts';
 import { aggregateModel } from '../scoring/aggregate';
 import { computeOverallScore, judgeWithRubricCompletenessRetry } from './judge';
 import { makeRunId, promptTemplateHash } from './runId';
@@ -290,6 +291,11 @@ export async function runBenchmark(params: {
 
   type GenerateTextArgs = Parameters<typeof generateText>[0];
 
+  type TextMessages = Array<
+    | { role: 'system'; content: string }
+    | { role: 'user'; content: string }
+  >;
+
   async function generateTextWithRetry(p: {
     call: Omit<GenerateTextArgs, 'abortSignal'>;
     timeoutMs?: number | null;
@@ -375,7 +381,10 @@ export async function runBenchmark(params: {
                 null,
               call: {
                 model: candidateModel,
-                prompt: candidatePrompt,
+                messages: [
+                  { role: 'system', content: CANDIDATE_SYSTEM_PROMPT },
+                  { role: 'user', content: candidatePrompt },
+                ] as TextMessages,
                 temperature:
                   modelEntry.params?.temperature ??
                   config.routers[modelEntry.router].default.temperature ??
@@ -488,7 +497,10 @@ export async function runBenchmark(params: {
                 const { object, raw } = await judgeWithRubricCompletenessRetry(
                   {
                     model: judgeModel,
-                    prompt: judgePrompt,
+                    messages: [
+                      { role: 'system', content: JUDGE_SYSTEM_PROMPT },
+                      { role: 'user', content: judgePrompt },
+                    ] as TextMessages,
                     maxTokens: config.judge.maxTokens,
                     timeoutMs: config.routers.openrouter.default.timeoutMs ?? null,
                     temperature: config.judge.temperature,

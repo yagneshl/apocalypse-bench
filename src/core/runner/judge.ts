@@ -10,7 +10,8 @@ const _deps = {
 
 export type JudgeRequest = {
   model: LanguageModel;
-  prompt: string;
+  prompt?: string;
+  messages?: Array<{ role: 'system' | 'user'; content: string }>;
   maxTokens: number;
   timeoutMs?: number | null;
   temperature: number | null | undefined;
@@ -72,13 +73,17 @@ export async function judgeOnce(req: JudgeRequest): Promise<{
   // Build schema with explicit rubric ID keys to ensure the model knows which keys are required
   const schema = buildJudgeOutputSchemaWithRubricIds(req.rubricIds);
 
+  if (!req.messages && typeof req.prompt !== 'string') {
+    throw new Error('judge request must include either prompt or messages');
+  }
+
   const timeoutMs = req.timeoutMs ?? null;
   if (timeoutMs != null && Number.isFinite(timeoutMs) && timeoutMs > 0) {
     const abortable = createAbortableCall((abortSignal) =>
       _deps.generateObject({
         model: req.model,
         schema: schema as z.ZodTypeAny,
-        prompt: req.prompt,
+        ...(req.messages ? { messages: req.messages } : { prompt: req.prompt as string }),
         maxOutputTokens: req.maxTokens,
         temperature: req.temperature ?? undefined,
         providerOptions: req.providerOptions,
@@ -107,7 +112,7 @@ export async function judgeOnce(req: JudgeRequest): Promise<{
   const result = await _deps.generateObject({
     model: req.model,
     schema: schema as z.ZodTypeAny,
-    prompt: req.prompt,
+    ...(req.messages ? { messages: req.messages } : { prompt: req.prompt as string }),
     maxOutputTokens: req.maxTokens,
     temperature: req.temperature ?? undefined,
     providerOptions: req.providerOptions,
@@ -158,15 +163,14 @@ export async function judgeWithRepairRetry(
     if (!NoObjectGeneratedError.isInstance(err)) throw err;
 
     const retryPrompt =
-      req.prompt +
+      (req.messages
+        ? req.messages.map((m) => m.content).join('\n')
+        : (req.prompt as string)) +
       '\n\nIMPORTANT: Repair your output to be strictly valid JSON matching the schema. Output JSON only.';
 
     const backoff = computeBackoffMs(0, { retries: 1, baseMs: 800, maxMs: 4000 });
     await sleep(backoff);
-    const { object, raw } = await judgeOnceWithRetry(
-      { ...req, prompt: retryPrompt },
-      retry,
-    );
+    const { object, raw } = await judgeOnceWithRetry({ ...req, prompt: retryPrompt, messages: undefined }, retry);
     return { object, raw, didRepairRetry: true };
   }
 }
@@ -198,12 +202,17 @@ export async function judgeWithRubricCompletenessRetry(
 
   const rubricIds = params.rubric.map((r) => r.id).join(', ');
   const retryPrompt =
-    req.prompt +
+    (req.messages
+      ? req.messages.map((m) => m.content).join('\n')
+      : (req.prompt as string)) +
     `\n\nIMPORTANT: Your prior output omitted rubric_scores for required ids. ` +
     `Output JSON only. rubric_scores must include ALL ids: ${rubricIds}. ` +
     `Do not omit any id.`;
 
-  const second = await judgeWithRepairRetry({ ...req, prompt: retryPrompt }, opts);
+  const second = await judgeWithRepairRetry(
+    { ...req, prompt: retryPrompt, messages: undefined },
+    opts,
+  );
   const stillMissing = missingRubricIds({
     judgeOutput: second.object,
     rubric: params.rubric,
