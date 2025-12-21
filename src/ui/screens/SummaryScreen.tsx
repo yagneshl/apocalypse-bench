@@ -12,7 +12,7 @@ export function SummaryScreen(props: {
   const doneTotal = stats.completedCount + stats.failedCount;
   const totalTokens = stats.models.reduce((sum, m) => sum + (m.usage?.totalTokens ?? 0), 0);
   const candidateCostUsd = stats.models.reduce((sum, m) => sum + (m.costUsd ?? 0), 0);
-  const totalCostUsd = stats.budgetSpentUsd ?? candidateCostUsd;
+  const totalCostUsd = candidateCostUsd;
   const judgeCostUsdRaw =
     stats.budgetSpentJudgeUsd != null && stats.budgetSpentCandidateUsd != null
       ? stats.budgetSpentUsd == null

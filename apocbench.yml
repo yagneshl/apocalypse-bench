@@ -16,9 +16,15 @@ run:
     judge: 5
 
 judge:
+  # router: 'openrouter'
+  # model: 'google/gemini-3-flash-preview'
+  # provider: 'google-ai-studio'
+  # temperature: null
+  # maxTokens: 16000
+  # structured: true
   router: 'openrouter'
-  model: 'google/gemini-3-flash-preview'
-  provider: 'google-ai-studio'
+  model: 'xiaomi/mimo-v2-flash:free'
+  provider: 'xiaomi/fp8'
   temperature: null
   maxTokens: 16000
   structured: true
@@ -48,39 +54,39 @@ models:
     router: 'openrouter'
     model: 'liquid/lfm-2.2-6b'
     provider: 'liquid'
-  # - id: 'liquid/lfm2-8b-a1b'
-  #   router: 'openrouter'
-  #   model: 'liquid/lfm2-8b-a1b'
-  #   provider: 'liquid'
-  # - id: 'openai/gpt-oss-20b'
-  #   router: 'openrouter'
-  #   model: 'openai/gpt-oss-20b'
-  #   provider: 'groq'
-  # - id: 'openai/gpt-oss-120b'
-  #   router: 'openrouter'
-  #   model: 'openai/gpt-oss-120b'
-  #   provider: 'cerebras'
-  # - id: 'nvidia/nemotron-nano-9b-v2'
-  #   router: 'openrouter'
-  #   model: 'nvidia/nemotron-nano-9b-v2'
-  #   provider: 'deepinfra/bf16'
-  # - id: 'meta-llama/llama-3.1-8b-instruct'
-  #   router: 'openrouter'
-  #   model: 'meta-llama/llama-3.1-8b-instruct'
-  #   provider: 'cerebras'
-  # - id: 'google/gemma-3-4b-it'
-  #   router: 'openrouter'
-  #   model: 'google/gemma-3-4b-it'
-  #   provider: 'deepinfra/bf16'
-  # - id: 'google/gemma-3-12b-it'
-  #   router: 'openrouter'
-  #   model: 'google/gemma-3-12b-it'
-  #   provider: 'deepinfra/bf16'
+  - id: 'liquid/lfm2-8b-a1b'
+    router: 'openrouter'
+    model: 'liquid/lfm2-8b-a1b'
+    provider: 'liquid'
+  - id: 'openai/gpt-oss-20b'
+    router: 'openrouter'
+    model: 'openai/gpt-oss-20b'
+    provider: 'groq'
+  - id: 'openai/gpt-oss-120b'
+    router: 'openrouter'
+    model: 'openai/gpt-oss-120b'
+    provider: 'cerebras'
+  - id: 'nvidia/nemotron-nano-9b-v2'
+    router: 'openrouter'
+    model: 'nvidia/nemotron-nano-9b-v2'
+    provider: 'deepinfra/bf16'
+  - id: 'meta-llama/llama-3.1-8b-instruct'
+    router: 'openrouter'
+    model: 'meta-llama/llama-3.1-8b-instruct'
+    provider: 'cerebras'
+  - id: 'google/gemma-3-4b-it'
+    router: 'openrouter'
+    model: 'google/gemma-3-4b-it'
+    provider: 'deepinfra/bf16'
+  - id: 'google/gemma-3-12b-it'
+    router: 'openrouter'
+    model: 'google/gemma-3-12b-it'
+    provider: 'deepinfra/bf16'
   # - id: "google/gemini-3-flash-preview"
   #   router: "openrouter"
   #   model: "google/gemini-3-flash-preview"
   #   provider: "google-vertex"
-  # - id: "kimi-k2"
-  #   router: "openrouter"
-  #   model: "moonshotai/kimi-k2-0905"
-  #   provider: "groq"
+  # - id: 'kimi-k2'
+  #   router: 'openrouter'
+  #   model: 'moonshotai/kimi-k2-0905'
+  #   provider: 'groq'

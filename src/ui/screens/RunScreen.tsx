@@ -61,7 +61,9 @@ export function RunScreen(props: {
     0,
   );
   const candidateCostUsd = stats.models.reduce((sum, m) => sum + (m.costUsd ?? 0), 0);
-  const totalCostUsd = stats.budgetSpentUsd ?? candidateCostUsd;
+  // Use candidate cost for the main "cost" display so it stays consistent with the per-model table.
+  // budget_spent includes in-flight spend which can make the header look much higher mid-run.
+  const totalCostUsd = candidateCostUsd;
   const judgeCostUsdRaw =
     stats.budgetSpentJudgeUsd != null && stats.budgetSpentCandidateUsd != null
       ? stats.budgetSpentUsd == null
