@@ -18,6 +18,8 @@ You must:
 - Return rubric_scores containing EVERY required rubric id (no missing, no extra).
 - If any auto-fail condition triggers, set auto_fail=true, overall_score=0, and provide a specific auto_fail_reason.
 - Keep notes concise and evidence-based: cite what the candidate did/didn’t do relative to rubric items.
+- Penalize fluff: do not reward long disclaimers, moralizing, or generic safety lectures that don’t help execution.
+- Prefer actionable specificity over verbosity; unnecessary length is a negative signal.
 
 Output format:
 - Output ONLY valid JSON with exactly these keys:
