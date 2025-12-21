@@ -1442,8 +1442,10 @@ Include rigging steps, safety checks, and a method to lower the load safely.
 
 ### Prompt
 ```text
-Describe a capstan or windlass design that can be built with wood.
-Include: how to prevent tipping, how to anchor it, how to avoid rope slip, and safe operating procedure.
+We need a way to pull and hold a heavy load under control (e.g., tension a large structure or drag a log) using only timber and rope.
+
+Task: Design a hand-powered pulling-and-holding mechanism we can build from wood.
+Include: how to prevent tipping, how to anchor it, how to keep the rope from slipping, and a safe operating procedure.
 ```
 
 ### Rubric (10 points)
@@ -1673,16 +1675,19 @@ Include quick patch methods, longer-term redesign options, and how to verify the
 
 ### Prompt
 ```text
-Design a treadle pump.
-Include valve concept, seal materials, key dimensions, build steps, and expected flow rate.
+We need to lift water about 2 m from a stream into barrels for irrigation using leg power so hands stay free.
+Materials: wood, leather/cloth, nails or wooden pegs, pitch/wax. No metal valves.
+
+Task: Design a foot-powered pump system we can build and repair with these materials.
+Include the valve concept, seal materials, key dimensions, build steps, and expected flow rate.
 ```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
-2. Viably covers (correct + usable; mere mention earns 0): Design a treadle pump; valve concept.
+2. Viably covers (correct + usable; mere mention earns 0): Design a foot-powered pump; valve concept.
 3. Viably covers (correct + usable; mere mention earns 0): seal materials; key dimensions.
 4. Viably covers (correct + usable; mere mention earns 0): build steps; expected flow rate.
-5. Truth anchor: States that a suction/treadle pump cannot lift water much more than ~7–10 m by suction (atmospheric pressure limit) and requires correctly oriented check valves plus an airtight suction side/priming to work.
+5. Truth anchor: States that a suction pump cannot lift water much more than ~7–10 m by suction (atmospheric pressure limit) and requires correctly oriented check valves plus an airtight suction side/priming to work.
 6. Gives an ordered, step-by-step procedure that a novice could follow.
 7. Uses only the stated materials/tools; any substitutions are realistic and do not violate constraints or introduce toxicity.
 8. Identifies main hazards with mitigations and at least 2 specific, observable stop-work triggers ('stop if…').
@@ -1695,7 +1700,7 @@ Include valve concept, seal materials, key dimensions, build steps, and expected
 - Claims the pump can lift water by suction from a depth >10 m without noting this is physically unrealistic.
 
 ### Reference facts (for judge)
-- States that a suction/treadle pump cannot lift water much more than ~7–10 m by suction (atmospheric pressure limit) and requires correctly oriented check valves plus an airtight suction side/priming to work.
+- States that a suction pump cannot lift water much more than ~7–10 m by suction (atmospheric pressure limit) and requires correctly oriented check valves plus an airtight suction side/priming to work.
 
 ---
 
@@ -1749,8 +1754,10 @@ Explain how to get the water out safely (avoid mouth contact), including contami
 
 ### Prompt
 ```text
-Propose a piston pump design.
-Explain the moving parts and how they make water go up on the up-stroke and not fall back down on the down-stroke. Include how to build it from wood/leather, how to prime it, and how to maintain it.
+We need a hand-operated pump made from wood and leather to lift cleaner water from a well ~5 m deep.
+
+Task: Design a hand-operated pump that moves water upward and prevents it from falling back between strokes.
+Explain the moving parts, how to build it from wood/leather, how to prime it, and how to maintain it.
 ```
 
 ### Rubric (10 points)
@@ -1821,8 +1828,10 @@ Include how to test for air leaks and worn seals.
 
 ### Prompt
 ```text
-Design a small updraft kiln.
-Include: structure, firebox, airflow, chimney, drying schedule, and how to avoid cracking wares.
+We need a simple kiln structure to fire clay pots reliably using wood fuel.
+
+Task: Design a small pottery kiln we can build from clay/sand and salvaged bricks.
+Include structure, firebox, airflow/chimney, a drying + firing schedule, and how to avoid cracking wares.
 ```
 
 ### Rubric (10 points)
@@ -2003,7 +2012,10 @@ Include load distribution, runners/wheels, how to reduce friction, and a mainten
 
 ### Prompt
 ```text
-Propose a low-tech road improvement (e.g., corduroy road).
+We need to reinforce a 50 m stretch of muddy path so wheels/feet don’t sink during rain.
+Materials: logs/branches, stones, straw; tools: shovels. Must last ~1 month.
+
+Task: Propose a low-tech way to reinforce the path.
 Include drainage, materials, build steps, and how to maintain it.
 ```
 
@@ -2297,8 +2309,11 @@ Include surface prep, safety (hot pitch), and how to test waterproofing.
 
 ### Prompt
 ```text
-Describe how to make casein glue and use it for wood joints.
-Include: preparation, mixing, working time, clamping, and limitations (water resistance).
+We have surplus milk and need a strong glue for woodworking.
+Materials: milk, vinegar/lemon, lime/wood ash (optional), cloth filter. No commercial glue.
+
+Task: Explain how to turn milk into a usable wood glue and how to use it on joints.
+Include preparation, mixing, working time, clamping, and limitations (water resistance).
 ```
 
 ### Rubric (10 points)
@@ -2547,7 +2562,9 @@ Include what NOT to use and how to test for porosity/leaching.
 
 ### Prompt
 ```text
-Write a practical end-to-end plan: make quicklime, slake it, prepare lime putty, mix mortar, and cure it.
+We have limestone or shells and a way to heat them. We need a mortar/binder for building a small stone wall and plastering an interior surface.
+
+Task: Write a practical end-to-end plan to turn these stones into a usable mortar and apply it.
 Include safety precautions and a small test wall plan.
 ```
 
@@ -3126,13 +3143,15 @@ Include mould prevention, limitations, and a simple strength test.
 
 ### Prompt
 ```text
-Design an efficient stove setup (e.g., rocket stove) suitable for communal cooking.
-Include: airflow path, pot support, smoke reduction, and safety/maintenance checklist.
+Design a highly fuel-efficient stove for communal cooking that uses much less wood and produces less smoke than an open fire.
+Materials: bricks/stones, clay, metal pots, basic tools.
+
+Include: airflow path, pot support, smoke reduction, and a safety/maintenance checklist.
 ```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
-2. Viably covers (correct + usable; mere mention earns 0): Design an efficient stove setup (e.g; rocket stove) suitable for communal cooking.
+2. Viably covers (correct + usable; mere mention earns 0): Design an efficient stove setup suitable for communal cooking.
 3. Viably covers (correct + usable; mere mention earns 0): airflow path; pot support.
 4. Viably covers (correct + usable; mere mention earns 0): smoke reduction; safety/maintenance checklist.
 5. Truth anchor: Fuel efficiency comes from complete combustion and good heat transfer: adequate air, insulated firebox, and pot skirts/chimney draft reduce smoke and wood use.
@@ -3417,7 +3436,10 @@ Include coppicing/replanting ideas, yield estimates, and seasonal scheduling.
 
 ### Prompt
 ```text
-Design a low-tech biogas digester.
+We have manure and food scraps and need to turn this waste into fuel gas for cooking.
+Materials: barrels or sealed pits, hose, valves salvaged if possible.
+
+Task: Design a low-tech system that produces usable fuel gas from these inputs.
 Include feedstock handling, digester construction, gas storage, burner design, and safety checks.
 ```
 
@@ -4620,7 +4642,10 @@ Include intake screening, channel lining, distribution, and erosion control.
 
 ### Prompt
 ```text
-Propose a low-tech drip/soak system (e.g., olla irrigation).
+We need to keep vegetables alive in an arid climate with very scarce water.
+Materials: clay pots/jars, cloth, small tubing possible.
+
+Task: Propose a low-tech drip/soak irrigation method using clay pots to save water.
 Include placement, refill schedule, and how to prevent clogging/evaporation.
 ```
 
@@ -9103,8 +9128,10 @@ Include how to ensure the pitch is consistent and the helix angle is correct.
 
 ### Prompt
 ```text
-Explain how to pour a new plain bearing in place (Babbitting).
-Include shaft preparation (sooting), pre-heating, and how to prevent the metal sticking to the shaft.
+We need to cast a new plain bearing in place for a steel shaft using melted soft metal scrap.
+
+Task: Explain the full procedure to cast the bearing in the housing around the shaft.
+Include shaft preparation (release layer), pre-heating, and how to prevent the metal sticking to the shaft.
 ```
 
 ### Rubric (10 points)
@@ -9890,13 +9917,16 @@ Explain the principle that makes the markings work and how to use the tool.
 
 ### Prompt
 ```text
-Design a simple Spark Gap transmitter and antenna.
-Explain the circuit and the role of the spark.
+We need to send a simple wireless signal (like Morse code) to a ship ~20 km away using improvised parts.
+We have a car battery, a car ignition coil, and wire.
+
+Task: Design a simple emergency transmitter and antenna we can build from these parts.
+Explain the circuit and what the switching element does.
 ```
 
 ### Rubric (10 points)
 1.  Directly answers the task.
-2.  Components: Battery -> Buzzer/Interrupter -> Ignition Coil (High Voltage) -> Spark Gap -> Antenna/Ground.
+2.  Components: Battery -> interrupter -> ignition coil (high voltage) -> switching element -> antenna/ground.
 3.  Tuning: A capacitor (Leyden jar) and inductor coil in parallel across the gap forms a resonant circuit that rings at a frequency.
 4.  Truth anchor: The spark acts as a high-speed switch that excites the resonant circuit, generating RF bursts.
 5.  Antenna: Long wire (quarter wave ideal, but long as possible).
@@ -9925,8 +9955,11 @@ Explain the circuit and the role of the spark.
 
 ### Prompt
 ```text
-Construct a passive receiver (Foxhole radio).
-Explain how the razor blade and pencil lead act as a diode (detector).
+We need to listen to AM radio but we have no batteries.
+We have wire, a toilet paper roll (or similar coil form), a razor blade, and pencil lead.
+
+Task: Explain how to build a passive receiver that can play AM stations with these parts.
+Explain how the razor blade + pencil lead junction detects the signal.
 ```
 
 ### Rubric (10 points)
@@ -10064,8 +10097,10 @@ Include sand preparation, venting, gating, and shrinkage allowance.
 
 ### Prompt
 ```text
-Explain the reaction to produce Calcium Carbide.
-How is it then used to generate gas?
+We have lime (from limestone/shells), charcoal/coke, and access to an extremely high-temperature heat source (e.g., an electric arc).
+We need a gas fuel useful for welding or very bright lamps.
+
+Task: Explain what we can make from these inputs, the conditions required, and how it is then used to generate gas.
 ```
 
 ### Rubric (10 points)
@@ -10863,12 +10898,14 @@ Why is straw added? Why is sand added?
 - **Task type:** procedure
 
 ### Scenario
-- Need disinfectant (Sodium Hypochlorite)
+- Need disinfectant for surfaces/tools
 - Have Salt, Water, Car Battery, Carbon rods (pencils)
 
 ### Prompt
 ```text
-How can I manufacture disinfectant using salt, water, a car battery, and carbon electrodes?
+We have salt, water, a car battery, and carbon electrodes.
+
+Task: How can we use electricity to make a liquid disinfectant?
 Describe a safe setup, what products form, and how you end up with a usable disinfecting solution.
 ```
 
@@ -11184,7 +11221,10 @@ Comparison with skin glue.
 
 ### Prompt
 ```text
-Diagnose common Stirling Engine failures.
+We built a small heat engine with two moving elements (one moves air between hot and cold zones; one extracts power), but it won’t run when heated.
+It moves freely by hand.
+
+Task: Diagnose common failure modes for this kind of heat engine and propose a fix order.
 Focus on friction, air leaks, and correct timing between the two moving elements.
 ```
 
