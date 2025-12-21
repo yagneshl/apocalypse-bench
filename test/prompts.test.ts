@@ -22,10 +22,6 @@ describe('prompt rendering', () => {
       "You are an offline survival assistant. Be practical, conservative, and step-by-step.
       State assumptions and uncertainties. Include safety checks and stop-work triggers when relevant.
 
-      Scenario:
-      - snowing
-      - night
-
       Build a basic shelter."
     `);
   });

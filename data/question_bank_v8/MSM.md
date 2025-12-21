@@ -4,15 +4,10 @@
 - **Task type:** procedure
 
 ### Scenario
-- Need consistent measurements for building and toolmaking
-- Materials: wood, metal scrap, cord; basic hand tools
-- No existing rulers or tape measures
+The person is in a situation where they need consistent measurements for building and toolmaking. They have wood, metal scrap, cord, and basic hand tools, but no existing rulers or tape measures.
 
 ### Prompt
-```text
-Design a length standard system and how to reproduce it.
-Include making a straightedge, a right angle, and a method to mark subdivisions.
-```
+"I don't have any rulers or tape measures, but I need to make some tools and furniture that actually fit together. Can you tell me how to make a standard ruler from scratch using wood or scrap metal? I also need to know how to make a perfect right angle and a straightedge so things aren't wonky, and how to mark it out into smaller units."
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -40,15 +35,10 @@ Include making a straightedge, a right angle, and a method to mark subdivisions.
 - **Task type:** procedure
 
 ### Scenario
-- Need to build a 6 m x 4 m workshop with square corners
-- Tools: rope, stakes, plumb line, measuring rod you can make
-- Ground is uneven
+The person needs to build a 6 m x 4 m workshop with square corners. They have rope, stakes, a plumb line, and materials to make a measuring rod. The ground is uneven.
 
 ### Prompt
-```text
-Describe how to lay out and check the footprint for squareness.
-Include methods to compensate for uneven ground and to verify diagonals.
-```
+"I'm trying to mark out the ground for a 6m by 4m workshop, but the ground is really bumpy and I only have some rope, stakes, and a plumb line. How do I make sure the corners are perfectly square and the walls are the right length even with the uneven ground? How do I check it's not lopsided?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -76,15 +66,10 @@ Include methods to compensate for uneven ground and to verify diagonals.
 - **Task type:** procedure
 
 ### Scenario
-- Need to set roof pitch and check slopes for drainage
-- Materials: wood, string, weight, marked scale
-- No spirit level
+The person needs to set a roof pitch and check slopes for drainage. They have wood, string, a weight, and a marked scale, but no spirit level.
 
 ### Prompt
-```text
-Design a simple clinometer or plumb-bob level tool.
-Include calibration and how to use it for roof pitch/drainage.
-```
+"I need to build a roof and make sure the water drains off properly, but I don't have a spirit level. Can you show me how to build a tool using string, weights, and wood to measure angles and check if things are level? Also, how do I make sure the tool itself is accurate?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -112,16 +97,10 @@ Include calibration and how to use it for roof pitch/drainage.
 - **Task type:** critique
 
 ### Scenario
-- A team wants to standardise parts but uses 'hand spans' only
+A team wants to standardise parts for a community project but is currently using 'hand spans' of the leader as the only unit and measuring by eye.
 
 ### Prompt
-```text
-Proposed approach:
-- Use the leader's hand span as the unit.
-- Everyone measures by eye.
-- If parts don't fit, sand them.
-Task: Explain problems and propose a better, repeatable measurement system.
-```
+"Some people here want to build things using the leader's hand span as the 'standard' inch, and they're just eyeballing the cuts and sanding them down if they don't fit. That sounds like a disaster for making parts that fit together. Can you explain why this is a bad idea and give us a better way to have a measurement system everyone can use?"
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -149,15 +128,10 @@ Task: Explain problems and propose a better, repeatable measurement system.
 - **Task type:** procedure
 
 ### Scenario
-- Need to ration grain and measure ingredients for medicine/soap
-- Materials: wood, cord, containers, stones, water; basic tools
-- No commercial weights
+The person needs to ration grain and measure ingredients for medicine or soap. They have wood, cord, containers, stones, and water, but no commercial weights.
 
 ### Prompt
-```text
-Design a beam balance and a way to create standard weights.
-Include calibration procedure and how to check drift over time.
-```
+"I need to weigh out grain and some ingredients for medicine, but I have no scale or weights. How can I build a balance scale from wood and cord? And since I don't have any 'grams' or 'ounces,' how can I use water to create a set of standard weights that I can trust?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -185,15 +159,10 @@ Include calibration procedure and how to check drift over time.
 - **Task type:** procedure
 
 ### Scenario
-- Need consistent volume measures for recipes and oral rehydration
-- Materials: containers, water, markings
-- No measuring cups
+The person needs consistent volume measures for recipes and Oral Rehydration Salts (ORS). They have various containers and water, but no measuring cups.
 
 ### Prompt
-```text
-Describe how to make and calibrate volume measures.
-Include labelling and preventing mix-ups.
-```
+"I need to make sure we're getting the right amounts for recipes and especially for mixing rehydration salts for sick people. I have different sized jars and bottles. How do I turn these into reliable measuring cups with clear marks? How do I make sure people don't grab the wrong ones?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -221,15 +190,10 @@ Include labelling and preventing mix-ups.
 - **Task type:** procedure
 
 ### Scenario
-- You have 300 kg of grain to feed 60 people for as long as possible
-- You can measure volume and mass roughly
-- You want a ration plan that adapts if stocks differ from expectation
+A group has 300 kg of grain to feed 60 people. They need a plan that can adapt if the remaining stock doesn't match expectations. They can measure volume and mass roughly.
 
 ### Prompt
-```text
-Create a ration calculation method and a weekly audit routine.
-Include uncertainty ranges and how to adjust rations based on measured remaining stock.
-```
+"We have 300kg of grain and 60 people to feed. I need a solid plan to make this last as long as possible. How do I calculate the weekly rations, and how do I do an 'audit' every week to check how much is left? What do I do if we're eating it faster than expected or if my initial measurements were off?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -257,15 +221,10 @@ Include uncertainty ranges and how to adjust rations based on measured remaining
 - **Task type:** critique
 
 ### Scenario
-- Someone proposes dosing medicine/chemicals with an unmarked scoop
+Someone in a camp proposes dosing medicine or chemicals with an unmarked scoop, claiming that the size doesn't matter as long as everyone uses the same one.
 
 ### Prompt
-```text
-Plan:
-- Use one scoop per person.
-- The scoop size doesn't matter as long as it's the same scoop.
-Task: Explain risks and propose a safer measurement approach.
-```
+"One of the guys suggested we just use an old scoop to dose out the chemicals and medicine, saying as long as it's the 'same scoop' for everyone, it's fine. I'm worried about people getting the wrong dose. Can you tell me the risks of using an unmarked scoop like that and suggest a safer way to do it?"
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -293,15 +252,10 @@ Task: Explain risks and propose a safer measurement approach.
 - **Task type:** procedure
 
 ### Scenario
-- Need to coordinate shifts for water station and night watch
-- No clocks; you have wood, string, weights; skies often clear
-- Community needs consistent time blocks
+A community needs to coordinate night watch and water station shifts. There are no clocks. They have wood, string, and weights. Skies are often clear but can be cloudy.
 
 ### Prompt
-```text
-Design a timekeeping method (sundial, water clock, pendulum) and how to calibrate and share it.
-Include how to handle cloudy days.
-```
+"We need to coordinate the night watch and water station shifts, but we don't have any clocks or watches. Can you help me set up a system to tell the time using the sun or a simple device I can build with wood and string? Also, what do we do when it's cloudy and the sun is hidden?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -329,20 +283,15 @@ Include how to handle cloudy days.
 - **Task type:** procedure
 
 ### Scenario
-- Need to time boiling, fermentation, and drying steps consistently
-- Materials: pendulum/water clock possible; no stopwatch
-- Accuracy to ~10% is sufficient
+The person needs to time boiling, fermentation, or drying steps (1–30 minutes) without a stopwatch. They have materials for a pendulum or water clock.
 
 ### Prompt
-```text
-Propose a practical method to time intervals of 1-30 minutes.
-Include repeatability checks.
-```
+"I'm trying to time how long things boil or ferment, usually between 1 and 30 minutes, but I don't have a stopwatch. Is there a way to build something like a pendulum or a water timer to do this accurately? How do I make sure it doesn't speed up or slow down over time?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
 2. Viably covers (correct + usable; mere mention earns 0): repeatability checks.
-3. Truth anchor: A pendulum’s period depends mainly on length (T≈2π√(L/g) for small swings); counting swings can measure short intervals more reliably than human counting alone.
+3. Truth anchor: A pendulum’s period depends mainly on length \( T \approx 2\pi\sqrt{L/g} \) for small swings; counting swings can measure short intervals more reliably than human counting alone.
 4. Gives an ordered, step-by-step procedure that a novice could follow.
 5. Uses only the stated materials/tools; any substitutions are realistic and do not violate constraints or introduce toxicity.
 6. Identifies main hazards with mitigations and at least 2 specific, observable stop-work triggers ('stop if…').
@@ -355,7 +304,7 @@ Include repeatability checks.
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 
 ### Reference facts (for judge)
-- A pendulum’s period depends mainly on length (T≈2π√(L/g) for small swings); counting swings can measure short intervals more reliably than human counting alone.
+- A pendulum’s period depends mainly on length \( T \approx 2\pi\sqrt{L/g} \) for small swings; counting swings can measure short intervals more reliably than human counting alone.
 
 ---
 
@@ -365,15 +314,10 @@ Include repeatability checks.
 - **Task type:** procedure
 
 ### Scenario
-- Two settlements 2 km apart coordinate trade and meetings
-- No radios; visibility is sometimes limited
-- Need to agree on time-of-day windows
+Two settlements 2 km apart need to coordinate tasks without radios. Visibility is sometimes limited. They need a protocol to stay synchronised.
 
 ### Prompt
-```text
-Design a time synchronisation method and a protocol.
-Include error bounds and how to handle missed signals.
-```
+"There's another group of survivors about 2km away. We want to meet up for trade and coordinate our tasks, but our 'clocks' are always out of sync. How can we get both settlements on the exact same time without radios? What's the best way to signal each other, and what do we do if we miss a signal because of fog?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -401,14 +345,10 @@ Include error bounds and how to handle missed signals.
 - **Task type:** critique
 
 ### Scenario
-- Someone proposes 'one song length' as a standard minute
+A community member proposes using the duration of a well-known song to standardise 'one minute' for work tasks.
 
 ### Prompt
-```text
-Approach:
-- Define 1 minute as the length of a song people know.
-Task: Explain why this is unreliable and propose a better standard with materials available.
-```
+"Someone suggested we use the length of a popular song to measure 'one minute' for our tasks. I think that's going to cause problems. Can you explain why 'song time' is a bad standard for work and help me come up with a better way to measure a minute using just basic materials?"
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -436,15 +376,10 @@ Task: Explain why this is unreliable and propose a better standard with material
 - **Task type:** procedure
 
 ### Scenario
-- Need consistent temperatures for fermentation, cooking, and metalworking cues
-- Materials: glass bottles possible, water/alcohol/oil, wax, markings
-- Avoid toxic materials
+The person needs consistent temperatures for fermentation and metalworking. They have glass bottles, various liquids (water/alcohol/oil), and wax, but no toxic materials like mercury.
 
 ### Prompt
-```text
-Propose a low-tech temperature measurement or reference method.
-Include calibration points, safety, and expected accuracy.
-```
+"I need to check the temperature for cooking and some metalwork, but I obviously don't have a thermometer. Can I make something using glass bottles and liquid to track heat? What can I use as 'anchor points' to calibrate it, and how accurate should I expect it to be? Make sure it's safe and doesn't use anything toxic."
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -472,15 +407,10 @@ Include calibration points, safety, and expected accuracy.
 - **Task type:** procedure
 
 ### Scenario
-- You need to boil water for disinfection and cook foods reliably
-- Altitude may be high; no thermometer
-- You want repeatable rules
+The person is in a high-altitude location and needs to boil water for disinfection and cooking reliably without a thermometer.
 
 ### Prompt
-```text
-Explain how boiling can be used as a cue and its limitations.
-Include altitude effects and simple ways to adjust practices.
-```
+"I'm using boiling water to clean things and cook, but I'm up in the mountains. Does water boil at a different temperature here? Can I rely on 'the boil' to know it's hot enough, and are there any limits to using boiling as a guide for heat? How should I change my cooking if I'm high up?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -508,15 +438,10 @@ Include altitude effects and simple ways to adjust practices.
 - **Task type:** procedure
 
 ### Scenario
-- You ferment vegetables to preserve food
-- Need to keep batches safe and consistent
-- Materials: jars, water, salt, weights; no pH meter
+The person is fermenting vegetables for preservation using jars and salt, but lacks a pH meter. They need to ensure safety and consistency.
 
 ### Prompt
-```text
-Design a monitoring protocol.
-Include temperature considerations, visual/smell cues with caution, and when to discard.
-```
+"I'm starting to ferment some vegetables so they don't rot, but I'm terrified of accidentally poisoning people. Since I don't have a pH meter, how can I tell if a batch is safe just by looking at it or smelling it? What kind of 'check-up' routine should I have for the jars, and what are the absolute red flags that mean I have to throw it away?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -544,13 +469,10 @@ Include temperature considerations, visual/smell cues with caution, and when to 
 - **Task type:** critique
 
 ### Scenario
-- Someone suggests using 'whatever heavy liquid' to make a barometer/thermometer
+A survivor suggests using an unidentified "heavy silver liquid" found in a container to build a thermometer or barometer.
 
 ### Prompt
-```text
-Task: Explain why material choice matters for measurement devices.
-List safer alternatives and how to balance safety vs accuracy.
-```
+"Someone here found a container of 'heavy silver liquid' and wants to use it to make a barometer. I think that's dangerous. Can you explain why we have to be careful about what materials we use for our tools, especially if they are going to be around food or people? What are some safer alternatives for making measuring tools?"
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -578,15 +500,10 @@ List safer alternatives and how to balance safety vs accuracy.
 - **Task type:** compare
 
 ### Scenario
-- Two filter designs: cloth+sand vs cloth+sand+charcoal
-- You can measure turbidity visually and record diarrhoea cases
-- You must be careful about ethics and confounders
+A group wants to compare two water filter designs (sand/cloth vs. sand/cloth/charcoal) using turbidity and health outcomes without risking participant safety.
 
 ### Prompt
-```text
-Design a safe experiment to compare filters.
-Include controls, outcomes, ethics, and how to avoid harming participants.
-```
+"We're trying two different water filters—one is just sand and cloth, the other adds charcoal. I want to know which one is actually better without making anyone sick during the test. How can I run a fair experiment to compare them? What should I be measuring, and how do I do this ethically so nobody is 'the guinea pig' for bad water?"
 
 ### Rubric (10 points)
 1. Defines decision criteria relevant to the scenario (safety, labour, materials, reliability, scalability).
@@ -614,15 +531,10 @@ Include controls, outcomes, ethics, and how to avoid harming participants.
 - **Task type:** procedure
 
 ### Scenario
-- Two compost methods proposed: turned pile vs static pile
-- You have limited space and want to choose one
-- You can measure plant growth and compost temperature qualitatively
+The person wants to compare 'turned' vs 'static' compost piles in a limited space, using qualitative measurements of temperature and plant growth.
 
 ### Prompt
-```text
-Design a small trial to compare compost methods.
-Include replication, measurements, and decision criteria.
-```
+"We're debating whether to keep turning our compost piles or just let them sit. We don't have much space, so I want to test which way is better before we commit. Can you show me how to set up a small trial to compare the two methods? What should I keep track of to decide which one wins?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -650,15 +562,10 @@ Include replication, measurements, and decision criteria.
 - **Task type:** procedure
 
 ### Scenario
-- Someone claims a new kiln design will 'double output' but offers no data
-- You can run small tests with limited fuel
-- You need a validation plan
+A community member claims a new kiln design doubles output. The group needs to validate this claim with small-scale tests before committing limited fuel.
 
 ### Prompt
-```text
-Write a validation plan for the new kiln/process.
-Include small-scale tests, metrics, and how to decide whether to adopt it.
-```
+"A guy here says he has a new kiln design that will produce twice as much, but we can't afford to waste all our fuel if he's wrong. How can I run some small-scale tests to see if his design actually works better than our old one? What specific numbers should I be tracking to make the final decision?"
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -686,16 +593,10 @@ Include small-scale tests, metrics, and how to decide whether to adopt it.
 - **Task type:** critique
 
 ### Scenario
-- A person ran one trial and declared victory
+A gardener claims a fertiliser works based on a single trial with one plant that looked bigger than others.
 
 ### Prompt
-```text
-Experiment:
-- Tried one fertiliser on one plant.
-- The plant looked bigger.
-- Therefore the fertiliser works.
-Task: Explain problems and propose a better experimental design.
-```
+"One of our gardeners put a new fertiliser on one single tomato plant and now says the whole farm should use it because that one plant 'looks bigger.' I'm not convinced. Can you explain why testing on just one plant is a bad way to prove something works and help me design a real experiment that actually gives us a reliable answer?"
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -714,5 +615,3 @@ Task: Explain problems and propose a better experimental design.
 
 ### Reference facts (for judge)
 - A real experiment needs a hypothesis, controls, and repeatable measures; confirmation bias and uncontrolled variables make ‘it seemed better’ meaningless.
-
----

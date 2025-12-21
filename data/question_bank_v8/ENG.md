@@ -4,15 +4,14 @@
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** You forged a chisel from an old threaded bolt found in a wall.
-- **Problem:** The edge bends when you hit rock. Heating it red hot and quenching it in water didn't make it hard.
+- **Situation:** The person forged a chisel from an old threaded bolt found in a wall.
+- **Problem:** The edge bends when they hit rock. Heating it red hot and quenching it in water didn't make it hard.
 - **Resources:** Forge, charcoal, old leather boots, animal bones, clay.
 
 ### Prompt
 ```text
-We made a chisel from an old bolt, but the metal is soft. We heated it and dunked it in water, but it still bends.
-We have old leather boots, bones, and charcoal.
-How can we use these things to make the metal hard enough to hold an edge?
+I made a chisel from an old steel bolt I found, but it's way too soft and the edge just curls over when I use it. I tried heating it until it was red and dunking it in water, but that didn't help at all. 
+I have some old leather boots, some animal bones, and plenty of charcoal. Is there a way to use these things to actually make the metal hard enough to hold an edge? 
 ```
 
 ### Rubric (10 points)
@@ -38,15 +37,14 @@ How can we use these things to make the metal hard enough to hold an edge?
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** You are building a waterwheel governor. You need to make a metal gear with exactly 40 teeth.
-- **Constraint:** You have no machine to measure angles or divide circles.
+- **Situation:** The person is building a waterwheel governor. They need to make a metal gear with exactly 40 teeth.
+- **Constraint:** They have no machine to measure angles or divide circles.
 - **Resources:** Metal files, a large table, a tape measure, a compass (geometry tool).
 
 ### Prompt
 ```text
-We need to cut a metal gear with exactly 40 teeth.
-We don't have any fancy tools to measure angles.
-How can we mark the 40 slots perfectly evenly using just a tape measure and a large table?
+I need to cut a metal gear with exactly 40 teeth for a project. I don't have a dividing head or any fancy tools to measure out degrees or angles. 
+I've got a tape measure, a compass, and a large flat table. How can I mark out the 40 slots perfectly evenly so the gear actually works?
 ```
 
 ### Rubric (10 points)
@@ -72,14 +70,14 @@ How can we mark the 40 slots perfectly evenly using just a tape measure and a la
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** Your waterwheel powers a sawmill. When you stop cutting, the wheel spins dangerously fast. When you cut, it slows down too much.
-- **Problem:** You need it to stay at a steady speed automatically.
+- **Situation:** A person's waterwheel powers a sawmill. When they stop cutting, the wheel spins dangerously fast. When they cut, it slows down too much.
+- **Problem:** They need it to stay at a steady speed automatically.
 - **Resources:** Scrap metal, weights, hinges.
 
 ### Prompt
 ```text
-Our waterwheel spins too fast when we stop the saw, and too slow when we start cutting.
-How do we build a mechanical device to keep the speed steady automatically?
+My waterwheel is driving me crazy—it spins way too fast when the saw isn't under load, but then it bogs down the moment I start cutting. 
+I need a way to keep the speed steady automatically. I have some scrap metal, heavy weights, and hinges. How do I build a mechanical device that can throttle the water based on how fast the wheel is spinning?
 ```
 
 ### Rubric (10 points)
@@ -105,15 +103,15 @@ How do we build a mechanical device to keep the speed steady automatically?
 - **Task type:** procedure
 
 ### Scenario
-- Temperate climate, frequent rain and wind
-- Materials: straight poles, tarps, rope, stakes, basic hand saw/axe
-- One small stove will be used inside for heat/cooking
+- **Situation:** 6 people need to build a shelter for 12 people. Temperate climate, frequent rain and wind.
+- **Materials:** Straight poles, tarps, rope, stakes, basic hand saw/axe.
+- **Problem:** A small stove will be used inside for heat/cooking.
 
 ### Prompt
 ```text
-Design a shelter that can be built in 1 day by 6 people and will survive a week of wind and rain.
-Do not ask clarifying questions; state assumptions.
-Include: frame geometry, anchoring, roof design, ventilation and fire safety, and a simple inspection checklist.
+We have 6 people and need to build a shelter for 12 of us by the end of the day. It's been really windy and rainy lately. 
+We have tarps, rope, straight poles, and a hand saw. We're also planning on putting a small stove inside to keep warm. 
+Can you give me a plan for the frame and the roof so it doesn't blow down or leak? I also need to know how to handle the stove safely so we don't get smoke or fire problems.
 ```
 
 ### Rubric (10 points)
@@ -142,15 +140,14 @@ Include: frame geometry, anchoring, roof design, ventilation and fire safety, an
 - **Task type:** procedure
 
 ### Scenario
-- Urban ruins; aftershocks possible
-- A two-storey brick building has cracked walls and partial roof damage
-- Tools: timber, rope, wedges, basic hand tools; no heavy machinery
+- **Situation:** A person is in urban ruins where aftershocks are possible.
+- **Problem:** A two-storey brick building has cracked walls and partial roof damage.
+- **Tools:** Timber, rope, wedges, basic hand tools; no heavy machinery.
 
 ### Prompt
 ```text
-You must decide whether the group can safely use the ground floor as a workshop.
-Write a step-by-step assessment and reinforcement plan.
-Include: what to look for (warning signs), what to avoid, temporary shoring/bracing ideas, and how to set a 'no-go' zone.
+I found a two-story brick building in the ruins that I want to use as a workshop, but the walls are cracked and part of the roof is messed up. 
+How do I tell if the ground floor is actually safe to be in? If it needs work, how can I use timber and rope to brace the walls? I also need to know what signs mean I should just stay out entirely.
 ```
 
 ### Rubric (10 points)
@@ -179,14 +176,14 @@ Include: what to look for (warning signs), what to avoid, temporary shoring/brac
 - **Task type:** procedure
 
 ### Scenario
-- Forest settlement; stream is 2 m wide, 0.5 m deep
-- Materials: logs up to 4 m long, rope, stones; hand tools
-- Bridge must carry people with 30 kg loads
+- **Situation:** A person in a forest settlement needs to cross a stream that is 2 m wide and 0.5 m deep.
+- **Materials:** Logs up to 4 m long, rope, stones; hand tools.
+- **Problem:** Bridge must carry people with 30 kg loads.
 
 ### Prompt
 ```text
-Propose a bridge design that can be built in 2 days and inspected for safety.
-Include: abutments/foundations, deck, handrail, anchoring against flood, and a load test procedure.
+I need to build a bridge over a 2-meter wide stream so we can carry 30kg packs across. I have some 4-meter logs, plenty of rope, and stones. 
+How do I build this in a couple of days so it's sturdy enough not to sag too much and won't just wash away if the water rises? I need to know how to do the foundations and a handrail too.
 ```
 
 ### Rubric (10 points)
@@ -198,7 +195,7 @@ Include: abutments/foundations, deck, handrail, anchoring against flood, and a l
 6. Gives an ordered, step-by-step procedure that a novice could follow.
 7. Uses only the stated materials/tools; any substitutions are realistic and do not violate constraints or introduce toxicity.
 8. Identifies main hazards with mitigations and at least 2 specific, observable stop-work triggers ('stop if…').
-9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
+9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where some numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
 ### Auto-fail (score = 0 if any)
@@ -215,16 +212,18 @@ Include: abutments/foundations, deck, handrail, anchoring against flood, and a l
 - **Task type:** critique
 
 ### Scenario
-- A draft plan is provided; you must review it
+- **Situation:** A person is reviewing a draft plan for a shelter.
+- **Plan:** Stretch a tarp flat between four poles; put the stove in the middle for warmth; tie ropes anywhere they fit; sleep directly on the ground.
 
 ### Prompt
 ```text
-Draft plan:
+I was given this plan for a shelter:
 - Stretch a tarp flat between four poles.
 - Put the stove in the middle for warmth.
 - Tie ropes anywhere they fit.
 - Sleep directly on the ground.
-Task: List the top 8 engineering/safety problems and rewrite the plan so it is robust.
+
+What are the biggest problems with this from an engineering and safety standpoint, and how should I actually set this up so it works?
 ```
 
 ### Rubric (10 points)
@@ -253,14 +252,14 @@ Task: List the top 8 engineering/safety problems and rewrite the plan so it is r
 - **Task type:** procedure
 
 ### Scenario
-- Need 30 m of strong rope for hauling and shelter guy lines
-- Fibre sources: nettle, flax-like plants, tree bark; no synthetic cord
-- Tools: knife, simple wooden spindle possible
+- **Situation:** A person needs 30 m of strong rope for hauling and shelter guy lines.
+- **Resources:** Nettle, flax-like plants, tree bark; no synthetic cord.
+- **Tools:** Knife, simple wooden spindle possible.
 
 ### Prompt
 ```text
-Write instructions to produce reliable cordage and then rope.
-Include fibre preparation, how to twist it into cord, how to combine cords into thicker rope, how to make it long enough without creating weak spots, quality control, and how to store it dry.
+I need about 30 meters of strong rope for hauling some supplies, but I don't have any cordage. I have access to nettles, bark, and some flax-like plants. 
+How do I turn these into a rope that won't just snap under load? I need to know how to prep the fibers and how to twist them together so I can make a long rope without having weak spots where I join the sections.
 ```
 
 ### Rubric (10 points)
@@ -289,13 +288,13 @@ Include fibre preparation, how to twist it into cord, how to combine cords into 
 - **Task type:** compare
 
 ### Scenario
-- You have rope of unknown quality and rough timber poles
-- You need: (1) guy lines, (2) a fixed loop for pulling, (3) joining two ropes, (4) lashing two poles at 90 degrees
+- **Situation:** A person has rope of unknown quality and rough timber poles.
+- **Problem:** They need: (1) guy lines, (2) a fixed loop for pulling, (3) joining two ropes, (4) lashing two poles at 90 degrees.
 
 ### Prompt
 ```text
-For each of the four needs, recommend an appropriate knot/lashing and explain in words how to tie it and how to check it.
-Keep it teachable for novices.
+I'm building a structure with some rough timber poles and rope I made. I need to know the best way to tie guy lines, make a loop for pulling a load, join two ropes together, and lash two poles at a 90-degree angle. 
+Can you tell me which knots to use for these four things and how to tie them so they don't slip?
 ```
 
 ### Rubric (10 points)
@@ -324,13 +323,13 @@ Keep it teachable for novices.
 - **Task type:** procedure
 
 ### Scenario
-- A critical rope has frayed near the end; you cannot replace it immediately
-- Rope is natural fibre; you have a knife, needle, and wax/pitch
+- **Situation:** A critical rope has frayed near the end. It cannot be replaced immediately.
+- **Materials:** Natural fibre rope; knife, needle, and wax/pitch.
 
 ### Prompt
 ```text
-Describe how to restore a usable end (or join to a new section) with a splice or whipping.
-Include how to decide whether the rope is safe enough and what tasks it should NOT be used for.
+One of my main ropes is starting to fray badly near the end. I can't replace it right now. I have a knife, a needle, and some wax. 
+How do I fix the end or join it to a fresh piece of rope using a splice instead of just a big knot? Also, how do I know if the rope is still safe to use or if I should stop using it for heavy lifting?
 ```
 
 ### Rubric (10 points)
@@ -359,13 +358,13 @@ Include how to decide whether the rope is safe enough and what tasks it should N
 - **Task type:** troubleshoot
 
 ### Scenario
-- While lifting a 150 kg load, the rope snapped near a knot and the load dropped
-- No one was hurt, but you must prevent recurrence
+- **Situation:** While lifting a 150 kg load, the rope snapped near a knot and the load dropped.
+- **Goal:** Perform a root-cause analysis and prevent recurrence.
 
 ### Prompt
 ```text
-Perform a root-cause analysis. List plausible causes, how to test/inspect each, and changes to procedure/equipment.
-Include a safer lift protocol for next time.
+We were lifting a 150kg stone today and the rope just snapped right next to a knot. The whole thing dropped. Thankfully nobody was hit, but I need to know why that happened so it doesn't happen again. 
+What could have caused it to break there, and how do I test my other ropes to see if they're okay? What should our procedure be for the next lift so we're safe?
 ```
 
 ### Rubric (10 points)
@@ -395,13 +394,13 @@ Include a safer lift protocol for next time.
 - **Task type:** procedure
 
 ### Scenario
-- Need to move a 500 kg stone 30 m across flat ground
-- Tools: logs, rope, crowbars, wedges; 10 people available
+- **Situation:** A person needs to move a 500 kg stone 30 m across flat ground.
+- **Resources:** Logs, rope, crowbars, wedges; 10 people available.
 
 ### Prompt
 ```text
-Propose a safe method using levers, rollers, and cribbing.
-Include step-by-step procedure, commands, and how to prevent crush injuries.
+We have to move a 500kg stone about 30 meters across flat ground. There are 10 of us and we have logs, rope, crowbars, and wedges. 
+How can we use these to move it safely without anyone getting a foot crushed? Can you give me a step-by-step for the method and the commands I should call out so we all work together?
 ```
 
 ### Rubric (10 points)
@@ -430,13 +429,13 @@ Include step-by-step procedure, commands, and how to prevent crush injuries.
 - **Task type:** procedure
 
 ### Scenario
-- Need to lift a 200 kg object 1.5 m to place it on a platform
-- Materials: rope, salvaged pulleys or smooth wooden blocks, strong beam/tree for anchor
+- **Situation:** A person needs to lift a 200 kg object 1.5 m onto a platform.
+- **Materials:** Rope, salvaged pulleys or smooth wooden blocks, strong beam/tree for anchor.
 
 ### Prompt
 ```text
-Design a pulley system and estimate the pull force required.
-Include rigging steps, safety checks, and a method to lower the load safely.
+I need to lift a 200kg load up about 1.5 meters onto a platform. I have plenty of rope and some salvaged pulleys. 
+How should I set up the pulleys to make this lift manageable, and how much force am I going to have to pull with? Can you walk me through the rigging and how to lower it safely once it's up there?
 ```
 
 ### Rubric (10 points)
@@ -466,15 +465,13 @@ Include rigging steps, safety checks, and a method to lower the load safely.
 - **Task type:** procedure
 
 ### Scenario
-- Need to tension a large structure and occasionally pull heavy loads
-- Materials: timber, rope; tools: saw/axe, drill/auger if available
+- **Situation:** A person needs to tension a large structure or drag heavy logs.
+- **Materials:** Timber, rope; tools: saw/axe, drill/auger.
 
 ### Prompt
 ```text
-We need a way to pull and hold a heavy load under control (e.g., tension a large structure or drag a log) using only timber and rope.
-
-Task: Design a hand-powered pulling-and-holding mechanism we can build from wood.
-Include: how to prevent tipping, how to anchor it, how to keep the rope from slipping, and a safe operating procedure.
+I need a way to pull and hold heavy loads under control—like dragging a big log or putting tension on a structure—using just timber and rope. 
+Is there a hand-powered mechanism I can build out of wood for this? I need to know how to anchor it so it doesn't tip over and how to keep the rope from slipping.
 ```
 
 ### Rubric (10 points)
@@ -503,16 +500,18 @@ Include: how to prevent tipping, how to anchor it, how to keep the rope from sli
 - **Task type:** critique
 
 ### Scenario
-- You are reviewing a plan before a lift
+- **Situation:** A person is reviewing a plan before a lift.
+- **Plan:** Tie the rope with 'any knot'; run the rope over a sharp roof edge as a pulley; have two people pull while others steady it by hand; stand nearby to watch.
 
 ### Prompt
 ```text
-Rigging plan:
+Someone wrote down this rigging plan for me to follow:
 - Tie the rope to the load with 'any knot'.
 - Run the rope over a sharp roof edge as a pulley.
 - Have two people pull hard while others steady the load by hand.
 - Stand nearby to watch in case something slips.
-Task: Identify the top hazards and rewrite the plan safely.
+
+This feels wrong. What are the main hazards here and how should I rewrite this plan so nobody gets hurt?
 ```
 
 ### Rubric (10 points)
@@ -542,14 +541,14 @@ Task: Identify the top hazards and rewrite the plan safely.
 - **Task type:** procedure
 
 ### Scenario
-- A clean spring is 500 m away and 20 m higher than camp
-- Materials: scavenged pipe segments, clay, cloth, simple tools
-- Goal: provide water to a tap/point in camp
+- **Situation:** A clean spring is 500 m away and 20 m higher than camp.
+- **Materials:** Scavenged pipe segments, clay, cloth, simple tools.
+- **Goal:** Provide water to a tap/point in camp.
 
 ### Prompt
 ```text
-Design a gravity-fed system from the spring to camp.
-Include intake protection, how to join/seal pipes, how to route it so water keeps flowing reliably, how to fix it if flow stops unexpectedly, and where to add access points for clearing blockages.
+I found a clean spring that's about 500 meters away and 20 meters higher than our camp. I have some scavenged pipe, clay, and cloth. 
+How do I set up a gravity-fed line to bring that water to camp? I need to know how to protect the intake, how to join the pipes so they don't leak, and how to route it so it doesn't get air-locked or blocked up.
 ```
 
 ### Rubric (10 points)
@@ -578,13 +577,13 @@ Include intake protection, how to join/seal pipes, how to route it so water keep
 - **Task type:** procedure
 
 ### Scenario
-- Camp is on gentle slope; rain causes pooling near tents
-- Tools: shovels, sticks, stones; limited labour
+- **Situation:** The camp is on a gentle slope; rain causes pooling near tents.
+- **Tools:** Shovels, sticks, stones; limited labour.
 
 ### Prompt
 ```text
-Propose a drainage plan that can be implemented in half a day.
-Include ditches/berms, where water should go, and how to avoid erosion.
+Our camp is on a slight slope, and every time it rains, water pools around the tents and makes a mess. I have a shovel and some stones. 
+Can you give me a plan to dig some drainage today? I need to know where the water should go and how to keep the ditches from just washing away or clogging up.
 ```
 
 ### Rubric (10 points)
@@ -613,24 +612,14 @@ Include ditches/berms, where water should go, and how to avoid erosion.
 - **Task type:** troubleshoot
 
 ### Scenario
-- You scavenge two handheld walkie-talkies of different brands/models
-- Both displays show 'Channel 1' but they cannot hear each other when transmitting
-- You have no manuals and only basic tools; you can adjust settings in menus/buttons
-- You need reliable short-range comms within/around the settlement
-- Assume they might be on different radio services/bands (e.g., UHF vs VHF) or using privacy codes
+- **Situation:** A person scavenged two handheld walkie-talkies of different brands/models.
+- **Problem:** Both displays show 'Channel 1' but they cannot hear each other when transmitting.
+- **Goal:** Configure both radios to match and provide a fallback plan.
 
 ### Prompt
 ```text
-We found two different walkie-talkies.
-Both say “Channel 1” on the screen, but we can’t hear each other when we press transmit.
-
-Task: Tell us every plausible reason why this happens and how to fix it, step-by-step.
-Your answer must include:
-- A step-by-step diagnostic sequence (fast checks first) to determine why they can’t hear each other
-- A minimal working procedure to configure both radios to match
-- A simple way to verify the fix in both directions
-- A fallback low-tech comms plan if they are incompatible (do not assume internet/phones)
-Do not ask clarifying questions; state any assumptions.
+I found two different walkie-talkies. Both of them show "Channel 1" on the screen, but we can't hear anything when we try to talk to each other. 
+Why is this happening and how can I fix it? I need a step-by-step to get them on the same settings. If they just aren't compatible, what's a good low-tech way to communicate over short distances?
 ```
 
 ### Rubric (10 points)
@@ -662,14 +651,14 @@ Do not ask clarifying questions; state any assumptions.
 - **Task type:** troubleshoot
 
 ### Scenario
-- A newly dug channel loses most of its flow within 30 m
-- The banks are collapsing in two places after rain
-- You have clay, stones, vegetation, and basic tools
+- **Situation:** A newly dug channel loses most of its flow within 30 m.
+- **Problem:** The banks are collapsing in two places after rain.
+- **Resources:** Clay, stones, vegetation, and basic tools.
 
 ### Prompt
 ```text
-Diagnose likely causes and propose fixes.
-Include quick patch methods, longer-term redesign options, and how to verify the repair.
+I dug a water channel but it's losing almost all the water before it gets 30 meters out. Plus, the banks are starting to collapse since it rained. 
+I have some clay, stones, and plants. Why is it leaking so much and how do I fix the collapses? I need a quick way to patch it now and a better way to design it so it stops happening.
 ```
 
 ### Rubric (10 points)
@@ -698,17 +687,14 @@ Include quick patch methods, longer-term redesign options, and how to verify the
 - **Task type:** procedure
 
 ### Scenario
-- Need to lift water 2 m from a stream into barrels for irrigation
-- Materials: wood, leather/cloth, nails or wooden pegs, pitch/wax
-- No metal valves available
+- **Situation:** A person needs to lift water 2 m from a stream into barrels for irrigation.
+- **Constraint:** Use leg power so hands stay free. No metal valves available.
+- **Materials:** Wood, leather/cloth, nails or wooden pegs, pitch/wax.
 
 ### Prompt
 ```text
-We need to lift water about 2 m from a stream into barrels for irrigation using leg power so hands stay free.
-Materials: wood, leather/cloth, nails or wooden pegs, pitch/wax. No metal valves.
-
-Task: Design a foot-powered pump system we can build and repair with these materials.
-Include the valve concept, seal materials, key dimensions, build steps, and expected flow rate.
+I need to get water from a stream up about 2 meters into some barrels for our garden. I want to use my legs to pump it so I can use my hands for other things. 
+I have wood, leather, and wax, but no metal valves. How do I build a foot-powered pump with these? I need to know how the valves and seals work and how much water I can expect to get out of it.
 ```
 
 ### Rubric (10 points)
@@ -739,15 +725,14 @@ Include the valve concept, seal materials, key dimensions, build steps, and expe
 - **Task type:** procedure
 
 ### Scenario
-- A pit latrine excavation flooded; you must drain it without pumps
-- Materials: hose/tubing or hollow reed pipes, buckets
-- Water may be contaminated
+- **Situation:** A pit latrine excavation flooded; it must be drained without pumps.
+- **Problem:** Water may be contaminated.
+- **Materials:** Hose/tubing or hollow reed pipes, buckets.
 
 ### Prompt
 ```text
-We need to drain a flooded pit but we have no pump.
-We have hose/tubing (or hollow reeds) and buckets, and the ground outside is lower than the water level.
-Explain how to get the water out safely (avoid mouth contact), including contamination precautions and where to put the discharged water.
+One of our pits flooded and the water looks pretty gross, so I need to get it out without a pump. I have some hose and buckets, and the ground further away is lower than the water level. 
+How do I start a siphon without getting that nasty water in my mouth? Also, what should I do with the water so it doesn't contaminate everything else?
 ```
 
 ### Rubric (10 points)
@@ -778,15 +763,13 @@ Explain how to get the water out safely (avoid mouth contact), including contami
 - **Task type:** procedure
 
 ### Scenario
-- Need to lift cleaner water from a well 5 m deep
-- Materials: straight timber, leather, wax/pitch, rope; basic drilling tools
+- **Situation:** A person needs to lift water from a well 5 m deep.
+- **Materials:** Straight timber, leather, wax/pitch, rope; basic drilling tools.
 
 ### Prompt
 ```text
-We need a hand-operated pump made from wood and leather to lift cleaner water from a well ~5 m deep.
-
-Task: Design a hand-operated pump that moves water upward and prevents it from falling back between strokes.
-Explain the moving parts, how to build it from wood/leather, how to prime it, and how to maintain it.
+I need to get water out of a well that's about 5 meters deep. I have some timber, leather, and wax. 
+How do I build a hand pump that can pull the water up and keep it from falling back down between strokes? I need to know how the moving parts work and how to build the seals out of leather.
 ```
 
 ### Rubric (10 points)
@@ -815,14 +798,14 @@ Explain the moving parts, how to build it from wood/leather, how to prime it, an
 - **Task type:** troubleshoot
 
 ### Scenario
-- A hand pump worked yesterday but now loses prime after a few strokes
-- Flow rate has halved; squeaking noise present
-- You have basic tools and seal materials (leather, wax)
+- **Situation:** A hand pump worked yesterday but now loses prime after a few strokes.
+- **Problem:** Flow rate has halved; squeaking noise present.
+- **Resources:** Basic tools and seal materials (leather, wax).
 
 ### Prompt
 ```text
-Diagnose likely causes and list inspection steps and fixes.
-Include how to test for air leaks and worn seals.
+My hand pump was working fine yesterday, but today it won't hold its prime and the water flow is way lower than it used to be. It's also making a weird squeaking sound. 
+How do I figure out where the air is leaking in or if the seals are shot? What's the best way to fix it with just basic tools and some leather and wax?
 ```
 
 ### Rubric (10 points)
@@ -851,16 +834,14 @@ Include how to test for air leaks and worn seals.
 - **Task type:** procedure
 
 ### Scenario
-- Goal: fire simple clay pots reliably
-- Materials: clay, sand, some salvaged bricks, wood fuel
-- Tools: shovels, trowel substitutes
+- **Situation:** A person wants to fire simple clay pots reliably.
+- **Materials:** Clay, sand, some salvaged bricks, wood fuel.
+- **Goal:** Design a kiln structure and firing schedule.
 
 ### Prompt
 ```text
-We need a simple kiln structure to fire clay pots reliably using wood fuel.
-
-Task: Design a small pottery kiln we can build from clay/sand and salvaged bricks.
-Include structure, firebox, airflow/chimney, a drying + firing schedule, and how to avoid cracking wares.
+I want to fire some clay pots I made, but I need a kiln that actually works so they don't all crack. I have bricks, sand, clay, and wood. 
+How should I build a small kiln out of these? I need to know how the firebox and airflow should work, and how long I need to dry and fire the pots so they don't explode.
 ```
 
 ### Rubric (10 points)
@@ -889,14 +870,13 @@ Include structure, firebox, airflow/chimney, a drying + firing schedule, and how
 - **Task type:** procedure
 
 ### Scenario
-- You have access to limestone or sea shells
-- Fuel: wood and/or charcoal
-- Goal: produce quicklime for mortar/plaster
+- **Situation:** A person has access to limestone or sea shells and wood/charcoal fuel.
+- **Goal:** Produce quicklime for mortar/plaster.
 
 ### Prompt
 ```text
-Propose a lime kiln design and operating procedure.
-Include: loading, airflow, burn duration, how to tell by observation when the stone/shells are ready for mortar use, and key safety hazards.
+I need to make mortar, so I have to turn this limestone into quicklime. I have wood and charcoal for fuel. 
+How do I build a kiln for this and how do I run it? I need to know how to load it, how long to burn it, and how to tell when the stone is actually ready to be used. Also, what safety stuff do I need to worry about when handling the lime?
 ```
 
 ### Rubric (10 points)
@@ -925,14 +905,13 @@ Include: loading, airflow, burn duration, how to tell by observation when the st
 - **Task type:** procedure
 
 ### Scenario
-- Goal: produce a small bloom of iron from local ore or rust scrap
-- Fuel: charcoal; air: bellows or forced draft possible
-- Materials: clay/sand, tuyere from pipe/clay
+- **Situation:** A person wants to produce a small bloom of iron from local ore or rust scrap.
+- **Materials:** Clay/sand, tuyere from pipe/clay; fuel: charcoal.
 
 ### Prompt
 ```text
-Outline a practical bloomery build and run plan.
-Include furnace dimensions (approximate), air supply, charcoal handling, slag management, and safety.
+I found some iron ore and I want to try making a small amount of iron. I have charcoal and plenty of clay and sand. 
+How do I build a small bloomery furnace to get iron out of this? I need to know the basic dimensions, how to handle the air supply, and what to do with the slag so it doesn't mess up the iron bloom.
 ```
 
 ### Rubric (10 points)
@@ -961,16 +940,18 @@ Include furnace dimensions (approximate), air supply, charcoal handling, slag ma
 - **Task type:** critique
 
 ### Scenario
-- A novice wrote this plan
+- **Situation:** A person is reviewing a novice's kiln firing plan.
+- **Plan:** Build the kiln today; put fresh pots straight in; keep a big fire roaring for 2 hours; open immediately.
 
 ### Prompt
 ```text
-Kiln plan:
+Someone gave me this plan for firing pots:
 - Build the kiln today.
 - Put freshly made pots straight in.
 - Light a big fire and keep it roaring for 2 hours.
 - Open the kiln immediately to check the pots.
-Task: Explain what will likely go wrong and rewrite a safer firing schedule.
+
+I have a feeling this is a bad idea. Can you explain what's likely to go wrong and give me a firing schedule that won't destroy all the pots?
 ```
 
 ### Rubric (10 points)
@@ -999,14 +980,13 @@ Task: Explain what will likely go wrong and rewrite a safer firing schedule.
 - **Task type:** procedure
 
 ### Scenario
-- Need to move 200 kg of supplies 3 km over uneven ground
-- Materials: wood, rope, some scrap metal possible; limited nails
-- No bearings available
+- **Situation:** A person needs to move 200 kg of supplies 3 km over uneven ground.
+- **Materials:** Wood, rope, some scrap metal possible; limited nails. No bearings.
 
 ### Prompt
 ```text
-Propose a cart or sledge design.
-Include load distribution, runners/wheels, how to reduce friction, and a maintenance plan.
+I need to move about 200kg of supplies about 3 kilometers over pretty uneven ground. I have wood and rope, but no bearings or wheels. 
+Should I build a cart or a sledge for this? Can you give me a design that handles the weight well and tell me how to keep the friction low so it's not a nightmare to pull?
 ```
 
 ### Rubric (10 points)
@@ -1035,17 +1015,14 @@ Include load distribution, runners/wheels, how to reduce friction, and a mainten
 - **Task type:** procedure
 
 ### Scenario
-- A 50 m stretch of path becomes impassable mud in rain
-- Materials: logs/branches, stones, straw; tools: shovels
-- Need a solution that lasts at least 1 month
+- **Situation:** A 50 m stretch of path becomes impassable mud in rain.
+- **Materials:** Logs/branches, stones, straw; tools: shovels.
+- **Goal:** Solution that lasts at least 1 month.
 
 ### Prompt
 ```text
-We need to reinforce a 50 m stretch of muddy path so wheels/feet don’t sink during rain.
-Materials: logs/branches, stones, straw; tools: shovels. Must last ~1 month.
-
-Task: Propose a low-tech way to reinforce the path.
-Include drainage, materials, build steps, and how to maintain it.
+There's a 50-meter stretch of our main path that turns into a complete mud pit every time it rains, and we can't get our carts through it. I have logs, branches, straw, and some stones. 
+How can I reinforce this path so we don't sink? I need to know how to do the drainage and how to lay the materials so it lasts at least a month.
 ```
 
 ### Rubric (10 points)
@@ -1074,14 +1051,14 @@ Include drainage, materials, build steps, and how to maintain it.
 - **Task type:** procedure
 
 ### Scenario
-- Need to terrace a sloped garden to prevent erosion
-- Materials: stones, clay/soil; no cement initially
-- Wall height ~0.8 m; length 10 m
+- **Situation:** A person needs to terrace a sloped garden to prevent erosion.
+- **Materials:** Stones, clay/soil; no cement.
+- **Goal:** Wall height ~0.8 m; length 10 m.
 
 ### Prompt
 ```text
-Design a dry-stone (or minimally bound) retaining wall.
-Include base preparation, drainage behind the wall, how to shape/slope the wall so it doesn’t topple, and how to prevent failure.
+I need to build a small stone wall to terrace our garden—it's about 80cm high and 10 meters long. I don't have any cement, just stones and clay. 
+How do I build this so it doesn't just topple over when the dirt gets wet? I need to know how to prep the base, how to angle the wall, and how to make sure the water drains out from behind it.
 ```
 
 ### Rubric (10 points)
@@ -1112,14 +1089,14 @@ Include base preparation, drainage behind the wall, how to shape/slope the wall 
 - **Task type:** procedure
 
 ### Scenario
-- Need to dig a 30 m trench for a water line
-- Soil is damp and can slump; you have shovels and planks
-- Work must be done by volunteers with mixed experience
+- **Situation:** A person needs to dig a 30 m trench for a water line.
+- **Problem:** Soil is damp and can slump; they have shovels and planks.
+- **Constraint:** Work done by volunteers with mixed experience.
 
 ### Prompt
 ```text
-Write a trenching plan that minimises collapse and injury.
-Include slope/shoring guidance, spoil placement, access/egress, and a supervision checklist.
+We're digging a 30-meter trench for a new water pipe. The ground is pretty damp and looks like it might cave in if we're not careful. 
+How should we dig this so it's safe for our volunteers? I need to know how to slope or brace the sides with planks, where to put the pile of dirt we dig out, and what I should be looking for to know if we need to stop because it's getting dangerous.
 ```
 
 ### Rubric (10 points)
@@ -1150,14 +1127,13 @@ Include slope/shoring guidance, spoil placement, access/egress, and a supervisio
 - **Task type:** procedure
 
 ### Scenario
-- You need a perfectly flat metal surface to layout precision parts
-- You have three roughly flat cast iron plates and scraping tools
-- You have no existing reference flat or straightedge
+- **Situation:** A person needs a perfectly flat metal surface to layout precision parts.
+- **Resources:** Three roughly flat cast iron plates and scraping tools. No reference flat.
 
 ### Prompt
 ```text
-You have three roughly flat cast iron plates and scraping tools, but no straightedge or known-flat reference.
-Explain how to process the plates to generate a truly flat reference surface. Describe the comparison/scraping sequence and the logic of why three plates are necessary, not just two.
+I have three old cast iron plates that are roughly flat, and I need one perfectly flat surface to use as a reference for layout work. I don't have a straightedge or anything else that's already flat to check them against. 
+How do I use these three plates to make them all perfectly flat? Why do I need three plates instead of just two, and what's the actual sequence for scraping and comparing them?
 ```
 
 ### Rubric (10 points)
@@ -1187,14 +1163,13 @@ Explain how to process the plates to generate a truly flat reference surface. De
 - **Task type:** procedure
 
 ### Scenario
-- You need a large metal screw for a press
-- You have metal rod, files, paper, glue, and saws
-- You have no lathe and no existing screw to copy
+- **Situation:** A person needs a large metal screw for a press.
+- **Resources:** Metal rod, files, paper, glue, and saws. No lathe or existing screw.
 
 ### Prompt
 ```text
-Describe a method to layout and cut a functional screw thread on a metal rod by hand.
-Include how to ensure the pitch is consistent and the helix angle is correct.
+I need to make a large metal screw for a press, but I don't have a lathe or any taps and dies. I just have a metal rod, some files, and paper. 
+Is there a way to mark out a perfect spiral on the rod by hand so the threads are even? How do I actually cut the threads once I've marked them?
 ```
 
 ### Rubric (10 points)
@@ -1220,16 +1195,13 @@ Include how to ensure the pitch is consistent and the helix angle is correct.
 - **Task type:** procedure
 
 ### Scenario
-- A generator shaft bearing has disintegrated
-- You have scrap lead, tin, antimony (or old pewter/type metal)
-- You have the steel shaft and the housing
+- **Situation:** A generator shaft bearing has disintegrated.
+- **Resources:** Scrap lead, tin, antimony; steel shaft and housing.
 
 ### Prompt
 ```text
-We need to cast a new plain bearing in place for a steel shaft using melted soft metal scrap.
-
-Task: Explain the full procedure to cast the bearing in the housing around the shaft.
-Include shaft preparation (release layer), pre-heating, and how to prevent the metal sticking to the shaft.
+The bearing on my generator shaft just crumbled. I have some scrap metal (lead and tin) I can melt down. 
+How do I cast a new bearing right around the shaft inside the housing? I need to know how to prep the shaft so the metal doesn't stick to it and how to pour it safely without it exploding if there's moisture around.
 ```
 
 ### Rubric (10 points)
@@ -1256,14 +1228,13 @@ Include shaft preparation (release layer), pre-heating, and how to prevent the m
 - **Task type:** procedure
 
 ### Scenario
-- Need waterproof mortar for a pier/cistern
-- No Portland cement available
-- You have quicklime, volcanic ash (or crushed brick/pottery dust), and aggregate
+- **Situation:** A person needs waterproof mortar for a pier or cistern.
+- **Resources:** Quicklime, volcanic ash (or crushed brick), and aggregate. No Portland cement.
 
 ### Prompt
 ```text
-Formulate a hydraulic mortar recipe and mixing procedure using these resources.
-Explain why mixing just lime and sand won't work underwater, and what specific chemical role the volcanic ash plays in the cure.
+I need to make some waterproof mortar for a cistern we're building, but I don't have any modern cement. I have quicklime, sand, and some volcanic ash (or I could crush up old bricks). 
+Why won't just lime and sand work if it's going to be wet? How do I mix these other materials to make a mortar that actually sets and stays hard underwater?
 ```
 
 ### Rubric (10 points)
@@ -1289,14 +1260,13 @@ Explain why mixing just lime and sand won't work underwater, and what specific c
 - **Task type:** procedure
 
 ### Scenario
-- Building a roof with a 6m span
-- You need to determine if your timber beams are strong enough
-- You understand basic leverage but need to estimate tension/compression
+- **Situation:** A person is building a roof with a 6m span.
+- **Problem:** They need to determine if their timber beams are strong enough.
 
 ### Prompt
 ```text
-Explain how to identify which members of an A-frame truss are in tension vs compression.
-Describe how to reinforce the bottom chord joint to prevent spread.
+I'm building an A-frame roof for a new building with a 6-meter span. I'm trying to figure out which of my wooden beams are going to be squeezed and which ones are going to be pulled apart. 
+Can you explain where the tension and compression are in a simple A-frame? Also, how do I join the bottom corners so the walls don't just push outwards and collapse the whole thing?
 ```
 
 ### Rubric (10 points)
@@ -1323,13 +1293,13 @@ Describe how to reinforce the bottom chord joint to prevent spread.
 - **Task type:** procedure
 
 ### Scenario
-- Need a fairly flat surface for layout
-- Found a polished granite kitchen island slab
-- Need to map its flatness errors
+- **Situation:** A person found a polished granite kitchen island slab.
+- **Goal:** Map its flatness errors to use it as a layout surface.
 
 ### Prompt
 ```text
-Explain how to map the flatness of a surface using a sensitive level to find high and low spots.
+I found a thick slab of polished granite from a kitchen counter that I want to use as a flat reference plate for layout work. I know it's not perfect, though. 
+I have a very sensitive spirit level. How do I use that to map out the high and low spots on the surface so I know where the errors are?
 ```
 
 ### Rubric (10 points)
@@ -1357,14 +1327,13 @@ Explain how to map the flatness of a surface using a sensitive level to find hig
 - **Task type:** procedure
 
 ### Scenario
-- Broken aluminum bracket critical for a pump
-- You have scrap aluminum cans/engine block
-- You have sand and clay (bentonite/cat litter)
+- **Situation:** A broken aluminum bracket is critical for a pump.
+- **Resources:** Scrap aluminum; sand and clay (bentonite).
 
 ### Prompt
 ```text
-Describe the "Green Sand" casting process using a two-part flask.
-Include sand preparation, venting, gating, and shrinkage allowance.
+I have a broken aluminum pump bracket that I need to replace. I've got plenty of scrap aluminum to melt down and some sand and clay. 
+How do I use these to make a "green sand" mold for casting a new part? I need to know how to set up the two-part box and where to put the holes for pouring and letting the air out so it doesn't just bubble or explode.
 ```
 
 ### Rubric (10 points)
@@ -1392,14 +1361,13 @@ Include sand preparation, venting, gating, and shrinkage allowance.
 - **Task type:** procedure
 
 ### Scenario
-- Layout a building foundation 20m x 30m
-- Needs perfectly square corners
-- No optical square
+- **Situation:** A person is laying out a building foundation (20m x 30m).
+- **Resources:** Tape measure, stakes, and string. No optical square.
 
 ### Prompt
 ```text
-I need to lay out a large rectangular foundation (20 m x 30 m) with perfectly square corners using only a tape measure and stakes/string.
-Describe a practical method to square the first corner and verify the full rectangle is square.
+I'm trying to lay out a large rectangle for a foundation, it's about 20 meters by 30 meters. I need the corners to be perfectly square but I don't have a protractor or any optical tools. 
+How do I use just a tape measure and some string to get that first corner square and then check that the whole rectangle is actually correct?
 ```
 
 ### Rubric (10 points)
@@ -1427,14 +1395,13 @@ Describe a practical method to square the first corner and verify the full recta
 - **Task type:** procedure
 
 ### Scenario
-- Need to hold workpieces
-- No metal screw available
-- You have wedges and timber
+- **Situation:** A person needs to hold workpieces for woodworking.
+- **Resources:** Wedges and timber. No metal screw.
 
 ### Prompt
 ```text
-Design a wedge-actuated woodworking vise or clamp.
-Explain the mechanics of locking it.
+I need a vise for my workbench to hold wood while I work on it, but I don't have any of those big metal screws. I have plenty of timber and I can make wedges. 
+Is there a design for a vise that uses wedges to lock the work in place? How does it stay locked without a screw, and how do I build it?
 ```
 
 ### Rubric (10 points)
@@ -1462,14 +1429,13 @@ Explain the mechanics of locking it.
 - **Task type:** troubleshoot
 
 ### Scenario
-- Rope pump installed in well
-- Water comes up but splashes back down; efficiency is terrible
-- Pipe is vertical
+- **Situation:** A rope pump is installed in a well.
+- **Problem:** Water comes up but splashes back down; efficiency is terrible.
 
 ### Prompt
 ```text
-Diagnose the back-flow issue.
-Check clearance tolerances and wheel speed.
+I built a rope pump with washers to get water out of our well. It's bringing some water up, but a ton of it just drains right back down the pipe before it hits the top. 
+Is there something wrong with the way the washers fit in the pipe or is it a speed issue? How do I figure out why the efficiency is so bad and fix it?
 ```
 
 ### Rubric (10 points)
@@ -1497,14 +1463,13 @@ Check clearance tolerances and wheel speed.
 - **Task type:** troubleshoot
 
 ### Scenario
-- Thermosyphon system (Tank above collector)
-- Water gets hot in collector but doesn't move to tank
-- Pipes are hot, tank is cold
+- **Situation:** A person has a thermosyphon solar hot water system.
+- **Problem:** Water gets hot in the collector but doesn't move to the tank above it.
 
 ### Prompt
 ```text
-Diagnose the flow stoppage.
-Check for "vapor lock" and pipe slope issues.
+I set up a solar hot water heater with the tank sitting above the solar collector panels. The panels are getting really hot, but the tank is still cold—it seems like the water isn't moving. 
+Why would the flow stop if the hot water should be rising naturally? How do I check for air pockets or problems with the pipes?
 ```
 
 ### Rubric (10 points)
@@ -1532,14 +1497,13 @@ Check for "vapor lock" and pipe slope issues.
 - **Task type:** procedure
 
 ### Scenario
-- Building shelter walls
-- Clay soil, sand, straw available
-- Wet climate
+- **Situation:** A person is building shelter walls.
+- **Resources:** Clay soil, sand, and straw. Wet climate.
 
 ### Prompt
 ```text
-Describe the Cobb mix ratio and testing method.
-Why is straw added? Why is sand added?
+I'm trying to build some walls using mud and straw, but I'm not sure if my mix is right. I have clay-heavy soil, sand, and straw. 
+What's the best ratio for mixing these together? Also, how do I test a small amount to see if it's going to crack too much or fall apart when it dries?
 ```
 
 ### Rubric (10 points)
@@ -1567,14 +1531,13 @@ Why is straw added? Why is sand added?
 - **Task type:** compare
 
 ### Scenario
-- Need fuel for a forge (smelting iron) vs BBQ
-- Making charcoal
-- Selecting wood and process
+- **Situation:** A person needs fuel for a forge (smelting iron) vs a BBQ.
+- **Problem:** They need to select the right wood and process for charcoal.
 
 ### Prompt
 ```text
-Differentiate "Fuel Charcoal" from "Smithing Charcoal".
-How does hardwood vs softwood selection affect maximum temperature and burn rate?
+I'm making a batch of charcoal and I need to know if I should use different wood or a different method if I'm using it for a blacksmith forge instead of just for cooking. 
+Is hardwood always better, or does softwood have an advantage for getting a fire really hot? How do I make sure it's good quality for smithing?
 ```
 
 ### Rubric (10 points)
@@ -1602,17 +1565,13 @@ How does hardwood vs softwood selection affect maximum temperature and burn rate
 - **Task type:** troubleshoot
 
 ### Scenario
-- Built a gamma-type stirling engine model
-- It won't run when heated
-- Moves freely by hand
+- **Situation:** A person built a gamma-type Stirling engine model.
+- **Problem:** It won't run when heated, even though it moves freely by hand.
 
 ### Prompt
 ```text
-We built a small heat engine with two moving elements (one moves air between hot and cold zones; one extracts power), but it won’t run when heated.
-It moves freely by hand.
-
-Task: Diagnose common failure modes for this kind of heat engine and propose a fix order.
-Focus on friction, air leaks, and correct timing between the two moving elements.
+I built a small heat engine with a displacer and a power piston, but I can't get it to run. When I heat the end it just sits there, even though I can spin the flywheel easily by hand. 
+What are the most likely reasons it's not starting? How do I check the timing between the two parts and find out if I have an air leak somewhere?
 ```
 
 ### Rubric (10 points)
@@ -1630,6 +1589,3 @@ Focus on friction, air leaks, and correct timing between the two moving elements
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
-
----

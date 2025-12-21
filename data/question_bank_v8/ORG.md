@@ -4,15 +4,11 @@
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** The alcohol supply ran out yesterday. A group member is a severe alcoholic.
-- **Condition:** He is shaking violently, sweating, heart racing, and hallucinating.
-- **Resources:** One hidden bottle of whiskey found in a stash. No medical drugs.
+A group's alcohol supply ran out yesterday. One member is a severe alcoholic and is now showing signs of critical withdrawal: he is shaking violently, sweating, his heart is racing, and he is hallucinating. The group has found one hidden bottle of whiskey but has no medical drugs or professional help.
 
 ### Prompt
 ```text
-Our friend is a heavy drinker. We ran out of alcohol yesterday and now he is shaking violently, seeing things, and his heart is racing.
-We found one bottle of whiskey.
-Should we give it to him or force him to stop cold turkey to save his life?
+One of our friends is a really heavy drinker. We ran out of booze yesterday and now he's in a bad way—he’s shaking uncontrollably, sweating, seeing things that aren't there, and his heart is going a mile a minute. We found one bottle of whiskey in the back of a cupboard. Should we give it to him to calm him down, or is it better to make him stop 'cold turkey' to save his life?
 ```
 
 ### Rubric (10 points)
@@ -38,14 +34,11 @@ Should we give it to him or force him to stop cold turkey to save his life?
 - **Task type:** procedure
 
 ### Scenario
-- Group of 60 with mixed backgrounds; few clear experts
-- Essential tasks: water, cooking, sanitation, security watch, childcare, building
-- Goal: avoid burnout and ensure coverage
+A group of 60 survivors with mixed backgrounds has no clear leadership or organization. Essential tasks like water collection, cooking, sanitation, and security are being done ad-hoc, leading to burnout and neglect. They need a system to identify skills and manage work.
 
 ### Prompt
 ```text
-Design a skills inventory process and a weekly rota.
-Include how to handle people who refuse tasks and how to cross-train.
+I've got a group of 60 people here and it’s total chaos. Nobody knows who is supposed to be doing what. I need a way to figure out what skills everyone actually has and set up a weekly schedule so the same three people aren't doing all the cooking and cleaning. How do I handle people who refuse to work, and how can we teach people new jobs so we aren't dependent on just one 'expert'?
 ```
 
 ### Rubric (10 points)
@@ -74,14 +67,11 @@ Include how to handle people who refuse tasks and how to cross-train.
 - **Task type:** procedure
 
 ### Scenario
-- Population: 100
-- Need predictable routines for water, meals, maintenance, and meetings
-- Literacy varies
+A settlement of 100 people needs predictable routines to function. Currently, work is reactive, literacy varies among members, and there is no standard way to communicate urgent issues or hand over tasks between day and night shifts.
 
 ### Prompt
 ```text
-Propose a daily schedule and communication method.
-Include briefings, task handover, and how to handle urgent issues.
+We have about 100 people in our camp and we need a proper daily routine. Things like water, meals, and fixing gear are just happening whenever. Can you propose a daily schedule that everyone can follow? I also need a way for people to pass on information to the next shift and a way to handle emergencies without everything falling apart.
 ```
 
 ### Rubric (10 points)
@@ -110,14 +100,11 @@ Include briefings, task handover, and how to handle urgent issues.
 - **Task type:** procedure
 
 ### Scenario
-- Critical roles: water treatment lead, medic, blacksmith, cook
-- Outbreak risk is high
-- Goal: keep systems running even with 30% absenteeism
+A small community relies on a few critical specialists: a water treatment lead, a medic, a blacksmith, and a head cook. A viral outbreak is putting 30% of the population out of commission. Without a redundancy plan, the settlement's life-support systems will fail.
 
 ### Prompt
 ```text
-Create a continuity and redundancy plan.
-Include documentation, cross-training, and trigger points to simplify operations under stress.
+A flu is going around our camp and about a third of our people are sick in bed. I'm terrified that if our only medic or the guy who runs the water filters gets sick, we're all dead. How do I set up a backup plan so the vital jobs keep running even when the main experts are gone? I need to know how to document their jobs and when to start cutting back on non-essential work.
 ```
 
 ### Rubric (10 points)
@@ -146,14 +133,11 @@ Include documentation, cross-training, and trigger points to simplify operations
 - **Task type:** procedure
 
 ### Scenario
-- You have a shared store of tools, nails, rope, and medical supplies
-- Theft/accusations are starting
-- You have paper and a lockable room
+The community shares a store of tools, nails, rope, and medical supplies. Theft and accusations of hoarding are beginning to tear the group apart. The organizers have a lockable room and paper, but need a system to ensure fairness and prevent loss.
 
 ### Prompt
 ```text
-Design an inventory and checkout system.
-Include audits, access control, and how to keep it fair and low-friction.
+Items are disappearing from our supply stash—nails, rope, and even medical kits. People are starting to blame each other for stealing. I have a room I can lock and some paper for records. Can you tell me how to set up an inventory system so we know what we have and who took it? It needs to be fair so everyone gets what they need, but strict enough to stop the theft.
 ```
 
 ### Rubric (10 points)
@@ -182,14 +166,11 @@ Include audits, access control, and how to keep it fair and low-friction.
 - **Task type:** procedure
 
 ### Scenario
-- You have mixed food stores (grain, dried beans, smoked meat)
-- Rodents and moisture are problems
-- Need to feed 80 people for 3 months
+A settlement needs to feed 80 people for 3 months with a mixed supply of grain, dried beans, and smoked meat. They are currently struggling with rodent infestations and moisture damage. They need a logistics plan for storage and fair distribution.
 
 ### Prompt
 ```text
-Design storage layout and rationing logistics.
-Include stock rotation, pest control, weekly audits, and transparent distribution rules.
+We have enough grain, beans, and meat to hopefully last 80 people for three months, but the rats are getting in and some of the bags are getting damp. How should I arrange our food store to keep it safe? Also, how do I figure out the weekly rations so we don't run out early, and how can I prove to everyone that the distribution is being done fairly?
 ```
 
 ### Rubric (10 points)
@@ -218,15 +199,11 @@ Include stock rotation, pest control, weekly audits, and transparent distributio
 - **Task type:** critique
 
 ### Scenario
-- Current store is a pile of mixed items with no labels
+The current supply room is a disaster: unmarked bags are piled randomly, there is no inventory record, and anyone can enter and take whatever they want. The group needs an emergency reorganization plan.
 
 ### Prompt
 ```text
-Current situation:
-- All supplies are in one room in unlabeled bags.
-- Anyone can take what they need.
-- No one knows what is left.
-Task: Propose a minimal viable improvement plan for the next 48 hours.
+Right now, all our supplies are just thrown into one room in unmarked bags. There's no list of what's inside, and people just walk in and take whatever they think they need. It’s a mess. Can you tell me why this is going to kill us and give me a simple, 48-hour plan to fix this mess using just basic labels and a notebook?
 ```
 
 ### Rubric (10 points)
@@ -255,14 +232,11 @@ Task: Propose a minimal viable improvement plan for the next 48 hours.
 - **Task type:** procedure
 
 ### Scenario
-- Settlement has factions and disagreements
-- Need quick decisions during crises but fair governance long-term
-- Goal: legitimacy, transparency, and stability
+A settlement of 120 people is paralyzed by infighting and factions. They need a formal governance structure that feels legitimate and fair, but can still make rapid decisions during a crisis.
 
 ### Prompt
 ```text
-Design a governance structure (roles, council, elections) and decision rules.
-Include accountability, term limits, and emergency powers with checks.
+We have 120 people here and we can't agree on anything. Different groups are arguing and nothing is getting done. I need a plan for a basic government—like a council or leaders—and how we should pick them. How do we make sure they don't just become tyrants? Also, how do we make fast decisions when there's an emergency without waiting for a vote?
 ```
 
 ### Rubric (10 points)
@@ -291,14 +265,11 @@ Include accountability, term limits, and emergency powers with checks.
 - **Task type:** procedure
 
 ### Scenario
-- Weekly meetings become endless arguments
-- People feel unheard; urgent tasks stall
-- Need a better process
+Weekly community meetings have devolved into endless, circular arguments. People feel ignored, and urgent survival tasks are stalling because no decisions are ever finalized.
 
 ### Prompt
 ```text
-Propose a meeting and decision process.
-Include agenda setting, facilitation, timeboxing, and how to record and follow up decisions.
+Our weekly meetings are a nightmare—just hours of people shouting and nothing ever getting settled. I need a better way to run these things. How should I set an agenda, who should run the meeting, and how do we make sure a decision is actually reached and recorded? Tell me how to stop people from talking in circles so we can actually get back to work.
 ```
 
 ### Rubric (10 points)
@@ -327,14 +298,11 @@ Include agenda setting, facilitation, timeboxing, and how to record and follow u
 - **Task type:** critique
 
 ### Scenario
-- A strong group proposes controlling resources by force
+A faction of physically strong members has proposed that they should control all resources and decision-making by force, and that dissent should be punished with ration cuts.
 
 ### Prompt
 ```text
-Proposal:
-- The strongest people will lead.
-- Anyone who complains loses rations.
-Task: Explain likely failure modes and propose a more stable governance alternative.
+A few of the strongest guys are saying they should just be in charge since they do the heavy lifting and the security. They want a rule where the 'strongest lead' and anyone who complains loses their food for a few days. Why is this a terrible idea for our long-term survival, and what’s a better way to organize ourselves that won't lead to a bloodbath?
 ```
 
 ### Rubric (10 points)
@@ -363,14 +331,11 @@ Task: Explain likely failure modes and propose a more stable governance alternat
 - **Task type:** procedure
 
 ### Scenario
-- Two families accuse each other of stealing food
-- Tension risks violence
-- You need a fair process quickly
+Tensions are boiling over between two families who are accusing each other of stealing food. Both sides are becoming aggressive, and the group needs a fair way to investigate and resolve the dispute before it turns violent.
 
 ### Prompt
 ```text
-Design a mediation and investigation process.
-Include temporary measures, evidence gathering, and proportional outcomes.
+Two families in our group are about to start a brawl because they’re accusing each other of stealing rations. I need to step in before someone gets hurt. How can I investigate this fairly without making things worse? Give me a step-by-step process for mediating the argument, gathering evidence, and figuring out a fair outcome that doesn't just make one side hate the other forever.
 ```
 
 ### Rubric (10 points)
@@ -399,14 +364,11 @@ Include temporary measures, evidence gathering, and proportional outcomes.
 - **Task type:** procedure
 
 ### Scenario
-- A serious assault occurred; people demand immediate punishment
-- You must keep the settlement safe and legitimate
-- No formal legal system exists yet
+A serious physical assault has occurred in the camp. The community is angry and a vocal majority is demanding an immediate, violent punishment for the suspect. The leadership needs to maintain order and legitimacy without succumbing to mob rule.
 
 ### Prompt
 ```text
-Propose a due-process-based response.
-Include investigation, temporary confinement if needed, hearing process, and safeguards against abuse.
+Someone was just badly beaten up, and half the camp is screaming to lynch the guy they think did it. I need a way to stop this from turning into a mob execution. How do I set up a proper 'trial' or hearing with the resources we have? I need a process for investigating what actually happened, keeping the suspect safe for now, and making a fair decision that the group will actually respect.
 ```
 
 ### Rubric (10 points)
@@ -436,14 +398,11 @@ Include investigation, temporary confinement if needed, hearing process, and saf
 - **Task type:** critique
 
 ### Scenario
-- A policy proposes harsh punishments for minor infractions
+The current leadership has proposed a "zero tolerance" policy for minor infractions: losing a week's food for the first offense and immediate expulsion for the second. This risks causing a rebellion or encouraging people to hide mistakes.
 
 ### Prompt
 ```text
-Policy:
-- First offence: loss of rations for a week.
-- Second offence: expulsion.
-Task: Explain why this may backfire and propose a fairer, more effective policy.
+The current plan for 'law and order' is that if you mess up once, you get no food for a week, and if you mess up twice, you're kicked out into the wilderness. I think this is going to backfire horribly. Can you explain why this kind of extreme punishment is a bad idea, and give me a plan for a fairer system that actually keeps people in line without making them want to revolt?
 ```
 
 ### Rubric (10 points)
@@ -473,14 +432,11 @@ Task: Explain why this may backfire and propose a fairer, more effective policy.
 - **Task type:** procedure
 
 ### Scenario
-- You want to preserve know-how (water, medicine, farming, repairs)
-- Materials: paper or bark, ink/charcoal, clay tablets possible
-- Risks: fire, water, loss, tampering
+A settlement wants to ensure their survival knowledge (water purification, medical treatments, farming) isn't lost if key people die. They have paper, ink, and the ability to make clay tablets, but need a system to organize and protect this information.
 
 ### Prompt
 ```text
-Design a knowledge recording and indexing system.
-Include redundancy, version control, and how to keep it usable.
+I'm worried that if our doctor or our farmer gets killed, all their knowledge goes with them. We need to write everything down—how to clean the water, how to treat infections, everything. We have paper and ink, and we could even bake clay tablets. How do I set up a 'library' or record system that's easy for people to use, and how do we keep the records from being destroyed by fire or water?
 ```
 
 ### Rubric (10 points)
@@ -509,14 +465,11 @@ Include redundancy, version control, and how to keep it usable.
 - **Task type:** procedure
 
 ### Scenario
-- Need basic public health tracking (illness cases, births, deaths)
-- Privacy is important; literacy varies
-- Goal: detect outbreaks early
+To manage public health, the community needs to track births, deaths, and symptoms of illness to catch outbreaks early. Privacy is a concern for many, and literacy levels vary, requiring a simple but consistent system.
 
 ### Prompt
 ```text
-Propose a registry system.
-Include what to record, privacy safeguards, and how to summarise trends for leaders.
+People are getting sick and I need to know if it’s a one-off or an outbreak starting. How can I set up a paper record of every birth, death, and illness in the camp? I need to know what specifically to write down so we can see trends. Also, some people are weird about their privacy—how do I keep these records safe while still letting the leaders know when there’s a problem?
 ```
 
 ### Rubric (10 points)
@@ -545,12 +498,11 @@ Include what to record, privacy safeguards, and how to summarise trends for lead
 - **Task type:** critique
 
 ### Scenario
-- A leader says writing records is pointless and slow
+One of the community leaders argues that keeping written records is a waste of time and that everyone should just rely on memory and verbal instruction.
 
 ### Prompt
 ```text
-Task: Explain practical risks of relying purely on memory.
-Propose a minimal viable record system that works even with limited literacy.
+The guy in charge of our settlement says that writing things down is a total waste of time and we should just 'tell people how to do things' and remember it all. Can you explain the practical risks of only using memory for things like medicine and mechanics? I also need a dead-simple way to keep records that even the people who can't read very well can use.
 ```
 
 ### Rubric (10 points)
@@ -579,14 +531,11 @@ Propose a minimal viable record system that works even with limited literacy.
 - **Task type:** procedure
 
 ### Scenario
-- You see smoke from another settlement 5 km away
-- You want to trade but avoid conflict and disease
-- You have minimal security resources
+A group has spotted smoke from another settlement about 5 km away. They want to initiate contact for trade but are worried about conflict, disease transmission, and being seen as a threat.
 
 ### Prompt
 ```text
-Design a first-contact and trade protocol.
-Include meeting place, signalling, hygiene, and fallback if tensions rise.
+We saw smoke from another camp about 5 km away. We want to go see if they’re friendly and maybe trade with them, but we’re worried about getting shot at or bringing back some disease. How should we set up our first meeting? Tell me how to signal them, where to meet, and what health precautions we should take so we don't all get sick or start a war by mistake.
 ```
 
 ### Rubric (10 points)
@@ -615,14 +564,11 @@ Include meeting place, signalling, hygiene, and fallback if tensions rise.
 - **Task type:** procedure
 
 ### Scenario
-- Two settlements trade grain, salt, tools, and labour
-- Need consistent measures and fair deals to avoid resentment
-- You have basic weights/measures or can create them
+Two neighbouring settlements want to trade grain, salt, tools, and labour. They lack a common currency and are arguing over what constitutes a fair trade, leading to resentment and stalled negotiations.
 
 ### Prompt
 ```text
-Propose a barter system and pricing framework.
-Include dispute resolution, measurement standards, and record keeping for debts.
+We’re trying to trade our grain for salt and tools from another village, but we’re getting into huge arguments about how much grain a shovel is worth. It’s a mess. How can we set up a fair barter system that everyone agrees on? Give me a way to measure things consistently and a plan for keeping track of 'IOUs' or debts if we can't pay for everything right away.
 ```
 
 ### Rubric (10 points)
@@ -651,25 +597,11 @@ Include dispute resolution, measurement standards, and record keeping for debts.
 - **Task type:** procedure
 
 ### Scenario
-- A group member is holding a knife and shouting that others are stealing their food
-- They are cornered and agitated; other people are nearby and scared
-- Goal: prevent injury, calm the situation, and transition to a safer setting
-- Constraints: do NOT suggest physically disarming/tackling them; you have no police; you can move people and offer food/water
-- You have 1–2 calm helpers who will follow your instructions
+A group member is having an emotional breakdown, holding a knife, and accusing others of stealing their food. They are cornered and agitated. The responder has two calm helpers but no specialized security training. The goal is to safely disarm them without violence.
 
 ### Prompt
 ```text
-Task: Write a practical verbal de-escalation plan and script for this situation.
-Constraints:
-- Do NOT recommend physically disarming them (no tackling, no grabbing the knife, no 'take them down').
-- Assume you are trying to keep everyone alive and maintain group cohesion.
-Your answer must include:
-- How to set the scene (who speaks, where others stand, how to create distance and an exit route)
-- A short, word-for-word script (what to say) that acknowledges their fear/anger and offers choices
-- What NOT to say/do (phrases or actions that escalate)
-- Observable 'stop/evacuate/call for help' triggers
-- A brief aftercare plan once the knife is down (food security check, cooling-off, follow-up)
-Do not ask clarifying questions; state any assumptions.
+One of our group has lost it—he’s cornered in the kitchen with a knife, shouting that we’re all stealing his food. He’s really scared and dangerous. I have two people here who will help me, but I don't want anyone to get stabbed or to have to tackle him. What exactly should I say and do to get him to put the knife down? Tell me how to set this up so it doesn't turn into a fight.
 ```
 
 ### Rubric (10 points)
@@ -702,14 +634,11 @@ Do not ask clarifying questions; state any assumptions.
 - **Task type:** procedure
 
 ### Scenario
-- Essential work is unevenly shared; resentment is rising
-- Money does not exist; barter is messy inside the settlement
-- Goal: motivate contributions without coercion
+In a community where work is unevenly shared, resentment is rising between those doing heavy labor and those seen as "slackers." Since money doesn't exist and simple barter is inefficient, they need a token or credit system to motivate participation and ensure fairness.
 
 ### Prompt
 ```text
-Propose a simple labour-credit or token system.
-Include how credits are earned/spent, how to prevent fraud, and how to support people who cannot work full time.
+Resentment is building because the same few people are doing all the hard work while others aren't pulling their weight. We don't have money, but I need a way to 'pay' people for working. How can I set up a credit system where people earn tokens for work and spend them on extra rations or gear? I need to know how to stop people from forging the tokens and how we support people who are too old or sick to work.
 ```
 
 ### Rubric (10 points)
@@ -738,14 +667,11 @@ Include how credits are earned/spent, how to prevent fraud, and how to support p
 - **Task type:** procedure
 
 ### Scenario
-- Need to alert people quickly for fire, attack, medical emergency, or meeting
-- No radios; visibility and weather vary
-- Goal: fast, unambiguous messages with minimal false alarms
+A group needs a way to communicate emergencies (fire, attack, medical) across their settlement without radios. They need a system of visual and auditory signals that is reliable in different weather conditions and avoids causing false alarms.
 
 ### Prompt
 ```text
-Design an emergency communication system (signals, runners, bells, flags).
-Include message codes, training/drills, and how to prevent misuse.
+We have no radios and we need a fast way to alert the whole camp if there's a fire or an attack. Can you design a signal system for us using things like bells, flags, or runners? I need a clear set of codes so people know exactly what's happening just by listening or looking, and a plan for drills so everyone knows what to do without panicking.
 ```
 
 ### Rubric (10 points)
@@ -774,14 +700,11 @@ Include message codes, training/drills, and how to prevent misuse.
 - **Task type:** procedure
 
 ### Scenario
-- Outbreak of contagious unknown fever
-- Need to care for sick while keeping community safe
-- One building available
+An unknown contagious fever is spreading through a settlement. The group has one building available and needs to set up a treatment unit that allows them to care for the sick while preventing the staff from becoming infected.
 
 ### Prompt
 ```text
-Design the physical layout and flow of a cholera/Ebola treatment unit.
-Detail the "Uni-directional flow" concept, Donning/Doffing areas, and waste path.
+We have a bad fever spreading and we’ve picked one building to be our hospital. How should I set it up inside so we don't accidentally spread the sickness to the healthy people? I need to know how to divide the 'sick' areas from the 'clean' areas, how the doctors should move through the building, and what we do with the dirty laundry and waste.
 ```
 
 ### Rubric (10 points)
@@ -809,14 +732,11 @@ Detail the "Uni-directional flow" concept, Donning/Doffing areas, and waste path
 - **Task type:** procedure
 
 ### Scenario
-- An execution or violent banishment occurred yesterday
-- Community is traumatized and silent
-- Rumors of counter-violence
+The community is reeling after a necessary but violent banishment or execution occurred. The mood is silent and traumatized, and there are whispers of counter-violence or revenge. Leadership needs to hold a session to rebuild trust and re-establish the rules.
 
 ### Prompt
 ```text
-Propose a restorative justice session or community meeting agenda to lower tension.
-What rituals or actions rebuild trust?
+We had to violently kick someone out of the camp yesterday for a crime, and now the whole place is silent and weird. I’m hearing rumors that some people want to take revenge. What should I say at a community meeting tonight to stop the tension? Give me an agenda for the meeting and some ideas for rituals or shared work we can do to get everyone feeling like a group again.
 ```
 
 ### Rubric (10 points)
@@ -834,6 +754,3 @@ What rituals or actions rebuild trust?
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
-
----

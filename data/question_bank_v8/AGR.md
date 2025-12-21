@@ -4,14 +4,13 @@
 - **Task type:** procedure
 
 ### Scenario
-- Community: 80 people; starting a 0.5 hectare garden
-- Inputs: kitchen scraps, straw/leaves, some manure; limited tools
-- Goal: improve soil fertility within 3 months
+A community of 80 people is starting a 0.5-hectare garden. They have kitchen scraps, straw, leaves, and some manure available. They have limited tools and no heavy machinery. Their goal is to improve soil fertility within 3 months to support their first major planting.
 
 ### Prompt
 ```text
-Design a compost system and workflow.
-Include pile/bin design, mix ratios (qualitatively), turning schedule, and how to avoid pests and smells.
+Hey, we have a community of about 80 people and we're starting a 0.5-hectare garden. We need to get some high-quality compost ready to improve the soil within the next 3 months. We have plenty of kitchen scraps, straw, leaves, and some manure, but we don't have any fancy tools or machinery. 
+
+Can you design a compost system and a daily/weekly workflow for us? We need to know how to build the piles or bins, what the right mix of materials should be, how often we need to turn it, and most importantly, how to keep pests and bad smells away.
 ```
 
 ### Rubric (10 points)
@@ -26,12 +25,6 @@ Include pile/bin design, mix ratios (qualitatively), turning schedule, and how t
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Compost needs carbon–nitrogen balance, moisture, and oxygen; foul smells and flies usually indicate anaerobic, too-wet, or protein-heavy inputs.
-
 ---
 
 ## AGR-002: Diagnose poor crop growth with simple soil tests
@@ -40,14 +33,13 @@ Include pile/bin design, mix ratios (qualitatively), turning schedule, and how t
 - **Task type:** troubleshoot
 
 ### Scenario
-- Leafy greens are yellowing and stunted; tomatoes have blossom drop
-- No lab tests available
-- You can do simple jar tests, observe drainage, and use manure/ash
+The user's leafy greens are yellowing and stunted, and their tomatoes are suffering from blossom drop. No laboratory soil tests or commercial kits are available. The user has access to basic items like glass jars, water, manure, and wood ash.
 
 ### Prompt
 ```text
-Propose a diagnostic plan and likely causes (nutrients, pH, water, pests).
-Include low-risk interventions and how to evaluate improvement.
+I'm having some trouble with my garden. My leafy greens are turning yellow and they aren't growing much, and my tomatoes are losing their blossoms before any fruit even starts to grow. I don't have access to any soil testing labs or kits. 
+
+Can you help me figure out what's wrong? I need a diagnostic plan to check for things like nutrient issues, pH, or water problems using just simple stuff like jars or visual checks. Also, tell me what I can do to fix it using basic materials like manure or wood ash, and how I'll know if the plants are actually recovering.
 ```
 
 ### Rubric (10 points)
@@ -62,12 +54,6 @@ Include low-risk interventions and how to evaluate improvement.
 9. Includes prevention/maintenance steps to avoid recurrence.
 10. Clear structure and assumptions; keeps advice realistic. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Simple diagnosis hinges on symptom patterns: nitrogen deficiency often yellows older leaves, water stress causes wilting, and pests create holes/chewing—tests should separate these.
-
 ---
 
 ## AGR-003: Troubleshoot compost that smells bad and attracts flies
@@ -76,14 +62,13 @@ Include low-risk interventions and how to evaluate improvement.
 - **Task type:** troubleshoot
 
 ### Scenario
-- Compost pile smells like rot/ammonia and has many flies
-- Inputs: mostly kitchen scraps; little dry material
-- Weather: wet season
+A settlement's compost pile has become problematic: it smells like rotting garbage and ammonia, and it is swarming with flies. The current inputs are almost entirely kitchen scraps with very little dry "brown" material. It is currently the wet season, and the pile is exposed to the rain.
 
 ### Prompt
 ```text
-Explain what is going wrong and how to fix it quickly.
-Include a checklist for volunteers.
+Our community compost pile is a mess. It smells like rot and ammonia, and there are flies everywhere, which is starting to be a health concern. We've mostly just been throwing in kitchen scraps, and since it's the wet season, the whole thing is soaked. 
+
+What exactly is going wrong here, and how do we fix it quickly with the people we have? Could you provide a simple checklist for our volunteers so they know how to manage it properly and stop this from happening again?
 ```
 
 ### Rubric (10 points)
@@ -98,12 +83,6 @@ Include a checklist for volunteers.
 9. Includes prevention/maintenance steps to avoid recurrence.
 10. Clear structure and assumptions; keeps advice realistic. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Bad-smelling, fly-attracting compost is typically too wet/anaerobic or too ‘green’; adding dry browns and aerating/covering restores aerobic composting.
-
 ---
 
 ## AGR-004: Prevent soil erosion on a sloped plot
@@ -112,14 +91,13 @@ Include a checklist for volunteers.
 - **Task type:** procedure
 
 ### Scenario
-- Garden on a 10-15° slope; heavy rains cause rills
-- Materials: stones, sticks, mulch; limited labour
-- Goal: stabilise within 1 month
+A garden plot is situated on a 10-15° slope. Recent heavy rains have caused visible rills (small channels) to form, washing away topsoil. The available materials are limited to stones, sticks, and organic mulch. There is a moderate amount of labor available but no heavy earth-moving equipment.
 
 ### Prompt
 ```text
-Design an erosion control plan.
-Include contouring, ground cover, water diversion, and maintenance.
+Our garden is on a bit of a hill (maybe a 10 or 15 degree slope), and the recent heavy rains are destroying it. We can see little channels forming where the soil is just washing away. We need to stabilize this within the next month before we lose all our topsoil. 
+
+We only have stones, sticks, and mulch to work with. How should we design the garden to stop this erosion? Please explain how to handle things like contouring, ground cover, and where the water should actually go. A step-by-step plan for the volunteers would be great.
 ```
 
 ### Rubric (10 points)
@@ -134,12 +112,6 @@ Include contouring, ground cover, water diversion, and maintenance.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Erosion is driven by fast runoff on bare soil; keeping soil covered (mulch/vegetation) and contouring/terracing to slow water are the core controls.
-
 ---
 
 ## AGR-005: Plan a 1-year crop plan for calories and resilience
@@ -148,14 +120,13 @@ Include contouring, ground cover, water diversion, and maintenance.
 - **Task type:** procedure
 
 ### Scenario
-- Temperate climate; growing season ~6 months
-- Land: 1 hectare; water: moderate; labour: 15 people part-time
-- Goal: maximise calories and soil health
+A group of 15 people is managing a 1-hectare field in a temperate climate with a 6-month growing season. Water access is moderate. The people work part-time on the garden while handling other settlement duties. The primary goal is to produce enough calories to sustain the group while maintaining soil health for the following year.
 
 ### Prompt
 ```text
-Design a 1-year cropping plan with rotation and staggered planting.
-Include staple crops, legumes, and greens; explain why each is placed where it is.
+I need to figure out a planting plan for our 1-hectare field for the coming year. We're in a temperate climate with about a 6-month window where we can actually grow things. There are 15 of us working part-time. 
+
+We need to maximize the calories we get from the land but we can't afford to ruin the soil. What should we be planting, and how do we rotate or stagger the crops to keep things productive? Please include staples, legumes, and greens in the plan, and explain why you're putting each crop where it is.
 ```
 
 ### Rubric (10 points)
@@ -170,12 +141,6 @@ Include staple crops, legumes, and greens; explain why each is placed where it i
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Calories come primarily from staples (tubers, grains, legumes); a plan heavy on low-calorie vegetables cannot meet energy needs even if ‘healthy’.
-
 ---
 
 ## AGR-006: Design a 3-year rotation for a small garden
@@ -184,14 +149,13 @@ Include staple crops, legumes, and greens; explain why each is placed where it i
 - **Task type:** procedure
 
 ### Scenario
-- Plot: 20 raised beds
-- Crops available: potatoes, beans, cabbage, onions, carrots, squash
-- Manure is limited; compost is moderate
+A garden consists of 20 raised beds. The available crop seeds are potatoes, beans, cabbage, onions, carrots, and squash. The garden has a moderate amount of compost available, but animal manure is very limited.
 
 ### Prompt
 ```text
-Propose a 3-year rotation across the beds.
-Include how you will track it and what to do if a crop fails one year.
+We have 20 raised beds and we've managed to get seeds for potatoes, beans, cabbage, onions, carrots, and squash. We have a decent amount of compost but not much manure. 
+
+Can you give us a 3-year plan for how to rotate these crops through the beds? I also need a way to track which bed had what in it, and some advice on what to do if one of the crops completely fails in the middle of a season.
 ```
 
 ### Rubric (10 points)
@@ -206,12 +170,6 @@ Include how you will track it and what to do if a crop fails one year.
 9. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers.
 10. Quantifies key parameters (ratios, dimensions, timing, rates, temperatures) or explains how to measure them — and sanity-checks plausibility. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Rotation works by breaking pest/disease cycles and managing nutrients; legumes can add nitrogen and heavy feeders should not follow heavy feeders in the same bed.
-
 ---
 
 ## AGR-007: Polyculture design for pest resilience
@@ -220,14 +178,13 @@ Include how you will track it and what to do if a crop fails one year.
 - **Task type:** procedure
 
 ### Scenario
-- Tropical climate; high pest pressure
-- Crops: maize, beans, squash, leafy greens
-- Goal: reduce pest outbreaks without pesticides
+A garden in a tropical climate is facing high pest pressure. The crops being grown are maize, beans, squash, and leafy greens. The goal is to reduce pest outbreaks and protect soil moisture without using any commercial pesticides.
 
 ### Prompt
 ```text
-Design an intercropping/polycluture layout.
-Include spacing, timing, and how it helps with pests and soil.
+We're trying to grow food in a tropical area and the bugs are absolutely relentless. We're growing maize, beans, squash, and some leafy greens. 
+
+Can you design a layout where we plant these things together (like a polyculture or intercropping) instead of in separate blocks? I need to know how far apart to plant them and when to put each one in the ground. How will this specific layout help with the pests and the soil?
 ```
 
 ### Rubric (10 points)
@@ -242,12 +199,6 @@ Include spacing, timing, and how it helps with pests and soil.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Diversity reduces pest outbreaks but can increase competition; polycultures must manage spacing/light/nutrient needs, not just ‘mix everything’.
-
 ---
 
 ## AGR-008: Critique this monoculture plan and improve it
@@ -256,15 +207,16 @@ Include spacing, timing, and how it helps with pests and soil.
 - **Task type:** critique
 
 ### Scenario
-- A plan is proposed to plant only potatoes for all calories
+An inexperienced member of the settlement has proposed a plan to solve the food shortage by planting only potatoes in the entire available field. They plan to spread all the available manure across the whole field, harvest once at the end of the season, and store everything in one large cellar.
 
 ### Prompt
 ```text
-Proposed plan:
-- Plant the entire field with potatoes.
-- Add manure everywhere.
-- Harvest once and store.
-Task: Identify major risks (nutrition, disease, pests, storage) and propose a more resilient plan.
+Someone in our group suggested a plan for our big field:
+1. Plant the entire field with nothing but potatoes so we have plenty of starch.
+2. Put all our manure everywhere to make them grow fast.
+3. Do one big harvest and put everything in the storage cellar at once.
+
+Can you tell me if this is a good idea? What are the big risks when it comes to things like nutrition, disease, pests, or storage? If it's a bad plan, what would a more resilient alternative look like?
 ```
 
 ### Rubric (10 points)
@@ -279,12 +231,6 @@ Task: Identify major risks (nutrition, disease, pests, storage) and propose a mo
 9. Adds monitoring/feedback: what to observe/measure to know the plan is working.
 10. Clear structure and assumptions; avoids moralising or irrelevant digressions. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Monocultures are vulnerable: uniform genetics and continuous host availability amplify pest/disease spread; diversification and rotation reduce systemic risk.
-
 ---
 
 ## AGR-009: Set up a community seed bank and seed-saving protocol
@@ -293,14 +239,13 @@ Task: Identify major risks (nutrition, disease, pests, storage) and propose a mo
 - **Task type:** procedure
 
 ### Scenario
-- Knowledge is limited; you want to preserve and improve crop genetics
-- Storage options: jars, cloth bags, cool cellar possible
-- Risks: moisture, rodents, accidental mixing
+A new settlement wants to preserve and improve their crop genetics for the future. Their knowledge is limited. They have access to glass jars, cloth bags, and a cool, dry underground cellar. They are concerned about moisture, rodents, and varieties getting mixed up by mistake.
 
 ### Prompt
 ```text
-Design a seed bank system.
-Include labelling, storage, germination testing, and governance (who can withdraw/how to replenish).
+We want to set up a community seed bank so we can save our own seeds year after year. We have some jars, cloth bags, and a cool cellar. 
+
+How should we set this up? We need a system for labeling things, how exactly to store them, and how to test if the seeds are still good to plant. Also, how should we manage who is allowed to take seeds out and how they should "pay them back" after their harvest?
 ```
 
 ### Rubric (10 points)
@@ -315,12 +260,6 @@ Include labelling, storage, germination testing, and governance (who can withdra
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Seed longevity follows ‘dry, cool, dark’; moisture and heat rapidly kill viability, so storage must prioritise dryness and stable cool temperatures.
-
 ---
 
 ## AGR-010: Save seed from beans, squash, and brassicas correctly
@@ -329,14 +268,13 @@ Include labelling, storage, germination testing, and governance (who can withdra
 - **Task type:** procedure
 
 ### Scenario
-- You are growing beans, squash, and cabbage family crops
-- You want seeds that will grow true next year
-- You have limited space but can separate plots somewhat
+The user is growing beans, squash, and cabbage family crops (brassicas). They want to save seeds to ensure they have the same varieties next year. They have limited garden space but can manage some separation between different varieties.
 
 ### Prompt
 ```text
-Provide crop-specific seed-saving guidance for these three crops.
-Include isolation strategies and how to process/store each type.
+I'm growing beans, squash, and cabbage right now. I need to save the seeds from these so I can plant them again next year and have them grow "true" (meaning they are the same variety and didn't cross with something else). 
+
+Can you give me specific instructions for these three types of crops? I need to know how to keep them from crossing with other plants, and the right way to process and store the seeds once I've harvested them.
 ```
 
 ### Rubric (10 points)
@@ -351,12 +289,6 @@ Include isolation strategies and how to process/store each type.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Cross-pollination varies by crop: beans are mostly self-pollinating, while many squash and brassicas are outcrossers needing isolation or controlled pollination for true-to-type seed.
-
 ---
 
 ## AGR-011: Germination testing and deciding what to plant
@@ -365,14 +297,13 @@ Include isolation strategies and how to process/store each type.
 - **Task type:** procedure
 
 ### Scenario
-- You have old seeds of unknown viability
-- You need to decide planting density and whether to trade for new seed
-- Materials: paper/cloth, water, plates/jars
+A gardener has several packets of old seeds of unknown age and viability. They need to decide how many to plant per row to get a full crop, or if the seeds are so bad they should trade with another group for newer ones. They only have paper, cloth, water, and some plates or jars.
 
 ### Prompt
 ```text
-Describe a germination test and how to use results to adjust planting.
-Include record keeping and how to store remaining seed.
+I found some old seeds, but I have no idea if they are still any good. I don't want to waste garden space if they won't grow. 
+
+Can you tell me how to do a "germination test" using just things like paper, water, and plates? Once I get the results, how do I use those numbers to decide how thick to plant them in the garden? Also, if I have leftovers, how should I store them so they don't get worse?
 ```
 
 ### Rubric (10 points)
@@ -387,12 +318,6 @@ Include record keeping and how to store remaining seed.
 9. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers.
 10. Quantifies key parameters (ratios, dimensions, timing, rates, temperatures) or explains how to measure them — and sanity-checks plausibility. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Germination tests are quantitative: sprout a counted sample and compute %, then adjust seeding rate or replace seed if viability is too low.
-
 ---
 
 ## AGR-012: Prevent accidental cross-pollination in a small garden
@@ -401,14 +326,13 @@ Include record keeping and how to store remaining seed.
 - **Task type:** procedure
 
 ### Scenario
-- You have limited garden space and want to keep varieties distinct
-- There are pollinators and neighbouring gardens
-- You can use timing, distance, and physical barriers
+A gardener has limited space and wants to grow several varieties of the same crops while keeping the seeds pure. There are active pollinators in the area and some neighboring gardens nearby. They can use timing, physical barriers (like mesh or bags), or distance to manage the plants.
 
 ### Prompt
 ```text
-Propose practical methods to reduce cross-pollination.
-Include which crops need more attention and how to document variety purity.
+Our garden is pretty small, and I know our neighbors are growing things too. I'm worried about my different plant varieties cross-pollinating with each other because I want to save the seeds. 
+
+What are some practical ways I can stop this from happening using things like timing or physical barriers? Which crops should I be most worried about, and how should I document everything so I know for sure which seeds are still "pure"?
 ```
 
 ### Rubric (10 points)
@@ -423,12 +347,6 @@ Include which crops need more attention and how to document variety purity.
 9. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers.
 10. Quantifies key parameters (ratios, dimensions, timing, rates, temperatures) or explains how to measure them — and sanity-checks plausibility. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Preventing crosses requires isolation by distance/barriers or bagging/hand pollination; saving ‘pure’ seed from outcrossers without isolation is unreliable.
-
 ---
 
 ## AGR-013: Integrated pest management for aphids and leaf damage
@@ -437,15 +355,13 @@ Include which crops need more attention and how to document variety purity.
 - **Task type:** procedure
 
 ### Scenario
-- Leafy greens are being attacked by aphids; ants are present
-- You have soap, ash, water, cloth, and can attract beneficial insects
-- You want to avoid harming pollinators
+Leafy greens in a garden are being attacked by aphids, and there is a noticeable presence of ants moving among the plants. The gardener has basic supplies: mild soap, wood ash, water, and some cloth. They want to eliminate the pests without using any chemicals that would harm bees or other pollinators.
 
 ### Prompt
 ```text
-The greens are getting covered in small bugs and the leaves are getting damaged.
-Create a step-by-step plan to control this without dangerous chemicals and without harming pollinators.
-Include how to monitor the problem, non-chemical controls, and safe low-toxicity treatments if needed.
+My leafy greens are covered in tiny little bugs, and the leaves are looking curled and damaged. I also see a lot of ants crawling all over the plants. 
+
+I need a step-by-step plan to get rid of these bugs without using anything toxic that might kill the bees or other good insects. I have some soap, wood ash, and water. How should I monitor the problem, what are the best ways to kill the bugs manually, and how do I make a safe spray if I really need one?
 ```
 
 ### Rubric (10 points)
@@ -460,12 +376,6 @@ Include how to monitor the problem, non-chemical controls, and safe low-toxicity
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- IPM starts with monitoring and least-toxic controls; for aphids, physical removal and mild soap sprays can work, and preserving beneficial insects matters.
-
 ---
 
 ## AGR-014: Rodent-proof food storage and field protection
@@ -474,14 +384,13 @@ Include how to monitor the problem, non-chemical controls, and safe low-toxicity
 - **Task type:** procedure
 
 ### Scenario
-- Rodents are eating stored grain and seedlings
-- You have wood, clay, metal scraps, cats possible
-- Goal: reduce losses without endangering children
+A settlement is losing a significant amount of its stored grain to rodents, and mice are digging up newly planted seedlings in the fields. The group has access to wood, clay/mud, and some metal scraps. They also have access to a few semi-feral cats. They must ensure that any management strategy is safe for the children living in the settlement.
 
 ### Prompt
 ```text
-Design a rodent management plan for both storage and fields.
-Include physical barriers, sanitation, trapping strategy, and safety.
+We're losing our food. Rats and mice are eating through our stored grain and even digging up our seedlings in the field. We have wood, clay, and some metal scraps, and a few cats that hang around. 
+
+Can you design a rodent management plan for both our storage area and the fields? I need to know how to build physical barriers, how to keep things clean to avoid attracting them, and a strategy for trapping or hunting them that won't put the kids in danger.
 ```
 
 ### Rubric (10 points)
@@ -496,12 +405,6 @@ Include physical barriers, sanitation, trapping strategy, and safety.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Rodents defeat weak barriers: effective storage needs hard materials (metal/stone), tight lids, elevation, and sanitation that removes attractants.
-
 ---
 
 ## AGR-015: Manage fungal disease in wet weather
@@ -510,14 +413,13 @@ Include physical barriers, sanitation, trapping strategy, and safety.
 - **Task type:** procedure
 
 ### Scenario
-- Wet season; tomatoes and squash show mildew and rot
-- You have limited ability to spray; no commercial fungicides
-- You can adjust spacing, prune, and choose varieties
+During an unusually wet season, tomatoes and squash are showing clear signs of powdery mildew and fruit rot. There are no commercial fungicides available. The gardener can adjust the spacing of plants, prune them, and has a small selection of different seed varieties for the next planting.
 
 ### Prompt
 ```text
-Propose strategies to reduce fungal disease.
-Include cultural controls, airflow, sanitation, and what to do with infected plants.
+It's been raining constantly and my tomatoes and squash are starting to get this white moldy stuff on the leaves and the fruit is rotting. I don't have any store-bought sprays to fix this. 
+
+What can I do to stop this fungal disease from spreading? Please explain how I should change the layout or how I prune the plants to get more airflow. Also, how should I handle the plants that are already infected?
 ```
 
 ### Rubric (10 points)
@@ -532,12 +434,6 @@ Include cultural controls, airflow, sanitation, and what to do with infected pla
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Fungal disease thrives in leaf wetness and poor airflow; spacing, pruning, sanitation, and watering at soil level reduce spread better than constant spraying.
-
 ---
 
 ## AGR-016: Critique a pesticide-heavy plan and propose safer alternatives
@@ -546,14 +442,13 @@ Include cultural controls, airflow, sanitation, and what to do with infected pla
 - **Task type:** critique
 
 ### Scenario
-- A plan is proposed to spray unknown chemicals weekly
+A member of a farming group has found a stash of unlabeled agricultural chemicals and has proposed a plan to spray the entire garden once a week to "guarantee" a harvest. They believe the best approach is to kill every insect in the area to be safe.
 
 ### Prompt
 ```text
-Proposed plan:
-- Spray any strong chemical you can find once a week.
-- Ignore insects that help; kill everything.
-Task: Explain why this is risky and propose an IPM approach with safer controls.
+One of our farmers found some old chemical jugs and wants to spray the whole garden every week. They say we should just kill every bug we see to make sure nothing eats our crops. 
+
+Can you explain why this might be a bad or risky idea? Also, can you suggest a better way to manage pests (like Integrated Pest Management) that uses safer, more targeted controls instead of just spraying everything?
 ```
 
 ### Rubric (10 points)
@@ -568,12 +463,6 @@ Task: Explain why this is risky and propose an IPM approach with safer controls.
 9. Adds monitoring/feedback: what to observe/measure to know the plan is working.
 10. Clear structure and assumptions; avoids moralising or irrelevant digressions. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Heavy pesticide use drives resistance and kills beneficials; safer plans use targeted, minimal interventions within IPM and emphasise prevention.
-
 ---
 
 ## AGR-017: Gravity-fed irrigation for a garden near a stream
@@ -582,14 +471,13 @@ Task: Explain why this is risky and propose an IPM approach with safer controls.
 - **Task type:** procedure
 
 ### Scenario
-- Stream is 1 m higher than the garden edge
-- You can build simple channels and gates; soil is sandy
-- Water must be conserved and not erode the plot
+A garden is located near a stream, and the water level of the stream is roughly 1 meter higher than the edge of the garden. The soil in the garden is sandy and drains quickly. The gardener can build simple channels and gates out of local materials. The primary concerns are water conservation and avoiding erosion of the sandy soil.
 
 ### Prompt
 ```text
-Design a gravity irrigation system.
-Include intake screening, channel lining, distribution, and erosion control.
+The stream near our garden is about a meter higher than the garden itself, so I want to use gravity to bring water in. The soil is very sandy, so I'm worried about the water just washing it away or being wasted. 
+
+Can you design a simple gravity irrigation system for us? I need to know how to screen the water at the intake so it doesn't clog, how to line the channels so they don't leak, and how to distribute the water across the plot without causing erosion.
 ```
 
 ### Rubric (10 points)
@@ -604,12 +492,6 @@ Include intake screening, channel lining, distribution, and erosion control.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Gravity irrigation requires reliable head and protected intake; uncontrolled diversion can erode banks and contaminate water—flow control and screening matter.
-
 ---
 
 ## AGR-018: Low-tech drip/soak irrigation with minimal materials
@@ -618,17 +500,13 @@ Include intake screening, channel lining, distribution, and erosion control.
 - **Task type:** procedure
 
 ### Scenario
-- Arid climate; water is scarce
-- Materials: clay pots/jars, cloth, small tubing possible
-- Goal: keep vegetables alive with minimal water
+A group is growing vegetables in an arid climate where water is extremely scarce. They have access to unglazed clay pots (ollas) or jars, some cloth, and a small amount of flexible tubing. They need a system that minimizes evaporation and gets water directly to the plant roots.
 
 ### Prompt
 ```text
-We need to keep vegetables alive in an arid climate with very scarce water.
-Materials: clay pots/jars, cloth, small tubing possible.
+It's incredibly dry here and we have very little water to spare for the garden. We have some clay jars, some cloth, and some small tubing. 
 
-Task: Propose a low-tech drip/soak irrigation method using clay pots to save water.
-Include placement, refill schedule, and how to prevent clogging/evaporation.
+Can you show us how to make a low-tech drip or soak system using these clay pots? I need to know where to place them in the ground, how often we should refill them, and what we need to do to stop them from getting clogged or having the water evaporate before the plants can use it.
 ```
 
 ### Rubric (10 points)
@@ -643,12 +521,6 @@ Include placement, refill schedule, and how to prevent clogging/evaporation.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Drip/soak systems save water by delivering it to roots, but small emitters clog easily; filtration and maintenance are essential for viability.
-
 ---
 
 ## AGR-019: Drought response plan for crops
@@ -657,14 +529,13 @@ Include placement, refill schedule, and how to prevent clogging/evaporation.
 - **Task type:** procedure
 
 ### Scenario
-- Rainfall is half normal; reservoir is low
-- You must decide what to prioritise to avoid famine
-- Crops: potatoes, beans, maize, leafy greens
+A settlement is facing a severe drought; rainfall is at half its normal level and the local reservoir is critically low. They have crops of potatoes, beans, maize, and leafy greens in various stages of growth. The leadership must decide which crops to save and which to let go to avoid a total famine.
 
 ### Prompt
 ```text
-Write a drought response plan.
-Include prioritisation of crops, rationing water, and changes to planting/harvest.
+We're in the middle of a bad drought and our water reservoir is almost empty. We have potatoes, beans, corn, and leafy greens growing right now. 
+
+Can you help us write a drought response plan? We need to know which crops to prioritize so we don't run out of food entirely, how to ration the little water we have, and what changes we should make to our planting and harvesting schedule to survive this.
 ```
 
 ### Rubric (10 points)
@@ -679,12 +550,6 @@ Include prioritisation of crops, rationing water, and changes to planting/harves
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Drought response is triage: protect soil moisture (mulch/shade), prioritise seedlings/high-value crops, and avoid wasting water on low-return areas.
-
 ---
 
 ## AGR-020: Flood response plan for a low-lying garden
@@ -693,14 +558,13 @@ Include prioritisation of crops, rationing water, and changes to planting/harves
 - **Task type:** procedure
 
 ### Scenario
-- Heavy rains flood the garden twice per month
-- Soil becomes waterlogged; seedlings die
-- Materials: soil, wood, stones; labour: moderate
+A garden is located in a low-lying area that floods at least twice a month during heavy rains. The soil is constantly waterlogged, causing seedlings to rot and die. The settlement has access to extra soil, wood for building, and stones. They have a moderate amount of labor available.
 
 ### Prompt
 ```text
-Design a flood mitigation plan.
-Include raised beds, drainage channels, and crop choices for wet conditions.
+Our garden is in a low spot and it's flooding every time we get heavy rain—maybe twice a month. The soil is just a swamp and our seedlings keep dying. We have some wood, stones, and extra soil. 
+
+Can you design a flood mitigation plan for us? We need to know how to build raised beds or drainage channels that will actually work, and which crops we should choose that can handle wet conditions better than others.
 ```
 
 ### Rubric (10 points)
@@ -715,12 +579,6 @@ Include raised beds, drainage channels, and crop choices for wet conditions.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Floodwater can contaminate soil and crops with pathogens/chemicals; food safety requires caution with exposed produce and post-flood sanitation before replanting.
-
 ---
 
 ## AGR-021: Integrate chickens into a food system
@@ -729,14 +587,13 @@ Include raised beds, drainage channels, and crop choices for wet conditions.
 - **Task type:** procedure
 
 ### Scenario
-- You can obtain 20 chickens
-- Feed is limited; predators present
-- Goal: eggs, pest control, manure for compost
+A group has acquired 20 chickens for their settlement. They do not have a steady supply of commercial chicken feed, and there are known predators (like foxes or hawks) in the area. They want to use the chickens for eggs, to help with garden pests, and to produce manure for their compost.
 
 ### Prompt
 ```text
-Design a chicken integration plan.
-Include housing, feed strategy, health, and manure management.
+We just got 20 chickens! We need to make them a part of our garden system. We don't have a lot of regular chicken feed and we have predators around here, so we need a solid plan. 
+
+Can you show us how to house them safely, what we can feed them from our own land, and how to keep them healthy? Also, we want to use their manure for the garden—what's the best way to manage that so it's safe and effective?
 ```
 
 ### Rubric (10 points)
@@ -751,12 +608,6 @@ Include housing, feed strategy, health, and manure management.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Chicken manure is ‘hot’ (high nitrogen) and needs composting/aging; chickens also need predator-proof housing and can spread disease without hygiene.
-
 ---
 
 ## AGR-022: Rotational grazing plan to prevent overgrazing
@@ -765,14 +616,13 @@ Include housing, feed strategy, health, and manure management.
 - **Task type:** procedure
 
 ### Scenario
-- You have 6 goats and access to pasture/woodland edge
-- You want to avoid destroying vegetation and causing erosion
-- Fencing options: temporary rope/fencing
+A small farm has 6 goats and access to a mix of open pasture and woodland edge. The owners want to ensure the goats don't destroy the vegetation or cause erosion through overgrazing. They only have rope and some basic materials to make temporary fencing or tethers.
 
 ### Prompt
 ```text
-Create a rotational grazing plan.
-Include paddock design, rest periods, water provision, and monitoring vegetation recovery.
+I have six goats and access to some pasture and woods. I'm worried that if I just let them loose, they'll eat everything down to the dirt and the soil will wash away. I have some rope and can make basic temporary fences. 
+
+Can you create a rotational grazing plan for me? I need to know how to design the paddocks, how long to leave the goats in one spot before moving them, and how to tell if the plants have recovered enough for the goats to come back. Also, how should I handle their water?
 ```
 
 ### Rubric (10 points)
@@ -787,12 +637,6 @@ Include paddock design, rest periods, water provision, and monitoring vegetation
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Rotational grazing prevents overgrazing by allowing plants recovery time; the key variables are stocking density, rest period, and avoiding regrazing new shoots.
-
 ---
 
 ## AGR-023: Use manure safely to improve soil without spreading disease
@@ -801,14 +645,13 @@ Include paddock design, rest periods, water provision, and monitoring vegetation
 - **Task type:** procedure
 
 ### Scenario
-- You have fresh manure from chickens/goats
-- You want to fertilise vegetable beds
-- Water source is nearby
+A gardener has a large supply of fresh manure from chickens and goats. They want to use it to fertilize their vegetable beds, but they are concerned about the risk of spreading pathogens or polluting a nearby stream.
 
 ### Prompt
 ```text
-Provide guidelines for manure composting/aging and safe application.
-Include buffer zones and timing relative to harvest.
+I have a bunch of fresh poop from my chickens and goats. I want to use it to make the vegetable beds more fertile, but I'm worried about getting someone sick or polluting the stream nearby. 
+
+Can you give me some clear guidelines on how to compost or "age" this manure so it's safe? I also need to know how far away from the water I should keep it and exactly when I should apply it to the plants relative to when we plan to harvest them.
 ```
 
 ### Rubric (10 points)
@@ -823,12 +666,6 @@ Include buffer zones and timing relative to harvest.
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Raw manure can spread pathogens; safe use requires composting/aging and applying well before harvest, especially avoiding direct application to leafy greens.
-
 ---
 
 ## AGR-024: Critique an ecologically harmful farming plan
@@ -837,15 +674,13 @@ Include buffer zones and timing relative to harvest.
 - **Task type:** critique
 
 ### Scenario
-- A plan proposes clearing all nearby woodland for fields
+A group of people is planning to clear a large area of nearby woodland to create more farmland. Their plan is to cut down all the trees, burn all the debris on-site, and plant a single crop of maize over the entire area.
 
 ### Prompt
 ```text
-Proposed plan:
-- Clear all trees to make more farmland.
-- Burn everything.
-- Plant one crop.
-Task: Explain ecological risks and propose a more sustainable land-use plan.
+There's a plan in our settlement to clear out all the trees in the nearby woods to make room for a huge corn field. The idea is to cut everything down, burn it all to clear the land quickly, and then plant the corn. 
+
+Can you explain the ecological risks of doing this? I'm worried it might hurt us in the long run. Also, can you suggest a more sustainable way to get the food we need without destroying the whole woodland?
 ```
 
 ### Rubric (10 points)
@@ -859,11 +694,3 @@ Task: Explain ecological risks and propose a more sustainable land-use plan.
 8. Proposes a corrected plan that is concrete, staged, and feasible with stated resources.
 9. Adds monitoring/feedback: what to observe/measure to know the plan is working.
 10. Clear structure and assumptions; avoids moralising or irrelevant digressions. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
-
-### Auto-fail (score = 0 if any)
-- Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
-
-### Reference facts (for judge)
-- Deforestation on slopes removes root structure and ground cover, rapidly increasing erosion and landslide risk and reducing long-term soil fertility; ‘burn it all’ is a short-term gain with long-term collapse costs.
-
----

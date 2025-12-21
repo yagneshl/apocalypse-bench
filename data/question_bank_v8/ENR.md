@@ -4,16 +4,13 @@
 - **Task type:** procedure
 
 ### Scenario
-- Need to cook two hot meals per day for 60 people
-- Fuel: wood; smoke is a problem in current open fires
-- Materials: bricks/stones, clay, metal pots, basic tools
+The person is responsible for feeding a community of 60 people, requiring two hot meals per day. They are currently using open fires, which are consuming far too much wood and creating a dangerous amount of smoke. They have access to bricks, stones, clay, metal pots, and basic hand tools.
 
 ### Prompt
 ```text
-Design a highly fuel-efficient stove for communal cooking that uses much less wood and produces less smoke than an open fire.
-Materials: bricks/stones, clay, metal pots, basic tools.
+I’m trying to cook for about 60 people twice a day, but we're going through wood way too fast and the smoke is making everyone cough. We have plenty of bricks, stones, and clay, plus our cooking pots and basic tools. 
 
-Include: airflow path, pot support, smoke reduction, and a safety/maintenance checklist.
+Can you design a stove for us that is much more efficient than an open fire? I need to know how to build it so the air flows right, how the pots should sit on it, and how to keep the smoke down. Also, please give me a checklist for keeping it safe and in good repair.
 ```
 
 ### Rubric (10 points)
@@ -43,14 +40,13 @@ Include: airflow path, pot support, smoke reduction, and a safety/maintenance ch
 - **Task type:** procedure
 
 ### Scenario
-- Cold winter climate; nights below 0°C
-- Materials: straw, leaves, wool, cloth, clay, wood; no modern insulation
-- Goal: keep sleeping area warm with minimal fuel
+The person is in a cold winter climate where nights drop below 0°C. They need to keep a small sleeping area warm while using as little fuel as possible. They have no modern insulation, only raw materials like straw, leaves, wool, cloth, clay, and wood.
 
 ### Prompt
 ```text
-Propose insulation and heat-retention improvements for a small shelter.
-Include: walls, roof, floor, drafts, moisture management, and a plan to prevent mould.
+It’s getting freezing at night—well below zero—and we don't have enough wood to keep a big fire going all night. I need to insulate my small shelter using stuff I can find like straw, leaves, wool, and clay. 
+
+How should I go about fixing up the walls, roof, and floor to keep the heat in? I'm also worried about drafts and how to keep the place from getting damp or moldy inside. What's the best way to do this?
 ```
 
 ### Rubric (10 points)
@@ -79,14 +75,13 @@ Include: walls, roof, floor, drafts, moisture management, and a plan to prevent 
 - **Task type:** critique
 
 ### Scenario
-- A hut has an indoor fire in a shallow pit; smoke fills the space
-- People have headaches and sore eyes
-- Materials: clay, bricks, metal pipe sections, tools
+The person is observing a hut where an indoor fire is kept in a shallow pit. The space is constantly filled with smoke, and the inhabitants are suffering from chronic headaches and sore eyes. They have clay, bricks, metal pipe sections, and basic tools available to fix the situation.
 
 ### Prompt
 ```text
-Identify the main causes of smoke/CO exposure and propose a safer heating/cooking arrangement.
-Include ventilation and chimney considerations.
+I’m looking at a setup where people are cooking over a shallow fire pit inside their hut. It’s a mess—the room is full of smoke, and everyone has red eyes and headaches. I have some bricks, clay, and some old metal pipe sections. 
+
+Can you tell me why it’s so smoky and dangerous? I need a plan to fix the cooking and heating setup so it’s safer. What should I do about ventilation and how do I use the pipes for a chimney?
 ```
 
 ### Rubric (10 points)
@@ -116,14 +111,13 @@ Include ventilation and chimney considerations.
 - **Task type:** procedure
 
 ### Scenario
-- Community: 100 people in a cold region
-- Fuel: wood; forest resources are limited and labour is scarce
-- Uses: cooking, heating, some process heat (boiling water, small forge)
+The person is managing a community of 100 people in a cold region. They rely on wood for cooking, heating, and small-scale processing (like boiling water). Wood is becoming scarce, and there is very little labor available for harvesting. They need a plan to survive the 3-month winter.
 
 ### Prompt
 ```text
-Write a fuel management plan for 3 winter months.
-Include: demand estimation, conservation measures, sustainable harvesting, storage, and emergency rationing triggers.
+I’m looking after 100 people and winter is coming. We use wood for everything—cooking, staying warm, and boiling water—but we’re short on wood and even shorter on people to go out and chop it. 
+
+Can you help me write a fuel plan for the next 3 months? I need to know how much we’ll actually need, how we can use less, how to harvest it without ruining the forest, and the best way to store it. Also, what should the "emergency rules" be if we start running out too fast?
 ```
 
 ### Rubric (10 points)
@@ -133,7 +127,7 @@ Include: demand estimation, conservation measures, sustainable harvesting, stora
 4. Viably covers (correct + usable; mere mention earns 0): storage; emergency rationing triggers.
 5. Truth anchor: Wet wood wastes energy evaporating water; realistic fuel budgets must use the mass of dry fuel available and prioritise demand reduction (insulation, smaller heated space) over wishful consumption.
 6. Gives an ordered, step-by-step procedure that a novice could follow.
-7. Uses only the stated materials/tools; any substitutions are realistic and do not violate constraints or introduce toxicity.
+7. Uses only the stated materials/tools; any substitutions are realistic and do not FBviolate constraints or introduce toxicity.
 8. Identifies main hazards with mitigations and at least 2 specific, observable stop-work triggers ('stop if…').
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
@@ -152,14 +146,13 @@ Include: demand estimation, conservation measures, sustainable harvesting, stora
 - **Task type:** procedure
 
 ### Scenario
-- Need charcoal for forging and cleaner cooking
-- Tools: shovels, soil, water, wood supply
-- No metal drums available
+The person needs to produce charcoal for a blacksmith forge and for cleaner indoor cooking. They do not have metal drums, only shovels, soil, water, and a wood supply.
 
 ### Prompt
 ```text
-Describe a pit or mound (clamp) charcoal process.
-Include airflow control, smoke cues, cooling, and safe storage.
+I need to make some charcoal for a forge and for cooking, but I don't have any metal drums or fancy equipment. I just have shovels, dirt, and wood. 
+
+Can you explain how to make charcoal using a pit or a mound? I need to know how to control the air so I don't just burn the wood to ash, what the smoke tells me about the process, how to cool it down safely, and how to store the charcoal without it catching fire later.
 ```
 
 ### Rubric (10 points)
@@ -188,15 +181,13 @@ Include airflow control, smoke cues, cooling, and safe storage.
 - **Task type:** procedure
 
 ### Scenario
-- You have one salvaged steel drum and basic pipe fittings
-- Goal: produce higher-yield charcoal with less smoke
-- Workshop has basic tools; no welding assumed
+The person has salvaged one steel drum and some basic pipe fittings. They want to produce higher-quality charcoal than a pit would allow, with less waste and smoke. They have basic workshop tools but no welding equipment.
 
 ### Prompt
 ```text
-We need to make high-quality charcoal using a steel drum, with less smoke and less wasted wood than a pit or mound.
-Design a system that does this using basic tools (no welding).
-Include how to control the burn, how to route and use the smoke/gases safely, how to seal it, loading/unloading, and safety.
+I’ve got an old steel drum and some pipe fittings, and I want to make high-quality charcoal. I want to waste less wood than the old "bury it in a pit" method and keep the smoke down. I don't have a welder, just basic tools. 
+
+Can you help me design a way to make charcoal in this drum? How do I control the burn, where do the gases go, and how do I seal it up? I also need to know how to load and unload it safely.
 ```
 
 ### Rubric (10 points)
@@ -225,14 +216,13 @@ Include how to control the burn, how to route and use the smoke/gases safely, ho
 - **Task type:** troubleshoot
 
 ### Scenario
-- Charcoal batch yields mostly ash and tiny fragments
-- Process used: mound covered with soil, lit from one end
-- Weather: windy and dry
+The person tried making charcoal using a mound covered with soil, lit from one end. However, the result was mostly ash and tiny fragments. The weather is currently very windy and dry.
 
 ### Prompt
 ```text
-Diagnose why the charcoal is over-burning and propose fixes.
-Include how to monitor and when to shut down the burn.
+I tried making a batch of charcoal by covering a wood mound with dirt and lighting it, but when I opened it up, it was almost all ash and tiny bits. It’s been really windy and dry lately. 
+
+What did I do wrong? Can you help me figure out why it’s over-burning and how to fix it for the next batch? I need to know what to watch for while it's burning and exactly when I should shut it down.
 ```
 
 ### Rubric (10 points)
@@ -261,14 +251,13 @@ Include how to monitor and when to shut down the burn.
 - **Task type:** procedure
 
 ### Scenario
-- Workshop needs charcoal weekly for forging and occasional smelting
-- Local woodland is limited; you want a long-term plan
-- Labour: 8 people part-time
+A workshop requires charcoal weekly for forging. The local woodland is limited, and the person wants to ensure they don't deplete the resource. They have a team of 8 people working part-time.
 
 ### Prompt
 ```text
-Create a charcoal supply plan that does not destroy the local ecosystem.
-Include coppicing/replanting ideas, yield estimates, and seasonal scheduling.
+We need a steady supply of charcoal for our forge every week, but the trees around here aren't unlimited and I don't want to clear-cut the whole area. I have 8 people who can help part-time. 
+
+How can we set up a charcoal plan that won't destroy the local woods? I need to know about things like coppicing or replanting, how much wood we actually need to get a certain amount of charcoal, and when we should be doing the cutting and burning throughout the year.
 ```
 
 ### Rubric (10 points)
@@ -297,17 +286,13 @@ Include coppicing/replanting ideas, yield estimates, and seasonal scheduling.
 - **Task type:** procedure
 
 ### Scenario
-- 30 people; available feedstock: animal manure and food scraps
-- Climate: mild; winter nights near 5°C
-- Materials: barrels or sealed pits, hose, valves salvaged if possible
+The person has access to animal manure and food scraps from a group of 30 people. The climate is mild, but winter nights can drop to 5°C. They have barrels, some salvaged hoses, and valves.
 
 ### Prompt
 ```text
-We have manure and food scraps and need to turn this waste into fuel gas for cooking.
-Materials: barrels or sealed pits, hose, valves salvaged if possible.
+We have about 30 people here and plenty of animal manure and food scraps going to waste. I want to turn that waste into gas we can use for cooking. We’ve got some barrels, hoses, and valves we’ve scavenged. 
 
-Task: Design a low-tech system that produces usable fuel gas from these inputs.
-Include feedstock handling, digester construction, gas storage, burner design, and safety checks.
+Can you show me how to build a simple system to do this? I need to know how to handle the "fuel" (the manure and scraps), how to build the digester and store the gas, how to make a burner, and what I need to check to make sure it doesn't leak or blow up.
 ```
 
 ### Rubric (10 points)
@@ -337,14 +322,13 @@ Include feedstock handling, digester construction, gas storage, burner design, a
 - **Task type:** troubleshoot
 
 ### Scenario
-- Biogas digester was built 3 weeks ago; almost no gas
-- Feedstock: mixed manure and vegetable scraps
-- Symptoms: strong sour smell; scum layer visible
+A biogas digester was started 3 weeks ago but is producing almost no gas. The feedstock is a mix of manure and vegetable scraps. The system currently has a strong sour smell and a visible layer of scum has formed inside.
 
 ### Prompt
 ```text
-Diagnose likely causes and provide a step-by-step recovery plan.
-Include what measurements/observations you would track.
+I set up a biogas digester three weeks ago using manure and food scraps, but I’m barely getting any gas out of it. It smells really sour and there’s a thick layer of scum on top. 
+
+What’s going wrong? Can you help me figure out why it’s not working and give me a step-by-step plan to get it back on track? Tell me what I should be looking at or measuring to know if it's getting better.
 ```
 
 ### Rubric (10 points)
@@ -374,14 +358,13 @@ Include what measurements/observations you would track.
 - **Task type:** procedure
 
 ### Scenario
-- A team wants to run biogas piping into an enclosed kitchen
-- They propose storing gas in a large plastic bag near the stove
-- No one has done leak testing
+A team is planning to run biogas pipes into a small, enclosed kitchen and store the gas in a large plastic bag near the stove. They haven't performed any leak testing yet. The person needs to evaluate the safety of this setup.
 
 ### Prompt
 ```text
-List the top safety hazards and rewrite the plan to reduce explosion and suffocation risk.
-Include a simple leak-test procedure and how to keep the space safe from dangerous gas buildup.
+Some of my group want to run our biogas pipes right into the kitchen and just keep the gas in a big plastic bag next to the stove so it's easy to use. They haven't checked for leaks yet. 
+
+This feels a bit sketchy to me. Can you list the biggest hazards here? I need you to rewrite the plan so we don't end up blowing ourselves up or suffocating. How do we do a proper leak test, and how do we keep the kitchen air safe?
 ```
 
 ### Rubric (10 points)
@@ -411,14 +394,13 @@ Include a simple leak-test procedure and how to keep the space safe from dangero
 - **Task type:** procedure
 
 ### Scenario
-- You have digestate/slurry from a biogas digester
-- You want to use it on crops without spreading disease
-- Waterways are nearby
+The person has a lot of digestate (slurry) from their biogas digester and wants to use it as fertilizer for their crops. There are local waterways nearby that they need to protect from runoff.
 
 ### Prompt
 ```text
-Provide guidelines for handling and applying digestate safely.
-Include timing, dilution/composting options, and runoff prevention.
+I’ve got all this leftover slurry from our biogas digester and I want to use it to help our garden grow, but I don't want to make people sick or pollute the nearby creek. 
+
+What are the rules for handling this stuff and putting it on the soil safely? When is the best time to do it? Should I dilute it or compost it first? And how do I make sure it doesn't just wash away into the water when it rains?
 ```
 
 ### Rubric (10 points)
@@ -447,14 +429,13 @@ Include timing, dilution/composting options, and runoff prevention.
 - **Task type:** procedure
 
 ### Scenario
-- Stream: 0.5 m drop available and moderate flow; debris present
-- Materials: wood, rope, scrap metal possible for axle
-- Goal: mechanical power for milling or pumping
+The person has a stream with a small 0.5m drop and decent flow. They need mechanical power for a grain mill. They have wood, rope, and some scrap metal for an axle. They need to protect the system from debris and flooding.
 
 ### Prompt
 ```text
-Design a waterwheel system.
-Include intake/screening, wheel type, shaft/bearings, power transmission, and flood protection.
+There’s a stream near us with a little half-meter drop. I want to build a waterwheel to help us grind grain so we don't have to do it by hand. I have wood, rope, and some scrap metal for an axle. 
+
+Can you help me design a waterwheel system? I need to know how to set up the intake so it doesn't get clogged with sticks, what kind of wheel is best for such a small drop, how to make the shaft and bearings, and how to get the power to the mill. Also, how do I keep it from getting washed away if the stream floods?
 ```
 
 ### Rubric (10 points)
@@ -483,14 +464,13 @@ Include intake/screening, wheel type, shaft/bearings, power transmission, and fl
 - **Task type:** procedure
 
 ### Scenario
-- Area has steady winds but variable gusts
-- Need to pump water for livestock and irrigation
-- Materials: wood, cloth, rope; some metal fasteners
+The person lives in an area with steady winds but frequent gusts. They need to pump water for livestock and irrigation using wood, cloth, rope, and basic fasteners.
 
 ### Prompt
 ```text
-Propose a simple windmill design and how it drives a pump.
-Include overspeed protection, anchoring, and maintenance.
+We have plenty of wind here, but it's gusty. I need to build a windmill to pump water from our well for the animals and the garden. I’ve only got wood, some heavy cloth, rope, and basic nails/bolts. 
+
+Can you show me a simple windmill design and how to connect it to a pump? I especially need to know how to keep it from spinning too fast and breaking when the wind picks up, how to anchor it down, and what I need to do to keep it running smoothly.
 ```
 
 ### Rubric (10 points)
@@ -519,14 +499,13 @@ Include overspeed protection, anchoring, and maintenance.
 - **Task type:** procedure
 
 ### Scenario
-- A small water power system clogs daily with leaves and sticks
-- You have screens, rakes, and labour rota options
-- Shutdowns risk losing refrigeration/medical lighting (if any)
+A small hydro system is clogging daily with leaves and sticks, which threatens the power for refrigeration and medical lighting. The person has screens and a few people who can help with a rotation, but they need a more robust plan and design.
 
 ### Prompt
 ```text
-Create an intake design and maintenance plan that reduces clogging.
-Include redundancy, inspection schedule, and safe procedures near water.
+Our little water-power setup keeps getting clogged with leaves and gunk every single day, and if the power goes out, our fridge and clinic lights fail. We have screens and rakes, and I can get people to help on a schedule. 
+
+Can you help me design a better intake so it doesn't clog so easily? I need a solid maintenance plan, a backup option so the power doesn't just cut out, and a safety guide for people working near the fast water to clean it.
 ```
 
 ### Rubric (10 points)
@@ -555,14 +534,13 @@ Include redundancy, inspection schedule, and safe procedures near water.
 - **Task type:** procedure
 
 ### Scenario
-- You have a rotating shaft from a waterwheel
-- Need to drive: (A) a grain mill, or (B) a simple lathe/drill
-- Materials: wood, leather, rope; minimal metal
+The person has a rotating shaft coming off a waterwheel. They need to use it to power a grain mill and a simple lathe. They only have wood, leather, rope, and minimal metal.
 
 ### Prompt
 ```text
-Describe belt/rope drive options and how to align and tension them.
-Include guarding, wear reduction, and how to disengage safely.
+I’ve got a shaft spinning from our waterwheel, but now I need to actually make it turn our grain mill and a small lathe I’m building. I’ve only got wood, leather, and rope to work with. 
+
+How do I use belts or ropes to drive these tools? I need to know how to line them up and keep them tight so they don't slip. Also, how do I build guards so no one gets caught in the ropes, and how do I stop the tools safely without stopping the whole waterwheel?
 ```
 
 ### Rubric (10 points)
@@ -591,14 +569,13 @@ Include guarding, wear reduction, and how to disengage safely.
 - **Task type:** procedure
 
 ### Scenario
-- You have mechanical power from a waterwheel or wind rotor
-- You have salvaged DC motors, some wire, and lead-acid batteries from cars
-- Goal: safe battery charging for lighting and radio
+The person has mechanical power from a waterwheel. They have salvaged a few DC motors, some wire, and several old car batteries. They want to set up a system to charge the batteries for lighting and a radio.
 
 ### Prompt
 ```text
-Propose a practical generation and charging setup.
-Include: wiring, basic regulation (even crude), fusing, and safe battery ventilation.
+I’ve got a waterwheel spinning and I’ve managed to find some DC motors, wire, and a few old car batteries. I want to use the wheel to charge the batteries so we can have lights and use our radio at night. 
+
+How do I set this up? I need to know how to wire it all together, how to keep the voltage from getting too high and frying things, where to put fuses, and how to make sure the batteries don't build up dangerous gases.
 ```
 
 ### Rubric (10 points)
@@ -629,14 +606,13 @@ Include: wiring, basic regulation (even crude), fusing, and safe battery ventila
 - **Task type:** procedure
 
 ### Scenario
-- Need lighting for a clinic and workshop at night
-- Power: 12 V battery bank; loads: LED strips or car bulbs
-- Materials: salvaged wire, switches, fuses (or substitutes)
+The person needs to wire a clinic and workshop for night-time use. They have a 12V battery bank and some LED strips and car bulbs. They have salvaged wire, switches, and some fuses.
 
 ### Prompt
 ```text
-Design a 12 V distribution system.
-Include wire sizing concept, fusing, switch placement, and how to avoid shorts and fires.
+I need to get some lights working in our medical clinic and the workshop. We have a bank of 12V batteries and a mix of LED strips and old car bulbs. I’ve scavenged some wire, switches, and a few fuses. 
+
+Can you help me design a 12V wiring system for the buildings? I need to know how to choose the right wire size so things don't get hot, where the fuses and switches should go, and how to make sure we don't cause a fire or short everything out.
 ```
 
 ### Rubric (10 points)
@@ -667,14 +643,13 @@ Include wire sizing concept, fusing, switch placement, and how to avoid shorts a
 - **Task type:** troubleshoot
 
 ### Scenario
-- A 12 V system powers lights and a radio
-- When lights turn on, the radio resets; wires get warm in one section
-- You have basic tools; no multimeter guaranteed
+A 12V electrical system is acting up. Whenever the lights are turned on, the radio resets itself. The person noticed that one section of the wiring feels warm to the touch. They have no multimeter, just basic tools.
 
 ### Prompt
 ```text
-Diagnose likely causes and propose step-by-step tests and fixes.
-Include how to isolate faults and improve connections.
+Our 12V battery system is doing something weird. Whenever I turn the lights on, the radio shuts off and restarts. I also felt the wires in one spot and they’re getting pretty warm. I don't have a multimeter, just some basic tools. 
+
+Can you help me figure out what's wrong? I need a step-by-step way to find the fault and fix it. How do I make the connections better so this stops happening?
 ```
 
 ### Rubric (10 points)
@@ -705,14 +680,13 @@ Include how to isolate faults and improve connections.
 - **Task type:** procedure
 
 ### Scenario
-- You have several salvaged lead-acid batteries of unknown condition
-- They will be charged daily and stored near a workshop
-- Children may be nearby
+The person has several salvaged lead-acid batteries of unknown age and condition. These will be charged daily and kept near a workshop area where children are often present. They need a formal protocol for handling them.
 
 ### Prompt
 ```text
-Write a battery handling and maintenance SOP.
-Include: placement/ventilation, acid spill response, charging rules, and inspection checklist.
+I’ve got a bunch of old car batteries we scavenged. We're going to be charging them every day and keeping them in the workshop area. There are kids around here, so I need to be careful. 
+
+Can you write up a simple guide for how we should handle and look after these batteries? I need to know where to put them for air flow, what to do if the acid spills, the rules for charging them safely, and a checklist of what to look for when I'm checking them every day.
 ```
 
 ### Rubric (10 points)
@@ -743,14 +717,13 @@ Include: placement/ventilation, acid spill response, charging rules, and inspect
 - **Task type:** procedure
 
 ### Scenario
-- Settlement: 120 people, temperate climate, nearby stream and woodland
-- Goals: reliable cooking, winter heating, some mechanical power, and basic lighting
-- Tools and skills are limited initially
+Tristan is helping a settlement of 120 people in a temperate climate with a nearby stream and woods. They want to move from having almost nothing to having reliable cooking, heat, mechanical power, and basic light over the next two years.
 
 ### Prompt
 ```text
-Create a staged energy roadmap (0-3 months, 3-12 months, 1-2 years).
-Include dependencies, training, and how you will measure progress.
+I’m working with a group of 120 people. We have a stream and some woods nearby, but right now we’re starting from scratch. We want to get to a point where we have reliable cooking and heat, some machines to help with work, and basic lighting. 
+
+Can you give me a 2-year roadmap for this? Break it down into the first 3 months, the first year, and the second year. I need to know what we should build first, what skills people need to learn, and how we can tell if we're actually making progress.
 ```
 
 ### Rubric (10 points)
@@ -779,14 +752,13 @@ Include dependencies, training, and how you will measure progress.
 - **Task type:** compare
 
 ### Scenario
-- You must choose one project this month:
-- (A) build a charcoal kiln, (B) build a biogas digester, (C) build a small waterwheel
-- Labour: 8 people; materials limited; goal: reduce fuel burden
+The person has enough labor and materials to start exactly one major project this month. Their goal is to reduce the community's fuel burden. The options are a charcoal kiln, a biogas digester, or a waterwheel. They have 8 people available.
 
 ### Prompt
 ```text
-Pick the best option for this month and justify.
-Include opportunity cost, risks, and what you would do next month.
+I’ve only got 8 people and enough supplies to start one big project this month. We really need to stop using so much wood. Should we build a charcoal kiln, a biogas digester, or a small waterwheel? 
+
+Tell me which one is best to do right now and why. What are we missing out on by not doing the others, and what are the risks? Also, tell me what we should plan to do next month once the first one is running.
 ```
 
 ### Rubric (10 points)
@@ -815,16 +787,13 @@ Include opportunity cost, risks, and what you would do next month.
 - **Task type:** critique
 
 ### Scenario
-- A plan has been proposed by an enthusiastic but inexperienced person
+An enthusiastic but inexperienced person has proposed a plan to immediately switch the community to high-tech energy. The plan involves building solar panels and lithium batteries from scratch to power electric stoves and stop using wood entirely.
 
 ### Prompt
 ```text
-Proposed plan:
-- Build solar panels from scratch.
-- Build lithium batteries.
-- Build an electric stove for cooking.
-- Stop using wood entirely.
-Task: Explain what is unrealistic in the short term and propose a feasible alternative roadmap.
+One of the guys here is really excited and wants us to stop using wood right away. He’s proposed that we build our own solar panels from scratch, make lithium batteries, and use electric stoves for all our cooking. 
+
+Can you tell me if this is actually realistic for us in the short term? If not, why not? I need a better, more feasible roadmap that we can actually achieve with basic skills.
 ```
 
 ### Rubric (10 points)
@@ -853,14 +822,13 @@ Task: Explain what is unrealistic in the short term and propose a feasible alter
 - **Task type:** procedure
 
 ### Scenario
-- A storm destroyed stored firewood; winter is approaching
-- Cooking and water boiling are essential
-- You have some remaining tools and can gather biomass
+A massive storm has destroyed most of the community's stored firewood just as winter is beginning. Being able to cook and boil water for safety is critical. They have some tools left and can gather loose biomass.
 
 ### Prompt
 ```text
-Write a 2-week emergency energy plan.
-Include rationing, alternative fuels, efficiency measures, and safety considerations.
+A huge storm just hit and ruined almost all of our dry firewood. Winter is just starting and we’re in trouble—we need to be able to cook and boil our water to stay healthy. We still have some tools and we can find some brush and biomass. 
+
+Can you help me write a 2-week emergency energy plan? We need to know how to ration what's left, what else we can burn, how to make it last longer, and how to stay safe if we're using weird fuels or different stoves.
 ```
 
 ### Rubric (10 points)
@@ -880,5 +848,3 @@ Include rationing, alternative fuels, efficiency measures, and safety considerat
 
 ### Reference facts (for judge)
 - Fuel shock response should prioritise life-critical needs and demand reduction first; switching fuels without ventilation/safety controls can increase CO/fire deaths.
-
----

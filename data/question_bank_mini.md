@@ -7,12 +7,6 @@
 - **Difficulty:** Medium
 - **Task type:** procedure
 
-### Scenario
-- 30 people, temperate climate, nights ~5°C
-- Water source: muddy river 200 m away
-- Equipment: one 10 L metal pot, firewood, cloth, sand, charcoal, buckets
-- No commercial chemicals; assume basic hand tools
-
 ### Prompt
 ```text
 Scenario: Temperate river camp.
@@ -50,12 +44,6 @@ Your answer must include:
 - **Category:** Low-tech engineering
 - **Difficulty:** Hard
 - **Task type:** troubleshoot
-
-### Scenario
-- You scavenge two handheld walkie-talkies of different brands/models
-- Both displays show 'Channel 1' but they cannot hear each other when transmitting
-- You have no manuals and only basic tools; you can adjust settings in menus/buttons
-- You need reliable short-range comms within/around the settlement
 
 ### Prompt
 ```text

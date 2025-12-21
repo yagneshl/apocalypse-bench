@@ -4,15 +4,13 @@
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** You have a generator from a windmill that produces AC power. You need DC power to charge a car battery.
+- **Situation:** The person has a generator from a windmill that produces AC power. They need DC power to charge a car battery.
 - **Resources:** Lead pipes, Aluminum cans, Baking Soda, jars, wire.
 - **Constraint:** No electronics store. No diodes.
 
 ### Prompt
 ```text
-Our windmill generator makes AC electricity, but we need DC to charge the battery.
-We have no electronics. We have lead pipes, aluminum cans, and baking soda.
-How do we make a device to convert the power?
+Hey, I've got this windmill making AC power but I need to charge a car battery. I don't have any diodes or electronics. I have some lead pipes, aluminum cans, and baking soda. Is there any way to build something that turns the AC into DC with just this stuff?
 ```
 
 ### Rubric (10 points)
@@ -38,15 +36,13 @@ How do we make a device to convert the power?
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** You scavenged an old car engine. The timing marks on the front pulley are completely rusted off.
-- **Problem:** You need to set the spark timing or it won't start.
+- **Situation:** The person scavenged an old car engine. The timing marks on the front pulley are completely rusted off.
+- **Problem:** They need to set the spark timing or it won't start.
 - **Resources:** Basic tools, a bolt or wooden dowel.
 
 ### Prompt
 ```text
-We fixed an old engine but the timing marks are rusted off.
-How do we find the exact "Top Dead Center" of the piston to set the spark plugs correctly?
-Note: Just looking down the spark plug hole isn't accurate enough.
+I'm trying to fix an old engine I found, but the timing marks on the pulley are totally gone. I need to find the exact top dead center for the piston to set the spark timing. I tried just poking a stick down the spark plug hole, but it's not precise enough. How can I find TDC exactly using just some basic tools or a bolt?
 ```
 
 ### Rubric (10 points)
@@ -72,14 +68,13 @@ Note: Just looking down the spark plug hole isn't accurate enough.
 - **Task type:** troubleshoot
 
 ### Scenario
-- Running a gasoline generator on wood gas
-- The engine runs for 20 minutes then valves seize with sticky black gunk
-- You are using a simple updraft gasifier
+- The person is running a gasoline generator on wood gas.
+- The engine runs for 20 minutes then valves seize with sticky black gunk.
+- They are currently using a simple updraft gasifier.
 
 ### Prompt
 ```text
-An engine running on wood gas runs for ~20 minutes, then valves seize with sticky black gunk. Your current reactor is a simple updraft gasifier.
-Diagnose the failure mode and propose a reactor + cleaning/cooling/filtration redesign that prevents the gunk from reaching the engine.
+My generator is running on wood gas from a simple updraft gasifier, but after about 20 minutes it keeps seizing up with this gross, sticky black gunk on the valves. What's causing this, and how can I change the setup or add some filters to stop that gunk from hitting the engine?
 ```
 
 ### Rubric (10 points)
@@ -106,14 +101,13 @@ Diagnose the failure mode and propose a reactor + cleaning/cooling/filtration re
 - **Task type:** procedure
 
 ### Scenario
-- Found car batteries that read 10V and won't take a charge
-- You have a charger and distilled water
-- Need to restore capacity
+- The person found car batteries that read 10V and won't take a charge.
+- They have a charger and distilled water.
+- They need to restore capacity.
 
 ### Prompt
 ```text
-Explain the chemistry of sulfation and a controlled overcharge/equalization process.
-Include voltage targets and safety management.
+I found some old car batteries that only read about 10V and won't charge normally. I heard you can fix this with 'equalization' or something. Can you explain the chemistry of what's wrong and give me a safe step-by-step on how to overcharge them to bring them back to life?
 ```
 
 ### Rubric (10 points)
@@ -140,20 +134,19 @@ Include voltage targets and safety management.
 - **Task type:** procedure
 
 ### Scenario
-- You have a stream with 2m drop
-- You need to pump water up 20m to a tank
-- No electricity/fuel
-- You have pipe and check valves
+- The person has a stream with 2m drop.
+- They need to pump water up 20m to a tank.
+- No electricity/fuel.
+- They have pipe and check valves.
 
 ### Prompt
 ```text
-Explain the operating cycle of a Ram Pump (Water Hammer).
-Detail the "Waste Valve" vs "Delivery Valve" tuning.
+I've got a stream with a small drop, maybe 2 meters, and I need to get water up to a tank that's 20 meters high. Someone mentioned a ram pump. How does that cycle work, and how do I tune those waste and delivery valves to get it running right?
 ```
 
 ### Rubric (10 points)
 1.  Directly answers the task.
-2.  Principle: Falling water accelerates -> Waste valve slams shut -> Momentum (Water Hammer) forces high pressure slug through delivery valve -> Pressure drops -> Waste valve opens. Repeat.
+2.  Principle: Falling water assets -> Waste valve slams shut -> Momentum (Water Hammer) forces high pressure slug through delivery valve -> Pressure drops -> Waste valve opens. Repeat.
 3.  Truth anchor: It trades volume for height. You lose ~90% of water to lift 10%.
 4.  Tuning: Waste valve must be heavy enough to open against flow, light enough to slam shut when flow accelerates.
 5.  The "Snifter" valve: Needs to let a tiny air bubble in to cushion the hammer in the pressure vessel, or the tank waterlogs.
@@ -175,14 +168,13 @@ Detail the "Waste Valve" vs "Delivery Valve" tuning.
 - **Task type:** procedure
 
 ### Scenario
-- You have a 3-phase AC motor (scavenged from industry) and a waterwheel
-- You want to generate electricity
-- It produces no power when spun
+- The person has a 3-phase AC motor (scavenged from industry) and a waterwheel.
+- They want to generate electricity.
+- It produces no power when spun.
 
 ### Prompt
 ```text
-You have a 3‑phase AC motor coupled to a waterwheel. When you spin it, you get no useful voltage.
-Explain how you can wire and start it so it produces electricity, and why it must be driven above synchronous speed.
+I've hooked up a big 3-phase industrial motor to a waterwheel to try and get some power, but it's not outputting any voltage at all when it spins. What do I need to wire up to it to make it start generating, and how fast do I actually have to spin it?
 ```
 
 ### Rubric (10 points)
@@ -209,14 +201,13 @@ Explain how you can wire and start it so it produces electricity, and why it mus
 - **Task type:** troubleshoot
 
 ### Scenario
-- Pipeline from spring (high) to village (low) stops flowing
-- No leaks visible
-- Pipe goes up and down over hills
+- A pipeline from a spring (high) to village (low) stops flowing.
+- No leaks visible.
+- The pipe goes up and down over hills.
 
 ### Prompt
 ```text
-Explain the "Air Lock" phenomenon in undulating pipes.
-How do you clear it and prevent it?
+My water line from the spring up the hill stopped flowing. There are no leaks, but the pipe goes over a few ridges and dips. I think it might be an air lock. How does that actually work to stop the water, and what's the best way to clear it out and make sure it doesn't happen again?
 ```
 
 ### Rubric (10 points)
@@ -234,6 +225,3 @@ How do you clear it and prevent it?
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
-
----

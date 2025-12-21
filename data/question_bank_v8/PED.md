@@ -4,14 +4,10 @@
 - **Task type:** lesson_plan
 
 ### Scenario
-- Teach volunteers to run a safe water treatment and distribution station
-- Group: 10 new volunteers; literacy varies; high stakes
+Tristan is leading a team of 10 new volunteers with varying literacy levels. They need to set up and run a safe water treatment and distribution station in a high-stakes environment where any mistake could lead to a disease outbreak.
 
 ### Prompt
-```text
-Create a 60-90 minute training session plan.
-Include objectives, materials, demonstration, practice, safety points, and a one-page checklist.
-```
+I have 10 volunteers helping me run a water station. Some of them can't read very well. I need a clear training plan for them that takes about an hour or so. It needs to cover exactly what they should do to keep the water safe and a simple checklist they can use so they don't mess up. Can you include a demonstration and a way for them to practice?
 
 ### Rubric (10 points)
 1. States clear learning objectives (what trainees must be able to do).
@@ -39,14 +35,10 @@ Include objectives, materials, demonstration, practice, safety points, and a one
 - **Task type:** assessment
 
 ### Scenario
-- Teach volunteers to run a safe water treatment and distribution station
-- Group: 10 new volunteers; literacy varies; high stakes
+Tristan has trained a group of volunteers for a water station and now needs a way to ensure they are actually competent and won't cause an outbreak. The stakes are very high, and simple verbal confirmation is not enough to guarantee safety.
 
 ### Prompt
-```text
-Design an assessment and ongoing supervision plan.
-Include teach-back prompts, pass/fail criteria, and how to handle near-misses and retraining.
-```
+How can I tell if my volunteers actually know how to run the water station safely? I need an assessment and a way to watch over them long-term. Please include what to look for, what questions to ask them to see if they understand the "why," and what to do if they make a mistake or almost cause a problem.
 
 ### Rubric (10 points)
 1. Provides an observation checklist aligned to the real task steps.
@@ -74,14 +66,10 @@ Include teach-back prompts, pass/fail criteria, and how to handle near-misses an
 - **Task type:** lesson_plan
 
 ### Scenario
-- Train novices to use axes/saws without injury
-- Workshop setting; PPE limited
+Tristan is working in a workshop setting with novices who need to use axes and saws for wood processing. PPE is extremely limited, making correct technique and safety awareness the primary means of preventing serious injury.
 
 ### Prompt
-```text
-Create a 60-90 minute training session plan.
-Include objectives, materials, demonstration, practice, safety points, and a one-page checklist.
-```
+I'm teaching a group of beginners how to use axes and saws for wood processing. We don't have much safety gear, so I need them to be really careful. Can you give me a lesson plan for a 60-90 minute session? I need to know what to show them, how they should practice, and a simple checklist I can post in the workshop.
 
 ### Rubric (10 points)
 1. States clear learning objectives (what trainees must be able to do).
@@ -109,14 +97,10 @@ Include objectives, materials, demonstration, practice, safety points, and a one
 - **Task type:** assessment
 
 ### Scenario
-- Train novices to use axes/saws without injury
-- Workshop setting; PPE limited
+Tristan needs to verify that workshop participants can handle dangerous cutting tools safely before letting them work without constant direct oversight. Because of the risk of amputation or severe bleeding, the assessment must be rigorous.
 
 ### Prompt
-```text
-Design an assessment and ongoing supervision plan.
-Include teach-back prompts, pass/fail criteria, and how to handle near-misses and retraining.
-```
+I need to make sure the people I've trained to use axes and saws won't hurt themselves when I'm not looking. How do I test their skills and keep an eye on them over time? Tell me what counts as a "fail" that should stop them from working, and how to handle it if someone almost has an accident.
 
 ### Rubric (10 points)
 1. Provides an observation checklist aligned to the real task steps.
@@ -144,14 +128,10 @@ Include teach-back prompts, pass/fail criteria, and how to handle near-misses an
 - **Task type:** lesson_plan
 
 ### Scenario
-- Train helpers to clean and dress minor wounds safely
-- Goal: reduce infections
+Tristan is training community helpers to perform basic wound care. In this environment, preventing minor wounds from becoming infected is critical for community health, and the helpers must learn to use available resources effectively.
 
 ### Prompt
-```text
-Create a 60-90 minute training session plan.
-Include objectives, materials, demonstration, practice, safety points, and a one-page checklist.
-```
+I need to train some helpers to clean and dress small wounds so people don't get infections. Can you write a 1-hour training plan for me? I need to know how to show them the right technique, how they can practice on each other, and a checklist they can keep with their medical supplies.
 
 ### Rubric (10 points)
 1. States clear learning objectives (what trainees must be able to do).
@@ -179,14 +159,10 @@ Include objectives, materials, demonstration, practice, safety points, and a one
 - **Task type:** assessment
 
 ### Scenario
-- Train helpers to clean and dress minor wounds safely
-- Goal: reduce infections
+Tristan needs to ensure that the trained wound-care helpers are following correct hygiene and dressing procedures. He is concerned that helpers might take shortcuts that trap bacteria inside a wound, making the infection risk worse.
 
 ### Prompt
-```text
-Design an assessment and ongoing supervision plan.
-Include teach-back prompts, pass/fail criteria, and how to handle near-misses and retraining.
-```
+How do I check that my wound care helpers are actually doing it right and not making things worse? I need a way to assess them, some questions to see if they understand why we clean a certain way, and a plan for what to do if I see them taking dangerous shortcuts.
 
 ### Rubric (10 points)
 1. Provides an observation checklist aligned to the real task steps.
@@ -214,14 +190,10 @@ Include teach-back prompts, pass/fail criteria, and how to handle near-misses an
 - **Task type:** lesson_plan
 
 ### Scenario
-- Teach compost workflow and what not to add
-- Need consistency across shifts
+Tristan is setting up a large-scale community composting system. He needs to train workers across multiple shifts to ensure waste is handled consistently, which is necessary to prevent pests and the spread of disease.
 
 ### Prompt
-```text
-Create a 60-90 minute training session plan.
-Include objectives, materials, demonstration, practice, safety points, and a one-page checklist.
-```
+I'm setting up a community compost and need to train people on how to manage the piles and what needs to stay out of them. Can you give me a lesson plan for an hour-long session? I need a checklist for them so everyone does it the same way across different shifts.
 
 ### Rubric (10 points)
 1. States clear learning objectives (what trainees must be able to do).
@@ -249,14 +221,10 @@ Include objectives, materials, demonstration, practice, safety points, and a one
 - **Task type:** assessment
 
 ### Scenario
-- Teach compost workflow and what not to add
-- Need consistency across shifts
+Tristan needs to monitor the waste-handling project to ensure it remains hygienic. If the compost becomes anaerobic or attracts too many flies, it could become a vector for local disease, so ongoing supervision is vital.
 
 ### Prompt
-```text
-Design an assessment and ongoing supervision plan.
-Include teach-back prompts, pass/fail criteria, and how to handle near-misses and retraining.
-```
+How do I evaluate if the people running the compost are doing it safely? I need an assessment checklist and a way to supervise them. What should I ask them to make sure they know how to fix a pile that is starting to smell bad or attract too many flies?
 
 ### Rubric (10 points)
 1. Provides an observation checklist aligned to the real task steps.
@@ -284,14 +252,10 @@ Include teach-back prompts, pass/fail criteria, and how to handle near-misses an
 - **Task type:** lesson_plan
 
 ### Scenario
-- Teach ration officers to measure grain accurately
-- Need auditability
+Tristan is training ration officers to use balance scales for distributing food. In a resource-scarce environment, accuracy is vital for maintaining a fair inventory and preventing the depletion of stores.
 
 ### Prompt
-```text
-Create a 60-90 minute training session plan.
-Include objectives, materials, demonstration, practice, safety points, and a one-page checklist.
-```
+I need to teach my ration officers how to use a balance scale correctly so our grain measurements are exact and fair. Can you write a training plan for a 60-90 minute class? I need a checklist they can follow at the scale to make sure they're being consistent every time they weigh something.
 
 ### Rubric (10 points)
 1. States clear learning objectives (what trainees must be able to do).
@@ -319,14 +283,10 @@ Include objectives, materials, demonstration, practice, safety points, and a one
 - **Task type:** assessment
 
 ### Scenario
-- Teach ration officers to measure grain accurately
-- Need auditability
+Tristan needs to audit the weighing process to ensure that ration officers aren't making measurement errors. Since a slightly off scale can cause massive inventory issues over time, he needs a way to catch these silent failures.
 
 ### Prompt
-```text
-Design an assessment and ongoing supervision plan.
-Include teach-back prompts, pass/fail criteria, and how to handle near-misses and retraining.
-```
+How do I check if my ration officers are actually weighing things correctly? I need an assessment plan for them, including what questions to ask them about the equipment and what to do if I find that the measurements have been coming out wrong.
 
 ### Rubric (10 points)
 1. Provides an observation checklist aligned to the real task steps.
@@ -354,14 +314,10 @@ Include teach-back prompts, pass/fail criteria, and how to handle near-misses an
 - **Task type:** lesson_plan
 
 ### Scenario
-- Teach basic literacy/numeracy and ledger use
-- Goal: inventory and health records
+Tristan is training staff in basic record-keeping for inventory and health tracking. In an environment with high staff turnover and high stress, a reliable paper-based ledger system is the only way to maintain a single source of truth.
 
 ### Prompt
-```text
-Create a 60-90 minute training session plan.
-Include objectives, materials, demonstration, practice, safety points, and a one-page checklist.
-```
+I need to train some people to keep a manual ledger for our inventory and health records. Can you give me a lesson plan for an hour? I need to know how to show them the right way to enter data, how they should practice, and a checklist to make sure the records stay clear and readable for the next person.
 
 ### Rubric (10 points)
 1. States clear learning objectives (what trainees must be able to do).
@@ -389,14 +345,10 @@ Include objectives, materials, demonstration, practice, safety points, and a one
 - **Task type:** assessment
 
 ### Scenario
-- Teach basic literacy/numeracy and ledger use
-- Goal: inventory and health records
+Tristan needs to verify that the record-keeping system is functioning correctly and that data is actually retrievable and reliable. He needs to ensure that the "records" aren't just meaningless scribbles, but a functional tool for management.
 
 ### Prompt
-```text
-Design an assessment and ongoing supervision plan.
-Include teach-back prompts, pass/fail criteria, and how to handle near-misses and retraining.
-```
+How can I tell if our record-keepers are actually doing a good job? I need an assessment to check their work, some questions to see if they understand how the system works, and a plan for what to do if I find that the records are messy or have missing dates.
 
 ### Rubric (10 points)
 1. Provides an observation checklist aligned to the real task steps.
@@ -424,14 +376,10 @@ Include teach-back prompts, pass/fail criteria, and how to handle near-misses an
 - **Task type:** lesson_plan
 
 ### Scenario
-- Design a system to train new blacksmiths/carpenters over months
-- Need continuity and standards
+Tristan is setting up a long-term apprenticeship system for critical crafts like blacksmithing or carpentry. He needs to ensure that the initial training of these apprentices is structured and safe, so they can eventually work toward mastery.
 
 ### Prompt
-```text
-Create a 60-90 minute training session plan.
-Include objectives, materials, demonstration, practice, safety points, and a one-page checklist.
-```
+I want to start an apprenticeship program for our local builders and smiths. How should I structure the very first training session to get new apprentices started safely? I need a 90-minute plan that includes what I should show them, how they practice, and a checklist for the shop.
 
 ### Rubric (10 points)
 1. States clear learning objectives (what trainees must be able to do).
@@ -459,14 +407,10 @@ Include objectives, materials, demonstration, practice, safety points, and a one
 - **Task type:** assessment
 
 ### Scenario
-- Design a system to train new blacksmiths/carpenters over months
-- Need continuity and standards
+Tristan needs a way to evaluate an apprentice's progress through different stages of their training. He must ensure they are truly competent to move to more complex tasks, as overconfidence in a workshop can lead to life-altering accidents.
 
 ### Prompt
-```text
-Design an assessment and ongoing supervision plan.
-Include teach-back prompts, pass/fail criteria, and how to handle near-misses and retraining.
-```
+I have apprentices who will be training over several months. How do I assess their progress to know when they are actually ready for harder, more dangerous work? I need a supervision plan, pass/fail rules for their tests, and a way to handle it if they make a major mistake during their training.
 
 ### Rubric (10 points)
 1. Provides an observation checklist aligned to the real task steps.
@@ -485,5 +429,3 @@ Include teach-back prompts, pass/fail criteria, and how to handle near-misses an
 
 ### Reference facts (for judge)
 - Assessment of apprenticeship must check progression gates and safety authority; ‘time served’ without observed competence produces overconfidence and failures.
-
----

@@ -4,20 +4,13 @@
 - **Task type:** procedure
 
 ### Scenario
-- 30 people, temperate climate, nights ~5°C
-- Water source: muddy river 200 m away
-- Equipment: one 10 L metal pot, firewood, cloth, sand, charcoal, buckets
-- No commercial chemicals; assume basic hand tools
+Tristan is leading a group of 30 people at a camp in a temperate climate (nights ~5°C). Their only water source is a muddy river 200 m away. They have one 10 L metal pot, firewood, cloth, sand, charcoal, and buckets. They have no commercial chemicals and only basic hand tools.
 
 ### Prompt
 ```text
-Scenario: Temperate river camp.
-Task: Produce a 7-day plan to supply safe drinking water for the group. Do not ask clarifying questions; state any assumptions.
-Your answer must include:
-- A step-by-step treatment process that works with the listed equipment
-- A daily throughput plan (how many litres/day you can produce)
-- A storage and distribution method that prevents recontamination
-- A simple checklist for volunteers to follow
+We have 30 people here and the only water is from a muddy river nearby. We've got a 10L pot, some cloth, sand, and charcoal, but no chemicals. How do we make enough safe drinking water for everyone for the next week? 
+
+Could you give me a step-by-step process for treating the water with what we have? I also need to know how many liters we can realistically produce every day to make sure it's enough, and how we should store and hand it out so it doesn't get dirty again. A simple checklist for the volunteers to follow would be a huge help.
 ```
 
 ### Rubric (10 points)
@@ -48,20 +41,13 @@ Your answer must include:
 - **Task type:** procedure
 
 ### Scenario
-- 30 people, temperate climate, nights ~5°C
-- Water source: muddy river 200 m away
-- Equipment: one 10 L metal pot, firewood, cloth, sand, charcoal, buckets
-- No commercial chemicals; assume basic hand tools
+Tristan is managing a camp of 30 people in a temperate climate near a muddy river. The group has limited equipment: a 10 L pot, buckets, and basic tools. They need a long-term sanitation solution to prevent disease.
 
 ### Prompt
 ```text
-Scenario: Temperate river camp.
-Task: Design a sanitation system for the next 2 weeks that minimises faecal-oral disease. Do not ask clarifying questions; state assumptions.
-Include:
-- Latrine/waste design and placement
-- Handwashing system and resupply
-- Greywater and rubbish handling
-- A maintenance rota and simple rules for everyone
+I need help setting up a sanitation system for our camp of 30 people for the next two weeks. We really want to avoid anyone getting sick from the waste. 
+
+Where should we put the latrines and how should they be built? We also need a way for people to wash their hands and a plan for how to handle our trash and dirty "greywater" from cooking. Can you also give me a simple maintenance schedule and some basic rules that everyone in the camp needs to follow?
 ```
 
 ### Rubric (10 points)
@@ -92,20 +78,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 30 people, temperate climate, nights ~5°C
-- Water source: muddy river 200 m away
-- Equipment: one 10 L metal pot, firewood, cloth, sand, charcoal, buckets
-- No commercial chemicals; assume basic hand tools
+Tristan’s group of 30 is at a temperate river camp. They have no refrigeration, a 10 L pot, and a constant need to manage their food supply safely for at least 14 days.
 
 ### Prompt
 ```text
-Scenario: Temperate river camp.
-Task: Create a practical food safety and preservation plan for the next 14 days. Assume no refrigeration.
-Include:
-- Rules to prevent cross-contamination and food poisoning
-- At least two preservation methods suited to the scenario
-- How to run a clean communal cooking area
-- What to do when you are unsure if food is safe
+We don't have any refrigeration here at the camp and I'm worried about people getting food poisoning. Can you help me make a 14-day food safety plan for our group of 30?
+
+I need some clear rules to prevent cross-contamination, at least two ways we can preserve food without a fridge, and advice on how to keep our communal cooking area clean. Also, what should we do if we're not 100% sure if a piece of food is still safe to eat?
 ```
 
 ### Rubric (10 points)
@@ -136,21 +115,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 30 people, temperate climate, nights ~5°C
-- Water source: muddy river 200 m away
-- Equipment: one 10 L metal pot, firewood, cloth, sand, charcoal, buckets
-- No commercial chemicals; assume basic hand tools
+Tristan is at the temperate river camp with 30 people. Over the last two days, 8 people have suddenly developed watery diarrhoea and vomiting. The group is panicked.
 
 ### Prompt
 ```text
-Scenario: Temperate river camp.
-Situation: Over 48 hours, 8 people develop watery diarrhoea and vomiting.
-Task: Write an outbreak response playbook for the next 7 days. Do not claim you can identify the exact pathogen; focus on practical control.
-Include:
-- Immediate actions in the first 6 hours
-- How to organise care without spreading illness
-- What data to record
-- Clear escalation / danger signs
+We have an emergency. 8 of our 30 people have come down with vomiting and watery diarrhoea in the last 48 hours. I don't know exactly what it is, but I need a playbook for how to handle this for the next week.
+
+What are the immediate things I need to do in the next 6 hours? How do we look after the sick people without the rest of us catching it? What information should we be recording about the cases, and what are the clear danger signs that mean someone is in serious trouble?
 ```
 
 ### Rubric (10 points)
@@ -181,20 +152,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 80 people, hot days (~35°C), cold nights
-- Water source: shallow well with intermittent turbidity
-- Fuel is scarce; sun is abundant
-- Equipment: clear bottles, cloth, buckets, small amount of soap/ash
+Tristan is helping a group of 80 people in a hot, arid town. Water comes from a shallow well and is often cloudy. Fuel for fire is extremely scarce, but there is intense sunlight. They have clear bottles, cloth, buckets, and a little soap/ash.
 
 ### Prompt
 ```text
-Scenario: Arid town.
-Task: Produce a 7-day plan to supply safe drinking water for the group. Do not ask clarifying questions; state any assumptions.
-Your answer must include:
-- A step-by-step treatment process that works with the listed equipment
-- A daily throughput plan (how many litres/day you can produce)
-- A storage and distribution method that prevents recontamination
-- A simple checklist for volunteers to follow
+We have 80 people here and the fuel for boiling water is almost gone. The only water we have is from a shallow well and it's pretty cloudy. It's 35°C during the day with full sun. 
+
+How can we make this water safe for everyone to drink for the next 7 days? We have clear bottles, buckets, and cloth. Give me a step-by-step process that works with the sun or whatever we've got. How many liters can we actually produce a day? Tell me how to store it so it stays clean and give me a checklist for the team.
 ```
 
 ### Rubric (10 points)
@@ -226,20 +190,13 @@ Your answer must include:
 - **Task type:** procedure
 
 ### Scenario
-- 80 people, hot days (~35°C), cold nights
-- Water source: shallow well with intermittent turbidity
-- Fuel is scarce; sun is abundant
-- Equipment: clear bottles, cloth, buckets, small amount of soap/ash
+Tristan is in a hot arid town with 80 people. Water is very precious and fuel is limited. The group needs to maintain hygiene for 2 weeks to prevent an outbreak.
 
 ### Prompt
 ```text
-Scenario: Arid town.
-Task: Design a sanitation system for the next 2 weeks that minimises faecal-oral disease. Do not ask clarifying questions; state assumptions.
-Include:
-- Latrine/waste design and placement
-- Handwashing system and resupply
-- Greywater and rubbish handling
-- A maintenance rota and simple rules for everyone
+It's incredibly hot here and we're low on water, so we can't afford to waste it on flushing or anything like that. How do I set up a sanitation system for 80 people for the next two weeks? 
+
+I need to know how to design and place the latrines, a handwashing system that doesn't use too much water, and how to deal with trash and greywater. Can you also give me a simple maintenance rota and some rules for the group to keep things from getting disgusting?
 ```
 
 ### Rubric (10 points)
@@ -270,20 +227,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 80 people, hot days (~35°C), cold nights
-- Water source: shallow well with intermittent turbidity
-- Fuel is scarce; sun is abundant
-- Equipment: clear bottles, cloth, buckets, small amount of soap/ash
+Tristan is in an arid town with 80 people. Days are 35°C, fuel is scarce, and there is no refrigeration. Food safety is critical as the heat causes rapid spoilage.
 
 ### Prompt
 ```text
-Scenario: Arid town.
-Task: Create a practical food safety and preservation plan for the next 14 days. Assume no refrigeration.
-Include:
-- Rules to prevent cross-contamination and food poisoning
-- At least two preservation methods suited to the scenario
-- How to run a clean communal cooking area
-- What to do when you are unsure if food is safe
+It's 35°C out and we have no fridge and almost no fuel for cooking. How do we keep 80 people from getting sick from the food over the next two weeks? 
+
+Can you give me rules for avoiding cross-contamination and two ways we can actually preserve food given that it's so hot and dry? How should we run our cooking area to keep it clean, and what should we do if we're worried some of the food has gone bad?
 ```
 
 ### Rubric (10 points)
@@ -314,21 +264,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 80 people, hot days (~35°C), cold nights
-- Water source: shallow well with intermittent turbidity
-- Fuel is scarce; sun is abundant
-- Equipment: clear bottles, cloth, buckets, small amount of soap/ash
+Tristan is in an arid town with 80 people. It is very hot. Over the last 48 hours, 8 people have started vomiting and have watery diarrhoea. Dehydration is a major risk.
 
 ### Prompt
 ```text
-Scenario: Arid town.
-Situation: Over 48 hours, 8 people develop watery diarrhoea and vomiting.
-Task: Write an outbreak response playbook for the next 7 days. Do not claim you can identify the exact pathogen; focus on practical control.
-Include:
-- Immediate actions in the first 6 hours
-- How to organise care without spreading illness
-- What data to record
-- Clear escalation / danger signs
+We've got a crisis. 8 of our 80 people are suddenly sick with vomiting and diarrhoea, and it's 35°C outside. I'm really worried about them dehydrating. I need a response plan for the next week. 
+
+What should I do in the next 6 hours? How can we care for the sick without this spreading to the other 72 people? What logs should we be keeping, and what are the medical red flags we need to watch out for?
 ```
 
 ### Rubric (10 points)
@@ -336,7 +278,7 @@ Include:
 2. Viably covers (correct + usable; mere mention earns 0): Write an outbreak response playbook for the next 7 days. Do not claim you can identify the exact pathogen; focus on practical control; Immediate actions in the first 6 hours.
 3. Viably covers (correct + usable; mere mention earns 0): How to organise care without spreading illness; What data to record.
 4. Viably covers (correct + usable; mere mention earns 0): Clear escalation / danger signs.
-5. Truth anchor: Heat accelerates dehydration and transmission: outbreak control must emphasise rapid rehydration and strict hygiene/isolation, not just ‘rest and hope’.
+5. Truth anchor: Heat accelerates dehydration and transmission: outbreak control must emphasize rapid rehydration and strict hygiene/isolation, not just ‘rest and hope’.
 6. Gives an ordered, step-by-step procedure that a novice could follow.
 7. Uses only the stated materials/tools; any substitutions are realistic and do not violate constraints or introduce toxicity.
 8. Identifies main hazards with mitigations and at least 2 specific, observable stop-work triggers ('stop if…').
@@ -359,20 +301,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 60 people, heavy rain, high humidity
-- Water sources: rain catchment + brackish surface water nearby
-- Mosquitoes and flies are common
-- Equipment: barrels, rope, tarp, basic cookware
+Tristan is at a tropical coastal settlement with 60 people. It rains heavily and is very humid. There is brackish (salty) surface water nearby and lots of insects. They have barrels, rope, a tarp, and basic cookware.
 
 ### Prompt
 ```text
-Scenario: Tropical coastal settlement.
-Task: Produce a 7-day plan to supply safe drinking water for the group. Do not ask clarifying questions; state any assumptions.
-Your answer must include:
-- A step-by-step treatment process that works with the listed equipment
-- A daily throughput plan (how many litres/day you can produce)
-- A storage and distribution method that prevents recontamination
-- A simple checklist for volunteers to follow
+We have 60 people here on the coast. It’s raining a ton and it's humid, but the only other water around is brackish surface water that’s full of bugs. We've got barrels, tarps, and some pots. 
+
+How can we set up a 7-day plan to get safe drinking water? Show me how to treat the water properly, tell me how much we can get each day, and how we should store it so mosquitoes and dirt don't get in. Can you also make a simple checklist for the team?
 ```
 
 ### Rubric (10 points)
@@ -403,20 +338,13 @@ Your answer must include:
 - **Task type:** procedure
 
 ### Scenario
-- 60 people, heavy rain, high humidity
-- Water sources: rain catchment + brackish surface water nearby
-- Mosquitoes and flies are common
-- Equipment: barrels, rope, tarp, basic cookware
+Tristan’s group of 60 is in a tropical coastal area. Heavy rain is frequent, and the water table is high. Mosquitoes and flies are everywhere. They need a 2-week sanitation plan.
 
 ### Prompt
 ```text
-Scenario: Tropical coastal settlement.
-Task: Design a sanitation system for the next 2 weeks that minimises faecal-oral disease. Do not ask clarifying questions; state assumptions.
-Include:
-- Latrine/waste design and placement
-- Handwashing system and resupply
-- Greywater and rubbish handling
-- A maintenance rota and simple rules for everyone
+We need a sanitation setup for 60 people here in the tropics. It rains constantly and the ground is soaked, so I'm worried about toilets overflowing or making the water bad. There are also flies and mosquitoes everywhere. 
+
+How should we design and place our latrines? We need a handwashing setup and a way to deal with greywater and trash. Can you give me a maintenance schedule and some rules for everyone so we don't end up with an outbreak?
 ```
 
 ### Rubric (10 points)
@@ -447,20 +375,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 60 people, heavy rain, high humidity
-- Water sources: rain catchment + brackish surface water nearby
-- Mosquitoes and flies are common
-- Equipment: barrels, rope, tarp, basic cookware
+Tristan is at a tropical coastal settlement (60 people). High humidity and heat make food spoilage rapid. Flies are a major vector for disease. There is no refrigeration.
 
 ### Prompt
 ```text
-Scenario: Tropical coastal settlement.
-Task: Create a practical food safety and preservation plan for the next 14 days. Assume no refrigeration.
-Include:
-- Rules to prevent cross-contamination and food poisoning
-- At least two preservation methods suited to the scenario
-- How to run a clean communal cooking area
-- What to do when you are unsure if food is safe
+The humidity is killing us and we have no fridge for our group of 60. Food is rotting so fast and there are flies everywhere. 
+
+Can you help me with a 14-day food safety plan? I need rules to stop cross-contamination, at least two ways to preserve what we have in this damp climate, and advice on keeping the communal kitchen clean. Also, what's the rule of thumb if we're not sure if something has gone off?
 ```
 
 ### Rubric (10 points)
@@ -491,21 +412,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 60 people, heavy rain, high humidity
-- Water sources: rain catchment + brackish surface water nearby
-- Mosquitoes and flies are common
-- Equipment: barrels, rope, tarp, basic cookware
+Tristan is in a tropical settlement with 60 people. 8 people have watery diarrhoea and vomiting. The environment is humid, rainy, and full of mosquitoes and flies.
 
 ### Prompt
 ```text
-Scenario: Tropical coastal settlement.
-Situation: Over 48 hours, 8 people develop watery diarrhoea and vomiting.
-Task: Write an outbreak response playbook for the next 7 days. Do not claim you can identify the exact pathogen; focus on practical control.
-Include:
-- Immediate actions in the first 6 hours
-- How to organise care without spreading illness
-- What data to record
-- Clear escalation / danger signs
+Things are bad. 8 people in our settlement of 60 are vomiting and have diarrhoea. It’s pouring rain and the bugs are everywhere. I need a response playbook for the next week. 
+
+What do I need to do right now (in the next 6 hours)? How do we set up care so this doesn't spread to everyone else? What records should we keep, and what are the specific danger signs that mean someone is critical?
 ```
 
 ### Rubric (10 points)
@@ -536,20 +449,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 20 people, snowy winter, frequent sub-zero nights
-- Water sources: snow/ice + small stream
-- Fuel available as wood; shelter is enclosed
-- Equipment: pot, stove, containers, cloth
+Tristan is with 20 people in a snowy mountain refuge. It is sub-zero. They have a stream and plenty of snow/ice. They have wood for fuel, a stove, a pot, and containers.
 
 ### Prompt
 ```text
-Scenario: Cold mountain refuge.
-Task: Produce a 7-day plan to supply safe drinking water for the group. Do not ask clarifying questions; state any assumptions.
-Your answer must include:
-- A step-by-step treatment process that works with the listed equipment
-- A daily throughput plan (how many litres/day you can produce)
-- A storage and distribution method that prevents recontamination
-- A simple checklist for volunteers to follow
+We're stuck in a mountain refuge with 20 people. It's freezing and we're surrounded by snow. We have a stove and wood, a big pot, and some containers. 
+
+How can we make enough safe water for everyone for the next week? Walk me through the treatment process, tell me how much we can realistically make each day, and how we should store it so it stays clean. I also need a simple checklist for the volunteers.
 ```
 
 ### Rubric (10 points)
@@ -580,20 +486,13 @@ Your answer must include:
 - **Task type:** procedure
 
 ### Scenario
-- 20 people, snowy winter, frequent sub-zero nights
-- Water sources: snow/ice + small stream
-- Fuel available as wood; shelter is enclosed
-- Equipment: pot, stove, containers, cloth
+Tristan is managing 20 people in a cold mountain refuge. The ground is frozen, making traditional digging difficult. They need a 2-week sanitation plan that works in the snow.
 
 ### Prompt
 ```text
-Scenario: Cold mountain refuge.
-Task: Design a sanitation system for the next 2 weeks that minimises faecal-oral disease. Do not ask clarifying questions; state assumptions.
-Include:
-- Latrine/waste design and placement
-- Handwashing system and resupply
-- Greywater and rubbish handling
-- A maintenance rota and simple rules for everyone
+We have 20 people here in the refuge and it's sub-zero outside. The ground is rock hard with ice, so we can't just dig a deep hole. 
+
+How do we handle sanitation for the next two weeks so we don't get sick? I need to know how to set up the latrine area, a handwashing system that won't just freeze up, and how to deal with trash and greywater. Can you give me a maintenance rota and some simple rules for the group to follow?
 ```
 
 ### Rubric (10 points)
@@ -624,20 +523,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 20 people, snowy winter, frequent sub-zero nights
-- Water sources: snow/ice + small stream
-- Fuel available as wood; shelter is enclosed
-- Equipment: pot, stove, containers, cloth
+Tristan is at a cold mountain refuge with 20 people. While the cold helps, thawing and indoor cooking create contamination risks. There is no refrigeration.
 
 ### Prompt
 ```text
-Scenario: Cold mountain refuge.
-Task: Create a practical food safety and preservation plan for the next 14 days. Assume no refrigeration.
-Include:
-- Rules to prevent cross-contamination and food poisoning
-- At least two preservation methods suited to the scenario
-- How to run a clean communal cooking area
-- What to do when you are unsure if food is safe
+We're in a mountain refuge with 20 people and no fridge. It's freezing outside, but we're living and cooking in a small enclosed space. 
+
+How do we keep our food safe for the next 14 days? I need rules to prevent cross-contamination, two ways to preserve food that make sense for this environment, and advice on running a clean communal kitchen. Also, what do we do if we're not sure if something is safe to eat?
 ```
 
 ### Rubric (10 points)
@@ -668,21 +560,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 20 people, snowy winter, frequent sub-zero nights
-- Water sources: snow/ice + small stream
-- Fuel available as wood; shelter is enclosed
-- Equipment: pot, stove, containers, cloth
+Tristan is in an enclosed mountain refuge with 20 people. Over 48 hours, 8 people have developed fever, cough, and shortness of breath. The cold forces everyone to stay close together.
 
 ### Prompt
 ```text
-Scenario: Cold mountain refuge.
-Situation: Over 48 hours, 8 people develop fever, cough, and shortness of breath.
-Task: Write an outbreak response playbook for the next 7 days. Do not claim you can identify the exact pathogen; focus on practical control.
-Include:
-- Immediate actions in the first 6 hours
-- How to organise care without spreading illness
-- What data to record
-- Clear escalation / danger signs
+We have a serious problem. 8 of our 20 people in the refuge have developed a fever, a bad cough, and they're short of breath. We're all huddled together because of the cold. 
+
+What should I do in the next 6 hours? How can we organize care and sleeping arrangements so everyone doesn't get this? What should we be tracking in our logs, and what are the danger signs that someone needs immediate emergency help?
 ```
 
 ### Rubric (10 points)
@@ -713,20 +597,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 120 people in a partially collapsed city block
-- Water sources: rooftop tanks of unknown quality + puddles + broken mains
-- Risk of chemical contamination (oils, solvents) is non-zero
-- Equipment: buckets, cloth, charcoal, some metal piping
+Tristan is with 120 people in a collapsed city block. Water is available in rooftop tanks, puddles, and broken mains, but it might be contaminated with oil or solvents. They have buckets, cloth, charcoal, and metal piping.
 
 ### Prompt
 ```text
-Scenario: Urban ruins.
-Task: Produce a 7-day plan to supply safe drinking water for the group. Do not ask clarifying questions; state any assumptions.
-Your answer must include:
-- A step-by-step treatment process that works with the listed equipment
-- A daily throughput plan (how many litres/day you can produce)
-- A storage and distribution method that prevents recontamination
-- A simple checklist for volunteers to follow
+We have 120 people in these ruins and we're out of clean water. There's water in some rooftop tanks and puddles, but there's a real chance it's contaminated with chemicals or oil. We have buckets, charcoal, and some old metal piping. 
+
+How can we make this water safe for the group for the next 7 days? Give me a step-by-step treatment process, tell me how much we can realistically produce per day for 120 people, and how to store it safely. Please include a checklist for our volunteers.
 ```
 
 ### Rubric (10 points)
@@ -757,20 +634,13 @@ Your answer must include:
 - **Task type:** procedure
 
 ### Scenario
-- 120 people in a partially collapsed city block
-- Water sources: rooftop tanks of unknown quality + puddles + broken mains
-- Risk of chemical contamination (oils, solvents) is non-zero
-- Equipment: buckets, cloth, charcoal, some metal piping
+Tristan is in a partially collapsed city block with 120 people. Living space is tight. They have buckets and charcoal. They need a 2-week sanitation plan to prevent disease spread in high-density conditions.
 
 ### Prompt
 ```text
-Scenario: Urban ruins.
-Task: Design a sanitation system for the next 2 weeks that minimises faecal-oral disease. Do not ask clarifying questions; state assumptions.
-Include:
-- Latrine/waste design and placement
-- Handwashing system and resupply
-- Greywater and rubbish handling
-- A maintenance rota and simple rules for everyone
+There are 120 of us living in these ruins and it's getting cramped. We need a way to handle sanitation for the next two weeks so we don't start a massive outbreak. 
+
+How should we set up and place the latrines? We need a handwashing plan and a way to manage our trash and greywater in this urban area. Can you also give me a maintenance rota and some simple rules for the group to follow?
 ```
 
 ### Rubric (10 points)
@@ -801,20 +671,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 120 people in a partially collapsed city block
-- Water sources: rooftop tanks of unknown quality + puddles + broken mains
-- Risk of chemical contamination (oils, solvents) is non-zero
-- Equipment: buckets, cloth, charcoal, some metal piping
+Tristan’s group (120 people) is in urban ruins. There is no refrigeration. Potential food sources include old canned goods and whatever can be found, but chemical and rodent contamination is a risk.
 
 ### Prompt
 ```text
-Scenario: Urban ruins.
-Task: Create a practical food safety and preservation plan for the next 14 days. Assume no refrigeration.
-Include:
-- Rules to prevent cross-contamination and food poisoning
-- At least two preservation methods suited to the scenario
-- How to run a clean communal cooking area
-- What to do when you are unsure if food is safe
+We have 120 people in these city ruins and no fridge. We're worried about chemicals, rodents, and food spoilage. 
+
+How can we keep our food safe for the next 14 days? I need rules for preventing cross-contamination, at least two preservation methods that work in an urban ruin, and advice on running a clean communal kitchen. Also, what should we do if we're not sure if a can or some found food is actually safe?
 ```
 
 ### Rubric (10 points)
@@ -845,21 +708,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 120 people in a partially collapsed city block
-- Water sources: rooftop tanks of unknown quality + puddles + broken mains
-- Risk of chemical contamination (oils, solvents) is non-zero
-- Equipment: buckets, cloth, charcoal, some metal piping
+Tristan is in urban ruins with 120 people. Over 48 hours, 8 people have developed fever, cough, and shortness of breath. The area is dusty and people are sleeping in close quarters.
 
 ### Prompt
 ```text
-Scenario: Urban ruins.
-Situation: Over 48 hours, 8 people develop fever, cough, and shortness of breath.
-Task: Write an outbreak response playbook for the next 7 days. Do not claim you can identify the exact pathogen; focus on practical control.
-Include:
-- Immediate actions in the first 6 hours
-- How to organise care without spreading illness
-- What data to record
-- Clear escalation / danger signs
+It's bad. 8 of our 120 people have developed a fever, a cough, and they can't catch their breath. We're all living on top of each other in these ruins. 
+
+What should I do in the next 6 hours to handle this? How can we set up care and living spaces so everyone doesn't get this? What information should we be recording, and what are the danger signs that someone needs urgent help?
 ```
 
 ### Rubric (10 points)
@@ -890,20 +745,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 40 people near fields and livestock (chickens, goats)
-- Water source: small pond + seasonal stream
-- Food: milk, eggs, vegetables; rodents present
-- Equipment: pots, salt, clay jars, firewood
+Tristan is near fields and livestock (goats, chickens) with 40 people. Water comes from a pond and seasonal stream. There are rodents around. They have pots, salt, clay jars, and firewood.
 
 ### Prompt
 ```text
-Scenario: Mixed farmstead.
-Task: Produce a 7-day plan to supply safe drinking water for the group. Do not ask clarifying questions; state any assumptions.
-Your answer must include:
-- A step-by-step treatment process that works with the listed equipment
-- A daily throughput plan (how many litres/day you can produce)
-- A storage and distribution method that prevents recontamination
-- A simple checklist for volunteers to follow
+We have 40 people here near some livestock and the only water is a pond and a stream. I'm worried because of the animal waste. We have some pots, salt, clay jars, and firewood. 
+
+How can we make enough safe water for the group for the next week? Give me a step-by-step process for treating it, tell me how much we can produce each day, and how to store it safely so it doesn't get contaminated. Please include a checklist for the team to follow.
 ```
 
 ### Rubric (10 points)
@@ -934,20 +782,13 @@ Your answer must include:
 - **Task type:** procedure
 
 ### Scenario
-- 40 people near fields and livestock (chickens, goats)
-- Water source: small pond + seasonal stream
-- Food: milk, eggs, vegetables; rodents present
-- Equipment: pots, salt, clay jars, firewood
+Tristan is at a farmstead with 40 people. There are goats, chickens, and rodents nearby. Manure and waste are attracting flies. They need a 2-week sanitation plan to separate human and animal waste.
 
 ### Prompt
 ```text
-Scenario: Mixed farmstead.
-Task: Design a sanitation system for the next 2 weeks that minimises faecal-oral disease. Do not ask clarifying questions; state assumptions.
-Include:
-- Latrine/waste design and placement
-- Handwashing system and resupply
-- Greywater and rubbish handling
-- A maintenance rota and simple rules for everyone
+We have 40 people living on this farm and with all the livestock and rodents, things are getting messy. We need a sanitation system for the next two weeks to prevent disease. 
+
+How should we design and place our latrines? We need a handwashing setup and a way to deal with greywater and trash. Can you also give me a maintenance schedule and some simple rules for everyone so we don't end up sick from the animal or human waste?
 ```
 
 ### Rubric (10 points)
@@ -978,20 +819,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 40 people near fields and livestock (chickens, goats)
-- Water source: small pond + seasonal stream
-- Food: milk, eggs, vegetables; rodents present
-- Equipment: pots, salt, clay jars, firewood
+Tristan’s group (40 people) is at a farmstead. They have milk, eggs, and vegetables. There are rodents around and no refrigeration. Firewood is available for cooking.
 
 ### Prompt
 ```text
-Scenario: Mixed farmstead.
-Task: Create a practical food safety and preservation plan for the next 14 days. Assume no refrigeration.
-Include:
-- Rules to prevent cross-contamination and food poisoning
-- At least two preservation methods suited to the scenario
-- How to run a clean communal cooking area
-- What to do when you are unsure if food is safe
+We have 40 people here on the farm. We've got milk, eggs, and veggies, but no fridge. The rodents are a constant problem. 
+
+How do we keep our food safe for the next 14 days? I need rules to stop cross-contamination, at least two ways to preserve our food without a fridge, and advice on keeping the communal kitchen clean. Also, what should we do if we suspect something has gone bad?
 ```
 
 ### Rubric (10 points)
@@ -1022,21 +856,13 @@ Include:
 - **Task type:** procedure
 
 ### Scenario
-- 40 people near fields and livestock (chickens, goats)
-- Water source: small pond + seasonal stream
-- Food: milk, eggs, vegetables; rodents present
-- Equipment: pots, salt, clay jars, firewood
+Tristan is at a farmstead with 40 people. Over 48 hours, 8 people have developed watery diarrhoea and vomiting. There are goats, chickens, and rodents nearby.
 
 ### Prompt
 ```text
-Scenario: Mixed farmstead.
-Situation: Over 48 hours, 8 people develop watery diarrhoea and vomiting.
-Task: Write an outbreak response playbook for the next 7 days. Do not claim you can identify the exact pathogen; focus on practical control.
-Include:
-- Immediate actions in the first 6 hours
-- How to organise care without spreading illness
-- What data to record
-- Clear escalation / danger signs
+We've got an emergency. 8 of our 40 people are vomiting and have watery diarrhoea. We're on a farm with animals and rodents everywhere. I need a response playbook for the next week. 
+
+What are the first things I should do in the next 6 hours? How can we care for the sick without this spreading to everyone else? What records should we keep, and what are the specific red flags that mean someone is in real danger?
 ```
 
 ### Rubric (10 points)
@@ -1058,5 +884,3 @@ Include:
 
 ### Reference facts (for judge)
 - Zoonotic and waterborne risks are high around livestock; outbreak response must combine hygiene, isolation, and dehydration treatment with fly/rodent control and safe manure handling.
-
----

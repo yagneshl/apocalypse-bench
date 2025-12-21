@@ -4,13 +4,11 @@
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** You are making a machine part. You need to measure it very precisely (better than your ruler allows).
-- **Resources:** A ruler with only 1mm marks, a scribe, a strip of metal.
+- **Situation:** The person is making a precise machine part and needs to measure dimensions down to 0.1 millimeters. However, they only have a standard ruler with 1 mm markings, a metal scribe, and a strip of scrap metal to work with.
 
 ### Prompt
 ```text
-I need to measure a part more accurately than my ruler allows. I need to measure 0.1 millimeters, but my ruler only shows 1 millimeter marks.
-How can I make a sliding tool to read the tenths?
+I'm trying to measure a part really accurately, but my ruler only has 1 mm marks on it. I need to get it down to a tenth of a millimeter (0.1 mm). Is there a way I can make some kind of sliding tool or an attachment out of a strip of metal that would let me read those tiny fractions? How do I mark it out so the lines actually line up correctly?
 ```
 
 ### Rubric (10 points)
@@ -36,14 +34,11 @@ How can I make a sliding tool to read the tenths?
 - **Task type:** procedure
 
 ### Scenario
-- Lost at sea or in desert
-- You have a clear view of the night sky (Northern Hemisphere)
-- You have a stick and a protractor/string
+- **Situation:** The person is lost in the Northern Hemisphere at night. They need to determine their latitude to figure out their position. They have access to basic materials: a straight stick, a protractor, some string, and a small weight.
 
 ### Prompt
 ```text
-Explain how to determine your latitude at night using the stars and simple angle-measuring tools you can make (stick, string, weight, protractor).
-Include how you find the relevant reference star and how you measure its angle above the horizon.
+I'm stuck outside at night in the Northern Hemisphere and I've lost my way. I have a protractor, some string, a heavy nut for a weight, and a stick. How can I use the stars to figure out my latitude? I need a step-by-step on how to find the right star and how to use these tools to get an actual degree measurement.
 ```
 
 ### Rubric (10 points)
@@ -51,17 +46,15 @@ Include how you find the relevant reference star and how you measure its angle a
 2.  Truth anchor: In the Northern Hemisphere, the altitude of the North Celestial Pole above the horizon equals your latitude.
 3.  Finding the reference point: Identify the Little Dipper/Ursa Minor, or use the Big Dipper’s pointer stars to locate the star near the north celestial pole.
 4.  Measuring angle: Quadrant (Quarter circle with plumb bob). Sight along top edge to star, read string angle.
-5.  Accuracy check (hand widths: pinky ~1°, fist ~10°).
+5.  Accuracy check (hand widths: pinky \( \sim 1^\circ \), fist \( \sim 10^\circ \)).
 6.  Correction: Horizon dip (minor, but good to mention).
 7.  Southern hemisphere variation (Southern Cross/no pole star).
 8.  Clear structure.
 9.  Actionable steps.
 10. Limitation: Doesn't give Longitude.
 
-
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -71,13 +64,11 @@ Include how you find the relevant reference star and how you measure its angle a
 - **Task type:** procedure
 
 ### Scenario
-- You have a digital watch set to GMT (London time) that still works
-- You need to know your longitude
+- **Situation:** The person needs to find their longitude. They have a digital watch that is still functioning and set to GMT (London time). They have a clear sunny day and can set up a basic sun dial.
 
 ### Prompt
 ```text
-Describe the method of finding Local Apparent Noon and calculating longitude.
-Explain the math (degrees per hour).
+I have a digital watch that is still set to London time (GMT), but I'm lost and need to know my longitude. I can see the sun and I have a stick I can put in the ground. How do I find "local noon" here, and what's the math to turn the time on my watch into my East/West position?
 ```
 
 ### Rubric (10 points)
@@ -87,15 +78,13 @@ Explain the math (degrees per hour).
 4.  Calculation: Compare Local Noon time on watch to 12:00 GMT.
 5.  Example: If Local Noon happens at 14:00 GMT, you are 2 hours "behind" the sun -> 30 degrees West.
 6.  Truth anchor: 1 hour difference = 15 degrees longitude. Earlier = East, Later = West.
-7.  Equation of Time note (Sun isn't perfectly consistent, varies +/- 16 mins), nice to have but not auto-fail.
+7.  Equation of Time note (Sun isn't perfectly consistent, varies \( \pm 16 \) mins), nice to have but not auto-fail.
 8.  Clear structure.
 9.  Actionable steps.
 10. Limitation: Accuracy depends on exact determination of shortest shadow.
 
-
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -105,32 +94,27 @@ Explain the math (degrees per hour).
 - **Task type:** procedure
 
 ### Scenario
-- Calculators are dead
-- You need to multiply large numbers and do square roots quickly for engineering
-- You have wood, paper, and a ruler
+- **Situation:** The person is performing engineering tasks that require multiplying large numbers and finding square roots, but no calculators are available. They have scrap wood, paper, and a ruler to build a manual calculating aid.
 
 ### Prompt
 ```text
-How can I build a simple tool to multiply large numbers using two strips of wood/paper and a ruler?
-Explain the principle that makes the markings work and how to use the tool.
+I'm doing some calculations for a project and I don't have a calculator. I remember seeing these old sliding rulers made of wood or paper that could multiply big numbers just by moving them back and forth. How do I actually make one of those using a regular ruler to mark the lines? What is the math principle that makes the markings work?
 ```
 
 ### Rubric (10 points)
 1.  Directly answers the task.
-2.  Math principle: log(a * b) = log(a) + log(b).
+2.  Math principle: \( \log(a \times b) = \log(a) + \log(b) \).
 3.  Construction: Mark two strips with logarithmic spacing (1 at start, 10 at end, 2 is at 30.1% distance, etc.).
 4.  Operation: Slide scale B's "1" to align with Scale A's number "2". Look at Scale B's "3". The aligned number on Scale A is the answer (6).
 5.  Truth anchor: Adding physical distance on a log scale represents multiplication of the values.
-6.  Verification points (log(10)=1, log(1)=0).
+6.  Verification points (\( \log(10)=1 \), \( \log(1)=0 \)).
 7.  Clear structure.
 8.  Actionable steps.
 9.  Precision limitation (reading the markings).
 10. Mentioning Trig scales (optional).
 
-
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -140,14 +124,11 @@ Explain the principle that makes the markings work and how to use the tool.
 - **Task type:** procedure
 
 ### Scenario
-- Need to control humidity in greenhouse or hospital
-- No hygrometer
-- Two thermometers available
+- **Situation:** The person needs to monitor humidity for a greenhouse or medical area but lacks a dedicated hygrometer. They happen to have two standard liquid thermometers and basic materials like cloth and water.
 
 ### Prompt
 ```text
-How can I measure relative humidity using two thermometers and simple materials?
-Explain how evaporation cooling relates to humidity and how to interpret the readings.
+I need to keep track of the humidity in my greenhouse, but I don't have a humidity sensor. I do have two regular thermometers, though. Is there a way to use them to figure out how much moisture is in the air? I've heard you can use a wet cloth for this, but I don't know the steps or how to read the results.
 ```
 
 ### Rubric (10 points)
@@ -162,10 +143,8 @@ Explain how evaporation cooling relates to humidity and how to interpret the rea
 9.  Sling psychrometer concept.
 10. Accuracy limitations.
 
-
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -175,14 +154,11 @@ Explain how evaporation cooling relates to humidity and how to interpret the rea
 - **Task type:** procedure
 
 ### Scenario
-- Have a beam scale
-- Need to weigh 5 grams of medicine
-- Have modern currency (US Cents/Nickels or Euro cents)
+- **Situation:** The person has a simple beam balance scale and needs to weigh out a specific amount (5 grams) of medicine or chemicals. They have no official weights but do have standard modern coins in their pocket.
 
 ### Prompt
 ```text
-List the standard weights of common coins (e.g. US Nickel = 5.0g).
-How do you use this to calibrate/check a scale?
+I have a basic beam scale but no weights for it. I need to weigh out exactly 5 grams of something. Can I use common coins as a substitute for weights? Which ones should I use to get exactly 5 grams, and are there any tips for making sure the measurement is actually accurate?
 ```
 
 ### Rubric (10 points)
@@ -197,10 +173,8 @@ How do you use this to calibrate/check a scale?
 9.  Stacking for larger weights.
 10. Sensitivity check.
 
-
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -210,13 +184,11 @@ How do you use this to calibrate/check a scale?
 - **Task type:** procedure
 
 ### Scenario
-- Need to know distance to a landmark across a river
-- No tools
+- **Situation:** The person is standing on the edge of a river and needs to estimate the distance to a landmark on the opposite side. They have no tools, measuring tapes, or equipment.
 
 ### Prompt
 ```text
-How can I estimate the distance to a landmark across a river using only my outstretched arm and my eyes?
-Describe a repeatable step-by-step method and the key assumptions/limitations.
+I'm standing at a river and I need to figure out how far it is to the other side, but I don't have a rangefinder or even a ruler. I remember there's some kind of trick using your thumb or your eyes to estimate distance. Can you walk me through how to do that step-by-step?
 ```
 
 ### Rubric (10 points)
@@ -230,7 +202,6 @@ Describe a repeatable step-by-step method and the key assumptions/limitations.
 8.  Clear structure.
 9.  Actionable steps.
 10. Accuracy (rough estimate).
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
