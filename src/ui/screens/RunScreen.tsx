@@ -65,10 +65,8 @@ export function RunScreen(props: {
   // budget_spent includes in-flight spend which can make the header look much higher mid-run.
   const totalCostUsd = candidateCostUsd;
   const judgeCostUsdRaw =
-    stats.budgetSpentJudgeUsd != null && stats.budgetSpentCandidateUsd != null
-      ? stats.budgetSpentUsd == null
-        ? null
-        : Math.max(0, stats.budgetSpentUsd - stats.budgetSpentCandidateUsd)
+    stats.budgetSpentUsd != null && stats.budgetSpentCandidateUsd != null
+      ? Math.max(0, stats.budgetSpentUsd - stats.budgetSpentCandidateUsd)
       : null;
   const judgeCostUsd =
     judgeCostUsdRaw == null

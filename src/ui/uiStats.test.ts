@@ -155,6 +155,9 @@ describe('computeUiStats', () => {
       completedCount: 3,
       failedCount: 0,
       runningScoreSum: 3,
+      budgetSpentUsd: 0,
+      budgetSpentCandidateUsd: 0,
+      budgetSpentJudgeUsd: 0,
       tpsSamples: [],
       perModelTpsSamples: {},
       perModel: {
@@ -205,6 +208,9 @@ describe('computeUiStats', () => {
       completedCount: 3,
       failedCount: 0,
       runningScoreSum: 3,
+      budgetSpentUsd: 0,
+      budgetSpentCandidateUsd: 0,
+      budgetSpentJudgeUsd: 0,
       tpsSamples: [10, 50, 100],
       perModelTpsSamples: { m1: [10, 50, 100] },
       perModel: {
@@ -243,6 +249,9 @@ describe('computeUiStats', () => {
       completedCount: 4,
       failedCount: 0,
       runningScoreSum: 4,
+      budgetSpentUsd: 0,
+      budgetSpentCandidateUsd: 0,
+      budgetSpentJudgeUsd: 0,
       tpsSamples: [10, 20, 30, 40],
       perModelTpsSamples: { m1: [10, 20, 30, 40] },
       perModel: {

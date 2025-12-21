@@ -21,18 +21,18 @@ candidate:
   maxTokens: 800
 
 judge:
-  # router: 'openrouter'
-  # model: 'google/gemini-3-flash-preview'
-  # provider: 'google-ai-studio'
-  # temperature: null
-  # maxTokens: 16000
-  # structured: true
   router: 'openrouter'
-  model: 'xiaomi/mimo-v2-flash:free'
-  provider: 'xiaomi/fp8'
+  model: 'google/gemini-3-flash-preview'
+  provider: 'google-ai-studio'
   temperature: null
   maxTokens: 16000
   structured: true
+  # router: 'openrouter'
+  # model: 'xiaomi/mimo-v2-flash:free'
+  # provider: 'xiaomi/fp8'
+  # temperature: null
+  # maxTokens: 16000
+  # structured: true
 
 routers:
   ollama:
@@ -57,10 +57,10 @@ routers:
       timeoutMs: 120000
 
 models:
-  # - id: 'liquid/lfm-2.2-6b'
-  #   router: 'openrouter'
-  #   model: 'liquid/lfm-2.2-6b'
-  #   provider: 'liquid'
+  - id: 'liquid/lfm-2.2-6b'
+    router: 'openrouter'
+    model: 'liquid/lfm-2.2-6b'
+    provider: 'liquid'
   # - id: 'liquid/lfm2-8b-a1b'
   #   router: 'openrouter'
   #   model: 'liquid/lfm2-8b-a1b'
@@ -89,6 +89,18 @@ models:
   #   router: 'openrouter'
   #   model: 'google/gemma-3-12b-it'
   #   provider: 'deepinfra/bf16'
-  - id: 'gemma3:4b'
-    router: 'ollama'
-    model: 'gemma3:4b'
+  # - id: 'qwen3-8b'
+  #   router: 'openrouter'
+  #   model: 'qwen/qwen3-8b'
+  #   provider: 'fireworks'
+  # - id: 'ministral-3b-2512'
+  #   router: 'openrouter'
+  #   model: 'mistralai/ministral-3b-2512'
+  #   provider: 'mistral'
+  # - id: 'ministral-8b-2512'
+  #   router: 'openrouter'
+  #   model: 'mistralai/ministral-8b-2512'
+  #   provider: 'mistral'
+  # - id: 'gemma3:4b'
+  #   router: 'ollama'
+  #   model: 'gemma3:4b'

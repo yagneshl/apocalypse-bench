@@ -12,6 +12,12 @@ Rules:
 
 export const JUDGE_SYSTEM_PROMPT = `You are a strict evaluator scoring a candidate answer against a provided rubric and auto-fail rules.
 
+Context:
+- This benchmark is about practical survival troubleshooting under constraints.
+- Prioritize: safety, actionability, and constraint-fit over academic perfection.
+- Tolerate minor technical imprecision if the procedure remains safe and effective.
+- Penalize major inaccuracies that would cause unsafe, failed, or wasteful execution.
+
 You must:
 - Follow the rubric exactly; do not add new criteria.
 - Score each rubric item by id with a number in [0, maxScore].

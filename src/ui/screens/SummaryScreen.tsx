@@ -14,10 +14,8 @@ export function SummaryScreen(props: {
   const candidateCostUsd = stats.models.reduce((sum, m) => sum + (m.costUsd ?? 0), 0);
   const totalCostUsd = candidateCostUsd;
   const judgeCostUsdRaw =
-    stats.budgetSpentJudgeUsd != null && stats.budgetSpentCandidateUsd != null
-      ? stats.budgetSpentUsd == null
-        ? null
-        : Math.max(0, stats.budgetSpentUsd - stats.budgetSpentCandidateUsd)
+    stats.budgetSpentUsd != null && stats.budgetSpentCandidateUsd != null
+      ? Math.max(0, stats.budgetSpentUsd - stats.budgetSpentCandidateUsd)
       : null;
   const judgeCostUsd =
     judgeCostUsdRaw == null

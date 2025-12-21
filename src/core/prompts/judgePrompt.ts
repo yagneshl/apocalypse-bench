@@ -13,13 +13,18 @@ export function buildJudgePrompt(params: {
   const rubricIds = question.rubric.map(r => r.id).join(', ');
 
   return [
-    'You are a strict evaluator. Output ONLY valid JSON matching the requested schema.',
+    'You are a strict evaluator of rubric compliance and JSON format.',
+    'This is a survival scenario: score for practical usefulness and safety under constraints, not academic precision.',
+    'Minor terminology/physics imprecision is acceptable if the procedure remains safe and effective.',
+    'Penalize major inaccuracies that would cause unsafe, failed, or wasteful execution.',
     'Return rubric_scores as an object with EVERY rubric id as a key.',
     `Required rubric ids: ${rubricIds}.`,
     'Do NOT omit any id. Do NOT add extra ids. Use numbers only.',
     'Score each rubric item by id with a number within [0, maxScore].',
     'If auto_fail triggers, set auto_fail=true, overall_score=0, and include a reason.',
     'Keep notes concise and specific.',
+    'Score based only on evidence in the candidate answer; do not assume missing steps were done.',
+    'Reward clear steps, checks/verification, stop-work triggers, and safe fallbacks when uncertainty exists.',
     '',
     'Output JSON with exactly these keys:',
     'rubric_scores, auto_fail, auto_fail_reason, overall_score, notes',

@@ -43,6 +43,9 @@ export type UiTotals = {
   completedCount: number;
   failedCount: number;
   runningScoreSum: number;
+  budgetSpentUsd: number;
+  budgetSpentCandidateUsd: number;
+  budgetSpentJudgeUsd: number;
   tpsSamples: number[];
   perModelTpsSamples: Record<string, number[]>;
   perModel: Record<
@@ -146,6 +149,14 @@ export function computeUiStats(params: {
   const perModel = new Map<string, ModelAgg>();
   const perModelTps = new Map<string, number>();
 
+  const budgetsFromTotals = totals
+    ? {
+        budgetSpentUsd: totals.budgetSpentUsd,
+        budgetSpentCandidateUsd: totals.budgetSpentCandidateUsd,
+        budgetSpentJudgeUsd: totals.budgetSpentJudgeUsd,
+      }
+    : null;
+
   for (const e of events) {
     if (e.type === 'generation_metrics') {
       const generationId = (e as { generationId?: unknown } | null | undefined)
@@ -190,10 +201,10 @@ export function computeUiStats(params: {
 
     if (e.type === 'budget_spent') {
       budgetSpentUsd = e.spentUsd;
-      if ((e as { source?: unknown } | null | undefined)?.source === 'candidate') {
+      if (e.source === 'candidate') {
         budgetSpentCandidateUsd = e.spentUsd;
       }
-      if ((e as { source?: unknown } | null | undefined)?.source === 'judge') {
+      if (e.source === 'judge') {
         budgetSpentJudgeUsd = e.spentUsd;
       }
       continue;
@@ -203,6 +214,35 @@ export function computeUiStats(params: {
       budgetMaxUsd = e.maxBudgetUsd;
       continue;
     }
+  }
+
+  // If totals were provided, they are the source of truth for monotonic aggregates.
+  // Otherwise, we fall back to the recent event window values collected above.
+  if (budgetsFromTotals) {
+    budgetSpentUsd = budgetsFromTotals.budgetSpentUsd;
+    budgetSpentCandidateUsd = budgetsFromTotals.budgetSpentCandidateUsd;
+    budgetSpentJudgeUsd = budgetsFromTotals.budgetSpentJudgeUsd;
+  }
+
+  // Normalize absent budget data to null (not undefined) for stability across call sites.
+  if (budgetSpentUsd == null) budgetSpentUsd = null;
+  if (budgetSpentCandidateUsd == null) budgetSpentCandidateUsd = null;
+  if (budgetSpentJudgeUsd == null) budgetSpentJudgeUsd = null;
+
+  if (budgetSpentUsd != null && (!Number.isFinite(budgetSpentUsd) || budgetSpentUsd < 0)) {
+    budgetSpentUsd = null;
+  }
+  if (
+    budgetSpentCandidateUsd != null &&
+    (!Number.isFinite(budgetSpentCandidateUsd) || budgetSpentCandidateUsd < 0)
+  ) {
+    budgetSpentCandidateUsd = null;
+  }
+  if (
+    budgetSpentJudgeUsd != null &&
+    (!Number.isFinite(budgetSpentJudgeUsd) || budgetSpentJudgeUsd < 0)
+  ) {
+    budgetSpentJudgeUsd = null;
   }
 
   if (totals) {
@@ -242,12 +282,33 @@ export function computeUiStats(params: {
     }
   }
 
+  // When totals is not provided, we can still derive a stable candidate spend from per-model costs.
+  if (!totals) {
+    const candidateCostFromModels = Array.from(perModel.values()).reduce(
+      (sum, m) => sum + m.costUsd,
+      0,
+    );
+    if (budgetSpentCandidateUsd == null && candidateCostFromModels > 0) {
+      budgetSpentCandidateUsd = candidateCostFromModels;
+    }
+  }
+
   if (!totals) {
     let completedCount = 0;
     let failedCount = 0;
     let runningScoreSum = 0;
+    let budgetSpentUsd: number | null = null;
+    let budgetSpentCandidateUsd: number | null = null;
+    let budgetSpentJudgeUsd: number | null = null;
 
     for (const e of events) {
+      if (e.type === 'budget_spent') {
+        budgetSpentUsd = e.spentUsd;
+        if (e.source === 'candidate') budgetSpentCandidateUsd = e.spentUsd;
+        if (e.source === 'judge') budgetSpentJudgeUsd = e.spentUsd;
+        continue;
+      }
+
       if (e.type === 'question_completed') {
         completedCount += 1;
         runningScoreSum += e.overallScore;
@@ -321,6 +382,9 @@ export function computeUiStats(params: {
         completedCount,
         failedCount,
         runningScoreSum,
+        budgetSpentUsd: budgetSpentUsd ?? 0,
+        budgetSpentCandidateUsd: budgetSpentCandidateUsd ?? 0,
+        budgetSpentJudgeUsd: budgetSpentJudgeUsd ?? 0,
         tpsSamples: limitReservoir(tpsSamples),
         perModelTpsSamples: Object.fromEntries(
           Array.from(perModelTpsSamples.entries()).map(([k, v]) => [

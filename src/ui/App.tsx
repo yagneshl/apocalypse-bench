@@ -26,6 +26,9 @@ type TotalsState = {
   completedCount: number;
   failedCount: number;
   runningScoreSum: number;
+  budgetSpentUsd: number;
+  budgetSpentCandidateUsd: number;
+  budgetSpentJudgeUsd: number;
   tpsSamples: number[];
   perModelTpsSamples: Record<string, number[]>;
   perModel: Record<string, ModelTotals>;
@@ -91,6 +94,25 @@ function addToReservoir(reservoir: number[], value: number): number[] {
 }
 
 function totalsReducer(state: TotalsState, e: RunnerEvent): TotalsState {
+  if (e.type === 'budget_spent') {
+    const spentUsd = typeof e.spentUsd === 'number' && Number.isFinite(e.spentUsd) ? e.spentUsd : 0;
+    const nextBudgetSpentUsd = Math.max(state.budgetSpentUsd, spentUsd);
+
+    if (e.source === 'candidate') {
+      return {
+        ...state,
+        budgetSpentUsd: nextBudgetSpentUsd,
+        budgetSpentCandidateUsd: Math.max(state.budgetSpentCandidateUsd, spentUsd),
+      };
+    }
+
+    return {
+      ...state,
+      budgetSpentUsd: nextBudgetSpentUsd,
+      budgetSpentJudgeUsd: Math.max(state.budgetSpentJudgeUsd, spentUsd),
+    };
+  }
+
   // Handle TPS from generation_metrics events
   if (e.type === 'generation_metrics') {
     const tps = (e as { tps?: unknown } | null | undefined)?.tps;
@@ -152,6 +174,9 @@ function buildTotalsFromEvents(events: RunnerEvent[]): TotalsState {
     completedCount: 0,
     failedCount: 0,
     runningScoreSum: 0,
+    budgetSpentUsd: 0,
+    budgetSpentCandidateUsd: 0,
+    budgetSpentJudgeUsd: 0,
     tpsSamples: [],
     perModelTpsSamples: {},
     perModel: {},
