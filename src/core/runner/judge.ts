@@ -3,6 +3,7 @@ import type { z } from 'zod';
 import type { ProviderOptions } from '@ai-sdk/provider-utils';
 import { buildJudgeOutputSchemaWithRubricIds, type JudgeOutput } from './types';
 import { computeBackoffMs, sleep } from '../../utils/backoff';
+import { redactSecrets } from '../../utils/redaction';
 
 const _deps = {
   generateObject,
@@ -35,6 +36,40 @@ type AbortableCall<T> = {
   call: () => Promise<T>;
   abort: () => void;
 };
+
+const REPAIR_PROMPT_MAX_CHARS = 6000;
+
+function debugLogJudgeParsedObject(payload: unknown): void {
+  if (!process.env.DEBUG_JUDGE) return;
+  console.error('[DEBUG_JUDGE] Parsed object:', JSON.stringify(payload, null, 2));
+}
+
+function redactText(text: string): string {
+  const redacted = redactSecrets(text);
+  return typeof redacted === 'string' ? redacted : String(redacted);
+}
+
+function truncateBase(base: string, maxChars: number): string {
+  if (base.length <= maxChars) return base;
+  if (maxChars <= 3) return base.slice(0, maxChars);
+  return `${base.slice(0, maxChars - 3)}...`;
+}
+
+function buildRepairPrompt(
+  req: Pick<JudgeRequest, 'prompt' | 'messages'>,
+  instruction: string,
+): string {
+  const base = req.messages
+    ? req.messages.map((m) => redactText(m.content)).join('\n')
+    : redactText(req.prompt as string);
+  const suffix = `\n\n${instruction}`;
+  if (suffix.length >= REPAIR_PROMPT_MAX_CHARS) {
+    return suffix.slice(0, REPAIR_PROMPT_MAX_CHARS);
+  }
+  const maxBaseChars = REPAIR_PROMPT_MAX_CHARS - suffix.length;
+  const clippedBase = truncateBase(base, maxBaseChars);
+  return `${clippedBase}${suffix}`;
+}
 
 function createAbortableCall<T>(call: (signal: AbortSignal) => Promise<T>): AbortableCall<T> {
   const controller = new AbortController();
@@ -119,9 +154,7 @@ export async function judgeOnce(req: JudgeRequest): Promise<{
   });
 
   // Debug: log parsed object to see what the model is returning
-  if (process.env.DEBUG_JUDGE) {
-    console.error('[DEBUG_JUDGE] Parsed object:', JSON.stringify(result.object, null, 2));
-  }
+  debugLogJudgeParsedObject(result.object);
 
   return {
     object: result.object as JudgeOutput,
@@ -162,11 +195,10 @@ export async function judgeWithRepairRetry(
     if (isRetryableError(err)) throw err;
     if (!NoObjectGeneratedError.isInstance(err)) throw err;
 
-    const retryPrompt =
-      (req.messages
-        ? req.messages.map((m) => m.content).join('\n')
-        : (req.prompt as string)) +
-      '\n\nIMPORTANT: Repair your output to be strictly valid JSON matching the schema. Output JSON only.';
+    const retryPrompt = buildRepairPrompt(
+      req,
+      'IMPORTANT: Repair your output to be strictly valid JSON matching the schema. Output JSON only.',
+    );
 
     const backoff = computeBackoffMs(0, { retries: 1, baseMs: 800, maxMs: 4000 });
     await sleep(backoff);
@@ -201,13 +233,12 @@ export async function judgeWithRubricCompletenessRetry(
   if (missing.length === 0) return first;
 
   const rubricIds = params.rubric.map((r) => r.id).join(', ');
-  const retryPrompt =
-    (req.messages
-      ? req.messages.map((m) => m.content).join('\n')
-      : (req.prompt as string)) +
-    `\n\nIMPORTANT: Your prior output omitted rubric_scores for required ids. ` +
-    `Output JSON only. rubric_scores must include ALL ids: ${rubricIds}. ` +
-    `Do not omit any id.`;
+  const retryPrompt = buildRepairPrompt(
+    req,
+    `IMPORTANT: Your prior output omitted rubric_scores for required ids. ` +
+      `Output JSON only. rubric_scores must include ALL ids: ${rubricIds}. ` +
+      `Do not omit any id.`,
+  );
 
   const second = await judgeWithRepairRetry(
     { ...req, prompt: retryPrompt, messages: undefined },

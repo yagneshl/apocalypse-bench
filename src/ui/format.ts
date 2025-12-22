@@ -1,4 +1,5 @@
 import type { RunnerEvent } from '../core/runner/orchestrator';
+import { normalizeUsage, type NormalizedUsage } from '../core/runner/openrouterUsage';
 
 export function formatNumber(value: number, decimals: number): string {
   if (!Number.isFinite(value)) return '—';
@@ -23,61 +24,7 @@ export function formatDuration(ms: number): string {
   return `${seconds}s`;
 }
 
-export type NormalizedUsage = {
-  promptTokens: number;
-  completionTokens: number;
-  totalTokens: number;
-};
-
-function toNonNegativeInt(value: unknown): number | null {
-  if (typeof value !== 'number' || !Number.isFinite(value)) return null;
-  const rounded = Math.floor(value);
-  return rounded >= 0 ? rounded : null;
-}
-
-export function normalizeOpenAiStyleUsage(usage: unknown): NormalizedUsage | null {
-  const u = usage as
-    | {
-        prompt_tokens?: unknown;
-        completion_tokens?: unknown;
-        total_tokens?: unknown;
-      }
-    | null
-    | undefined;
-  if (!u) return null;
-
-  const promptTokens = toNonNegativeInt(u.prompt_tokens) ?? 0;
-  const completionTokens = toNonNegativeInt(u.completion_tokens) ?? 0;
-  const totalTokens =
-    toNonNegativeInt(u.total_tokens) ??
-    (promptTokens > 0 || completionTokens > 0 ? promptTokens + completionTokens : 0);
-
-  if (totalTokens === 0 && promptTokens === 0 && completionTokens === 0) return null;
-  return { promptTokens, completionTokens, totalTokens };
-}
-
-export function normalizeUsage(usage: unknown): NormalizedUsage | null {
-  const openAi = normalizeOpenAiStyleUsage(usage);
-  if (openAi) return openAi;
-
-  const u = usage as
-    | {
-        promptTokens?: unknown;
-        completionTokens?: unknown;
-        totalTokens?: unknown;
-      }
-    | null
-    | undefined;
-  if (!u) return null;
-
-  const promptTokens = toNonNegativeInt(u.promptTokens) ?? 0;
-  const completionTokens = toNonNegativeInt(u.completionTokens) ?? 0;
-  const totalTokens =
-    toNonNegativeInt(u.totalTokens) ??
-    (promptTokens > 0 || completionTokens > 0 ? promptTokens + completionTokens : 0);
-  if (totalTokens === 0 && promptTokens === 0 && completionTokens === 0) return null;
-  return { promptTokens, completionTokens, totalTokens };
-}
+export { normalizeUsage, type NormalizedUsage };
 
 export function safeJson(value: unknown, maxLen = 240): string {
   try {

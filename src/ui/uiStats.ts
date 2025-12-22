@@ -1,6 +1,6 @@
 import type { ApocbenchConfig } from '../core/config/schema';
 import type { RunnerEvent } from '../core/runner/orchestrator';
-import { normalizeUsage, type NormalizedUsage } from './format';
+import { normalizeUsage, type NormalizedUsage } from '../core/runner/openrouterUsage';
 
 export type ModelUiStats = {
   modelId: string;
