@@ -19,21 +19,21 @@ Can any of these be used to treat my rubber so it stops melting in the heat?
 ```
 
 ### Rubric (10 points)
-1.  **Identification:** Correctlly identifies Jar #2 as **Sulfur** and explains that Jar #1 (Baking Soda) and Jar #3 (Table Salt) are irrelevant to the chemical process of curing rubber.
-2.  **Terminology:** Identifies the required process as **Vulcanization**.
-3.  **Mixing:** Instructs the user to thoroughly knead/mix the Sulfur powder into the raw rubber or latex.
-4.  **Truth Anchor (The "Why"):** Explains that heat triggers the Sulfur atoms to form **cross-links** (or "sulfur bridges") between the long-chain polymer molecules (polyisoprene).
-5.  **Structural Change:** Mentions that these bridges prevent the polymer chains from sliding past one another, which is why the material no longer melts.
-6.  **Temperature:** Specifies the need for heat, ideally between **140°C and 160°C** (approx. 285°F–320°F).
-7.  **Additives:** Suggests adding carbon black (soot/charcoal) for UV protection and increased tensile strength.
-8.  **Forming:** Warns the user to shape the boots *before* the heating process, as vulcanized rubber is a thermoset and cannot be easily reshaped once cured.
-9.  **Safety:** Notes that the process produces toxic/foul-smelling fumes (Sulfur Dioxide) and should be done outdoors or with ventilation.
+1. **Identification:** Correctlly identifies Jar #2 as **Sulfur** and explains that Jar #1 (Baking Soda) and Jar #3 (Table Salt) are irrelevant to the chemical process of curing rubber.
+2. **Terminology:** Identifies the required process as **Vulcanization**.
+3. **Mixing:** Instructs the user to thoroughly knead/mix the Sulfur powder into the raw rubber or latex.
+4. **Truth Anchor (The "Why"):** Explains that heat triggers the Sulfur atoms to form **cross-links** (or "sulfur bridges") between the long-chain polymer molecules (polyisoprene).
+5. **Structural Change:** Mentions that these bridges prevent the polymer chains from sliding past one another, which is why the material no longer melts.
+6. **Temperature:** Specifies the need for heat, ideally between **140°C and 160°C** (approx. 285°F–320°F).
+7. **Additives:** Suggests adding carbon black (soot/charcoal) for UV protection and increased tensile strength.
+8. **Forming:** Warns the user to shape the boots *before* the heating process, as vulcanized rubber is a thermoset and cannot be easily reshaped once cured.
+9. **Safety:** Notes that the process produces toxic/foul-smelling fumes (Sulfur Dioxide) and should be done outdoors or with ventilation.
 10. **Structure:** The response is logical, moving from identification to chemistry, then to the practical step-by-step guide.
 
 ### Auto-fail (score = 0 if any)
--  Suggests using the baking soda or salt to "dry out" the rubber.
--  Suggests "smoking" the rubber as a permanent solution (smoking only preserves it; it does not prevent the thermoplastic melting behavior).
--  Fails to identify Sulfur as the active ingredient.
+- Suggests using the baking soda or salt to "dry out" the rubber.
+- Suggests "smoking" the rubber as a permanent solution (smoking only preserves it; it does not prevent the thermoplastic melting behavior).
+- Fails to identify Sulfur as the active ingredient.
 
 ---
 
@@ -43,7 +43,7 @@ Can any of these be used to treat my rubber so it stops melting in the heat?
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** The user needs to preserve eggs for winter without refrigeration. 
+- **Situation:** The user needs to preserve eggs for winter without refrigeration.
 - **Resources:** They have access to silica sand and a white powder derived from burning seaweed (Soda Ash), and a high-heat furnace.
 
 ### Prompt
@@ -52,15 +52,15 @@ I need to keep a large batch of eggs fresh for the winter but I don't have a fri
 ```
 
 ### Rubric (10 points)
-1.  Identifies the product as **Sodium Silicate** (Waterglass).
-2.  Ingredients: Silica Sand and Soda Ash (Sodium Carbonate).
-3.  Process: Fuse them together in a crucible.
-4.  **Truth Anchor:** Requires melting heat (~1100°C+). The sand and ash melt into a glass.
-5.  Dissolving: Crush the resulting glass and boil it in water (pressure helps) to make a thick syrup.
-6.  Application: Dip eggs in the syrup; it seals the pores preventing air ingress/spoilage.
-7.  Other uses: Fireproof glue/cement.
-8.  Safety: The liquid is highly alkaline (caustic).
-9.  Clear structure.
+1. Identifies the product as **Sodium Silicate** (Waterglass).
+2. Ingredients: Silica Sand and Soda Ash (Sodium Carbonate).
+3. Process: Fuse them together in a crucible.
+4. **Truth Anchor:** Requires melting heat (~1100°C+). The sand and ash melt into a glass.
+5. Dissolving: Crush the resulting glass and boil it in water (pressure helps) to make a thick syrup.
+6. Application: Dip eggs in the syrup; it seals the pores preventing air ingress/spoilage.
+7. Other uses: Fireproof glue/cement.
+8. Safety: The liquid is highly alkaline (caustic).
+9. Clear structure.
 10. Actionable steps.
 
 ### Auto-fail (score = 0 if any)
@@ -83,15 +83,15 @@ I built a clay forge to melt down some metal, but I can't get it hot enough beca
 ```
 
 ### Rubric (10 points)
-1.  Identifies the goal: Creating **Insulating Firebrick** (porous structure).
-2.  Recipe: Mix a very high volume of sawdust (burn-out material) into the clay (up to 50% by volume).
-3.  **Truth Anchor:** When the brick is fired, the sawdust burns away, leaving thousands of tiny air pockets.
-4.  Physics: Stationary air is a poor conductor of heat. The porous brick insulates; dense clay conducts.
-5.  Process: Mold, dry slowly (high shrinkage risk), then fire.
-6.  Application: Use these for the inner lining or outer shell of the forge.
-7.  Trade-off: These bricks are mechanically weaker/softer than dense bricks.
-8.  Clear structure.
-9.  Actionable steps.
+1. Identifies the goal: Creating **Insulating Firebrick** (porous structure).
+2. Recipe: Mix a very high volume of sawdust (burn-out material) into the clay (up to 50% by volume).
+3. **Truth Anchor:** When the brick is fired, the sawdust burns away, leaving thousands of tiny air pockets.
+4. Physics: Stationary air is a poor conductor of heat. The porous brick insulates; dense clay conducts.
+5. Process: Mold, dry slowly (high shrinkage risk), then fire.
+6. Application: Use these for the inner lining or outer shell of the forge.
+7. Trade-off: These bricks are mechanically weaker/softer than dense bricks.
+8. Clear structure.
+9. Actionable steps.
 10. Mentioning charcoal dust or Styrofoam as alternatives.
 
 ### Auto-fail (score = 0 if any)
@@ -307,7 +307,7 @@ I have three things to fix: a loose axe head, a cracked clay cooking pot, and a 
 6. Provides a staged implementation plan for the chosen option.
 7. Identifies key risks/hazards of the recommendation and mitigations.
 8. Provides a fallback option and triggers for switching.
-9. Clear communication (bullets/table) and stated assumptions. 
+9. Clear communication (bullets/table) and stated assumptions.
 10. Acknowledges constraints/uncertainty and how they change the ranking. Keeps answer concise and actionable.
 
 ### Auto-fail (score = 0 if any)
@@ -339,7 +339,7 @@ I've managed to make three different kinds of glue, but I have no idea which one
 7. Provides a staged implementation plan for the chosen option.
 8. Identifies key risks/hazards of the recommendation and mitigations.
 9. Provides a fallback option and triggers for switching.
-10. Clear communication (bullets/table) and stated assumptions. 
+10. Clear communication (bullets/table) and stated assumptions.
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
@@ -432,7 +432,7 @@ Half of my pots are cracking before I even fire them, and the ones that make it 
 7. Includes safety precautions during diagnosis/repair (PPE, isolation, ventilation, etc.). Includes at least 2 specific stop-work triggers.
 8. Verifies the fix (measure/observe performance after changes).
 9. Includes prevention/maintenance steps to avoid recurrence.
-10. Clear structure and assumptions; keeps advice realistic. 
+10. Clear structure and assumptions; keeps advice realistic.
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
@@ -711,7 +711,7 @@ I have a pile of scrap metal that's got some painted pieces, some galvanized stu
 7. Provides a staged implementation plan for the chosen option.
 8. Identifies key risks/hazards of the recommendation and mitigations.
 9. Provides a fallback option and triggers for switching.
-10. Clear communication (bullets/table) and stated assumptions. 
+10. Clear communication (bullets/table) and stated assumptions.
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
@@ -848,7 +848,7 @@ My clothes are starting to fall apart and I can't get new ones. What's the most 
 - **Task type:** procedure
 
 ### Scenario
-- **Situation:** The user needs to produce usable hand and laundry soap for a community. 
+- **Situation:** The user needs to produce usable hand and laundry soap for a community.
 - **Resources:** Wood ash, animal fat (tallow), pots, buckets, and stirring sticks. Limited PPE is available.
 
 ### Prompt
@@ -983,17 +983,16 @@ I've got a pile of scrap metal and I need to pick out the right pieces to make a
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Mild Steel: Long, yellow straws, very few "starbursts" at end.
-3.  High Carbon: Short, energetic, white/bright sparks with *explosive* starbursts/forking.
-4.  Cast Iron: Very short, dull red/straw sparks starting at the wheel.
-5.  Truth anchor: Carbon content drives the "bursting" of the spark. More carbon = more fireworks.
-6.  Stainless note (often short, unbranching).
-7.  Safety (eye protection, fire hazard).
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Mild Steel: Long, yellow straws, very few "starbursts" at end.
+3. High Carbon: Short, energetic, white/bright sparks with *explosive* starbursts/forking.
+4. Cast Iron: Very short, dull red/straw sparks starting at the wheel.
+5. Truth anchor: Carbon content drives the "bursting" of the spark. More carbon = more fireworks.
+6. Stainless note (often short, unbranching).
+7. Safety (eye protection, fire hazard).
+8. Clear structure.
+9. Actionable steps.
 10. Reference standard (testing a known file vs known nail).
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
@@ -1015,17 +1014,16 @@ I need to paint the inside of my clinic so I can keep it clean, but the plain wh
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Chemistry: Lime (Alkaline) hydrolyzes Casein (Milk Protein) to form Calcium Caseinate.
-3.  Truth anchor: This forms a glue/binder that becomes insoluble in water once dry (durable), unlike simple lime wash.
-4.  Recipe: Slaked lime putty + Quark/Curds + Water + Earth pigment.
-5.  Application: Apply thin.
-6.  Spoilage: Use same day (rots liquid, stable dry).
-7.  Antimicrobial properties of lime.
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Chemistry: Lime (Alkaline) hydrolyzes Casein (Milk Protein) to form Calcium Caseinate.
+3. Truth anchor: This forms a glue/binder that becomes insoluble in water once dry (durable), unlike simple lime wash.
+4. Recipe: Slaked lime putty + Quark/Curds + Water + Earth pigment.
+5. Application: Apply thin.
+6. Spoilage: Use same day (rots liquid, stable dry).
+7. Antimicrobial properties of lime.
+8. Clear structure.
+9. Actionable steps.
 10. Surface prep.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.

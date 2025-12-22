@@ -101,7 +101,9 @@ function extractRubricAndReferenceFacts(section: string): { rubric: string[]; re
 function extractAutoFail(section: string): string[] {
   const autoStart = section.indexOf('### Auto-fail');
   if (autoStart === -1) return [];
-  const autoPart = section.slice(autoStart);
+  const afterAuto = section.slice(autoStart);
+  const referenceStart = afterAuto.indexOf('### Reference facts (for judge)');
+  const autoPart = referenceStart === -1 ? afterAuto : afterAuto.slice(0, referenceStart);
 
   const lines = autoPart
     .split('\n')

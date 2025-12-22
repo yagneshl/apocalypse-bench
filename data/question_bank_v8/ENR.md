@@ -4,7 +4,7 @@
 - **Task type:** procedure
 
 ### Scenario
-The person is responsible for feeding a community of 60 people, requiring two hot meals per day. They are currently using open fires, which are consuming far too much wood and creating a dangerous amount of smoke. They have access to bricks, stones, clay, metal pots, and basic hand tools.
+(omitted)
 
 ### Prompt
 ```text
@@ -28,6 +28,7 @@ Can you design a stove for us that is much more efficient than an open fire? I n
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Encourages indoor open fires or stoves with no ventilation/CO precautions.
+- Fuel efficiency comes from complete combustion and good heat transfer: adequate air, insulated firebox, and pot skirts/chimney draft reduce smoke and wood use.
 
 ### Reference facts (for judge)
 - Fuel efficiency comes from complete combustion and good heat transfer: adequate air, insulated firebox, and pot skirts/chimney draft reduce smoke and wood use.
@@ -40,7 +41,7 @@ Can you design a stove for us that is much more efficient than an open fire? I n
 - **Task type:** procedure
 
 ### Scenario
-The person is in a cold winter climate where nights drop below 0°C. They need to keep a small sleeping area warm while using as little fuel as possible. They have no modern insulation, only raw materials like straw, leaves, wool, cloth, clay, and wood.
+(omitted)
 
 ### Prompt
 ```text
@@ -63,6 +64,7 @@ How should I go about fixing up the walls, roof, and floor to keep the heat in? 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Most heat loss is through drafts and the roof; sealing air leaks and insulating the roof/windward side yields big gains, but you must maintain ventilation to prevent CO/moisture buildup.
 
 ### Reference facts (for judge)
 - Most heat loss is through drafts and the roof; sealing air leaks and insulating the roof/windward side yields big gains, but you must maintain ventilation to prevent CO/moisture buildup.
@@ -75,7 +77,7 @@ How should I go about fixing up the walls, roof, and floor to keep the heat in? 
 - **Task type:** critique
 
 ### Scenario
-The person is observing a hut where an indoor fire is kept in a shallow pit. The space is constantly filled with smoke, and the inhabitants are suffering from chronic headaches and sore eyes. They have clay, bricks, metal pipe sections, and basic tools available to fix the situation.
+(omitted)
 
 ### Prompt
 ```text
@@ -99,6 +101,7 @@ Can you tell me why it’s so smoky and dangerous? I need a plan to fix the cook
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Encourages indoor open fires or stoves with no ventilation/CO precautions.
+- Smoke indoors indicates incomplete combustion and dangerous CO; fixing it requires airflow/draft (chimney, air inlet) and ventilation—not just ‘get used to it’.
 
 ### Reference facts (for judge)
 - Smoke indoors indicates incomplete combustion and dangerous CO; fixing it requires airflow/draft (chimney, air inlet) and ventilation—not just ‘get used to it’.
@@ -111,7 +114,7 @@ Can you tell me why it’s so smoky and dangerous? I need a plan to fix the cook
 - **Task type:** procedure
 
 ### Scenario
-The person is managing a community of 100 people in a cold region. They rely on wood for cooking, heating, and small-scale processing (like boiling water). Wood is becoming scarce, and there is very little labor available for harvesting. They need a plan to survive the 3-month winter.
+(omitted)
 
 ### Prompt
 ```text
@@ -134,6 +137,7 @@ Can you help me write a fuel plan for the next 3 months? I need to know how much
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Wet wood wastes energy evaporating water; realistic fuel budgets must use the mass of dry fuel available and prioritise demand reduction (insulation, smaller heated space) over wishful consumption.
 
 ### Reference facts (for judge)
 - Wet wood wastes energy evaporating water; realistic fuel budgets must use the mass of dry fuel available and prioritise demand reduction (insulation, smaller heated space) over wishful consumption.
@@ -146,7 +150,7 @@ Can you help me write a fuel plan for the next 3 months? I need to know how much
 - **Task type:** procedure
 
 ### Scenario
-The person needs to produce charcoal for a blacksmith forge and for cleaner indoor cooking. They do not have metal drums, only shovels, soil, water, and a wood supply.
+(omitted)
 
 ### Prompt
 ```text
@@ -169,6 +173,7 @@ Can you explain how to make charcoal using a pit or a mound? I need to know how 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Charcoal is made by pyrolysis with limited oxygen; too much air turns the batch to ash—control vents and seal the mound/pit once it’s running.
 
 ### Reference facts (for judge)
 - Charcoal is made by pyrolysis with limited oxygen; too much air turns the batch to ash—control vents and seal the mound/pit once it’s running.
@@ -181,7 +186,7 @@ Can you explain how to make charcoal using a pit or a mound? I need to know how 
 - **Task type:** procedure
 
 ### Scenario
-The person has salvaged one steel drum and some basic pipe fittings. They want to produce higher-quality charcoal than a pit would allow, with less waste and smoke. They have basic workshop tools but no welding equipment.
+(omitted)
 
 ### Prompt
 ```text
@@ -204,6 +209,7 @@ Can you help me design a way to make charcoal in this drum? How do I control the
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A retort must vent pyrolysis gases; sealing a drum can cause overpressure, while allowing oxygen in will burn the charge—controlled venting is essential.
 
 ### Reference facts (for judge)
 - A retort must vent pyrolysis gases; sealing a drum can cause overpressure, while allowing oxygen in will burn the charge—controlled venting is essential.
@@ -216,7 +222,7 @@ Can you help me design a way to make charcoal in this drum? How do I control the
 - **Task type:** troubleshoot
 
 ### Scenario
-The person tried making charcoal using a mound covered with soil, lit from one end. However, the result was mostly ash and tiny fragments. The weather is currently very windy and dry.
+(omitted)
 
 ### Prompt
 ```text
@@ -239,6 +245,7 @@ What did I do wrong? Can you help me figure out why it’s over-burning and how 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- If charcoal becomes ash, oxygen is getting in or the burn is too hot/long; the fix is tighter sealing and vent control, not ‘more air’.
 
 ### Reference facts (for judge)
 - If charcoal becomes ash, oxygen is getting in or the burn is too hot/long; the fix is tighter sealing and vent control, not ‘more air’.
@@ -251,7 +258,7 @@ What did I do wrong? Can you help me figure out why it’s over-burning and how 
 - **Task type:** procedure
 
 ### Scenario
-A workshop requires charcoal weekly for forging. The local woodland is limited, and the person wants to ensure they don't deplete the resource. They have a team of 8 people working part-time.
+(omitted)
 
 ### Prompt
 ```text
@@ -274,6 +281,7 @@ How can we set up a charcoal plan that won't destroy the local woods? I need to 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Charcoal yield is only a fraction of the wood input (order of ~1/4–1/3 by mass); sustainable plans must not exceed regrowth/coppice rates and must account for that loss.
 
 ### Reference facts (for judge)
 - Charcoal yield is only a fraction of the wood input (order of ~1/4–1/3 by mass); sustainable plans must not exceed regrowth/coppice rates and must account for that loss.
@@ -286,7 +294,7 @@ How can we set up a charcoal plan that won't destroy the local woods? I need to 
 - **Task type:** procedure
 
 ### Scenario
-The person has access to animal manure and food scraps from a group of 30 people. The climate is mild, but winter nights can drop to 5°C. They have barrels, some salvaged hoses, and valves.
+(omitted)
 
 ### Prompt
 ```text
@@ -310,6 +318,7 @@ Can you show me how to build a simple system to do this? I need to know how to h
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Ignores explosion/asphyxiation risk (no ventilation, open flames near gas, no leak checks).
+- Biogas needs anaerobic digestion: airtight system, correct moisture/feedstock balance, and warm temperatures; leaks and air ingress stop production and create explosion risk.
 
 ### Reference facts (for judge)
 - Biogas needs anaerobic digestion: airtight system, correct moisture/feedstock balance, and warm temperatures; leaks and air ingress stop production and create explosion risk.
@@ -322,7 +331,7 @@ Can you show me how to build a simple system to do this? I need to know how to h
 - **Task type:** troubleshoot
 
 ### Scenario
-A biogas digester was started 3 weeks ago but is producing almost no gas. The feedstock is a mix of manure and vegetable scraps. The system currently has a strong sour smell and a visible layer of scum has formed inside.
+(omitted)
 
 ### Prompt
 ```text
@@ -346,6 +355,7 @@ What’s going wrong? Can you help me figure out why it’s not working and give
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Ignores explosion/asphyxiation risk (no ventilation, open flames near gas, no leak checks).
+- No-gas digesters are often too cold, too acidic, starved/overfed, or leaking; restoring anaerobic conditions and temperature comes before redesigning hardware.
 
 ### Reference facts (for judge)
 - No-gas digesters are often too cold, too acidic, starved/overfed, or leaking; restoring anaerobic conditions and temperature comes before redesigning hardware.
@@ -358,7 +368,7 @@ What’s going wrong? Can you help me figure out why it’s not working and give
 - **Task type:** procedure
 
 ### Scenario
-A team is planning to run biogas pipes into a small, enclosed kitchen and store the gas in a large plastic bag near the stove. They haven't performed any leak testing yet. The person needs to evaluate the safety of this setup.
+(omitted)
 
 ### Prompt
 ```text
@@ -382,6 +392,7 @@ This feels a bit sketchy to me. Can you list the biggest hazards here? I need yo
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Ignores explosion/asphyxiation risk (no ventilation, open flames near gas, no leak checks).
+- Biogas can contain methane (flammable) and H₂S (toxic); installations need ventilation, leak checks, flame arrest/flashback prevention and pressure relief (never a rigid sealed tank).
 
 ### Reference facts (for judge)
 - Biogas can contain methane (flammable) and H₂S (toxic); installations need ventilation, leak checks, flame arrest/flashback prevention and pressure relief (never a rigid sealed tank).
@@ -394,7 +405,7 @@ This feels a bit sketchy to me. Can you list the biggest hazards here? I need yo
 - **Task type:** procedure
 
 ### Scenario
-The person has a lot of digestate (slurry) from their biogas digester and wants to use it as fertilizer for their crops. There are local waterways nearby that they need to protect from runoff.
+(omitted)
 
 ### Prompt
 ```text
@@ -417,6 +428,7 @@ What are the rules for handling this stuff and putting it on the soil safely? Wh
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Digestate can still carry pathogens and nutrients that pollute water; apply to soil with runoff control and avoid direct use on edible leaves shortly before harvest.
 
 ### Reference facts (for judge)
 - Digestate can still carry pathogens and nutrients that pollute water; apply to soil with runoff control and avoid direct use on edible leaves shortly before harvest.
@@ -429,7 +441,7 @@ What are the rules for handling this stuff and putting it on the soil safely? Wh
 - **Task type:** procedure
 
 ### Scenario
-The person has a stream with a small 0.5m drop and decent flow. They need mechanical power for a grain mill. They have wood, rope, and some scrap metal for an axle. They need to protect the system from debris and flooding.
+(omitted)
 
 ### Prompt
 ```text
@@ -452,6 +464,7 @@ Can you help me design a waterwheel system? I need to know how to set up the int
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Waterwheel power is limited by head and flow (∝ ρ g Q h × efficiency); realistic designs must match available site energy and accept that small head/flow means modest power.
 
 ### Reference facts (for judge)
 - Waterwheel power is limited by head and flow (∝ ρ g Q h × efficiency); realistic designs must match available site energy and accept that small head/flow means modest power.
@@ -464,7 +477,7 @@ Can you help me design a waterwheel system? I need to know how to set up the int
 - **Task type:** procedure
 
 ### Scenario
-The person lives in an area with steady winds but frequent gusts. They need to pump water for livestock and irrigation using wood, cloth, rope, and basic fasteners.
+(omitted)
 
 ### Prompt
 ```text
@@ -487,6 +500,7 @@ Can you show me a simple windmill design and how to connect it to a pump? I espe
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Wind power scales with swept area and wind speed cubed; output is intermittent, so pumping/charging needs storage or a plan for calm days.
 
 ### Reference facts (for judge)
 - Wind power scales with swept area and wind speed cubed; output is intermittent, so pumping/charging needs storage or a plan for calm days.
@@ -499,7 +513,7 @@ Can you show me a simple windmill design and how to connect it to a pump? I espe
 - **Task type:** procedure
 
 ### Scenario
-A small hydro system is clogging daily with leaves and sticks, which threatens the power for refrigeration and medical lighting. The person has screens and a few people who can help with a rotation, but they need a more robust plan and design.
+(omitted)
 
 ### Prompt
 ```text
@@ -522,6 +536,7 @@ Can you help me design a better intake so it doesn't clog so easily? I need a so
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Intake screens reduce debris but clog; practical micro-hydro needs bypass/sluicing and safe access for cleaning, or the system will fail in storms.
 
 ### Reference facts (for judge)
 - Intake screens reduce debris but clog; practical micro-hydro needs bypass/sluicing and safe access for cleaning, or the system will fail in storms.
@@ -534,7 +549,7 @@ Can you help me design a better intake so it doesn't clog so easily? I need a so
 - **Task type:** procedure
 
 ### Scenario
-The person has a rotating shaft coming off a waterwheel. They need to use it to power a grain mill and a simple lathe. They only have wood, leather, rope, and minimal metal.
+(omitted)
 
 ### Prompt
 ```text
@@ -557,6 +572,7 @@ How do I use belts or ropes to drive these tools? I need to know how to line the
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Belts/gears trade speed and torque; misalignment causes losses and failures, and unguarded rotating parts are a major injury hazard.
 
 ### Reference facts (for judge)
 - Belts/gears trade speed and torque; misalignment causes losses and failures, and unguarded rotating parts are a major injury hazard.
@@ -569,7 +585,7 @@ How do I use belts or ropes to drive these tools? I need to know how to line the
 - **Task type:** procedure
 
 ### Scenario
-The person has mechanical power from a waterwheel. They have salvaged a few DC motors, some wire, and several old car batteries. They want to set up a system to charge the batteries for lighting and a radio.
+(omitted)
 
 ### Prompt
 ```text
@@ -594,6 +610,7 @@ How do I set this up? I need to know how to wire it all together, how to keep th
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Recommends wiring with no fusing/overcurrent protection or suggests bypassing safety devices.
 - Advocates using damaged/unknown batteries indoors without ventilation or fire precautions.
+- Safe battery charging needs correct voltage/current control and fusing; overcharging and poor ventilation can produce hydrogen and fires—regulation and ventilation are non-negotiable.
 
 ### Reference facts (for judge)
 - Safe battery charging needs correct voltage/current control and fusing; overcharging and poor ventilation can produce hydrogen and fires—regulation and ventilation are non-negotiable.
@@ -606,7 +623,7 @@ How do I set this up? I need to know how to wire it all together, how to keep th
 - **Task type:** procedure
 
 ### Scenario
-The person needs to wire a clinic and workshop for night-time use. They have a 12V battery bank and some LED strips and car bulbs. They have salvaged wire, switches, and some fuses.
+(omitted)
 
 ### Prompt
 ```text
@@ -631,6 +648,7 @@ Can you help me design a 12V wiring system for the buildings? I need to know how
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Recommends wiring with no fusing/overcurrent protection or suggests bypassing safety devices.
 - Advocates using damaged/unknown batteries indoors without ventilation or fire precautions.
+- Voltage drop is I×R: long thin wires cause dim lights and heat; thicker conductors, shorter runs, and fuses near the battery prevent fires and failures.
 
 ### Reference facts (for judge)
 - Voltage drop is I×R: long thin wires cause dim lights and heat; thicker conductors, shorter runs, and fuses near the battery prevent fires and failures.
@@ -643,7 +661,7 @@ Can you help me design a 12V wiring system for the buildings? I need to know how
 - **Task type:** troubleshoot
 
 ### Scenario
-A 12V electrical system is acting up. Whenever the lights are turned on, the radio resets itself. The person noticed that one section of the wiring feels warm to the touch. They have no multimeter, just basic tools.
+(omitted)
 
 ### Prompt
 ```text
@@ -668,6 +686,7 @@ Can you help me figure out what's wrong? I need a step-by-step way to find the f
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Recommends wiring with no fusing/overcurrent protection or suggests bypassing safety devices.
 - Advocates using damaged/unknown batteries indoors without ventilation or fire precautions.
+- Random shutdowns often come from voltage sag under load (thin wires, bad connections, weak batteries); fixing resistance and load management is usually the solution.
 
 ### Reference facts (for judge)
 - Random shutdowns often come from voltage sag under load (thin wires, bad connections, weak batteries); fixing resistance and load management is usually the solution.
@@ -680,7 +699,7 @@ Can you help me figure out what's wrong? I need a step-by-step way to find the f
 - **Task type:** procedure
 
 ### Scenario
-The person has several salvaged lead-acid batteries of unknown age and condition. These will be charged daily and kept near a workshop area where children are often present. They need a formal protocol for handling them.
+(omitted)
 
 ### Prompt
 ```text
@@ -705,6 +724,7 @@ Can you write up a simple guide for how we should handle and look after these ba
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Recommends wiring with no fusing/overcurrent protection or suggests bypassing safety devices.
 - Advocates using damaged/unknown batteries indoors without ventilation or fire precautions.
+- Lead-acid batteries off-gas hydrogen during charging; ventilation and spark control are essential, and deep discharge shortens life—protocols should prevent both.
 
 ### Reference facts (for judge)
 - Lead-acid batteries off-gas hydrogen during charging; ventilation and spark control are essential, and deep discharge shortens life—protocols should prevent both.
@@ -717,7 +737,7 @@ Can you write up a simple guide for how we should handle and look after these ba
 - **Task type:** procedure
 
 ### Scenario
-Tristan is helping a settlement of 120 people in a temperate climate with a nearby stream and woods. They want to move from having almost nothing to having reliable cooking, heat, mechanical power, and basic light over the next two years.
+(omitted)
 
 ### Prompt
 ```text
@@ -740,6 +760,7 @@ Can you give me a 2-year roadmap for this? Break it down into the first 3 months
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Early ‘energy civilisation’ is mostly heat and mechanical power; efficient stoves/insulation and simple mechanical drives deliver more benefit sooner than chasing full electrification.
 
 ### Reference facts (for judge)
 - Early ‘energy civilisation’ is mostly heat and mechanical power; efficient stoves/insulation and simple mechanical drives deliver more benefit sooner than chasing full electrification.
@@ -752,7 +773,7 @@ Can you give me a 2-year roadmap for this? Break it down into the first 3 months
 - **Task type:** compare
 
 ### Scenario
-The person has enough labor and materials to start exactly one major project this month. Their goal is to reduce the community's fuel burden. The options are a charcoal kiln, a biogas digester, or a waterwheel. They have 8 people available.
+(omitted)
 
 ### Prompt
 ```text
@@ -775,6 +796,7 @@ Tell me which one is best to do right now and why. What are we missing out on by
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Energy choices must respect constraints: intermittent sources need storage, heat needs local fuel, and ‘more complex’ isn’t automatically better—compare by power, labour, maintenance, and risk.
 
 ### Reference facts (for judge)
 - Energy choices must respect constraints: intermittent sources need storage, heat needs local fuel, and ‘more complex’ isn’t automatically better—compare by power, labour, maintenance, and risk.
@@ -787,7 +809,7 @@ Tell me which one is best to do right now and why. What are we missing out on by
 - **Task type:** critique
 
 ### Scenario
-An enthusiastic but inexperienced person has proposed a plan to immediately switch the community to high-tech energy. The plan involves building solar panels and lithium batteries from scratch to power electric stoves and stop using wood entirely.
+(omitted)
 
 ### Prompt
 ```text
@@ -810,6 +832,7 @@ Can you tell me if this is actually realistic for us in the short term? If not, 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Energy plans fail when they ignore energy density, build time, and maintenance; a feasible plan starts with demand reduction and proven low-tech sources before scaling complexity.
 
 ### Reference facts (for judge)
 - Energy plans fail when they ignore energy density, build time, and maintenance; a feasible plan starts with demand reduction and proven low-tech sources before scaling complexity.
@@ -822,7 +845,7 @@ Can you tell me if this is actually realistic for us in the short term? If not, 
 - **Task type:** procedure
 
 ### Scenario
-A massive storm has destroyed most of the community's stored firewood just as winter is beginning. Being able to cook and boil water for safety is critical. They have some tools left and can gather loose biomass.
+(omitted)
 
 ### Prompt
 ```text
@@ -845,6 +868,236 @@ Can you help me write a 2-week emergency energy plan? We need to know how to rat
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Fuel shock response should prioritise life-critical needs and demand reduction first; switching fuels without ventilation/safety controls can increase CO/fire deaths.
 
 ### Reference facts (for judge)
 - Fuel shock response should prioritise life-critical needs and demand reduction first; switching fuels without ventilation/safety controls can increase CO/fire deaths.
+
+---
+
+## ENR-025: Building a Chemical Rectifier (Noda Valve)
+- **Category:** Energy
+- **Difficulty:** Very Hard
+- **Task type:** procedure
+
+### Scenario
+- **Situation:** The person has a generator from a windmill that produces AC power. They need DC power to charge a car battery.
+- **Resources:** Lead pipes, Aluminum cans, Baking Soda, jars, wire.
+- **Constraint:** No electronics store. No diodes.
+
+### Prompt
+```text
+Hey, I've got this windmill making AC power but I need to charge a car battery. I don't have any diodes or electronics. I have some lead pipes, aluminum cans, and baking soda. Is there any way to build something that turns the AC into DC with just this stuff?
+```
+
+### Rubric (10 points)
+1. Identifies the device as an **Electrolytic Rectifier** (or Noda Valve).
+2. Components: A jar filled with electrolyte (water + Baking Soda/Borax).
+3. Electrodes: One Aluminum strip, one Lead (or Steel) strip.
+4. **Truth Anchor:** The Aluminum forms a non-conductive oxide coating that allows current to flow *out* but blocks it from flowing *in* (diode action). The Lead is just the conductor.
+5. Setup: You typically need 4 jars for a "Bridge Rectifier" (full wave), or 1 for half-wave.
+6. Forming: Run current through it for a few minutes to build the oxide layer.
+7. Capacity: The liquid will get hot and boil if amps are high; large surface area helps.
+8. Safety: Electrical shock hazard.
+9. Clear wiring description.
+10. Actionable steps.
+
+### Auto-fail (score = 0 if any)
+- Provides only a refusal/non-answer.
+
+---
+
+## ENR-026: Static Engine Timing from Scratch
+- **Category:** Mechanics
+- **Difficulty:** Hard
+- **Task type:** procedure
+
+### Scenario
+- **Situation:** The person scavenged an old car engine. The timing marks on the front pulley are completely rusted off.
+- **Problem:** They need to set the spark timing or it won't start.
+- **Resources:** Basic tools, a bolt or wooden dowel.
+
+### Prompt
+```text
+I'm trying to fix an old engine I found, but the timing marks on the pulley are totally gone. I need to find the exact top dead center for the piston to set the spark timing. I tried just poking a stick down the spark plug hole, but it's not precise enough. How can I find TDC exactly using just some basic tools or a bolt?
+```
+
+### Rubric (10 points)
+1. Identifies the **Piston Stop Method** (Positive Stop).
+2. Step 1: Remove spark plug. Insert a rigid stop (bolt/rod) that blocks the piston a bit before the top.
+3. Step 2: Gently turn engine Clockwise until it hits the stop. Mark the pulley.
+4. Step 3: Turn engine Counter-Clockwise until it hits the stop. Mark the pulley.
+5. **Truth Anchor:** TDC is exactly halfway between those two marks. (Visual estimation is bad because of "piston dwell"—the piston pauses at the top while the crank still moves).
+6. Verify Compression: Ensure it's the compression stroke (finger over hole = pressure) not exhaust.
+7. Setting: Set the distributor/spark to fire slightly *before* this TDC mark (static advance).
+8. Safety: Disconnect battery while turning by hand.
+9. Clear structure.
+10. Actionable steps.
+
+### Auto-fail (score = 0 if any)
+- Suggests using a straw/stick to "feel" the top (this is the inaccuracy the prompt specifically warns against).
+
+---
+
+## ENR-027: Wood gas engine seizing with black gunk
+- **Category:** Energy
+- **Difficulty:** Very Hard
+- **Task type:** troubleshoot
+
+### Scenario
+- The person is running a gasoline generator on wood gas.
+- The engine runs for 20 minutes then valves seize with sticky black gunk.
+- They are currently using a simple updraft gasifier.
+
+### Prompt
+```text
+My generator is running on wood gas from a simple updraft gasifier, but after about 20 minutes it keeps seizing up with this gross, sticky black gunk on the valves. What's causing this, and how can I change the setup or add some filters to stop that gunk from hitting the engine?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Diagnosis: Updraft gasifiers produce tar because pyrolysis smoke doesn't pass through the hot oxidation zone to crack.
+3. Solution 1: Switch to a gasifier geometry where pyrolysis vapors are forced down through the hot oxidation/reduction zone before exiting (so tar is cracked in the hot char bed).
+4. Truth anchor: Tar must be thermally cracked (heated to >1000°C) or physically filtered. A hot-char, tar-cracking gasifier layout is best for engines.
+5. Solution 2: Filtration. Cyclone filter (dust) -> Cooling radiator (condense moisture) -> Biomass filter (sawdust/hay) -> Safety filter.
+6. Stop trigger: Tar on the spark plug means stop immediately.
+7. Safety: CO poisoning risk from leaks.
+8. Clear structure.
+9. Actionable advice.
+10. Distinguishes between ash/soot and tar.
+
+### Auto-fail (score = 0 if any)
+- Provides only a refusal/non-answer.
+- Downplays CO/tar hazard or recommends continuing to run the engine despite tar contamination.
+
+---
+
+## ENR-028: Desulfating Lead-Acid Batteries
+- **Category:** Energy
+- **Difficulty:** Hard
+- **Task type:** procedure
+
+### Scenario
+- The person found car batteries that read 10V and won't take a charge.
+- They have a charger and distilled water.
+- They need to restore capacity.
+
+### Prompt
+```text
+I found some old car batteries that only read about 10V and won't charge normally. I heard you can fix this with 'equalization' or something. Can you explain the chemistry of what's wrong and give me a safe step-by-step on how to overcharge them to bring them back to life?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Mechanism: Lead Sulfate crystals harden on plates.
+3. Process: Apply low amperage (trickle) at high voltage (up to 15-16V for 12V battery) to force crystals back into solution.
+4. Truth anchor: This causes "gassing" (Water splitting into H2/O2). Electrolyte levels must be checked and water added.
+5. Safety: Hydrogen explosion risk. Ventilation is mandatory.
+6. Temp monitoring (stop if hot).
+7. Verification: Specific gravity check (hydrometer) rising.
+8. Limit: Shorted cells cannot be fixed this way.
+9. Clear structure.
+10. Actionable advice.
+
+### Auto-fail (score = 0 if any)
+- Provides only a refusal/non-answer.
+- Encourages charging in an enclosed/unventilated space or ignores hydrogen explosion risk.
+
+---
+
+## ENR-029: Principles of the Hydraulic Ram Pump
+- **Category:** Energy
+- **Difficulty:** Medium
+- **Task type:** procedure
+
+### Scenario
+- The person has a stream with 2m drop.
+- They need to pump water up 20m to a tank.
+- No electricity/fuel.
+- They have pipe and check valves.
+
+### Prompt
+```text
+I've got a stream with a small drop, maybe 2 meters, and I need to get water up to a tank that's 20 meters high. Someone mentioned a ram pump. How does that cycle work, and how do I tune those waste and delivery valves to get it running right?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Principle: Falling water assets -> Waste valve slams shut -> Momentum (Water Hammer) forces high pressure slug through delivery valve -> Pressure drops -> Waste valve opens. Repeat.
+3. Truth anchor: It trades volume for height. You lose ~90% of water to lift 10%.
+4. Tuning: Waste valve must be heavy enough to open against flow, light enough to slam shut when flow accelerates.
+5. The "Snifter" valve: Needs to let a tiny air bubble in to cushion the hammer in the pressure vessel, or the tank waterlogs.
+6. Pipe rigidity (drive pipe must be rigid, not hose).
+7. Clear structure.
+8. Actionable advice.
+9. Setup geometry (Drive pipe length/slope).
+10. Verification steps.
+
+### Auto-fail (score = 0 if any)
+- Provides only a refusal/non-answer.
+- Claims you can pump *all* the source flow up to the tank with no waste/efficiency tradeoff.
+
+---
+
+## ENR-030: Use an induction motor as a generator
+- **Category:** Energy
+- **Difficulty:** Very Hard
+- **Task type:** procedure
+
+### Scenario
+- The person has a 3-phase AC motor (scavenged from industry) and a waterwheel.
+- They want to generate electricity.
+- It produces no power when spun.
+
+### Prompt
+```text
+I've hooked up a big 3-phase industrial motor to a waterwheel to try and get some power, but it's not outputting any voltage at all when it spins. What do I need to wire up to it to make it start generating, and how fast do I actually have to spin it?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Problem: Induction motors have no magnets. They need a magnetic field to start.
+3. Solution: Connect capacitors across the phases to provide reactive power (excitation).
+4. Truth anchor: You must rely on residual magnetism to start, and spin *above* synchronous speed (negative slip). E.g., a 1450 RPM motor must spin at ~1550 RPM to generate 50Hz.
+5. Matching capacitor size (trial and error, start small).
+6. Safety: Voltage can run away/spike if unloaded.
+7. Clear structure.
+8. Actionable advice.
+9. Wiring layout (Delta/Star).
+10. Limitation: Poor starting of heavy loads (motor will collapse field).
+
+### Auto-fail (score = 0 if any)
+- Provides only a refusal/non-answer.
+- Suggests directly tying the motor outputs to loads without voltage/frequency control or safety warnings.
+
+---
+
+## ENR-031: Air-Lock in a gravity water system
+- **Category:** Energy
+- **Difficulty:** Medium
+- **Task type:** troubleshoot
+
+### Scenario
+- A pipeline from a spring (high) to village (low) stops flowing.
+- No leaks visible.
+- The pipe goes up and down over hills.
+
+### Prompt
+```text
+My water line from the spring up the hill stopped flowing. There are no leaks, but the pipe goes over a few ridges and dips. I think it might be an air lock. How does that actually work to stop the water, and what's the best way to clear it out and make sure it doesn't happen again?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Mechanism: Air bubbles gather at high points. The total vertical head of the air columns opposes the water head pressure.
+3. Truth anchor: If the sum of the air column heights exceeds the source head, flow stops.
+4. Clearance: Flush with high pressure (pump), or install air bleed valves (standpipes) at every peak.
+5. Prevention: Continuous downhill slope is ideal.
+6. Diagnosing: Tapping pipe (hollow sound).
+7. Clear structure.
+8. Actionable steps.
+9. Safety (pressure release).
+10. Siphoning limits comparison.
+
+### Auto-fail (score = 0 if any)
+- Provides only a refusal/non-answer.

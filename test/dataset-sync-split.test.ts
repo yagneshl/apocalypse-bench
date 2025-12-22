@@ -5,52 +5,38 @@ import { compileQuestionBankMdFile } from '../src/core/dataset/compileQuestionBa
 import { datasetLineSchema } from '../src/core/dataset/schema';
 import { loadJsonlMany } from '../src/core/dataset/loadJsonl';
 
-describe('question bank split md -> jsonl', () => {
-  test('compiled split MD matches legacy combined dataset (content + order)', () => {
+describe('question bank jsonl -> md', () => {
+  test('compiled MD matches split JSONL files (content + order)', () => {
     const mdDir = 'data/question_bank_v8';
+    const splitJsonlDir = 'data/question_bank_v8_jsonl';
+
+    const jsonlFiles = fs
+      .readdirSync(path.resolve(splitJsonlDir))
+      .filter(p => p.endsWith('.jsonl'))
+      .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+
+    expect(jsonlFiles.length).toBeGreaterThan(0);
+
     const mdFiles = fs
       .readdirSync(path.resolve(mdDir))
       .filter(p => p.endsWith('.md') && p !== 'info.md')
-      .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
-      .map(p => path.join(mdDir, p));
+      .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 
-    expect(mdFiles.length).toBeGreaterThan(0);
+    const jsonlStems = jsonlFiles.map(p => path.basename(p, path.extname(p)));
+    const mdStems = mdFiles.map(p => path.basename(p, path.extname(p)));
+    expect(mdStems).toEqual(jsonlStems);
 
-    const compiledAll = mdFiles.flatMap(mdFile => {
+    for (const stem of jsonlStems) {
+      const mdFile = path.join(mdDir, `${stem}.md`);
       const compiled = compileQuestionBankMdFile(mdFile);
-      const areaFromFilename = path.basename(mdFile, path.extname(mdFile));
-      return compiled.questions.map(q =>
-        datasetLineSchema.parse({ ...q, area: areaFromFilename }),
+      const compiledLines = compiled.questions.map(q =>
+        datasetLineSchema.parse({ ...q, area: stem }),
       );
-    });
 
-    const splitJsonlDir = 'data/question_bank_v8_jsonl';
-    const loadedByArea = new Map<string, unknown[]>();
-    for (const p of fs.readdirSync(path.resolve(splitJsonlDir))) {
-      if (!p.endsWith('.jsonl')) continue;
-      const area = p.replace(/\.jsonl$/, '');
-      const dataset = loadJsonlMany([`data/question_bank_v8_jsonl/${p}`]);
-      loadedByArea.set(area, dataset.lines);
-    }
+      const dataset = loadJsonlMany([`data/question_bank_v8_jsonl/${stem}.jsonl`]);
+      expect(dataset.lines).toEqual(compiledLines);
 
-    // Merge while preserving legacy order: take the next question from each area's list when it appears.
-    const cursors = new Map<string, number>();
-    const mergedOrdered = compiledAll.map(q => {
-      const area = q.area;
-      if (!area) throw new Error(`Missing area for question ${q.id}`);
-
-      const areaLines = loadedByArea.get(area) as unknown[];
-      const idx = cursors.get(area) ?? 0;
-      const line = areaLines[idx];
-      cursors.set(area, idx + 1);
-      return line;
-    });
-
-    expect(mergedOrdered).toEqual(compiledAll);
-
-    for (const p of fs.readdirSync(path.resolve(splitJsonlDir))) {
-      if (!p.endsWith('.jsonl')) continue;
-      const raw = fs.readFileSync(path.join(splitJsonlDir, p), 'utf8');
+      const raw = fs.readFileSync(path.join(splitJsonlDir, `${stem}.jsonl`), 'utf8');
       expect(raw.endsWith('\n')).toBe(true);
     }
   });

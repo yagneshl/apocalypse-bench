@@ -11,23 +11,23 @@
 ### Prompt
 ```text
 I made a chisel from an old steel bolt I found, but it's way too soft and the edge just curls over when I use it. I tried heating it until it was red and dunking it in water, but that didn't help at all. 
-I have some old leather boots, some animal bones, and plenty of charcoal. Is there a way to use these things to actually make the metal hard enough to hold an edge? 
+I have some old leather boots, some animal bones, and plenty of charcoal. Is there a way to use these things to actually make the metal hard enough to hold an edge?
 ```
 
 ### Rubric (10 points)
-1.  Identifies the metal as **Low Carbon (Mild) Steel**, which cannot be hardened by simple quenching.
-2.  Identifies the process as **Case Hardening** (or Pack Carburizing).
-3.  **Truth Anchor:** Carbon needs to migrate into the surface of the steel. This requires a carbon-rich environment and **time** at high heat.
-4.  Recipe: Pack the tool in a metal box or clay canister filled with carbon material (chopped leather, burnt bone, charcoal dust).
-5.  Seal: Seal the container with clay (airtight) to prevent the carbon from just burning away (oxidizing).
-6.  Process: Heat to glowing orange/yellow (~900°C) and **hold** for several hours (time = depth of hardness).
-7.  Quench: Dump the contents into water while still red hot (or reheat the part and quench).
-8.  Result: A hard high-carbon "case" (skin) over a soft core.
-9.  Clear steps.
+1. Identifies the metal as **Low Carbon (Mild) Steel**, which cannot be hardened by simple quenching.
+2. Identifies the process as **Case Hardening** (or Pack Carburizing).
+3. **Truth Anchor:** Carbon needs to migrate into the surface of the steel. This requires a carbon-rich environment and **time** at high heat.
+4. Recipe: Pack the tool in a metal box or clay canister filled with carbon material (chopped leather, burnt bone, charcoal dust).
+5. Seal: Seal the container with clay (airtight) to prevent the carbon from just burning away (oxidizing).
+6. Process: Heat to glowing orange/yellow (~900°C) and **hold** for several hours (time = depth of hardness).
+7. Quench: Dump the contents into water while still red hot (or reheat the part and quench).
+8. Result: A hard high-carbon "case" (skin) over a soft core.
+9. Clear steps.
 10. Mentions that the core remains tough/ductile.
 
 ### Auto-fail (score = 0 if any)
--  Suggests just rubbing the hot metal with carbon (ineffective) or simple tempering.
+- Suggests just rubbing the hot metal with carbon (ineffective) or simple tempering.
 
 ---
 
@@ -48,19 +48,19 @@ I've got a tape measure, a compass, and a large flat table. How can I mark out t
 ```
 
 ### Rubric (10 points)
-1.  Describes the "Large Diameter" leverage method.
-2.  Step 1: Draw a **very large circle** (e.g., 1 meter diameter) on the table.
-3.  Step 2: Center the small gear blank on this large circle.
-4.  **Truth Anchor:** Divide the *large* circle circumference by 40. A small error on the large circle (e.g., 1mm) shrinks to a microscopic error on the small gear (the ratio of diameters).
-5.  Technique: Use a non-stretchy tape or strip of paper wrapped around the large perimeter.
-6.  Mark the 40 points on the large circle.
-7.  Use a straightedge from the center point to the large marks to transfer the lines onto the small gear blank.
-8.  Verification: Walk a compass around to check spacing.
-9.  Clear structure.
+1. Describes the "Large Diameter" leverage method.
+2. Step 1: Draw a **very large circle** (e.g., 1 meter diameter) on the table.
+3. Step 2: Center the small gear blank on this large circle.
+4. **Truth Anchor:** Divide the *large* circle circumference by 40. A small error on the large circle (e.g., 1mm) shrinks to a microscopic error on the small gear (the ratio of diameters).
+5. Technique: Use a non-stretchy tape or strip of paper wrapped around the large perimeter.
+6. Mark the 40 points on the large circle.
+7. Use a straightedge from the center point to the large marks to transfer the lines onto the small gear blank.
+8. Verification: Walk a compass around to check spacing.
+9. Clear structure.
 10. Actionable advice.
 
 ### Auto-fail (score = 0 if any)
--  Suggests measuring the small gear circumference directly (too small for precision with a tape measure).
+- Suggests measuring the small gear circumference directly (too small for precision with a tape measure).
 
 ---
 
@@ -81,15 +81,15 @@ I need a way to keep the speed steady automatically. I have some scrap metal, he
 ```
 
 ### Rubric (10 points)
-1.  Identifies the device as a **Centrifugal Governor** (or Watt Governor).
-2.  Mechanism: A vertical shaft geared to the main axle spins two hinged weights (balls).
-3.  Physics: As speed increases, the weights fly outward/upward due to centrifugal force.
-4.  **Truth Anchor:** The lifting weights pull a sliding collar *up* the shaft. This linear movement is linked to the water gate.
-5.  Feedback Loop: Fast spin -> Weights lift -> Collar rises -> Linkage *closes* water gate -> Speed drops.
-6.  Tuning: Adjusting the weight mass or using a spring to set the target speed.
-7.  Damping: Mentioning friction/dashpot to prevent "hunting" (surging speed up and down).
-8.  Clear structure.
-9.  Actionable steps.
+1. Identifies the device as a **Centrifugal Governor** (or Watt Governor).
+2. Mechanism: A vertical shaft geared to the main axle spins two hinged weights (balls).
+3. Physics: As speed increases, the weights fly outward/upward due to centrifugal force.
+4. **Truth Anchor:** The lifting weights pull a sliding collar *up* the shaft. This linear movement is linked to the water gate.
+5. Feedback Loop: Fast spin -> Weights lift -> Collar rises -> Linkage *closes* water gate -> Speed drops.
+6. Tuning: Adjusting the weight mass or using a spring to set the target speed.
+7. Damping: Mentioning friction/dashpot to prevent "hunting" (surging speed up and down).
+8. Clear structure.
+9. Actionable steps.
 10. Linkage explanation (converting spin to push/pull).
 
 ### Auto-fail (score = 0 if any)
@@ -128,6 +128,7 @@ Can you give me a plan for the frame and the roof so it doesn't blow down or lea
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A tarp must be pitched with slope/ridge to shed water and resist wind; any indoor fire/stove requires ventilation because CO can build up even if smoke seems minimal.
 
 ### Reference facts (for judge)
 - A tarp must be pitched with slope/ridge to shed water and resist wind; any indoor fire/stove requires ventilation because CO can build up even if smoke seems minimal.
@@ -164,6 +165,7 @@ How do I tell if the ground floor is actually safe to be in? If it needs work, h
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Notes that masonry is strong in compression but weak in tension/out-of-plane; bulging/out-of-plumb walls and widening cracks are 'no‑go' signs and bracing must create a clear load path to solid ground.
 
 ### Reference facts (for judge)
 - Notes that masonry is strong in compression but weak in tension/out-of-plane; bulging/out-of-plumb walls and widening cracks are 'no‑go' signs and bracing must create a clear load path to solid ground.
@@ -200,6 +202,7 @@ How do I build this in a couple of days so it's sturdy enough not to sag too muc
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Bending stress is highest mid-span: use the strongest/straightest logs as stringers on solid abutments, prevent rolling/slip with decking and lashings, and test gradually before full use.
 
 ### Reference facts (for judge)
 - Bending stress is highest mid-span: use the strongest/straightest logs as stringers on solid abutments, prevent rolling/slip with decking and lashings, and test gradually before full use.
@@ -240,6 +243,7 @@ What are the biggest problems with this from an engineering and safety standpoin
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- An unventilated stove inside a tarp shelter risks lethal CO and fire; tarps must be sloped (not flat) to avoid water pooling and collapse.
 
 ### Reference facts (for judge)
 - An unventilated stove inside a tarp shelter risks lethal CO and fire; tarps must be sloped (not flat) to avoid water pooling and collapse.
@@ -276,6 +280,7 @@ How do I turn these into a rope that won't just snap under load? I need to know 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Strong rope needs long fibres aligned and twisted into strands, then counter-twisted into rope; to lengthen rope, add new fibres by overlapping and tapering the join (a splice) over a long distance—abrupt joins and knots create weak points and reduce strength.
 
 ### Reference facts (for judge)
 - Strong rope needs long fibres aligned and twisted into strands, then counter-twisted into rope; to lengthen rope, add new fibres by overlapping and tapering the join (a splice) over a long distance—abrupt joins and knots create weak points and reduce strength.
@@ -311,6 +316,7 @@ Can you tell me which knots to use for these four things and how to tie them so 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Knots and sharp bends reduce rope strength; for critical loads, prefer appropriate knots/lashings that minimise bend radius and avoid loading the weakest orientation.
 
 ### Reference facts (for judge)
 - Knots and sharp bends reduce rope strength; for critical loads, prefer appropriate knots/lashings that minimise bend radius and avoid loading the weakest orientation.
@@ -346,6 +352,7 @@ How do I fix the end or join it to a fresh piece of rope using a splice instead 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A proper splice preserves far more rope strength than a knot by maintaining the rope’s lay and tapering the join; abrupt steps create stress concentrations and early failure.
 
 ### Reference facts (for judge)
 - A proper splice preserves far more rope strength than a knot by maintaining the rope’s lay and tapering the join; abrupt steps create stress concentrations and early failure.
@@ -382,6 +389,7 @@ What could have caused it to break there, and how do I test my other ropes to se
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Encourages standing under a suspended load or skipping anchor/rope inspection for lifting work.
+- Rope can fail from shock loading, abrasion over edges, knots reducing strength, or hidden rot; a sharp edge can cut a rope quickly even if it 'looked strong'.
 
 ### Reference facts (for judge)
 - Rope can fail from shock loading, abrasion over edges, knots reducing strength, or hidden rot; a sharp edge can cut a rope quickly even if it 'looked strong'.
@@ -417,6 +425,7 @@ How can we use these to move it safely without anyone getting a foot crushed? Ca
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Mechanical advantage trades distance for force: levers, rollers, and cribbing can move heavy loads safely, but only if the load is continuously supported and hands/feet are kept out of pinch points.
 
 ### Reference facts (for judge)
 - Mechanical advantage trades distance for force: levers, rollers, and cribbing can move heavy loads safely, but only if the load is continuously supported and hands/feet are kept out of pinch points.
@@ -453,6 +462,7 @@ How should I set up the pulleys to make this lift manageable, and how much force
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Encourages standing under a suspended load or skipping anchor/rope inspection for lifting work.
+- Mechanical advantage trades distance for force: the ideal MA equals the number of supporting rope segments, but friction reduces real MA; anchors and rope must be rated for the full load plus dynamic factors.
 
 ### Reference facts (for judge)
 - Mechanical advantage trades distance for force: the ideal MA equals the number of supporting rope segments, but friction reduces real MA; anchors and rope must be rated for the full load plus dynamic factors.
@@ -488,6 +498,7 @@ Is there a hand-powered mechanism I can build out of wood for this? I need to kn
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Explains that a capstan/windlass holds load primarily by friction—adding wraps increases holding power; the rope should not be hard-tied to the drum and hands must stay clear of the wraps under load.
 
 ### Reference facts (for judge)
 - Explains that a capstan/windlass holds load primarily by friction—adding wraps increases holding power; the rope should not be hard-tied to the drum and hands must stay clear of the wraps under load.
@@ -529,6 +540,7 @@ This feels wrong. What are the main hazards here and how should I rewrite this p
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Encourages standing under a suspended load or skipping anchor/rope inspection for lifting work.
+- Using a sharp edge as a 'pulley' can sever the rope and standing near/under a loaded line is dangerous; rigging must control edges, anchors, and exclusion zones.
 
 ### Reference facts (for judge)
 - Using a sharp edge as a 'pulley' can sever the rope and standing near/under a loaded line is dangerous; rigging must control edges, anchors, and exclusion zones.
@@ -565,6 +577,7 @@ How do I set up a gravity-fed line to bring that water to camp? I need to know h
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- States that gravity-fed flow requires the source head above the outlet and that trapped air at high points (air locks) stops flow—avoid high points or add vents/cleanouts to purge air.
 
 ### Reference facts (for judge)
 - States that gravity-fed flow requires the source head above the outlet and that trapped air at high points (air locks) stops flow—avoid high points or add vents/cleanouts to purge air.
@@ -600,6 +613,7 @@ Can you give me a plan to dig some drainage today? I need to know where the wate
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Keeping shelters dry is about diverting surface water and giving it a downhill path; drains need fall and must resist clogging (e.g., gravel + filter layers) or they will fail in heavy rain.
 
 ### Reference facts (for judge)
 - Keeping shelters dry is about diverting surface water and giving it a downhill path; drains need fall and must resist clogging (e.g., gravel + filter layers) or they will fail in heavy rain.
@@ -639,6 +653,7 @@ Why is this happening and how can I fix it? I need a step-by-step to get them on
 - Claims that 'Channel 1' is always the same frequency across different radio types/services, with no caveats.
 - Encourages opening/modifying lithium batteries in a way that risks fire (puncturing/shorting) as part of the troubleshooting.
 - Recommends transmitting on emergency/aviation/military frequencies as a default without acknowledging legality/safety and without a genuine life-threatening emergency.
+- Two radios must share the same actual frequency/band and compatible settings: 'Channel 1' is not universal across services (e.g., FRS/GMRS vs PMR446 vs VHF); CTCSS/DCS 'privacy codes' must match or be disabled or you will not hear the other radio.
 
 ### Reference facts (for judge)
 - Two radios must share the same actual frequency/band and compatible settings: 'Channel 1' is not universal across services (e.g., FRS/GMRS vs PMR446 vs VHF); CTCSS/DCS 'privacy codes' must match or be disabled or you will not hear the other radio.
@@ -675,6 +690,7 @@ I have some clay, stones, and plants. Why is it leaking so much and how do I fix
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Leaking/eroding channels usually mean excessive velocity or poor compaction/lining; reducing slope/flow energy (checks, lining, vegetation) is often the real fix.
 
 ### Reference facts (for judge)
 - Leaking/eroding channels usually mean excessive velocity or poor compaction/lining; reducing slope/flow energy (checks, lining, vegetation) is often the real fix.
@@ -713,6 +729,7 @@ I have wood, leather, and wax, but no metal valves. How do I build a foot-powere
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Recommends using lead pipe/lead solder or fuel/pesticide containers for any component that touches drinking water.
 - Claims the pump can lift water by suction from a depth >10 m without noting this is physically unrealistic.
+- States that a suction pump cannot lift water much more than ~7–10 m by suction (atmospheric pressure limit) and requires correctly oriented check valves plus an airtight suction side/priming to work.
 
 ### Reference facts (for judge)
 - States that a suction pump cannot lift water much more than ~7–10 m by suction (atmospheric pressure limit) and requires correctly oriented check valves plus an airtight suction side/priming to work.
@@ -751,6 +768,7 @@ How do I start a siphon without getting that nasty water in my mouth? Also, what
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Suggests starting a siphon by mouth from potentially contaminated water without alternatives.
 - Suggests using a pump as the primary method despite the prompt explicitly requiring draining without pumps.
+- States that a siphon requires a continuous, fully filled tube and an outlet lower than the source liquid level; if air enters or the outlet rises above the source level, flow stops.
 
 ### Reference facts (for judge)
 - States that a siphon requires a continuous, fully filled tube and an outlet lower than the source liquid level; if air enters or the outlet rises above the source level, flow stops.
@@ -786,6 +804,7 @@ How do I build a hand pump that can pull the water up and keep it from falling b
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- States that a piston pump needs an airtight cylinder + seal and a one-way valve arrangement (foot valve and piston/ outlet check); the suction lift limit still applies and valve orientation is critical.
 
 ### Reference facts (for judge)
 - States that a piston pump needs an airtight cylinder + seal and a one-way valve arrangement (foot valve and piston/ outlet check); the suction lift limit still applies and valve orientation is critical.
@@ -822,6 +841,7 @@ How do I figure out where the air is leaking in or if the seals are shot? What's
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Loss of prime is commonly caused by air leaks on the suction side or a leaking/blocked foot valve; diagnosing air ingress comes before redesigning the whole pump.
 
 ### Reference facts (for judge)
 - Loss of prime is commonly caused by air leaks on the suction side or a leaking/blocked foot valve; diagnosing air ingress comes before redesigning the whole pump.
@@ -858,6 +878,7 @@ How should I build a small kiln out of these? I need to know how the firebox and
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Kilns fail when moisture and thermal shock are ignored: ware must be fully dry and temperature must be ramped gradually with controlled airflow to avoid cracking/explosions.
 
 ### Reference facts (for judge)
 - Kilns fail when moisture and thermal shock are ignored: ware must be fully dry and temperature must be ramped gradually with controlled airflow to avoid cracking/explosions.
@@ -893,6 +914,7 @@ How do I build a kiln for this and how do I run it? I need to know how to load i
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Identifies calcination as CaCO₃ → CaO + CO₂ requiring sustained high heat; warns that quicklime reacts exothermically with water (burn risk) and must be stored dry; CO/CO₂ and hot dust are key hazards.
 
 ### Reference facts (for judge)
 - Identifies calcination as CaCO₃ → CaO + CO₂ requiring sustained high heat; warns that quicklime reacts exothermically with water (burn risk) and must be stored dry; CO/CO₂ and hot dust are key hazards.
@@ -928,6 +950,7 @@ How do I build a small bloomery furnace to get iron out of this? I need to know 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- States that a bloomery produces a solid spongy iron 'bloom' (not a pot of molten iron to pour); it needs continuous air blast and charcoal and the bloom must be consolidated by hot working while managing slag.
 
 ### Reference facts (for judge)
 - States that a bloomery produces a solid spongy iron 'bloom' (not a pot of molten iron to pour); it needs continuous air blast and charcoal and the bloom must be consolidated by hot working while managing slag.
@@ -968,6 +991,7 @@ I have a feeling this is a bad idea. Can you explain what's likely to go wrong a
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Fast heat-up/cool-down causes thermal shock; kiln schedules must ramp and soak appropriately and avoid sealing off airflow in ways that create uneven heating or CO hazards.
 
 ### Reference facts (for judge)
 - Fast heat-up/cool-down causes thermal shock; kiln schedules must ramp and soak appropriately and avoid sealing off airflow in ways that create uneven heating or CO hazards.
@@ -1003,6 +1027,7 @@ Should I build a cart or a sledge for this? Can you give me a design that handle
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A cart’s usability depends on axle/bearing friction and stability: aligned axles, lubricated bearings, and a low centre of mass matter more than adding extra structure.
 
 ### Reference facts (for judge)
 - A cart’s usability depends on axle/bearing friction and stability: aligned axles, lubricated bearings, and a low centre of mass matter more than adding extra structure.
@@ -1039,6 +1064,7 @@ How can I reinforce this path so we don't sink? I need to know how to do the dra
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Mud failures are bearing-capacity failures: you must spread load and manage water (corduroy/brush mat + drainage) or wheels will simply sink and rut deeper.
 
 ### Reference facts (for judge)
 - Mud failures are bearing-capacity failures: you must spread load and manage water (corduroy/brush mat + drainage) or wheels will simply sink and rut deeper.
@@ -1077,6 +1103,7 @@ How do I build this so it doesn't just topple over when the dirt gets wet? I nee
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Explicitly states drainage is unnecessary, or recommends impermeable backfill (e.g., clay) directly behind the wall with no drainage/weep path.
 - Encourages working in a deep (>1 m) vertical-sided excavation/trench without shoring/benching/sloping or collapse precautions.
+- States that water pressure is a primary retaining-wall failure mode; requires free-draining backfill + drainage/weep paths and a wider battered base to prevent sliding/overturning.
 
 ### Reference facts (for judge)
 - States that water pressure is a primary retaining-wall failure mode; requires free-draining backfill + drainage/weep paths and a wider battered base to prevent sliding/overturning.
@@ -1115,6 +1142,7 @@ How should we dig this so it's safe for our volunteers? I need to know how to sl
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
 - Encourages entering a deep (>1 m) vertical-sided trench without shoring/benching/sloping or collapse precautions.
 - Recommends placing spoil piles, vehicles, or heavy loads right at the trench edge (increasing collapse risk).
+- States that deep vertical-sided trenches can collapse without warning; a safe plan must use sloping/benching/shoring and keep spoil/loads back from the edge with safe access/egress.
 
 ### Reference facts (for judge)
 - States that deep vertical-sided trenches can collapse without warning; a safe plan must use sloping/benching/shoring and keep spoil/loads back from the edge with safe access/egress.
@@ -1137,23 +1165,24 @@ How do I use these three plates to make them all perfectly flat? Why do I need t
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task using only the stated resources; strictly respects negative constraints.
-2.  Explains the flaw of using only two plates (they can form matching convex/concave curves).
-3.  Describes the specific rotation sequence (A against B, A against C, B against C).
-4.  Explains how identifying high spots works (using a marking medium like soot/oil or Prussian blue).
-5.  Truth anchor: "Automatic generation of truth": You must rotate the pairing so that error is cancelled out. If A matches B, and A matches C, but B does not match C, you identify the specific convexity/concavity errors.
-6.  Gives an ordered, step-by-step procedure.
-7.  Mentions the scraping technique (removing high spots, not filing low spots).
-8.  Identifies stop-work triggers (e.g., heat expansion from friction/handling affecting flatness).
-9.  Includes a verification check.
+1. Directly answers the task using only the stated resources; strictly respects negative constraints.
+2. Explains the flaw of using only two plates (they can form matching convex/concave curves).
+3. Describes the specific rotation sequence (A against B, A against C, B against C).
+4. Explains how identifying high spots works (using a marking medium like soot/oil or Prussian blue).
+5. Truth anchor: "Automatic generation of truth": You must rotate the pairing so that error is cancelled out. If A matches B, and A matches C, but B does not match C, you identify the specific convexity/concavity errors.
+6. Gives an ordered, step-by-step procedure.
+7. Mentions the scraping technique (removing high spots, not filing low spots).
+8. Identifies stop-work triggers (e.g., heat expansion from friction/handling affecting flatness).
+9. Includes a verification check.
 10. Clear structure and actionable advice.
 
 ### Auto-fail (score = 0 if any)
--  Suggests using only two plates.
--  Suggests grinding/sanding randomly without a scraping pattern.
+- Suggests using only two plates.
+- Suggests grinding/sanding randomly without a scraping pattern.
+- Two plates will simply mate (one convex, one concave). Three plates compared in a specific cycle are required to eliminate curvature and generate a true plane.
 
 ### Reference facts (for judge)
--  Two plates will simply mate (one convex, one concave). Three plates compared in a specific cycle are required to eliminate curvature and generate a true plane.
+- Two plates will simply mate (one convex, one concave). Three plates compared in a specific cycle are required to eliminate curvature and generate a true plane.
 
 ---
 
@@ -1173,19 +1202,19 @@ Is there a way to mark out a perfect spiral on the rod by hand so the threads ar
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task using only the stated resources.
-2.  Viably covers generating the helix geometry (e.g., the inclined plane wrapping method).
-3.  Describes creating a paper template (right-angled triangle where base = circumference, height = pitch).
-4.  Explains wrapping the template to mark the spiral path.
-5.  Truth anchor: The hypotenuse of a triangle wrapped around a cylinder forms a helix. Accuracy depends on the straightness of the initial scribe line following this paper edge.
-6.  Gives ordered steps for filing (starting with a triangular file to establish the groove).
-7.  Discusses maintaining the thread profile angle (usually 60 degrees).
-8.  Identifies hazards (rod bending, losing the track).
-9.  Includes a sanity check for pitch consistency (threads per inch).
+1. Directly answers the task using only the stated resources.
+2. Viably covers generating the helix geometry (e.g., the inclined plane wrapping method).
+3. Describes creating a paper template (right-angled triangle where base = circumference, height = pitch).
+4. Explains wrapping the template to mark the spiral path.
+5. Truth anchor: The hypotenuse of a triangle wrapped around a cylinder forms a helix. Accuracy depends on the straightness of the initial scribe line following this paper edge.
+6. Gives ordered steps for filing (starting with a triangular file to establish the groove).
+7. Discusses maintaining the thread profile angle (usually 60 degrees).
+8. Identifies hazards (rod bending, losing the track).
+9. Includes a sanity check for pitch consistency (threads per inch).
 10. Clear structure and actionable advice.
 
 ### Auto-fail (score = 0 if any)
--  Suggests "eyeballing" the spiral.
+- Suggests "eyeballing" the spiral.
 
 ---
 
@@ -1205,20 +1234,20 @@ How do I cast a new bearing right around the shaft inside the housing? I need to
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task using only the stated resources.
-2.  Covers shaft preparation: Using soot (candle smoke) or clay wash as a release agent.
-3.  Explains pre-heating the housing/shaft to prevent "cold shuts" and moisture explosion.
-4.  Details the damming process (using clay/putty to hold molten metal).
-5.  Truth anchor: The shaft must be coated so the babbitt doesn't weld to it, and pre-heated to remove moisture (prevent steam explosion).
-6.  Gives pouring instruction (single continuous pour).
-7.  Describes post-pour fitting (scraping for clearance/oil channels).
-8.  Identifies the moisture explosion hazard clearly.
-9.  Includes verification of fit/rotation.
+1. Directly answers the task using only the stated resources.
+2. Covers shaft preparation: Using soot (candle smoke) or clay wash as a release agent.
+3. Explains pre-heating the housing/shaft to prevent "cold shuts" and moisture explosion.
+4. Details the damming process (using clay/putty to hold molten metal).
+5. Truth anchor: The shaft must be coated so the babbitt doesn't weld to it, and pre-heated to remove moisture (prevent steam explosion).
+6. Gives pouring instruction (single continuous pour).
+7. Describes post-pour fitting (scraping for clearance/oil channels).
+8. Identifies the moisture explosion hazard clearly.
+9. Includes verification of fit/rotation.
 10. Clear structure and actionable advice.
 
 ### Auto-fail (score = 0 if any)
--  Fails to mention a release agent/soot for the shaft (bearing will seize/weld).
--  Fails to warn about moisture explosions.
+- Fails to mention a release agent/soot for the shaft (bearing will seize/weld).
+- Fails to warn about moisture explosions.
 
 ---
 
@@ -1238,19 +1267,19 @@ Why won't just lime and sand work if it's going to be wet? How do I mix these ot
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task using only the stated resources.
-2.  Identifies the reactive additive (volcanic ash or crushed reactive brick/pottery dust).
-3.  Explains the mix ratio (typically 1:2 to 1:3 Lime:Ash/dust).
-4.  Truth anchor: Lime + Sand = non-hydraulic (needs air to cure). Lime + reactive ash/dust = hydraulic (reacts chemically to cure, even underwater).
-5.  Gives mixing steps (slaking lime, integrating aggregate).
-6.  Describes the curing requirement (keep moist).
-7.  Identifies hazards (lime burns).
-8.  Includes a test sample procedure.
-9.  Clear structure.
+1. Directly answers the task using only the stated resources.
+2. Identifies the reactive additive (volcanic ash or crushed reactive brick/pottery dust).
+3. Explains the mix ratio (typically 1:2 to 1:3 Lime:Ash/dust).
+4. Truth anchor: Lime + Sand = non-hydraulic (needs air to cure). Lime + reactive ash/dust = hydraulic (reacts chemically to cure, even underwater).
+5. Gives mixing steps (slaking lime, integrating aggregate).
+6. Describes the curing requirement (keep moist).
+7. Identifies hazards (lime burns).
+8. Includes a test sample procedure.
+9. Clear structure.
 10. Actionable advice avoiding modern cement terminology.
 
 ### Auto-fail (score = 0 if any)
--  Recommends standard lime mortar for underwater use.
+- Recommends standard lime mortar for underwater use.
 
 ---
 
@@ -1270,15 +1299,15 @@ Can you explain where the tension and compression are in a simple A-frame? Also,
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Identifies top rafters are in compression.
-3.  Identifies bottom tie beam is in tension.
-4.  Truth anchor: The load pushes the feet of the A-frame outward; the bottom tie's sole job is to hold them together (tension). Failure usually happens at the joinery where the rafter pushes off the tie.
-5.  Proposes specific joinery (e.g., heel joint/step joint) or bolting to handle that shear force.
-6.  Explains that a king post (vertical) is in tension (holding up the bottom beam), not compression (holding up the ridge), in a standard truss.
-7.  Safety factor warnings.
-8.  Clear structure.
-9.  Includes visual check guidance (sag/separation).
+1. Directly answers the task.
+2. Identifies top rafters are in compression.
+3. Identifies bottom tie beam is in tension.
+4. Truth anchor: The load pushes the feet of the A-frame outward; the bottom tie's sole job is to hold them together (tension). Failure usually happens at the joinery where the rafter pushes off the tie.
+5. Proposes specific joinery (e.g., heel joint/step joint) or bolting to handle that shear force.
+6. Explains that a king post (vertical) is in tension (holding up the bottom beam), not compression (holding up the ridge), in a standard truss.
+7. Safety factor warnings.
+8. Clear structure.
+9. Includes visual check guidance (sag/separation).
 10. Actionable construction advice.
 
 ### Auto-fail (score = 0 if any)
@@ -1303,21 +1332,19 @@ I have a very sensitive spirit level. How do I use that to map out the high and 
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Concept: Sliding a rigid base with a sensitive level across the surface.
-3.  Mapping: If the bubble moves, the angle changed, implying a hill or valley.
-4.  Grid pattern (Union Jack pattern).
-5.  Truth anchor: Granite is generally harder and more stable than iron, but kitchen grade isn't "lab grade". Verification is needed.
-6.  Cleaning checks (dust creates errors).
-7.  Clear structure.
-8.  Actionable advice.
-9.  Calculating height difference from angle (trig).
+1. Directly answers the task.
+2. Concept: Sliding a rigid base with a sensitive level across the surface.
+3. Mapping: If the bubble moves, the angle changed, implying a hill or valley.
+4. Grid pattern (Union Jack pattern).
+5. Truth anchor: Granite is generally harder and more stable than iron, but kitchen grade isn't "lab grade". Verification is needed.
+6. Cleaning checks (dust creates errors).
+7. Clear structure.
+8. Actionable advice.
+9. Calculating height difference from angle (trig).
 10. Limits of this method.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -1337,21 +1364,19 @@ How do I use these to make a "green sand" mold for casting a new part? I need to
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Green Sand recipe: Sand + Clay (~10%) + Water (just enough to clump).
-3.  Flask: Cope (top) and Drag (bottom). Use pattern to make void.
-4.  Truth anchor: Venting is critical to let air/steam escape, otherwise pressure blows the metal back out.
-5.  Gating: Sprue (pour hole), Runner, Gates (entry to part), Riser (reservoir to feed shrinkage).
-6.  Shrinkage: Aluminum shrinks on cooling. Riser must cool *last*.
-7.  Safety: Molten aluminum + water = steam explosion. Dry tools.
-8.  Fluxing/dross removal.
-9.  Clear structure.
+1. Directly answers the task.
+2. Green Sand recipe: Sand + Clay (~10%) + Water (just enough to clump).
+3. Flask: Cope (top) and Drag (bottom). Use pattern to make void.
+4. Truth anchor: Venting is critical to let air/steam escape, otherwise pressure blows the metal back out.
+5. Gating: Sprue (pour hole), Runner, Gates (entry to part), Riser (reservoir to feed shrinkage).
+6. Shrinkage: Aluminum shrinks on cooling. Riser must cool *last*.
+7. Safety: Molten aluminum + water = steam explosion. Dry tools.
+8. Fluxing/dross removal.
+9. Clear structure.
 10. Actionable steps.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -1371,21 +1396,19 @@ How do I use just a tape measure and some string to get that first corner square
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Method: Measure 3 units one side, 4 units other side. The diagonal must be exactly 5 units.
-3.  Scaling: Use multiples (e.g., 9m, 12m, 15m) for accuracy over distance.
-4.  Truth anchor: If diagonals of the rectangle are equal length, it is square (assuming opposite sides are equal length).
-5.  Clear structure.
-6.  Actionable steps.
-7.  Practical tip: Use two tapes or a non-stretchy string.
-8.  Correcting error (shift corners until diagonals match).
-9.  Visualizing the output.
+1. Directly answers the task.
+2. Method: Measure 3 units one side, 4 units other side. The diagonal must be exactly 5 units.
+3. Scaling: Use multiples (e.g., 9m, 12m, 15m) for accuracy over distance.
+4. Truth anchor: If diagonals of the rectangle are equal length, it is square (assuming opposite sides are equal length).
+5. Clear structure.
+6. Actionable steps.
+7. Practical tip: Use two tapes or a non-stretchy string.
+8. Correcting error (shift corners until diagonals match).
+9. Visualizing the output.
 10. Reference to Pythagoras.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -1405,21 +1428,19 @@ Is there a design for a vise that uses wedges to lock the work in place? How doe
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Design: Fixed jaw, movable jaw sliding in a frame.
-3.  Actuation: Driven by folding wedges (opposing tapers).
-4.  Truth anchor: Low taper angle (<7 degrees) is self-locking (friction > separation force). High angle pops out.
-5.  Release: Tap the small end of wedge.
-6.  Material choice (hardwood).
-7.  Clear structure.
-8.  Actionable steps.
-9.  Parallel clamping guides.
+1. Directly answers the task.
+2. Design: Fixed jaw, movable jaw sliding in a frame.
+3. Actuation: Driven by folding wedges (opposing tapers).
+4. Truth anchor: Low taper angle (<7 degrees) is self-locking (friction > separation force). High angle pops out.
+5. Release: Tap the small end of wedge.
+6. Material choice (hardwood).
+7. Clear structure.
+8. Actionable steps.
+9. Parallel clamping guides.
 10. Robustness.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -1439,21 +1460,19 @@ Is there something wrong with the way the washers fit in the pipe or is it a spe
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Mechanism: Washers lift water by fit, not suction.
-3.  Diagnosis 1: Clearance too large between washer and pipe wall (water slips past).
-4.  Diagnosis 2: Rope moving too slow (dynamic seal fails).
-5.  Truth anchor: Effective rope pumps rely on water inertia and skin friction. Washers shouldn't scrape tight (wear) but shouldn't have large gaps.
-6.  Guide block wear at bottom.
-7.  Pipe constraints.
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Mechanism: Washers lift water by fit, not suction.
+3. Diagnosis 1: Clearance too large between washer and pipe wall (water slips past).
+4. Diagnosis 2: Rope moving too slow (dynamic seal fails).
+5. Truth anchor: Effective rope pumps rely on water inertia and skin friction. Washers shouldn't scrape tight (wear) but shouldn't have large gaps.
+6. Guide block wear at bottom.
+7. Pipe constraints.
+8. Clear structure.
+9. Actionable steps.
 10. Washer spacing.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -1473,21 +1492,19 @@ Why would the flow stop if the hot water should be rising naturally? How do I ch
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Mechanism: Thermosyphon relies on density difference (hot water rises). Force is weak.
-3.  Diagnosis 1: High point in the pipe run trapping air (Vapor lock). Pipe must constantly rise to tank.
-4.  Diagnosis 2: Tank not high enough relative to collector (thermal head).
-5.  Diagnosis 3: Horizontal runs too long (friction > buoyancy).
-6.  Truth anchor: One dip/trap kills the flow.
-7.  Solution: Install bleed valve at high point or re-slope pipes.
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Mechanism: Thermosyphon relies on density difference (hot water rises). Force is weak.
+3. Diagnosis 1: High point in the pipe run trapping air (Vapor lock). Pipe must constantly rise to tank.
+4. Diagnosis 2: Tank not high enough relative to collector (thermal head).
+5. Diagnosis 3: Horizontal runs too long (friction > buoyancy).
+6. Truth anchor: One dip/trap kills the flow.
+7. Solution: Install bleed valve at high point or re-slope pipes.
+8. Clear structure.
+9. Actionable steps.
 10. Freeze protection note.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -1507,21 +1524,19 @@ What's the best ratio for mixing these together? Also, how do I test a small amo
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Ratio: Clay (binder) + Sand (aggregate) + Straw (tensile strength). Often 1:2:1 but depends on subsoil.
-3.  Truth anchor: Pure clay cracks when drying (shrinks). Sand reduces shrinkage. Straw holds it together (tensile reinforcement) and adds insulation.
-4.  Mixing: Puddling with feet.
-5.  Test: Make a "cookie" or ball, dry it. If it cracks -> more sand. If it crumbles -> more clay.
-6.  "Hat and Boots": Good stone foundation (boots) and overhang roof (hat) essential to protect from rain.
-7.  Monolithic building technique.
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Ratio: Clay (binder) + Sand (aggregate) + Straw (tensile strength). Often 1:2:1 but depends on subsoil.
+3. Truth anchor: Pure clay cracks when drying (shrinks). Sand reduces shrinkage. Straw holds it together (tensile reinforcement) and adds insulation.
+4. Mixing: Puddling with feet.
+5. Test: Make a "cookie" or ball, dry it. If it cracks -> more sand. If it crumbles -> more clay.
+6. "Hat and Boots": Good stone foundation (boots) and overhang roof (hat) essential to protect from rain.
+7. Monolithic building technique.
+8. Clear structure.
+9. Actionable steps.
 10. Drying time.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -1541,21 +1556,19 @@ Is hardwood always better, or does softwood have an advantage for getting a fire
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Cooking: Hardwood (Oak/Hickory) preferred. Burns long, steady heat, nice flavor.
-3.  Smelting/Forging: Softwood (Pine) often preferred!
-4.  Truth anchor: Softwood charcoal is less dense, so it burns *faster*. Faster combustion = higher power density (BTU/minute) = hotter fire (needed to melt iron). Hardwood burns too slow for some smelting operations.
-5.  Size grading: Smiths need uniform chunks (walnut size) for airflow. Dust chokes the fire.
-6.  Purity: Fully charred (no brown wood) to avoid smoke/sulfur.
-7.  Clear structure.
-8.  Actionable steps.
-9.  Process control.
+1. Directly answers the task.
+2. Cooking: Hardwood (Oak/Hickory) preferred. Burns long, steady heat, nice flavor.
+3. Smelting/Forging: Softwood (Pine) often preferred!
+4. Truth anchor: Softwood charcoal is less dense, so it burns *faster*. Faster combustion = higher power density (BTU/minute) = hotter fire (needed to melt iron). Hardwood burns too slow for some smelting operations.
+5. Size grading: Smiths need uniform chunks (walnut size) for airflow. Dust chokes the fire.
+6. Purity: Fully charred (no brown wood) to avoid smoke/sulfur.
+7. Clear structure.
+8. Actionable steps.
+9. Process control.
 10. Ash content issues.
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.
-
 
 ---
 
@@ -1575,17 +1588,16 @@ What are the most likely reasons it's not starting? How do I check the timing be
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Truth anchor: Stirling engines produce very low power. Any friction kills them.
-3.  Leaks: The system must be sealed (for working fluid pressure swing) but pistons must slide freely. A dilemma.
-4.  Phase Angle: Displacer leads Power Piston by ~90 degrees. If phased wrong, it won't run.
-5.  Temperature Differential: Needs Delta-T. Cold side must stay cold (heatsink?).
-6.  Displacer touching the walls (friction).
-7.  Dead volume (too much air space not being heated/cooled).
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Truth anchor: Stirling engines produce very low power. Any friction kills them.
+3. Leaks: The system must be sealed (for working fluid pressure swing) but pistons must slide freely. A dilemma.
+4. Phase Angle: Displacer leads Power Piston by ~90 degrees. If phased wrong, it won't run.
+5. Temperature Differential: Needs Delta-T. Cold side must stay cold (heatsink?).
+6. Displacer touching the walls (friction).
+7. Dead volume (too much air space not being heated/cooled).
+8. Clear structure.
+9. Actionable steps.
 10. Lubrication choices (dry graphite vs oil).
-
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer.

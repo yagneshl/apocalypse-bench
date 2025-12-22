@@ -24,9 +24,8 @@ It runs a fixed question bank (currently `data/question_bank_v8_*`) across one o
 ## How a run works
 
 1. **Load config** from `apocbench.yml` (or JSON), validating against a strict schema.
-2. **Load dataset** from JSONL compiled from the markdown source of truth:
-   - Source questions: `data/question_bank_v8/*.md`
-   - Compiled runtime dataset: `data/question_bank_v8_jsonl/*.jsonl`
+2. **Load dataset** directly from JSONL:
+   - Runtime dataset: `data/question_bank_v8_jsonl/*.jsonl`
 3. For each candidate model and each question:
    - Generate a candidate answer (with an “offline survival assistant” system prompt).
    - Send the question + rubric + candidate answer to the judge model.
@@ -54,25 +53,16 @@ Difficulty is one of `Easy | Medium | Hard | Very Hard`.
 
 ## Categories in the benchmark (with examples)
 
-Below are the categories (as encoded in `data/question_bank_v8/*.md`). Each category includes a mix of task types (e.g., procedure, critique) and difficulty tiers.
+Below are the categories (as encoded in `data/question_bank_v8_jsonl/*.jsonl`). Each category includes a mix of task types (e.g., procedure, critique) and difficulty tiers.
 
-### `AGR` — Agriculture systems
+### `AGR` — Agriculture systems (including applied food/bio)
 
 Focus: soil, rotations, pest management, irrigation, seed systems, livestock integration.
 
 Example questions:
 
 - `AGR-001`: Build a composting system for a new settlement
-- `AGR-005`: Plan a 1-year crop plan for calories and resilience
-
-### `AG` — Applied food / bio
-
-Focus: practical food production and biological processes that matter in survival contexts.
-
-Example questions:
-
-- `AG-101`: Clone a good fruit tree
-- `AG-104`: Troubleshooting canning: botulism signs
+- `AGR-027`: Clone a good fruit tree
 
 ### `GT` — General survival “town planning”
 
@@ -101,16 +91,7 @@ Example questions:
 - `CHEM-101`: Extracting ethanol (high proof) via fractional distillation
 - `CHEM-105`: Making hard soap vs soft soap (potash vs lye)
 
-### `ENERGY` — Engines / power / electromechanical
-
-Focus: practical power systems and repairs (generators, batteries, pumps, engines).
-
-Example questions:
-
-- `ENERGY-102`: Desulfating lead-acid batteries
-- `ENERGY-104`: Use an induction motor as a generator
-
-### `ENR` — Energy (heat, fuel, infrastructure)
+### `ENR` — Energy (heat, fuel, infrastructure, engines, power)
 
 Focus: cooking/heating efficiency, fuel budgeting, charcoal/biogas, small-scale generation and safe low-voltage systems.
 
@@ -118,6 +99,7 @@ Example questions:
 
 - `ENR-001`: Design a fuel-efficient communal cooking stove
 - `ENR-018`: Wire a small low-voltage lighting system safely
+- `ENR-028`: Desulfating lead-acid batteries
 
 ### `ENG` — Engineering (civil + mechanical)
 

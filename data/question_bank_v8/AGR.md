@@ -4,7 +4,7 @@
 - **Task type:** procedure
 
 ### Scenario
-A community of 80 people is starting a 0.5-hectare garden. They have kitchen scraps, straw, leaves, and some manure available. They have limited tools and no heavy machinery. Their goal is to improve soil fertility within 3 months to support their first major planting.
+(omitted)
 
 ### Prompt
 ```text
@@ -25,6 +25,9 @@ Can you design a compost system and a daily/weekly workflow for us? We need to k
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-002: Diagnose poor crop growth with simple soil tests
@@ -33,7 +36,7 @@ Can you design a compost system and a daily/weekly workflow for us? We need to k
 - **Task type:** troubleshoot
 
 ### Scenario
-The user's leafy greens are yellowing and stunted, and their tomatoes are suffering from blossom drop. No laboratory soil tests or commercial kits are available. The user has access to basic items like glass jars, water, manure, and wood ash.
+(omitted)
 
 ### Prompt
 ```text
@@ -54,6 +57,9 @@ Can you help me figure out what's wrong? I need a diagnostic plan to check for t
 9. Includes prevention/maintenance steps to avoid recurrence.
 10. Clear structure and assumptions; keeps advice realistic. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-003: Troubleshoot compost that smells bad and attracts flies
@@ -62,7 +68,7 @@ Can you help me figure out what's wrong? I need a diagnostic plan to check for t
 - **Task type:** troubleshoot
 
 ### Scenario
-A settlement's compost pile has become problematic: it smells like rotting garbage and ammonia, and it is swarming with flies. The current inputs are almost entirely kitchen scraps with very little dry "brown" material. It is currently the wet season, and the pile is exposed to the rain.
+(omitted)
 
 ### Prompt
 ```text
@@ -83,6 +89,9 @@ What exactly is going wrong here, and how do we fix it quickly with the people w
 9. Includes prevention/maintenance steps to avoid recurrence.
 10. Clear structure and assumptions; keeps advice realistic. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-004: Prevent soil erosion on a sloped plot
@@ -91,7 +100,7 @@ What exactly is going wrong here, and how do we fix it quickly with the people w
 - **Task type:** procedure
 
 ### Scenario
-A garden plot is situated on a 10-15° slope. Recent heavy rains have caused visible rills (small channels) to form, washing away topsoil. The available materials are limited to stones, sticks, and organic mulch. There is a moderate amount of labor available but no heavy earth-moving equipment.
+(omitted)
 
 ### Prompt
 ```text
@@ -112,6 +121,9 @@ We only have stones, sticks, and mulch to work with. How should we design the ga
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-005: Plan a 1-year crop plan for calories and resilience
@@ -120,7 +132,7 @@ We only have stones, sticks, and mulch to work with. How should we design the ga
 - **Task type:** procedure
 
 ### Scenario
-A group of 15 people is managing a 1-hectare field in a temperate climate with a 6-month growing season. Water access is moderate. The people work part-time on the garden while handling other settlement duties. The primary goal is to produce enough calories to sustain the group while maintaining soil health for the following year.
+(omitted)
 
 ### Prompt
 ```text
@@ -141,6 +153,9 @@ We need to maximize the calories we get from the land but we can't afford to rui
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-006: Design a 3-year rotation for a small garden
@@ -149,7 +164,7 @@ We need to maximize the calories we get from the land but we can't afford to rui
 - **Task type:** procedure
 
 ### Scenario
-A garden consists of 20 raised beds. The available crop seeds are potatoes, beans, cabbage, onions, carrots, and squash. The garden has a moderate amount of compost available, but animal manure is very limited.
+(omitted)
 
 ### Prompt
 ```text
@@ -170,6 +185,9 @@ Can you give us a 3-year plan for how to rotate these crops through the beds? I 
 9. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers.
 10. Quantifies key parameters (ratios, dimensions, timing, rates, temperatures) or explains how to measure them — and sanity-checks plausibility. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-007: Polyculture design for pest resilience
@@ -178,7 +196,7 @@ Can you give us a 3-year plan for how to rotate these crops through the beds? I 
 - **Task type:** procedure
 
 ### Scenario
-A garden in a tropical climate is facing high pest pressure. The crops being grown are maize, beans, squash, and leafy greens. The goal is to reduce pest outbreaks and protect soil moisture without using any commercial pesticides.
+(omitted)
 
 ### Prompt
 ```text
@@ -199,6 +217,9 @@ Can you design a layout where we plant these things together (like a polyculture
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-008: Critique this monoculture plan and improve it
@@ -207,7 +228,7 @@ Can you design a layout where we plant these things together (like a polyculture
 - **Task type:** critique
 
 ### Scenario
-An inexperienced member of the settlement has proposed a plan to solve the food shortage by planting only potatoes in the entire available field. They plan to spread all the available manure across the whole field, harvest once at the end of the season, and store everything in one large cellar.
+(omitted)
 
 ### Prompt
 ```text
@@ -231,6 +252,9 @@ Can you tell me if this is a good idea? What are the big risks when it comes to 
 9. Adds monitoring/feedback: what to observe/measure to know the plan is working.
 10. Clear structure and assumptions; avoids moralising or irrelevant digressions. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-009: Set up a community seed bank and seed-saving protocol
@@ -239,7 +263,7 @@ Can you tell me if this is a good idea? What are the big risks when it comes to 
 - **Task type:** procedure
 
 ### Scenario
-A new settlement wants to preserve and improve their crop genetics for the future. Their knowledge is limited. They have access to glass jars, cloth bags, and a cool, dry underground cellar. They are concerned about moisture, rodents, and varieties getting mixed up by mistake.
+(omitted)
 
 ### Prompt
 ```text
@@ -260,6 +284,9 @@ How should we set this up? We need a system for labeling things, how exactly to 
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-010: Save seed from beans, squash, and brassicas correctly
@@ -268,7 +295,7 @@ How should we set this up? We need a system for labeling things, how exactly to 
 - **Task type:** procedure
 
 ### Scenario
-The user is growing beans, squash, and cabbage family crops (brassicas). They want to save seeds to ensure they have the same varieties next year. They have limited garden space but can manage some separation between different varieties.
+(omitted)
 
 ### Prompt
 ```text
@@ -289,6 +316,9 @@ Can you give me specific instructions for these three types of crops? I need to 
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-011: Germination testing and deciding what to plant
@@ -297,7 +327,7 @@ Can you give me specific instructions for these three types of crops? I need to 
 - **Task type:** procedure
 
 ### Scenario
-A gardener has several packets of old seeds of unknown age and viability. They need to decide how many to plant per row to get a full crop, or if the seeds are so bad they should trade with another group for newer ones. They only have paper, cloth, water, and some plates or jars.
+(omitted)
 
 ### Prompt
 ```text
@@ -318,6 +348,9 @@ Can you tell me how to do a "germination test" using just things like paper, wat
 9. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers.
 10. Quantifies key parameters (ratios, dimensions, timing, rates, temperatures) or explains how to measure them — and sanity-checks plausibility. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-012: Prevent accidental cross-pollination in a small garden
@@ -326,7 +359,7 @@ Can you tell me how to do a "germination test" using just things like paper, wat
 - **Task type:** procedure
 
 ### Scenario
-A gardener has limited space and wants to grow several varieties of the same crops while keeping the seeds pure. There are active pollinators in the area and some neighboring gardens nearby. They can use timing, physical barriers (like mesh or bags), or distance to manage the plants.
+(omitted)
 
 ### Prompt
 ```text
@@ -347,6 +380,9 @@ What are some practical ways I can stop this from happening using things like ti
 9. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers.
 10. Quantifies key parameters (ratios, dimensions, timing, rates, temperatures) or explains how to measure them — and sanity-checks plausibility. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-013: Integrated pest management for aphids and leaf damage
@@ -355,7 +391,7 @@ What are some practical ways I can stop this from happening using things like ti
 - **Task type:** procedure
 
 ### Scenario
-Leafy greens in a garden are being attacked by aphids, and there is a noticeable presence of ants moving among the plants. The gardener has basic supplies: mild soap, wood ash, water, and some cloth. They want to eliminate the pests without using any chemicals that would harm bees or other pollinators.
+(omitted)
 
 ### Prompt
 ```text
@@ -376,6 +412,9 @@ I need a step-by-step plan to get rid of these bugs without using anything toxic
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-014: Rodent-proof food storage and field protection
@@ -384,7 +423,7 @@ I need a step-by-step plan to get rid of these bugs without using anything toxic
 - **Task type:** procedure
 
 ### Scenario
-A settlement is losing a significant amount of its stored grain to rodents, and mice are digging up newly planted seedlings in the fields. The group has access to wood, clay/mud, and some metal scraps. They also have access to a few semi-feral cats. They must ensure that any management strategy is safe for the children living in the settlement.
+(omitted)
 
 ### Prompt
 ```text
@@ -405,6 +444,9 @@ Can you design a rodent management plan for both our storage area and the fields
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-015: Manage fungal disease in wet weather
@@ -413,7 +455,7 @@ Can you design a rodent management plan for both our storage area and the fields
 - **Task type:** procedure
 
 ### Scenario
-During an unusually wet season, tomatoes and squash are showing clear signs of powdery mildew and fruit rot. There are no commercial fungicides available. The gardener can adjust the spacing of plants, prune them, and has a small selection of different seed varieties for the next planting.
+(omitted)
 
 ### Prompt
 ```text
@@ -434,6 +476,9 @@ What can I do to stop this fungal disease from spreading? Please explain how I s
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-016: Critique a pesticide-heavy plan and propose safer alternatives
@@ -442,7 +487,7 @@ What can I do to stop this fungal disease from spreading? Please explain how I s
 - **Task type:** critique
 
 ### Scenario
-A member of a farming group has found a stash of unlabeled agricultural chemicals and has proposed a plan to spray the entire garden once a week to "guarantee" a harvest. They believe the best approach is to kill every insect in the area to be safe.
+(omitted)
 
 ### Prompt
 ```text
@@ -463,6 +508,9 @@ Can you explain why this might be a bad or risky idea? Also, can you suggest a b
 9. Adds monitoring/feedback: what to observe/measure to know the plan is working.
 10. Clear structure and assumptions; avoids moralising or irrelevant digressions. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-017: Gravity-fed irrigation for a garden near a stream
@@ -471,7 +519,7 @@ Can you explain why this might be a bad or risky idea? Also, can you suggest a b
 - **Task type:** procedure
 
 ### Scenario
-A garden is located near a stream, and the water level of the stream is roughly 1 meter higher than the edge of the garden. The soil in the garden is sandy and drains quickly. The gardener can build simple channels and gates out of local materials. The primary concerns are water conservation and avoiding erosion of the sandy soil.
+(omitted)
 
 ### Prompt
 ```text
@@ -492,6 +540,9 @@ Can you design a simple gravity irrigation system for us? I need to know how to 
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-018: Low-tech drip/soak irrigation with minimal materials
@@ -500,7 +551,7 @@ Can you design a simple gravity irrigation system for us? I need to know how to 
 - **Task type:** procedure
 
 ### Scenario
-A group is growing vegetables in an arid climate where water is extremely scarce. They have access to unglazed clay pots (ollas) or jars, some cloth, and a small amount of flexible tubing. They need a system that minimizes evaporation and gets water directly to the plant roots.
+(omitted)
 
 ### Prompt
 ```text
@@ -521,6 +572,9 @@ Can you show us how to make a low-tech drip or soak system using these clay pots
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-019: Drought response plan for crops
@@ -529,7 +583,7 @@ Can you show us how to make a low-tech drip or soak system using these clay pots
 - **Task type:** procedure
 
 ### Scenario
-A settlement is facing a severe drought; rainfall is at half its normal level and the local reservoir is critically low. They have crops of potatoes, beans, maize, and leafy greens in various stages of growth. The leadership must decide which crops to save and which to let go to avoid a total famine.
+(omitted)
 
 ### Prompt
 ```text
@@ -550,6 +604,9 @@ Can you help us write a drought response plan? We need to know which crops to pr
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-020: Flood response plan for a low-lying garden
@@ -558,7 +615,7 @@ Can you help us write a drought response plan? We need to know which crops to pr
 - **Task type:** procedure
 
 ### Scenario
-A garden is located in a low-lying area that floods at least twice a month during heavy rains. The soil is constantly waterlogged, causing seedlings to rot and die. The settlement has access to extra soil, wood for building, and stones. They have a moderate amount of labor available.
+(omitted)
 
 ### Prompt
 ```text
@@ -579,6 +636,9 @@ Can you design a flood mitigation plan for us? We need to know how to build rais
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-021: Integrate chickens into a food system
@@ -587,7 +647,7 @@ Can you design a flood mitigation plan for us? We need to know how to build rais
 - **Task type:** procedure
 
 ### Scenario
-A group has acquired 20 chickens for their settlement. They do not have a steady supply of commercial chicken feed, and there are known predators (like foxes or hawks) in the area. They want to use the chickens for eggs, to help with garden pests, and to produce manure for their compost.
+(omitted)
 
 ### Prompt
 ```text
@@ -608,6 +668,9 @@ Can you show us how to house them safely, what we can feed them from our own lan
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-022: Rotational grazing plan to prevent overgrazing
@@ -616,7 +679,7 @@ Can you show us how to house them safely, what we can feed them from our own lan
 - **Task type:** procedure
 
 ### Scenario
-A small farm has 6 goats and access to a mix of open pasture and woodland edge. The owners want to ensure the goats don't destroy the vegetation or cause erosion through overgrazing. They only have rope and some basic materials to make temporary fencing or tethers.
+(omitted)
 
 ### Prompt
 ```text
@@ -637,6 +700,9 @@ Can you create a rotational grazing plan for me? I need to know how to design th
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-023: Use manure safely to improve soil without spreading disease
@@ -645,7 +711,7 @@ Can you create a rotational grazing plan for me? I need to know how to design th
 - **Task type:** procedure
 
 ### Scenario
-A gardener has a large supply of fresh manure from chickens and goats. They want to use it to fertilize their vegetable beds, but they are concerned about the risk of spreading pathogens or polluting a nearby stream.
+(omitted)
 
 ### Prompt
 ```text
@@ -666,6 +732,9 @@ Can you give me some clear guidelines on how to compost or "age" this manure so 
 9. Includes a verification/quality-control check (and a basic sanity check on quantities/feasibility where numbers are used).
 10. Clear structure (headings/checklist); states assumptions; keeps preamble short and avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## AGR-024: Critique an ecologically harmful farming plan
@@ -674,7 +743,7 @@ Can you give me some clear guidelines on how to compost or "age" this manure so 
 - **Task type:** critique
 
 ### Scenario
-A group of people is planning to clear a large area of nearby woodland to create more farmland. Their plan is to cut down all the trees, burn all the debris on-site, and plant a single crop of maize over the entire area.
+(omitted)
 
 ### Prompt
 ```text
@@ -694,3 +763,336 @@ Can you explain the ecological risks of doing this? I'm worried it might hurt us
 8. Proposes a corrected plan that is concrete, staged, and feasible with stated resources.
 9. Adds monitoring/feedback: what to observe/measure to know the plan is working.
 10. Clear structure and assumptions; avoids moralising or irrelevant digressions. Keeps preamble short; avoids filler/moralising/long disclaimers. Keeps answer concise and actionable (avoid long essays; prioritise checklists and steps).
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-025: Detoxifying Cassava (Manioc)
+- **Category:** Agriculture / Food Safety
+- **Difficulty:** Medium
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+We found a bunch of these big roots that look like Cassava, but the local people here are calling it "Bitter Manioc" and say it's deadly if you don't fix it right. They said just boiling it like a potato won't stop the poison. We're starving, so how exactly are we supposed to prepare this so we don't die?
+```
+
+### Rubric (10 points)
+1. Identifies the toxin: **Cyanide**.
+2. **Truth Anchor:** The cell walls must be ruptured to release the enzyme that frees the cyanide gas. Boiling whole chunks keeps the poison inside.
+3. Step 1: Peel and **Grate/Mash** the roots to a pulp (essential).
+4. Step 2: Soak/Ferment or Squeeze. Squeezing the milky liquid out removes a lot of toxin.
+5. Step 3: Roast/Dry the pulp. The heat drives off the remaining cyanide gas.
+6. Signs of safety: "Sweet" smell (no almond/bitter smell).
+7. Symptoms of failure: Rapid breathing, weakness.
+8. Clear structure.
+9. Actionable steps.
+10. Warning: Do not drink the squeeze water (concentrated poison).
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-026: Extracting Rennet for Cheese Making
+- **Category:** Agriculture
+- **Difficulty:** Very Hard
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+I have a huge amount of fresh milk and I need to turn it into hard cheese so it doesn't go to waste, but I don't have any of those store-bought rennet tablets. We just butchered a calf that was still drinking milk from its mother. Is there something inside the calf I can use to make the milk curdle? How do I get it ready and use it?
+```
+
+### Rubric (10 points)
+1. Source: Identify the **Fourth Stomach** (Abomasum). It *must* be from an unweaned (milk-fed) calf.
+2. Reason: An adult cow's stomach produces pepsin (makes cheese bitter/hard); a calf produces chymosin (rennet).
+3. Preparation: Clean gently (don't wash away the enzyme mucus), inflate or stretch, and dry/salt it.
+4. **Truth Anchor:** Heat kills the enzyme. Do not cook/boil the stomach.
+5. Activation: Cut a small strip of the dried stomach and soak it in cool/warm water (or whey) to extract the enzyme liquid.
+6. Application: Add this liquid to the warm milk to set the curd.
+7. Storage: The dried stomach lasts a long time; the liquid spoils fast.
+8. Clear structure.
+9. Actionable steps.
+10. Vegetable alternatives (Thistle/Fig) as backup.
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-027: Clone a good fruit tree
+- **Category:** Agriculture
+- **Difficulty:** Medium
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+The apple trees I grew from seeds finally fruited, but they're all tiny and bitter. I found an old tree nearby that has amazing apples. How do I "copy" the good tree onto my young bitter ones? I need to know how to cut them so they actually grow together and what part of the wood needs to line up.
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Truth anchor: The wood (xylem) doesn't heal; only the thin green cambium layer under the bark heals. These *must* touch/cross.
+3. Technique: Slanted cut with a "tongue" notch for mechanical interlock.
+4. Scion (good wood) must be dormant (collected in winter/kept cold).
+5. Sealing: Wax/tape to prevent drying out.
+6. Timing: Spring (when sap flows in rootstock).
+7. Removing rootstock suckers.
+8. Clear structure.
+9. Actionable advice.
+10. Safety with grafting knives.
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-028: Making Silage for Winter Feed
+- **Category:** Agriculture
+- **Difficulty:** Medium
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+It's been too rainy to dry any hay for the animals, and if I just pile the green grass up it's going to rot. I've heard you can ferment the grass into "silage" to keep it good for the winter. How do I do that? What do I need to do to the grass and how do I pack it so it doesn't turn into a moldy mess?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Mechanism: Anaerobic fermentation converts sugars to Lactic Acid, dropping pH to ~4, stopping rot.
+3. Truth anchor: Oxygen is the enemy. Material must be chopped (to release sugars/pack tight) and compressed heavily to exclude air.
+4. Sealing: Plastic sheets/weights. Pits or piles.
+5. Moisture content control (wilting to ~65%).
+6. Failures: Slimy/smelly (Butyric acid) = too wet/not acidic enough. Mould = Air leaks.
+7. Botulism risk in animals.
+8. Clear structure.
+9. Actionable steps.
+10. Monitoring cues (sweet acid smell).
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-029: Fish Farming: Oxygen and Ammonia Management
+- **Category:** Agriculture
+- **Difficulty:** Medium
+- **Task type:** troubleshoot
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+My fish pond is looking really cloudy lately. This morning at sunrise, I saw all my tilapia gasping at the surface like they couldn't breathe, and now some are floating dead. What's going on? Is the water poisoned, and is there anything I can do right now to save the rest of them?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Diagnosis: Dissolved Oxygen (DO) crash. Algae produce O2 by day but consume it by night. Dawn is the lowest point.
+3. Nitrogen Cycle: Fish Waste (Ammonia) -> Nitrite -> Nitrate. Ammonia is toxic.
+4. Intervention: Mechanical aeration (splashing), water exchange.
+5. Truth anchor: Stop feeding immediately. Food decay consumes O2 and creates Ammonia.
+6. Checking stocking density.
+7. Clear structure.
+8. Actionable advice.
+9. Cloudiness indicates algal bloom (instability).
+10. Safety: Don't eat dying fish.
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-030: Troubleshooting Canning: Botulism Signs
+- **Category:** Agriculture / Food Safety
+- **Difficulty:** Medium
+- **Task type:** troubleshoot
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+I found some jars of home-canned beans in a basement. They don't have the modern "pop" lids, so I can't tell if they're still sealed right. How do I know if they have botulism? If they look and smell okay, are they safe, or is there something I should do before eating them just in case?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Conditions: Anaerobic (no air), Low Acid (pH > 4.6), Moist, Warm.
+3. Truth anchor: Botulism toxin is odorless and tasteless. Spoilage smells/gas (bulging) are good indicators of *other* bacteria, but their absence does not guarantee safety from botulism.
+4. Safety Rule: Boil low-acid canned goods for 10-15 minutes before eating. The toxin is heat labile (destroyed by heat), even though the spores are not.
+5. Signs: Bulging, spurting liquid, mushy texture, weird smell (for other spoilage).
+6. Caution: Never taste to test.
+7. Clear structure.
+8. Actionable steps.
+9. High acid (fruit) is generally safe from botulism.
+10. Pressure canning necessity explanation.
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-031: Selecting seed potatoes (Chitting and cutting)
+- **Category:** Agriculture
+- **Difficulty:** Easy
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+I've got some big potatoes I want to plant, but I don't have many of them. Can I cut them into pieces to grow more plants? Also, I saw some people leaving their potatoes in the light to grow sprouts before planting—is that a good idea? How do I get these ready so they don't just rot when I put them in the dirt?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Chitting: Expose to light/warmth to start strong sprouts (eyes).
+3. Cutting: Large potatoes can be cut, but each piece must have at least one "eye".
+4. Truth anchor: Cut surfaces must "cure" (scab over) for a day or two before planting to prevent rot in wet soil.
+5. Planting depth/hilling up.
+6. Disease check (discard x-mushy/black centers).
+7. Clear structure.
+8. Actionable steps.
+9. Crop rotation importance (solanaceae).
+10. Timing relative to frost.
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-032: Saving Tomato Seeds (Fermentation step)
+- **Category:** Agriculture
+- **Difficulty:** Medium
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+I'm trying to save seeds from my best tomatoes for next year. Last time I tried this, I just dried the seeds on a paper towel, but hardly any of them grew. What are the steps to do it right?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Mechanism: Tomato seeds have a gelatinous inhibitor coat.
+3. Process: Squeeze seeds+pulp into jar. Add water. Let sit 2-4 days until mold forms/scum.
+4. Truth anchor: Fermentation destroys the inhibitor coat and kills some seed-borne diseases.
+5. Cleaning: Good seeds sink, bad seeds/pulp float. Pour off top.
+6. Drying: Rapidly on screens/paper.
+7. Storage: Cool/Dry.
+8. Clear structure.
+9. Actionable steps.
+10. Time limit (sprouting in jar).
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-033: Using "Trap Crops" in gardening
+- **Category:** Agriculture
+- **Difficulty:** Medium
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+Aphids and beetles are absolutely eating my garden alive and I don't have any spray to kill them. I have some extra seeds for nasturtiums, sunflowers, and mustard. Is there a way I can use those to trick the bugs into leaving my main veggies alone? How does that work?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Mechanism: Pest prefers the trap crop (more tasty/attractive) over the cash crop.
+3. Timing: Plant trap crop earlier so it establishes first.
+4. Truth anchor: You must manage the trap crop (destroy pests on it) or it just becomes a nursery for more pests.
+5. Examples: Nasturtiums for aphids, Blue Hubbard squash for vine borers.
+6. Intercropping placement.
+7. Clear structure.
+8. Actionable steps.
+9. Push-Pull strategy mention (repel from main, attract to trap).
+10. Observation routine.
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-034: Is a volunteer squash safe to eat?
+- **Category:** Agriculture / Safety
+- **Difficulty:** Medium
+- **Task type:** troubleshoot
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+A random squash plant popped up in my compost pile and it's huge! It looks just like a zucchini. Is it safe to just pick it and eat it? I heard somewhere that "wild" squash can be poisonous. Is there a way I can check if it's okay before I cook a whole meal with it?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Mechanism: Squash cross-pollinate easily with wild gourds/ornamental gourds.
+3. Result: The offspring produce high levels of Cucurbitacin E (toxic/bitter).
+4. Truth anchor: The Taste Test. If a small piece is extremely bitter, spit it out and destroy the plant. Toxicity can cause severe illness/hair loss/death.
+5. Volunteers are F2 hybrids of unknown parentage.
+6. Cooking does *not* destroy the toxin.
+7. Clear structure.
+8. Actionable steps.
+9. Saving seed risks.
+10. Symptoms (nausea, diarrhea).
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## AGR-035: Grow crops in drought without irrigation
+- **Category:** Agriculture
+- **Difficulty:** Medium
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+We haven't had rain in weeks and I don't have any water left for the garden, but if I dig down a foot, the soil is still pretty damp from the winter. How can I grow food using just that deep moisture? How should I space the plants, and what do I do to the surface of the dirt to keep it from drying out?
+```
+
+### Rubric (10 points)
+1. Directly answers the task.
+2. Principle: Utilize stored residual soil moisture from the wet season.
+3. Spacing: Much wider spacing (e.g., 2x or 4x normal) to give each plant a larger root zone reservoir.
+4. Dust Mulch: Cultivating the top 2-3 inches to break capillary action. This dry dust layer prevents deep moisture from wicking to the surface and evaporating.
+5. Truth anchor: Never water lightly. It encourages shallow roots which die. Force roots deep.
+6. Suitable crops (tomatoes, melons, grains).
+7. Weed control (absolute elimination required).
+8. Clear structure.
+9. Actionable steps.
+10. Timing (early planting).
+
+### Auto-fail (score = 0 if any)
+- (omitted)

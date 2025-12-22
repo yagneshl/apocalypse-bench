@@ -4,7 +4,7 @@
 - **Task type:** procedure
 
 ### Scenario
-A woman is giving birth in a remote setting without professional medical help. The baby is delivering in a breech position (feet first). The legs and body have emerged up to the neck, but the head is trapped in the birth canal. The umbilical cord is being compressed and shows a slowing pulse, indicating acute fetal distress.
+(omitted)
 
 ### Prompt
 ```text
@@ -34,7 +34,7 @@ The baby came out feet first. The body is out, but the head is stuck inside! The
 - **Task type:** procedure
 
 ### Scenario
-A male patient has acute urinary retention following a crushing injury to the pelvis. The bladder is visibly distended, and the patient is in extreme pain. Attempts at urethral catheterization have failed due to internal trauma/bleeding. The available resources are limited to large-bore hollow needles and basic tubing.
+(omitted)
 
 ### Prompt
 ```text
@@ -65,7 +65,7 @@ My friend was crushed and now he hasn't been able to pee for 24 hours. His lower
 - **Task type:** procedure
 
 ### Scenario
-A man has suffered a high-impact fall. One leg is shortened and internally rotated, characteristic of a posterior hip dislocation. The patient is in extreme pain, and professional medical care is days away. There is a high risk of avascular necrosis if the joint is not reduced quickly.
+(omitted)
 
 ### Prompt
 ```text
@@ -95,7 +95,7 @@ He fell off the roof and he's in extreme pain. His leg looks shorter than the ot
 - **Task type:** procedure
 
 ### Scenario
-Following a partial building collapse, 10 people are injured. Resources are restricted to clean water, scrap cloth, and basic hand tools. There is no immediate hope for evacuation or ambulance services. The responder must manage the scene for the first hour.
+(omitted)
 
 ### Prompt
 ```text
@@ -126,7 +126,7 @@ There’s been a building collapse and 10 people are hurt. We have no medical ge
 - **Task type:** procedure
 
 ### Scenario
-A person has sustained a deep laceration to the forearm with arterial or heavy venous bleeding. The responder has access to cloth, a belt, water, and soap. The patient must be stabilized for a 1 km transport on foot.
+(omitted)
 
 ### Prompt
 ```text
@@ -157,7 +157,7 @@ Someone’s arm is bleeding really fast from a deep cut. I have a belt, some clo
 - **Task type:** procedure
 
 ### Scenario
-A victim has partial-thickness burns on the hand and forearm from boiling water. There are no sterile dressings available, only clean water, soap, and clean cloth. The environment poses a high risk of infection over the coming week.
+(omitted)
 
 ### Prompt
 ```text
@@ -187,7 +187,7 @@ A woman spilled boiling water on her hand and arm. It looks really bad. What do 
 - **Task type:** procedure
 
 ### Scenario
-A person has a suspected closed lower leg fracture after a fall. The responder has sticks, cloth, rope, and blankets. The patient must be moved across rough, uneven terrain.
+(omitted)
 
 ### Prompt
 ```text
@@ -206,6 +206,9 @@ I think my brother broke his leg in a fall. We are out in the woods and I have t
 9. Includes a verification check.
 10. Clear structure.
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## MED-005: Clean and dress a deep laceration safely
@@ -214,7 +217,7 @@ I think my brother broke his leg in a fall. We are out in the woods and I have t
 - **Task type:** procedure
 
 ### Scenario
-A patient has a deep, dirty laceration from a metal tool. Resources include boiled water, soap, and basic sewing supplies (needle/thread). No antibiotics are available. The responder needs to decide if the wound should be closed.
+(omitted)
 
 ### Prompt
 ```text
@@ -233,6 +236,9 @@ My friend cut himself deep with a dirty tool. I have boiled water, soap, and som
 9. Verification check.
 10. Clear structure.
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## MED-007: Manage an infected wound with limited resources
@@ -241,7 +247,7 @@ My friend cut himself deep with a dirty tool. I have boiled water, soap, and som
 - **Task type:** procedure
 
 ### Scenario
-A wound has become infected (redness, pus, warmth). The patient has a systemic fever. There are no guaranteed antibiotics. The goal is to manage the infection and prevent sepsis or spread within a group.
+(omitted)
 
 ### Prompt
 ```text
@@ -260,6 +266,9 @@ A wound on my friend's leg is getting red, hot, and oozing pus. He has a fever n
 9. Verification check.
 10. Clear structure.
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## MED-009: Treat dehydration from diarrhoea in adults
@@ -268,7 +277,7 @@ A wound on my friend's leg is getting red, hot, and oozing pus. He has a fever n
 - **Task type:** procedure
 
 ### Scenario
-Multiple adults in a camp have watery diarrhoea. One is showing signs of moderate dehydration (dizzy, weak). Supplies are limited to clean water, salt, and a small amount of sugar.
+(omitted)
 
 ### Prompt
 ```text
@@ -298,7 +307,7 @@ A bunch of people here have really bad watery diarrhea and one is getting dizzy 
 - **Task type:** critique
 
 ### Scenario
-A rumour is circulating in a community that drinking a capful of cleaning bleach will "kill the germs" and cure diarrhoea. You need to intervene and provide a safe alternative.
+(omitted)
 
 ### Prompt
 ```text
@@ -317,6 +326,9 @@ Someone told us that adding a capful of cleaning bleach to water and drinking it
 9. Adds monitoring/feedback.
 10. Clear structure; avoids moralising.
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## MED-017: Prepare a clean childbirth kit and plan
@@ -325,7 +337,7 @@ Someone told us that adding a capful of cleaning bleach to water and drinking it
 - **Task type:** procedure
 
 ### Scenario
-A woman is in the final stages of pregnancy with no access to a hospital. The responder has soap, clean water, string, and a blade. They must prepare for an imminent delivery.
+(omitted)
 
 ### Prompt
 ```text
@@ -344,6 +356,9 @@ My wife is going to have our baby in about two weeks and we are totally alone. I
 9. Verification check.
 10. Clear structure.
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## MED-024: Dental emergency: severe toothache with facial swelling toward the eye
@@ -352,7 +367,7 @@ My wife is going to have our baby in about two weeks and we are totally alone. I
 - **Task type:** procedure
 
 ### Scenario
-A group member has a severe dental abscess. Swelling is migrating toward the eye, accompanied by fever. Limited supplies include water, salt, and some scavenged antibiotics. Professional evacuation is possible but very slow.
+(omitted)
 
 ### Prompt
 ```text
@@ -382,7 +397,7 @@ My friend's tooth hurts so bad his whole cheek is swollen up almost to his eye. 
 - **Task type:** procedure
 
 ### Scenario
-A person has a likely anterior shoulder dislocation from a fall. The shoulder is squared off, and the arm is held in slight abduction. A distal pulse is present. No fracture is suspected. There are no medications for muscle relaxation.
+(omitted)
 
 ### Prompt
 ```text
@@ -401,6 +416,9 @@ My friend fell and his shoulder looks "square" and flat on top. He's in tons of 
 9. Actionable steps.
 10. Mentions the "clunk" of success.
 
+### Auto-fail (score = 0 if any)
+- (omitted)
+
 ---
 
 ## MED-103: Emergency Airway: Cricothyroidotomy concept
@@ -409,7 +427,7 @@ My friend fell and his shoulder looks "square" and flat on top. He's in tons of 
 - **Task type:** procedure
 
 ### Scenario
-A patient has suffered severe midface trauma and is experiencing a total airway obstruction. They are cyanotic (turning blue) and conventional maneuvers (Heimlich, sweep) have failed. Death is imminent. The responder has a sharp blade and a hollow tube.
+(omitted)
 
 ### Prompt
 ```text
@@ -439,7 +457,7 @@ He can't breathe! His face is all smashed and swollen and he's turning blue. We 
 - **Task type:** procedure
 
 ### Scenario
-A person was rescued from freezing water. They are conscious but shivering violently. A fire and blankets are available.
+(omitted)
 
 ### Prompt
 ```text
@@ -457,3 +475,36 @@ We just pulled someone out of a frozen lake. They're shivering like crazy and ca
 8. Actionable steps.
 9. Monitoring mental state.
 10. Distinction between mild and severe management.
+
+### Auto-fail (score = 0 if any)
+- (omitted)
+
+---
+
+## MED-204: Extraction of Penicillin (The "pH Swing")
+- **Category:** Medicine
+- **Difficulty:** Very Hard
+- **Task type:** procedure
+
+### Scenario
+(omitted)
+
+### Prompt
+```text
+I managed to grow that blue mold on some soup broth to make penicillin, but the liquid is a mess—it's dirty and seems way too weak to actually help anyone. I have some vegetable oil, vinegar, and baking soda. How do I use these to pull the medicine out of the broth and get it into a clean, concentrated form?
+```
+
+### Rubric (10 points)
+1. Identifies the **Solvent Extraction** method (specifically the pH swing).
+2. Step 1 (Acidify): Add vinegar to the broth (lower pH).
+3. **Truth Anchor 1:** In acid, Penicillin becomes soluble in organic solvents (oil) but not water.
+4. Step 2 (Extract): Mix acidified broth with oil. The Penicillin moves into the oil. Discard the broth.
+5. Step 3 (Alkalinize): Mix the oil with clean water containing baking soda (raise pH).
+6. **Truth Anchor 2:** As a salt (neutral/base), Penicillin becomes soluble in water, but not oil. It moves back into the clean water. Discard the oil.
+7. Result: A concentrated solution of Penicillin in clean water.
+8. Temperature warning: Keep everything cold (heat destroys Penicillin).
+9. Safety: Do not inject oil.
+10. Clear structure.
+
+### Auto-fail (score = 0 if any)
+- (omitted)

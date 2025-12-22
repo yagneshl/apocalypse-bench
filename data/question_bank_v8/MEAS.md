@@ -12,19 +12,19 @@ I'm trying to measure a part really accurately, but my ruler only has 1 mm marks
 ```
 
 ### Rubric (10 points)
-1.  Identifies the device as a **Vernier Scale**.
-2.  Principle: The sliding scale uses a different spacing than the main scale.
-3.  Construction: Take a length of **9 mm** on the sliding scale.
-4.  **Truth Anchor:** Divide that 9 mm length into **10 equal segments**.
-5.  Math: Each sliding division is now 0.9 mm. The difference between a main mark (1.0) and a slide mark (0.9) is 0.1 mm.
-6.  Reading: The mark on the slider that lines up perfectly with a mark on the main ruler indicates the decimal value (e.g., 3rd line aligns = 0.3 mm).
-7.  Clear instructions on marking/dividing.
-8.  Actionable steps.
-9.  Example of a reading.
+1. Identifies the device as a **Vernier Scale**.
+2. Principle: The sliding scale uses a different spacing than the main scale.
+3. Construction: Take a length of **9 mm** on the sliding scale.
+4. **Truth Anchor:** Divide that 9 mm length into **10 equal segments**.
+5. Math: Each sliding division is now 0.9 mm. The difference between a main mark (1.0) and a slide mark (0.9) is 0.1 mm.
+6. Reading: The mark on the slider that lines up perfectly with a mark on the main ruler indicates the decimal value (e.g., 3rd line aligns = 0.3 mm).
+7. Clear instructions on marking/dividing.
+8. Actionable steps.
+9. Example of a reading.
 10. Application constraints (scribing accuracy).
 
 ### Auto-fail (score = 0 if any)
--  Suggests just "looking closer" or magnifying the 1mm marks.
+- Suggests just "looking closer" or magnifying the 1mm marks.
 
 ---
 
@@ -42,15 +42,15 @@ I'm stuck outside at night in the Northern Hemisphere and I've lost my way. I ha
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Truth anchor: In the Northern Hemisphere, the altitude of the North Celestial Pole above the horizon equals your latitude.
-3.  Finding the reference point: Identify the Little Dipper/Ursa Minor, or use the Big Dipper’s pointer stars to locate the star near the north celestial pole.
-4.  Measuring angle: Quadrant (Quarter circle with plumb bob). Sight along top edge to star, read string angle.
-5.  Accuracy check (hand widths: pinky \( \sim 1^\circ \), fist \( \sim 10^\circ \)).
-6.  Correction: Horizon dip (minor, but good to mention).
-7.  Southern hemisphere variation (Southern Cross/no pole star).
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Truth anchor: In the Northern Hemisphere, the altitude of the North Celestial Pole above the horizon equals your latitude.
+3. Finding the reference point: Identify the Little Dipper/Ursa Minor, or use the Big Dipper’s pointer stars to locate the star near the north celestial pole.
+4. Measuring angle: Quadrant (Quarter circle with plumb bob). Sight along top edge to star, read string angle.
+5. Accuracy check (hand widths: pinky \( \sim 1^\circ \), fist \( \sim 10^\circ \)).
+6. Correction: Horizon dip (minor, but good to mention).
+7. Southern hemisphere variation (Southern Cross/no pole star).
+8. Clear structure.
+9. Actionable steps.
 10. Limitation: Doesn't give Longitude.
 
 ### Auto-fail (score = 0 if any)
@@ -72,15 +72,15 @@ I have a digital watch that is still set to London time (GMT), but I'm lost and 
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Concept: Earth spins 15 degrees per hour.
-3.  Method: Stick in ground. Mark shadow tip every 10 mins. Shortest shadow = Local Noon (Sun highest).
-4.  Calculation: Compare Local Noon time on watch to 12:00 GMT.
-5.  Example: If Local Noon happens at 14:00 GMT, you are 2 hours "behind" the sun -> 30 degrees West.
-6.  Truth anchor: 1 hour difference = 15 degrees longitude. Earlier = East, Later = West.
-7.  Equation of Time note (Sun isn't perfectly consistent, varies \( \pm 16 \) mins), nice to have but not auto-fail.
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Concept: Earth spins 15 degrees per hour.
+3. Method: Stick in ground. Mark shadow tip every 10 mins. Shortest shadow = Local Noon (Sun highest).
+4. Calculation: Compare Local Noon time on watch to 12:00 GMT.
+5. Example: If Local Noon happens at 14:00 GMT, you are 2 hours "behind" the sun -> 30 degrees West.
+6. Truth anchor: 1 hour difference = 15 degrees longitude. Earlier = East, Later = West.
+7. Equation of Time note (Sun isn't perfectly consistent, varies \( \pm 16 \) mins), nice to have but not auto-fail.
+8. Clear structure.
+9. Actionable steps.
 10. Limitation: Accuracy depends on exact determination of shortest shadow.
 
 ### Auto-fail (score = 0 if any)
@@ -102,15 +102,15 @@ I'm doing some calculations for a project and I don't have a calculator. I remem
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Math principle: \( \log(a \times b) = \log(a) + \log(b) \).
-3.  Construction: Mark two strips with logarithmic spacing (1 at start, 10 at end, 2 is at 30.1% distance, etc.).
-4.  Operation: Slide scale B's "1" to align with Scale A's number "2". Look at Scale B's "3". The aligned number on Scale A is the answer (6).
-5.  Truth anchor: Adding physical distance on a log scale represents multiplication of the values.
-6.  Verification points (\( \log(10)=1 \), \( \log(1)=0 \)).
-7.  Clear structure.
-8.  Actionable steps.
-9.  Precision limitation (reading the markings).
+1. Directly answers the task.
+2. Math principle: \( \log(a \times b) = \log(a) + \log(b) \).
+3. Construction: Mark two strips with logarithmic spacing (1 at start, 10 at end, 2 is at 30.1% distance, etc.).
+4. Operation: Slide scale B's "1" to align with Scale A's number "2". Look at Scale B's "3". The aligned number on Scale A is the answer (6).
+5. Truth anchor: Adding physical distance on a log scale represents multiplication of the values.
+6. Verification points (\( \log(10)=1 \), \( \log(1)=0 \)).
+7. Clear structure.
+8. Actionable steps.
+9. Precision limitation (reading the markings).
 10. Mentioning Trig scales (optional).
 
 ### Auto-fail (score = 0 if any)
@@ -132,15 +132,15 @@ I need to keep track of the humidity in my greenhouse, but I don't have a humidi
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Setup: One bulb dry. One bulb wrapped in wet cloth (wick), swung or fanned (air movement is key).
-3.  Truth anchor: Water evaporates from the wet bulb, cooling it. Drier air = faster evaporation = greater temperature difference (depression).
-4.  Reading: If temps are identical, humidity is 100%. Big difference = dry air.
-5.  Need for a chart (or math estimation).
-6.  Water purity (distilled/rain water preferred).
-7.  Clear structure.
-8.  Actionable steps.
-9.  Sling psychrometer concept.
+1. Directly answers the task.
+2. Setup: One bulb dry. One bulb wrapped in wet cloth (wick), swung or fanned (air movement is key).
+3. Truth anchor: Water evaporates from the wet bulb, cooling it. Drier air = faster evaporation = greater temperature difference (depression).
+4. Reading: If temps are identical, humidity is 100%. Big difference = dry air.
+5. Need for a chart (or math estimation).
+6. Water purity (distilled/rain water preferred).
+7. Clear structure.
+8. Actionable steps.
+9. Sling psychrometer concept.
 10. Accuracy limitations.
 
 ### Auto-fail (score = 0 if any)
@@ -162,15 +162,15 @@ I have a basic beam scale but no weights for it. I need to weigh out exactly 5 g
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Reference facts: US Nickel = 5.00g (new). US Penny (post-82) = 2.5g. Euro 1 cent = 2.30g, etc. (Must list a valid known weight).
-3.  Truth anchor: Coins are minted to tight tolerances. They make excellent emergency calibration weights.
-4.  Zeroing the scale.
-5.  Using water as a secondary check (5g = 5ml).
-6.  Clear structure.
-7.  Actionable steps.
-8.  Mentioning wear on old coins reduces weight.
-9.  Stacking for larger weights.
+1. Directly answers the task.
+2. Reference facts: US Nickel = 5.00g (new). US Penny (post-82) = 2.5g. Euro 1 cent = 2.30g, etc. (Must list a valid known weight).
+3. Truth anchor: Coins are minted to tight tolerances. They make excellent emergency calibration weights.
+4. Zeroing the scale.
+5. Using water as a secondary check (5g = 5ml).
+6. Clear structure.
+7. Actionable steps.
+8. Mentioning wear on old coins reduces weight.
+9. Stacking for larger weights.
 10. Sensitivity check.
 
 ### Auto-fail (score = 0 if any)
@@ -192,15 +192,15 @@ I'm standing at a river and I need to figure out how far it is to the other side
 ```
 
 ### Rubric (10 points)
-1.  Directly answers the task.
-2.  Method: Hold thumb at arm's length. Close left eye, align thumb with target. Switch eyes. Thumb "jumps" sideways.
-3.  Estimate the lateral jump distance at the target (e.g., "it jumped half a house width, say 5 meters").
-4.  Multiplier: Ratio of (Arm length) to (Distance between eyes) is roughly 10:1.
-5.  Truth anchor: Distance = (Lateral Jump) x 10.
-6.  Example calculation.
-7.  Limitations.
-8.  Clear structure.
-9.  Actionable steps.
+1. Directly answers the task.
+2. Method: Hold thumb at arm's length. Close left eye, align thumb with target. Switch eyes. Thumb "jumps" sideways.
+3. Estimate the lateral jump distance at the target (e.g., "it jumped half a house width, say 5 meters").
+4. Multiplier: Ratio of (Arm length) to (Distance between eyes) is roughly 10:1.
+5. Truth anchor: Distance = (Lateral Jump) x 10.
+6. Example calculation.
+7. Limitations.
+8. Clear structure.
+9. Actionable steps.
 10. Accuracy (rough estimate).
 
 ### Auto-fail (score = 0 if any)
@@ -214,10 +214,12 @@ I'm standing at a river and I need to figure out how far it is to the other side
 - **Task type:** procedure
 
 ### Scenario
-The person is in a situation where they need consistent measurements for building and toolmaking. They have wood, metal scrap, cord, and basic hand tools, but no existing rulers or tape measures.
+(omitted)
 
 ### Prompt
+```text
 "I don't have any rulers or tape measures, but I need to make some tools and furniture that actually fit together. Can you tell me how to make a standard ruler from scratch using wood or scrap metal? I also need to know how to make a perfect right angle and a straightedge so things aren't wonky, and how to mark it out into smaller units."
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -233,6 +235,7 @@ The person is in a situation where they need consistent measurements for buildin
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A measurement standard must be shared and repeatable: keep a protected ‘master’ reference and routinely calibrate working tools against it to prevent drift.
 
 ### Reference facts (for judge)
 - A measurement standard must be shared and repeatable: keep a protected ‘master’ reference and routinely calibrate working tools against it to prevent drift.
@@ -245,10 +248,12 @@ The person is in a situation where they need consistent measurements for buildin
 - **Task type:** procedure
 
 ### Scenario
-The person needs to build a 6 m x 4 m workshop with square corners. They have rope, stakes, a plumb line, and materials to make a measuring rod. The ground is uneven.
+(omitted)
 
 ### Prompt
+```text
 "I'm trying to mark out the ground for a 6m by 4m workshop, but the ground is really bumpy and I only have some rope, stakes, and a plumb line. How do I make sure the corners are perfectly square and the walls are the right length even with the uneven ground? How do I check it's not lopsided?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -264,6 +269,7 @@ The person needs to build a 6 m x 4 m workshop with square corners. They have ro
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A right angle can be constructed and checked with a 3–4–5 triangle and by verifying equal diagonals; without such checks, small errors compound.
 
 ### Reference facts (for judge)
 - A right angle can be constructed and checked with a 3–4–5 triangle and by verifying equal diagonals; without such checks, small errors compound.
@@ -276,10 +282,12 @@ The person needs to build a 6 m x 4 m workshop with square corners. They have ro
 - **Task type:** procedure
 
 ### Scenario
-The person needs to set a roof pitch and check slopes for drainage. They have wood, string, a weight, and a marked scale, but no spirit level.
+(omitted)
 
 ### Prompt
+```text
 "I need to build a roof and make sure the water drains off properly, but I don't have a spirit level. Can you show me how to build a tool using string, weights, and wood to measure angles and check if things are level? Also, how do I make sure the tool itself is accurate?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -295,6 +303,7 @@ The person needs to set a roof pitch and check slopes for drainage. They have wo
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A plumb line gives true vertical and a water level gives true horizontal; these are robust low-tech references for angles/levels.
 
 ### Reference facts (for judge)
 - A plumb line gives true vertical and a water level gives true horizontal; these are robust low-tech references for angles/levels.
@@ -307,10 +316,12 @@ The person needs to set a roof pitch and check slopes for drainage. They have wo
 - **Task type:** critique
 
 ### Scenario
-A team wants to standardise parts for a community project but is currently using 'hand spans' of the leader as the only unit and measuring by eye.
+(omitted)
 
 ### Prompt
+```text
 "Some people here want to build things using the leader's hand span as the 'standard' inch, and they're just eyeballing the cuts and sanding them down if they don't fit. That sounds like a disaster for making parts that fit together. Can you explain why this is a bad idea and give us a better way to have a measurement system everyone can use?"
+```
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -326,6 +337,7 @@ A team wants to standardise parts for a community project but is currently using
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Uncalibrated measures create hidden error; even simple work needs a stable reference and repeatability checks to avoid compounding measurement drift.
 
 ### Reference facts (for judge)
 - Uncalibrated measures create hidden error; even simple work needs a stable reference and repeatability checks to avoid compounding measurement drift.
@@ -338,10 +350,12 @@ A team wants to standardise parts for a community project but is currently using
 - **Task type:** procedure
 
 ### Scenario
-The person needs to ration grain and measure ingredients for medicine or soap. They have wood, cord, containers, stones, and water, but no commercial weights.
+(omitted)
 
 ### Prompt
+```text
 "I need to weigh out grain and some ingredients for medicine, but I have no scale or weights. How can I build a balance scale from wood and cord? And since I don't have any 'grams' or 'ounces,' how can I use water to create a set of standard weights that I can trust?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -357,6 +371,7 @@ The person needs to ration grain and measure ingredients for medicine or soap. T
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Water provides a calibration reference: about 1 L of water has mass ~1 kg (order-of-magnitude), enabling rough scale calibration with volume measures.
 
 ### Reference facts (for judge)
 - Water provides a calibration reference: about 1 L of water has mass ~1 kg (order-of-magnitude), enabling rough scale calibration with volume measures.
@@ -369,10 +384,12 @@ The person needs to ration grain and measure ingredients for medicine or soap. T
 - **Task type:** procedure
 
 ### Scenario
-The person needs consistent volume measures for recipes and Oral Rehydration Salts (ORS). They have various containers and water, but no measuring cups.
+(omitted)
 
 ### Prompt
+```text
 "I need to make sure we're getting the right amounts for recipes and especially for mixing rehydration salts for sick people. I have different sized jars and bottles. How do I turn these into reliable measuring cups with clear marks? How do I make sure people don't grab the wrong ones?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -388,6 +405,7 @@ The person needs consistent volume measures for recipes and Oral Rehydration Sal
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Reliable volume measures come from calibration (marking with known water volumes) rather than ‘eyeballing’; dosing tasks (e.g., ORS) require repeatable measures.
 
 ### Reference facts (for judge)
 - Reliable volume measures come from calibration (marking with known water volumes) rather than ‘eyeballing’; dosing tasks (e.g., ORS) require repeatable measures.
@@ -400,10 +418,12 @@ The person needs consistent volume measures for recipes and Oral Rehydration Sal
 - **Task type:** procedure
 
 ### Scenario
-A group has 300 kg of grain to feed 60 people. They need a plan that can adapt if the remaining stock doesn't match expectations. They can measure volume and mass roughly.
+(omitted)
 
 ### Prompt
+```text
 "We have 300kg of grain and 60 people to feed. I need a solid plan to make this last as long as possible. How do I calculate the weekly rations, and how do I do an 'audit' every week to check how much is left? What do I do if we're eating it faster than expected or if my initial measurements were off?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -419,6 +439,7 @@ A group has 300 kg of grain to feed 60 people. They need a plan that can adapt i
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Sanity checks catch nonsense: adult food energy needs are on the order of ~2000 kcal/day; outputs that imply 200 or 20,000 kcal/person/day should trigger re-checks.
 
 ### Reference facts (for judge)
 - Sanity checks catch nonsense: adult food energy needs are on the order of ~2000 kcal/day; outputs that imply 200 or 20,000 kcal/person/day should trigger re-checks.
@@ -431,10 +452,12 @@ A group has 300 kg of grain to feed 60 people. They need a plan that can adapt i
 - **Task type:** critique
 
 ### Scenario
-Someone in a camp proposes dosing medicine or chemicals with an unmarked scoop, claiming that the size doesn't matter as long as everyone uses the same one.
+(omitted)
 
 ### Prompt
+```text
 "One of the guys suggested we just use an old scoop to dose out the chemicals and medicine, saying as long as it's the 'same scoop' for everyone, it's fine. I'm worried about people getting the wrong dose. Can you tell me the risks of using an unmarked scoop like that and suggest a safer way to do it?"
+```
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -450,6 +473,7 @@ Someone in a camp proposes dosing medicine or chemicals with an unmarked scoop, 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Scoop-based dosing is unreliable because powders have variable density and packing; safer dosing needs consistent measures or calibration by mass/volume.
 
 ### Reference facts (for judge)
 - Scoop-based dosing is unreliable because powders have variable density and packing; safer dosing needs consistent measures or calibration by mass/volume.
@@ -462,10 +486,12 @@ Someone in a camp proposes dosing medicine or chemicals with an unmarked scoop, 
 - **Task type:** procedure
 
 ### Scenario
-A community needs to coordinate night watch and water station shifts. There are no clocks. They have wood, string, and weights. Skies are often clear but can be cloudy.
+(omitted)
 
 ### Prompt
+```text
 "We need to coordinate the night watch and water station shifts, but we don't have any clocks or watches. Can you help me set up a system to tell the time using the sun or a simple device I can build with wood and string? Also, what do we do when it's cloudy and the sun is hidden?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -481,6 +507,7 @@ A community needs to coordinate night watch and water station shifts. There are 
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Timekeeping drifts without reference; a shared routine with a repeatable physical process (e.g., marked shadow/pendulum) beats ‘whenever it feels like’ for shifts.
 
 ### Reference facts (for judge)
 - Timekeeping drifts without reference; a shared routine with a repeatable physical process (e.g., marked shadow/pendulum) beats ‘whenever it feels like’ for shifts.
@@ -493,10 +520,12 @@ A community needs to coordinate night watch and water station shifts. There are 
 - **Task type:** procedure
 
 ### Scenario
-The person needs to time boiling, fermentation, or drying steps (1–30 minutes) without a stopwatch. They have materials for a pendulum or water clock.
+(omitted)
 
 ### Prompt
+```text
 "I'm trying to time how long things boil or ferment, usually between 1 and 30 minutes, but I don't have a stopwatch. Is there a way to build something like a pendulum or a water timer to do this accurately? How do I make sure it doesn't speed up or slow down over time?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -512,6 +541,7 @@ The person needs to time boiling, fermentation, or drying steps (1–30 minutes)
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A pendulum’s period depends mainly on length \( T \approx 2\pi\sqrt{L/g} \) for small swings; counting swings can measure short intervals more reliably than human counting alone.
 
 ### Reference facts (for judge)
 - A pendulum’s period depends mainly on length \( T \approx 2\pi\sqrt{L/g} \) for small swings; counting swings can measure short intervals more reliably than human counting alone.
@@ -524,10 +554,12 @@ The person needs to time boiling, fermentation, or drying steps (1–30 minutes)
 - **Task type:** procedure
 
 ### Scenario
-Two settlements 2 km apart need to coordinate tasks without radios. Visibility is sometimes limited. They need a protocol to stay synchronised.
+(omitted)
 
 ### Prompt
+```text
 "There's another group of survivors about 2km away. We want to meet up for trade and coordinate our tasks, but our 'clocks' are always out of sync. How can we get both settlements on the exact same time without radios? What's the best way to signal each other, and what do we do if we miss a signal because of fog?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -543,6 +575,7 @@ Two settlements 2 km apart need to coordinate tasks without radios. Visibility i
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Synchronisation requires a shared reference event and accounting for travel/communication delay; without a protocol, ‘same time’ quickly diverges between settlements.
 
 ### Reference facts (for judge)
 - Synchronisation requires a shared reference event and accounting for travel/communication delay; without a protocol, ‘same time’ quickly diverges between settlements.
@@ -555,10 +588,12 @@ Two settlements 2 km apart need to coordinate tasks without radios. Visibility i
 - **Task type:** critique
 
 ### Scenario
-A community member proposes using the duration of a well-known song to standardise 'one minute' for work tasks.
+(omitted)
 
 ### Prompt
+```text
 "Someone suggested we use the length of a popular song to measure 'one minute' for our tasks. I think that's going to cause problems. Can you explain why 'song time' is a bad standard for work and help me come up with a better way to measure a minute using just basic materials?"
+```
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -574,6 +609,7 @@ A community member proposes using the duration of a well-known song to standardi
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A time standard without calibration will drift; periodic re-synchronisation to an external cue (sun/noon) or a master reference is necessary for consistency.
 
 ### Reference facts (for judge)
 - A time standard without calibration will drift; periodic re-synchronisation to an external cue (sun/noon) or a master reference is necessary for consistency.
@@ -586,10 +622,12 @@ A community member proposes using the duration of a well-known song to standardi
 - **Task type:** procedure
 
 ### Scenario
-The person needs consistent temperatures for fermentation and metalworking. They have glass bottles, various liquids (water/alcohol/oil), and wax, but no toxic materials like mercury.
+(omitted)
 
 ### Prompt
+```text
 "I need to check the temperature for cooking and some metalwork, but I obviously don't have a thermometer. Can I make something using glass bottles and liquid to track heat? What can I use as 'anchor points' to calibrate it, and how accurate should I expect it to be? Make sure it's safe and doesn't use anything toxic."
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -605,6 +643,7 @@ The person needs consistent temperatures for fermentation and metalworking. They
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Fixed points anchor temperature: an ice–water mix is ~0°C and boiling water is ~100°C at sea level (lower at altitude); these references enable crude thermometry.
 
 ### Reference facts (for judge)
 - Fixed points anchor temperature: an ice–water mix is ~0°C and boiling water is ~100°C at sea level (lower at altitude); these references enable crude thermometry.
@@ -617,10 +656,12 @@ The person needs consistent temperatures for fermentation and metalworking. They
 - **Task type:** procedure
 
 ### Scenario
-The person is in a high-altitude location and needs to boil water for disinfection and cooking reliably without a thermometer.
+(omitted)
 
 ### Prompt
+```text
 "I'm using boiling water to clean things and cook, but I'm up in the mountains. Does water boil at a different temperature here? Can I rely on 'the boil' to know it's hot enough, and are there any limits to using boiling as a guide for heat? How should I change my cooking if I'm high up?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -636,6 +677,7 @@ The person is in a high-altitude location and needs to boil water for disinfecti
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Boiling point depends on pressure/altitude; boiling indicates the maximum achievable temperature at that pressure, so it can’t prove ‘very hot’ beyond that.
 
 ### Reference facts (for judge)
 - Boiling point depends on pressure/altitude; boiling indicates the maximum achievable temperature at that pressure, so it can’t prove ‘very hot’ beyond that.
@@ -648,10 +690,12 @@ The person is in a high-altitude location and needs to boil water for disinfecti
 - **Task type:** procedure
 
 ### Scenario
-The person is fermenting vegetables for preservation using jars and salt, but lacks a pH meter. They need to ensure safety and consistency.
+(omitted)
 
 ### Prompt
+```text
 "I'm starting to ferment some vegetables so they don't rot, but I'm terrified of accidentally poisoning people. Since I don't have a pH meter, how can I tell if a batch is safe just by looking at it or smelling it? What kind of 'check-up' routine should I have for the jars, and what are the absolute red flags that mean I have to throw it away?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -667,6 +711,7 @@ The person is fermenting vegetables for preservation using jars and salt, but la
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Fermentation monitoring relies on observable indicators (CO₂ bubbles, smell, pH/acid taste) and temperature control; sealed vessels can overpressure.
 
 ### Reference facts (for judge)
 - Fermentation monitoring relies on observable indicators (CO₂ bubbles, smell, pH/acid taste) and temperature control; sealed vessels can overpressure.
@@ -679,10 +724,12 @@ The person is fermenting vegetables for preservation using jars and salt, but la
 - **Task type:** critique
 
 ### Scenario
-A survivor suggests using an unidentified "heavy silver liquid" found in a container to build a thermometer or barometer.
+(omitted)
 
 ### Prompt
+```text
 "Someone here found a container of 'heavy silver liquid' and wants to use it to make a barometer. I think that's dangerous. Can you explain why we have to be careful about what materials we use for our tools, especially if they are going to be around food or people? What are some safer alternatives for making measuring tools?"
+```
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -698,6 +745,7 @@ A survivor suggests using an unidentified "heavy silver liquid" found in a conta
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Measurement tools can be hazards: lead-containing metals and reactive chemicals can poison or burn; safe materials choice is part of ‘good measurement’.
 
 ### Reference facts (for judge)
 - Measurement tools can be hazards: lead-containing metals and reactive chemicals can poison or burn; safe materials choice is part of ‘good measurement’.
@@ -710,10 +758,12 @@ A survivor suggests using an unidentified "heavy silver liquid" found in a conta
 - **Task type:** compare
 
 ### Scenario
-A group wants to compare two water filter designs (sand/cloth vs. sand/cloth/charcoal) using turbidity and health outcomes without risking participant safety.
+(omitted)
 
 ### Prompt
+```text
 "We're trying two different water filters—one is just sand and cloth, the other adds charcoal. I want to know which one is actually better without making anyone sick during the test. How can I run a fair experiment to compare them? What should I be measuring, and how do I do this ethically so nobody is 'the guinea pig' for bad water?"
+```
 
 ### Rubric (10 points)
 1. Defines decision criteria relevant to the scenario (safety, labour, materials, reliability, scalability).
@@ -729,6 +779,7 @@ A group wants to compare two water filter designs (sand/cloth vs. sand/cloth/cha
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Filter comparisons need controlled inputs and measurable outputs (flow rate + turbidity/pathogen proxy); changing multiple variables makes conclusions unreliable.
 
 ### Reference facts (for judge)
 - Filter comparisons need controlled inputs and measurable outputs (flow rate + turbidity/pathogen proxy); changing multiple variables makes conclusions unreliable.
@@ -741,10 +792,12 @@ A group wants to compare two water filter designs (sand/cloth vs. sand/cloth/cha
 - **Task type:** procedure
 
 ### Scenario
-The person wants to compare 'turned' vs 'static' compost piles in a limited space, using qualitative measurements of temperature and plant growth.
+(omitted)
 
 ### Prompt
+```text
 "We're debating whether to keep turning our compost piles or just let them sit. We don't have much space, so I want to test which way is better before we commit. Can you show me how to set up a small trial to compare the two methods? What should I keep track of to decide which one wins?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -760,6 +813,7 @@ The person wants to compare 'turned' vs 'static' compost piles in a limited spac
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Valid compost experiments require controls and consistent measurement (inputs, moisture, turning, temperature); one-off anecdotes aren’t evidence.
 
 ### Reference facts (for judge)
 - Valid compost experiments require controls and consistent measurement (inputs, moisture, turning, temperature); one-off anecdotes aren’t evidence.
@@ -772,10 +826,12 @@ The person wants to compare 'turned' vs 'static' compost piles in a limited spac
 - **Task type:** procedure
 
 ### Scenario
-A community member claims a new kiln design doubles output. The group needs to validate this claim with small-scale tests before committing limited fuel.
+(omitted)
 
 ### Prompt
+```text
 "A guy here says he has a new kiln design that will produce twice as much, but we can't afford to waste all our fuel if he's wrong. How can I run some small-scale tests to see if his design actually works better than our old one? What specific numbers should I be tracking to make the final decision?"
+```
 
 ### Rubric (10 points)
 1. Directly answers the task using only the stated resources; strictly respects negative constraints (does not invent forbidden tools/materials/energy).
@@ -791,6 +847,7 @@ A community member claims a new kiln design doubles output. The group needs to v
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- Avoid cargo-culting by testing against a baseline and changing one variable at a time; correlations from a single run do not prove a process works.
 
 ### Reference facts (for judge)
 - Avoid cargo-culting by testing against a baseline and changing one variable at a time; correlations from a single run do not prove a process works.
@@ -803,10 +860,12 @@ A community member claims a new kiln design doubles output. The group needs to v
 - **Task type:** critique
 
 ### Scenario
-A gardener claims a fertiliser works based on a single trial with one plant that looked bigger than others.
+(omitted)
 
 ### Prompt
+```text
 "One of our gardeners put a new fertiliser on one single tomato plant and now says the whole farm should use it because that one plant 'looks bigger.' I'm not convinced. Can you explain why testing on just one plant is a bad way to prove something works and help me design a real experiment that actually gives us a reliable answer?"
+```
 
 ### Rubric (10 points)
 1. Accurately summarises the proposed plan and the intended objective.
@@ -822,6 +881,7 @@ A gardener claims a fertiliser works based on a single trial with one plant that
 
 ### Auto-fail (score = 0 if any)
 - Provides only a refusal/non-answer (e.g., 'I can't help with that') instead of an actionable plan.
+- A real experiment needs a hypothesis, controls, and repeatable measures; confirmation bias and uncontrolled variables make ‘it seemed better’ meaningless.
 
 ### Reference facts (for judge)
 - A real experiment needs a hypothesis, controls, and repeatable measures; confirmation bias and uncontrolled variables make ‘it seemed better’ meaningless.
