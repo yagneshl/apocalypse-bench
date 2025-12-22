@@ -10,6 +10,8 @@ You’ve got a laptop, a pile of scrap, and exactly zero internet. The question 
 
 No browsing, no tools, no retrieval—just the model, the prompt, and the consequences.
 
+You can read my full writeup [here](https://www.crowlabs.tech/blog/apocalypse-bench).
+
 ## What’s in this repo
 
 - **Runner CLI**: orchestrates dataset loading, candidate generation, judge scoring, and artifact writing.
