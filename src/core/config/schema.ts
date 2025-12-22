@@ -105,6 +105,7 @@ export const configSchema = z
         temperature: z.number().nullable().optional(),
         maxTokens: z.number().int().positive(),
         structured: z.boolean(),
+        reasoning: z.boolean().optional(),
         routing: openRouterRoutingSchema.optional(),
       })
       .strict(),

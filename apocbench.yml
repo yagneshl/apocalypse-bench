@@ -18,30 +18,31 @@ run:
 candidate:
   # Candidate response token limit (output tokens).
   # Precedence: candidate.maxTokens -> models[].params.maxTokens -> routers.<router>.default.maxTokens
-  maxTokens: 800
+  maxTokens: 4000
 
 judge:
-  router: 'openrouter'
-  model: 'google/gemini-3-flash-preview'
-  provider: 'google-ai-studio'
-  temperature: null
-  maxTokens: 16000
-  structured: true
   # router: 'openrouter'
-  # model: 'xiaomi/mimo-v2-flash:free'
-  # provider: 'xiaomi/fp8'
+  # model: 'google/gemini-3-flash-preview'
+  # provider: 'google-ai-studio'
   # temperature: null
   # maxTokens: 16000
   # structured: true
+  router: 'openrouter'
+  model: 'xiaomi/mimo-v2-flash:free'
+  provider: 'xiaomi/fp8'
+  temperature: null
+  maxTokens: 16000
+  structured: true
+  reasoning: true
 
 routers:
   ollama:
     baseUrl: 'http://localhost:11434/api'
     apiKeyEnv: null
     default:
-      temperature: 0.2
+      temperature: 0.5
       # Default response token limit (output tokens) for requests routed via this router.
-      maxTokens: 800
+      maxTokens: 4000
       timeoutMs: 120000
 
   openrouter:
@@ -53,14 +54,14 @@ routers:
     default:
       temperature: 0.5
       # Default response token limit (output tokens) for requests routed via this router.
-      maxTokens: 800
+      maxTokens: 4000
       timeoutMs: 120000
 
 models:
-  - id: 'liquid/lfm-2.2-6b'
-    router: 'openrouter'
-    model: 'liquid/lfm-2.2-6b'
-    provider: 'liquid'
+  # - id: 'liquid/lfm-2.2-6b'
+  #   router: 'openrouter'
+  #   model: 'liquid/lfm-2.2-6b'
+  #   provider: 'liquid'
   - id: 'liquid/lfm2-8b-a1b'
     router: 'openrouter'
     model: 'liquid/lfm2-8b-a1b'
@@ -69,10 +70,10 @@ models:
     router: 'openrouter'
     model: 'openai/gpt-oss-20b'
     provider: 'groq'
-  - id: 'openai/gpt-oss-120b'
-    router: 'openrouter'
-    model: 'openai/gpt-oss-120b'
-    provider: 'cerebras'
+  # - id: 'openai/gpt-oss-120b'
+  #   router: 'openrouter'
+  #   model: 'openai/gpt-oss-120b'
+  #   provider: 'cerebras'
   - id: 'nvidia/nemotron-nano-9b-v2'
     router: 'openrouter'
     model: 'nvidia/nemotron-nano-9b-v2'
@@ -81,10 +82,10 @@ models:
     router: 'openrouter'
     model: 'meta-llama/llama-3.1-8b-instruct'
     provider: 'cerebras'
-  - id: 'google/gemma-3-4b-it'
-    router: 'openrouter'
-    model: 'google/gemma-3-4b-it'
-    provider: 'deepinfra/bf16'
+  # - id: 'google/gemma-3-4b-it'
+  #   router: 'openrouter'
+  #   model: 'google/gemma-3-4b-it'
+  #   provider: 'deepinfra/bf16'
   - id: 'google/gemma-3-12b-it'
     router: 'openrouter'
     model: 'google/gemma-3-12b-it'
@@ -93,14 +94,14 @@ models:
     router: 'openrouter'
     model: 'qwen/qwen3-8b'
     provider: 'fireworks'
-  - id: 'ministral-3b-2512'
-    router: 'openrouter'
-    model: 'mistralai/ministral-3b-2512'
-    provider: 'mistral'
-  - id: 'ministral-8b-2512'
-    router: 'openrouter'
-    model: 'mistralai/ministral-8b-2512'
-    provider: 'mistral'
+  # - id: 'ministral-3b-2512'
+  #   router: 'openrouter'
+  #   model: 'mistralai/ministral-3b-2512'
+  #   provider: 'mistral'
+  # - id: 'ministral-8b-2512'
+  #   router: 'openrouter'
+  #   model: 'mistralai/ministral-8b-2512'
+  #   provider: 'mistral'
   # - id: 'gemma3:4b'
   #   router: 'ollama'
   #   model: 'gemma3:4b'

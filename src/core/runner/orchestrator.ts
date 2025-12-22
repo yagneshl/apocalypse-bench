@@ -284,6 +284,7 @@ function buildCandidateProviderOptions(
 function buildJudgeProviderOptions(config: ApocbenchConfig): ProviderOptions {
   return {
     openrouter: {
+      ...(config.judge.reasoning ? { reasoning: { enabled: true } } : {}),
       ...(config.judge.routing
         ? { provider: toOpenRouterProviderParam(config.judge.routing) }
         : config.judge.provider
